@@ -1,0 +1,58 @@
+.carousel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 175px;
+
+  button {
+    width: fit-content;
+    height: fit-content;
+    background: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+  }
+
+  .carouselContent {
+    display: flex;
+    align-items: center;
+    padding: 36px 31px;
+    width: 868px;
+    height: 244px;
+    gap: 24px;
+
+    border-radius: 10px;
+    border: 3px solid var(--gold, #e4a135);
+    background: #fafafa;
+
+    img {
+      width: 308px;
+      height: 172px;
+    }
+
+    .carouselDescription {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+
+      .titleDate {
+        display: flex;
+
+        h2 {
+          color: var(--dark-purple, #161457);
+          line-height: 33px;
+        }
+
+        p {
+          margin-top: auto;
+        }
+      }
+
+      .author {
+        p {
+          margin: 0;
+        }
+      }
+    }
+  }
+}
