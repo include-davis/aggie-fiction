@@ -3,13 +3,13 @@ import styles from "./ConferenceCarousel.module.scss";
 import {useEffect, useRef} from "react";
 
 const testImages = [
-    "./testImages/img1.png",
-    "./testImages/img2.png",
-    "./testImages/img3.png",
-    "./testImages/img4.png",
-    "./testImages/img5.png",
-    "./testImages/img6.png",
-    "./testImages/img7.png"
+    "@/public/conferenceTestImages/img1.png",
+    "@/public/conferenceTestImages/img2.png",
+    "@/public/conferenceTestImages/img3.png",
+    "@/public/conferenceTestImages/img4.png",
+    "@/public/conferenceTestImages/img5.png",
+    "@/public/conferenceTestImages/img6.png",
+    "@/public/conferenceTestImages/img7.png"
 ];
 
 export default function ConferenceCarousel()
