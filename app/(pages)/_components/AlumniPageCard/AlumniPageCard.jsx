@@ -1,5 +1,6 @@
 
 import styles from "./AlumniPageCard.module.scss";
+import Image from "next/image";
 
 export default function AlumniPageCard(info) {
     const {
@@ -14,25 +15,47 @@ export default function AlumniPageCard(info) {
 
     return (
         <div className={styles.card}>
-            <img src={imageUrl} alt={`${name} photo`} className={styles.image} />
-
-            <h2 className={styles.name}>{name}</h2>
-            <h3 className={styles.role}>
-                {role}, {years}
-            </h3>
-
-            <p className={styles.description}>{description}</p>
-
-            <div className={styles.icons}>
-                {instagramIconUrl && (
-                    <img src={instagramIconUrl} alt="Instagram Icon" className={styles.icon} />
-                )}
-                {linkedinIconUrl && (
-                    <img src={linkedinIconUrl} alt="LinkedIn Icon" className={styles.icon} />
-                )}
+            <div className={styles.imagecontainer}>
+                <Image 
+                    src={imageUrl} 
+                    alt={`${name} photo`} 
+                    className={styles.image}
+                    width= {200}
+                    height={300} 
+                    objectFit="cover"
+                    
+                />
+                <div className={styles.icons}>
+                    <Image 
+                    src="/insta-icon.svg"
+                    alt="Instagram icon"
+                    className={styles.icon}
+                    width={30}
+                    height={30}
+                    />
+                    <Image
+                    src="/linkedin-icon.svg"
+                    alt="LinkedIn icon"
+                    className={styles.icon}
+                    width={30}
+                    height={30}
+                    />
+            
+                </div>
             </div>
 
-            <button className={styles.button}>Read More</button>
+            <div className={styles.textcontainer}>
+                <h2 className={styles.name}>{name}</h2>
+                <h3 className={styles.role}>
+                    {role}, {years}
+                </h3>
+
+
+                <p className={styles.description}>{description}</p>
+                <button className={styles.button}>Read More</button>
+            </div>
+
+
         </div>
     );
 }

@@ -1,9 +1,23 @@
 .card {
-    
+    width: 40.375rem;
+    height: 26.875rem;
+    padding:2rem;
+    border-radius: 1rem;
+
+    display: flex;
+    flex-direction: row;
+    align-items:center;
+    background-color: var(--light-purple);
+    gap: 2rem;
+
   }
   
   .image {
-    
+    flex: 1;
+    height: 100%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
   }
   
   .name {
