@@ -5,8 +5,6 @@
   gap: 175px;
 
   button {
-    width: fit-content;
-    height: fit-content;
     background: transparent;
     border: none;
     padding: 0;
@@ -22,13 +20,8 @@
     gap: 24px;
 
     border-radius: 10px;
-    border: 3px solid var(--gold, #e4a135);
-    background: #fafafa;
-
-    img {
-      width: 308px;
-      height: 172px;
-    }
+    border: 3px solid var(--gold);
+    background: var(--white);
 
     .carouselDescription {
       display: flex;
@@ -39,12 +32,13 @@
         display: flex;
 
         h2 {
-          color: var(--dark-purple, #161457);
+          color: var(--dark-purple);
           line-height: 33px;
         }
 
         p {
           margin-top: auto;
+          font-size: 12px;
         }
       }
 
