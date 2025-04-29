@@ -6,7 +6,7 @@ export default function Header() {
             <div className={styles.dropdown}>
                 <button className={styles.button}>
                     Events
-                    <span className={styles.arrow}>^</span>  {/* 添加符号 */}
+                    <div className={styles.arrow}>^</div>  {/* 添加符号 */}
                 </button>
                 <div className={styles.dropdown_contents}>
                     <a href="#">Calendar</a>

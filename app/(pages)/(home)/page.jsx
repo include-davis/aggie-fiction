@@ -1,10 +1,9 @@
 import styles from "./page.module.scss";
-
+import Button from "../_components/Button/Button"
 export default function Home() {
   return (
     <main className={styles.page}>
-      <h1>header 1</h1>
-      <p>body</p>
+
     </main>
   );
 }

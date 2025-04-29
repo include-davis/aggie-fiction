@@ -1,9 +1,9 @@
-import styles from "./Footer.module.scss";
+import styles from "./Button.module.scss";
 
-export default function Footer() {
+export default function Button() {
     return (
       <div>
-        Footer
+
       </div>
     );
 }
