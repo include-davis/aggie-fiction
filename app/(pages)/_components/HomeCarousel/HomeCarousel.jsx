@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import styles from "./HomeCarousel.module.scss";
 
 export default function HomeCarousel() {
@@ -19,7 +20,7 @@ export default function HomeCarousel() {
       image: "/HomeCarousel/img/img2.png",
       title: "Ten Mistakes Amateur Writers Make",
       date: "03/28/2025",
-      author: "By Claudia ColoradoBy",
+      author: "By Audrey Zhang",
       subtitle: "Writing is intimidating. But it doesn’t have to be.",
     },
   ];
@@ -41,11 +42,21 @@ export default function HomeCarousel() {
   return (
     <div className={styles.carousel}>
       <button onClick={handlePrev}>
-        <img src="/HomeCarousel/svg/LeftButton.svg" alt="Previous" />
+        <Image
+          src="/HomeCarousel/svg/LeftButton.svg"
+          alt="Previous"
+          width={44}
+          height={52}
+        />
       </button>
 
       <div className={styles.carouselContent}>
-        <img src={current.image} />
+        <Image
+          src={current.image}
+          alt="Carousel Image"
+          width={308}
+          height={172}
+        />
 
         <div className={styles.carouselDescription}>
           <div className={styles.titleDate}>
@@ -62,7 +73,12 @@ export default function HomeCarousel() {
       </div>
 
       <button onClick={handleNext}>
-        <img src="/HomeCarousel/svg/RightButton.svg" alt="Next" />
+        <Image
+          src="/HomeCarousel/svg/RightButton.svg"
+          alt="Next"
+          width={44}
+          height={52}
+        />
       </button>
     </div>
   );
