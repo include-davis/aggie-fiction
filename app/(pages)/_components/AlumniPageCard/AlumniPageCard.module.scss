@@ -1,43 +1,81 @@
 .card {
-    width: 40.375rem;
-    height: 26.875rem;
-    padding:2rem;
-    border-radius: 1rem;
+  width: 40.375rem;
+  height: 26.875rem;
+  flex-shrink: 0;
 
-    display: flex;
-    flex-direction: row;
-    align-items:center;
-    background-color: var(--light-purple);
-    gap: 2rem;
+  border-radius: 0.9375rem;
+  background: var(--light-purple, #CFBAE8);
+  box-shadow: 0px 0px 7px 6px rgba(152, 29, 156, 0.10);
 
-  }
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
   
-  .image {
-    flex: 1;
-    height: 100%;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-  }
+  padding-left: 2.15rem;
+  padding-top: 2.31rem;
+  padding-bottom: 1.56rem;
+}
+
+.imagecontainer {
+
+  width: 15.6875rem;
+  height: 22rem;
+  flex-shrink: 0;
+  background: var(--white, #FAFAFA);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  align-items: center;
+
+ 
+  padding-left:1.35rem;
+  padding-top: 1.81rem;
+  padding-right: 1.21rem;
+  padding-bottom: 5.13rem;
+
+}
+
+.image {
+  width: 13.125rem;
+  height: 15.0625rem;
+  flex-shrink: 0;
+  object-fit: cover;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+
+.icons{
+  display: flex;
+  flex-direction: row;
+  gap: 0.19rem;
+  margin-top: 1rem
+}
+
+.instagram {
+  width: 2rem;
+  height: 2.0625rem;
+}
+
+.linkedin {
+  width: 2rem;
+  height: 2.0625rem;
+}
+
+.textcontainer{
+  height: 22rem;
+}
+.name{
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.role{
+  font-size: 1rem;
+}
+
+.description{
+  margin-top:0.69rem;
+  width: 19.375rem;
+}
+
+.button{
   
-  .name {
-    
-  }
-  
-  .role {
-    
-  }
-  
-  .description {
-    
-  }
-  
-  .icons {
-    
-  }
-  
-  .icon {
-    
-  }
-  
-  
+}

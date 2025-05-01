@@ -9,19 +9,18 @@ export default function AlumniPageCard(info) {
         years,
         description,
         imageUrl,
-        instagramIconUrl,
-        linkedinIconUrl,
+
     } = info;
 
     return (
         <div className={styles.card}>
             <div className={styles.imagecontainer}>
-                <Image 
+                <Image
                     src={imageUrl} 
                     alt={`${name} photo`} 
                     className={styles.image}
-                    width= {200}
-                    height={300} 
+                    width= {512}
+                    height={512} 
                     objectFit="cover"
                     
                 />
@@ -29,14 +28,14 @@ export default function AlumniPageCard(info) {
                     <Image 
                     src="/insta-icon.svg"
                     alt="Instagram icon"
-                    className={styles.icon}
+                    className={styles.instagram}
                     width={30}
                     height={30}
                     />
                     <Image
                     src="/linkedin-icon.svg"
                     alt="LinkedIn icon"
-                    className={styles.icon}
+                    className={styles.linkedin}
                     width={30}
                     height={30}
                     />
@@ -45,10 +44,10 @@ export default function AlumniPageCard(info) {
             </div>
 
             <div className={styles.textcontainer}>
-                <h2 className={styles.name}>{name}</h2>
-                <h3 className={styles.role}>
+                <h1 className={styles.name}>{name}</h1>
+                <h2 className={styles.role}>
                     {role}, {years}
-                </h3>
+                </h2>
 
 
                 <p className={styles.description}>{description}</p>
