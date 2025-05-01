@@ -1,5 +1,65 @@
-.page {
-    h1 {
-        color: var(--gold);
+.home {
+  .homeContent {
+    .hero {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 949px;
+      border: solid black;
+      background: var(--Aggie-Space);
+
+      .heroContent {
+        display: flex;
+        justify-content: center;
+        margin-top: 100px;
+        width: 85%;
+        height: 610px;
+        gap: 15%;
+        background: url("/Home/img/Ellipse.png") no-repeat center center /
+          contain;
+
+        // border: solid black;
+
+        .title {
+          //   border: solid black;
+
+          h1 {
+            color: var(--white);
+          }
+
+          .titleHeader {
+            margin-bottom: 10px;
+            color: var(--white);
+            font-size: 30px;
+          }
+
+          .titleDescription {
+            margin-top: 30px;
+            width: 448px;
+            color: var(--white);
+            font-size: 30px;
+            font-weight: 700;
+          }
+
+          button {
+            margin-top: 50px;
+            padding: 20px 40px;
+            color: var(--black);
+            font-size: 30px;
+            font-weight: 700;
+            border-radius: 100px;
+            background: #cfbae8;
+          }
+        }
+
+        .logo {
+          //   border: solid black;
+          display: flex;
+          align-self: flex-end;
+          width: fit-content;
+          height: fit-content;
+        }
+      }
     }
+  }
 }
