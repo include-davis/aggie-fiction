@@ -1,20 +1,15 @@
 import styles from "./ConferenceCarousel.module.scss";
 import Image from "next/image";
 
-const testImages = [
-    "/conferenceTestImages/img1.png",
-    "/conferenceTestImages/img2.png",
-    "/conferenceTestImages/img3.png",
-    "/conferenceTestImages/img4.png",
-    "/conferenceTestImages/img5.png",
-    "/conferenceTestImages/img6.png",
-    "/conferenceTestImages/img7.png"
-];
+const imagesLength = 19;
+const testImages = Array.from(
+    {length: imagesLength},
+    (_, index) => `/conferenceCarouselImages/img${index + 1}.png`
+);
 
 export default function ConferenceCarousel()
 {
     const doubleImages = [...testImages, ...testImages];
-    const imagesLength = testImages.length;
     
     return (
         <div className = {styles.carousel} style = {{"--num-images": imagesLength}}>

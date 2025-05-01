@@ -18,9 +18,9 @@ $image-gap: 49px;
     display: flex;
     position: absolute;
     width: fit-content;
-    height: 200px;
+    height: $image-height;
     gap: $image-gap;
-    animation: scroll-carousel 35s linear infinite;
+    animation: scroll-carousel 60s linear infinite;
 
     &:hover {
         animation-play-state: paused;
