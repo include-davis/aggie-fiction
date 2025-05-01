@@ -5,7 +5,7 @@
    }
    
    .title{
-     // border: solid black 1px;
+    //  border: solid black 1px;
           margin-left: 50px;
 
           color: #E4A135;
@@ -14,17 +14,16 @@
    }
 
    .top {
+    display: flex;
      height: 80px;
-   }
-   
-    .top, .listingrow1, .listingrow2, .cart{
-     // border: solid black 1px;
-        display: flex;
+     padding-right: 10px;
+    //  padding-left: 50px;
    }
 
    .listingrow1, .listingrow2{
-     // border: black solid 1px;
-          margin-bottom: 50px;
+    //  border: black solid 1px;
+     display: flex;
+          margin-bottom: 20px;
           
           display: flex;
           justify-content: center; 
@@ -60,15 +59,16 @@
         height: 44px;
    }
 
-   .btn1:active, .btn2:active{
+   .btn1:hover, .btn2:hover{
     background: linear-gradient(200deg, #04164F 7.1%, #3D1069 62.03%, #750B83 94.99%);
     color: white;
    }
 
    .cart{
-     // border: solid black 1px;
+    //  border: solid black 1px;
      margin-left: auto;
      margin-bottom: 20px;
+     margin-right: 10px;
 
      width: 70px;
      height: 50px;
@@ -86,17 +86,6 @@
         height: 50px;
    }
 
-
-
-//    --white: #FAFAFA;
-//    --Aggie-Space: linear-gradient(200deg, #04164F 7.1%, #3D1069 62.03%, #750B83 94.99%);
-
-//    // secondary colors
-//    --gold: #E4A135;
-//    --light-purple: #CFBAE8;
-//    --dark-purple: #161457;
-
-
    .container {
     border: solid #E4A135 2px;
     transition: 0.3s;
@@ -106,25 +95,21 @@
     height: 424px;
    }
 
-   .card {
-     // border: black solid 1px;
+   .container:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
 
-     margin: 10px;
-
-    width: 424px;
-    height: 500px;
-    }
-    
-    .card:hover {
-        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    .productinfo{
+      // border: black solid 1px;
+      color: black;
+      text-decoration: none;
+      margin-left: 20px;
     }
 
     .productdetail{
      // border: black solid 1px;
      display: flex;
      flex-direction: row;
-
-     padding-top: 20px;
 
      width: 424px;
      height: 70px;
