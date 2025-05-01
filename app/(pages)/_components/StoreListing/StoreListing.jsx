@@ -103,6 +103,7 @@ export default function Storelisting() {
         </section>
 
         <div className={styles.cart}>
+          <Link href={`/cart`}>
             <button className={styles.btn4}>
             <Image
                   src="/TestImages/Cart.png"
@@ -111,6 +112,7 @@ export default function Storelisting() {
                   height={23}
                   />
             </button>
+          </Link>
         </div>
 
         <section className={styles.listbox}>
@@ -131,6 +133,7 @@ export default function Storelisting() {
             ))}
         </section>
 
+      {totalPages > 1 && (
         <section className={styles.bottom}>
           <div className={styles.pagination}>
             <button onClick={() => handlePageChange(1)} disabled={currentPage === 1}>&lt;&lt;</button>
@@ -145,11 +148,12 @@ export default function Storelisting() {
                 {i + 1}
               </button>
             ))}
-            
+
             <button onClick={() => handlePageChange(currentPage + 1)} disabled={currentPage === totalPages}>&gt;</button>
             <button onClick={() => handlePageChange(totalPages)} disabled={currentPage === totalPages}>&gt;&gt;</button>
           </div>
         </section>
+        )}
       </main>
     );
   }
