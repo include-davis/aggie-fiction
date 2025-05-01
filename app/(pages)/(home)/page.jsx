@@ -32,6 +32,16 @@ export default function Home() {
             </div>
           </div>
         </div>
+
+        <div className={styles.blog}>
+          <h1>Blog</h1>
+
+          <HomeCarousel />
+        </div>
+
+        <div className={styles.upcomingEvents}>
+          <h1>Upcoming Events</h1>
+        </div>
       </div>
     </div>
   );
