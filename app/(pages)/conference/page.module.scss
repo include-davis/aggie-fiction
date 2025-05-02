@@ -5,11 +5,24 @@
     
 }
 
-.titleBlock
+.upperPage
 {
+    display: flex;
+    flex-direction: column;
+    gap: 52px;
     margin-top: 233px;
     margin-left: 100px;
     margin-right: 100px;
+}
+
+.titleBlock
+{
+    display: flex;
+    gap: 20px;
+}
+
+.summaryBlock
+{
     display: flex;
     gap: 20px;
 }
@@ -19,12 +32,13 @@
     display: flex;
     flex-direction: column;
     gap: 22px;
-    width: 50%;
+    width: 51%;
     height: 230px;
 
     h1 
     {
-        position: relative;
+        // position: relative;
+        // width: 646px;
         height: 160px;
         color: var(--gold);
         font-weight: 700;
@@ -35,7 +49,7 @@
     
     h2
     {
-        position: relative;
+        // position: relative;
         height: 48px;
         color: var(--dark-purple);
         font-weight: 700;
@@ -48,7 +62,7 @@
 .titleImageContainer
 {
     position: relative;
-    width: 50%;
+    width: 49%;
     height: 230px;
     flex-shrink: 0px;
     border-radius: 10px;
