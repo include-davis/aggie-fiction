@@ -89,3 +89,16 @@
     cursor: pointer;
   }
   
+  .metaItem {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+  
+  .icon {
+    display: block;
+    width: 1em;
+    height: 1em;
+    flex-shrink: 0;
+  }
+  
