@@ -1,3 +1,4 @@
+import UpcomingEvents from "../../_components/UpcomingEvents";
 import styles from "./page.module.scss";
 
 export default function Home() {
@@ -5,6 +6,7 @@ export default function Home() {
     <main className={styles.page}>
       <h1>header 1</h1>
       <p>body</p>
+      <UpcomingEvents />
     </main>
   );
 }
