@@ -2,21 +2,29 @@
   width:272px;
   height:44px;
   border-radius: 9999px;
-  padding: 10px 20px;
   text-align: center;
-  font-size: 16px;
+  font-size: 1rem;
+  border:none;
+  cursor: pointer;
 }
 .lightButton{
   background:var(--light-purple);
   color:var(--black);
+  transition:background 0.3s ease;
 }
+
 .darkButton{
   background: var(--dark-purple);
   color:var(--white);
   font-weight: bold;
 }
 .gradientButton{
-  background: var(--Aggie-Space,linear-gradient(200deg, #04164F 7.1%, #3D1069 62.03%, #750B83 94.99%));
+  background: var(--Aggie-Space);
   color:var(--white);
   font-weight: bold;
+}
+
+.lightButton:hover{
+  background:var(--dark-purple);
+  color:white;
 }
