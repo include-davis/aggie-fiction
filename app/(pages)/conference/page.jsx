@@ -1,4 +1,7 @@
 import styles from "./page.module.scss";
+import Image from "next/image";
+
+const titleImagePath = "/conferencePageImages/titleImage.png";
 
 export default function Conference() 
 {
@@ -9,8 +12,14 @@ export default function Conference()
                     <h1>San Francisco Writers Conference</h1>
                     <h2>A Gateway to the Literary World</h2>
                 </div>
-                <div>
-                    <p>Image will go here</p>
+                <div className = {styles.titleImageContainer}>
+                    <Image
+                        src = {titleImagePath}
+                        alt = {"Title Image"}
+                        fill
+                        sizes = "50%"
+                        className = {styles.titleImage}
+                    />
                 </div>
             </div>
         </main>
