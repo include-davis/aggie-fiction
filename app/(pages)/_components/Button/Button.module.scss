@@ -1,0 +1,22 @@
+.Button{
+  width:272px;
+  height:44px;
+  border-radius: 9999px;
+  padding: 10px 20px;
+  text-align: center;
+  font-size: 16px;
+}
+.lightButton{
+  background:var(--light-purple);
+  color:var(--black);
+}
+.darkButton{
+  background: var(--dark-purple);
+  color:var(--white);
+  font-weight: bold;
+}
+.gradientButton{
+  background: var(--Aggie-Space,linear-gradient(200deg, #04164F 7.1%, #3D1069 62.03%, #750B83 94.99%));
+  color:var(--white);
+  font-weight: bold;
+}
