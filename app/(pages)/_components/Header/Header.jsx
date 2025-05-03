@@ -1,22 +1,19 @@
 import styles from "./Header.module.scss";
-
+import Link from 'next/link'
 export default function Header() {
     return (
-        <div className={styles.header}>
-            <div className={styles.dropdown}>
-                <button className={styles.button}>
-                    Events
-                    <div className={styles.arrow}>^</div>  {/* 添加符号 */}
-                </button>
+        <ul className={styles.navbar}>
+            <li className={styles.dropdown}>
+                <Link href="//events">Events</Link>
                 <div className={styles.dropdown_contents}>
-                    <a href="#">Calendar</a>
-                    <a href="#">Conference</a>
+                    <Link href="/calendar">Calendar</Link>
+                    <Link href="/conference">Conference</Link>
                 </div>
-            </div>
-            <p>Merch Store</p>
-            <p>Alumni Spotlight</p>
-            <p>Blog</p>
-            <p>About Us</p>
-        </div>
+            </li>
+            <li><Link href="/store">Merch Store</Link></li>
+            <li><Link href="/alumni">Alumni Spotlight</Link></li>
+            <li><Link href="/blog">Blog</Link></li>
+            <li><Link href="/about us">About us</Link></li>
+        </ul>
     );
 }
