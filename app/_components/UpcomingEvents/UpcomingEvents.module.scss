@@ -1,155 +1,173 @@
+// === WRAPPER SECTION ===
+// The outer container that wraps the entire Upcoming Events section.
 .wrapper {
-    max-width: 1312px;
-    margin: 45px auto 47px;
-    padding: 0 1rem;
-    text-align: center;
+  max-width: 1312px;          // Matches the frame width from Figma
+  margin: 45px auto 47px;     // Top and bottom spacing, horizontally centered
+  padding: 0 1rem;            // Horizontal padding for small screens
+  text-align: center;         // Center-aligns the section heading text
+}
+
+// === SECTION HEADING ===
+// Styles the "Upcoming Events" title
+.heading {
+  width: 652px;
+  height: 123px;
+  flex-shrink: 0;             // Prevent the heading from shrinking
+  font-family: Poppins, sans-serif;
+  font-size: 64px;
+  font-weight: 700;
+  line-height: normal;
+  color: var(--gold);         // Custom gold color: #E4A135
+  text-align: center;
+  margin: 0 auto 2rem;        // Center the heading, add spacing below
+}
+
+// === EVENT LIST CONTAINER ===
+// UL element containing all event "cards"
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;     // Stack event items vertically
+  gap: 47px;                  // Space between cards, matches Figma
+}
+
+// === INDIVIDUAL EVENT BOX ===
+// Styles for the event card "frame"
+.item {
+  width: 1312px;              // Exact card width from Figma
+  height: 222px;              // Exact card height
+  padding: 0;
+  flex-shrink: 0;             
+  border: 2px solid var(--gold); // 2px gold border
+  border-radius: 10px;
+  background: var(--white);   // White background (#FAFAFA)
+  display: flex;
+  align-items: center;        // Vertically center contents
+  justify-content: center;
+}
+
+// === INNER LAYOUT BOX ===
+// This holds the two columns: date and details, with padding applied
+.content {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  padding: 45px 104.817px 47px 105.577px; // Matches Figma frame padding
+  align-items: center;
+  justify-content: flex-start;            // Align children to the left
+}
+
+// === DATE COLUMN ===
+// Handles the left side with the month and day
+.dateBlock {
+  display: flex;
+  flex-direction: column;     // Stack month above day
+  align-items: center;
+  padding: 0;
+
+  .month {
+    width: 65px;
+    height: 26px;
+    font-family: Poppins, sans-serif;
+    font-size: 32px;
+    font-weight: 600;
+    color: var(--black);      // #222
   }
-  
-  .heading {
-    width: 652px;
-    height: 123px;
-    flex-shrink: 0;
+
+  .day {
+    width: 61px;
+    height: 55px;
     font-family: Poppins, sans-serif;
     font-size: 64px;
     font-weight: 700;
-    line-height: normal;
-    color: var(--gold); // #E4A135
-    text-align: center;
-    margin: 0 auto 2rem;
+    color: var(--black);      // #222
   }
-  
-  .list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 47px;
-  }
-  
-  .item {
-    width: 1312px;
-    height: 222px;
-    padding: 0;
-    flex-shrink: 0;
-    border: 2px solid var(--gold);
-    border-radius: 10px;
-    background: var(--white); // #FAFAFA
-    display: flex;
+}
+
+// === DETAILS COLUMN ===
+// Contains type, title, time/location, and description
+.details {
+  padding: 0 0 0 2rem;         // 2rem space from date column
+  text-align: left;
+  flex: 1;
+
+  // "Fundraiser" row with circle and type text
+  .typeRow {
+    display: inline-flex;
     align-items: center;
-    justify-content: center;
-  }
-  
-  .content {
-    display: flex;
-    width: 100%;
-    height: 100%;
-    padding: 45px 104.817px 47px 105.577px;
-    align-items: center;
-    justify-content: flex-start;
-  }
-  
-  .dateBlock {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 0;
-  
-    .month {
-      width: 65px;
-      height: 26px;
-      font-family: Poppins, sans-serif;
-      font-size: 32px;
-      font-weight: 600;
-      color: var(--black); // #222
+    gap: 0.5rem;
+
+    .dot {
+      width: 23px;
+      height: 23px;
+      flex-shrink: 0;
     }
-  
-    .day {
-      width: 61px;
-      height: 55px;
+
+    .type {
+      width: 198.554px;
+      height: 23px;
       font-family: Poppins, sans-serif;
-      font-size: 64px;
-      font-weight: 700;
-      color: var(--black); // #222
+      font-size: 16px;
+      font-weight: 400;
+      color: var(--black);
     }
   }
-  
-  .details {
-    padding: 0 0 0 2rem;
-    text-align: left;
-    flex: 1;
-  
-    .typeRow {
+
+  // "Raising Cane's Fundraiser" title
+  .title {
+    font-family: Poppins, sans-serif;
+    font-size: 32px;
+    font-weight: 600;
+    color: var(--black);
+    margin: 0.25rem 0;        // Spacing between title and type/meta
+  }
+
+  // Meta section: time and location
+  .meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+
+    .metaItem {
       display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
-  
-      .dot {
-        width: 23px;
-        height: 23px;
+      gap: 0.25rem;
+
+      .icon {
+        width: 1em;
+        height: 1em;
         flex-shrink: 0;
       }
-  
-      .type {
-        width: 198.554px;
-        height: 23px;
+
+      .metaText {
         font-family: Poppins, sans-serif;
         font-size: 16px;
         font-weight: 400;
+        width: 329.248px;     // Fixed width from Figma
         color: var(--black);
       }
     }
-  
-    .title {
-      font-family: Poppins, sans-serif;
-      font-size: 32px;
-      font-weight: 600;
-      color: var(--black);
-      margin: 0.25rem 0;
-    }
-  
-    .meta {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 0.25rem;
-  
-      .metaItem {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.25rem;
-  
-        .icon {
-          width: 1em;
-          height: 1em;
-          flex-shrink: 0;
-        }
-  
-        .metaText {
-          font-family: Poppins, sans-serif;
-          font-size: 16px;
-          font-weight: 400;
-          width: 329.248px;
-          color: var(--black);
-        }
-      }
-    }
-  
-    .description {
-      font-size: 14px;
-      font-family: Poppins, sans-serif;
-      color: var(--grey-800);
-    }
   }
-  
-  .button {
-    margin-top: 2rem;
-    padding: 0.5rem 2rem;
-    border: 1px solid var(--gold);
-    border-radius: 999px;
-    background: transparent;
-    font-family: Poppins, sans-serif;
+
+  // Description under the location
+  .description {
     font-size: 14px;
-    cursor: pointer;
+    font-family: Poppins, sans-serif;
+    color: var(--grey-800);   // Slightly lighter grey
   }
-  
+}
+
+// === BOTTOM CALENDAR BUTTON ===
+.button {
+  margin-top: 2rem;
+  padding: 0.5rem 2rem;
+  border: 1px solid var(--gold);
+  border-radius: 999px;
+  background: transparent;
+  font-family: Poppins, sans-serif;
+  font-size: 14px;
+  cursor: pointer;
+}
