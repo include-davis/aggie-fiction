@@ -1,0 +1,13 @@
+.Footer {
+  display:flex;
+  gap: 1028px;
+  width: 1512px;
+  height: 129px;
+  background: var(--white);
+  box-shadow: 0px 0px 4px 10px rgba(50, 0, 131, 0.05);
+  padding: 29px 35px 30px 44px;
+}
+.Footer_text{
+  color:var(--dark-purple);
+  font-size:1rem;
+}
