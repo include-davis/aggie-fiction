@@ -63,9 +63,12 @@
 // Handles the left side with the month and day
 .dateBlock {
   display: flex;
-  flex-direction: column;     // Stack month above day
+  flex-direction: column;
   align-items: center;
-  padding: 0;
+
+  margin-top: 3px;       // 3px from top padding
+  margin-left: 2.42px;   // 2.42px from left padding
+  margin-bottom: 42px;   // Ensures it aligns with bottom like in Figma
 
   .month {
     width: 65px;
@@ -73,7 +76,7 @@
     font-family: Poppins, sans-serif;
     font-size: 32px;
     font-weight: 600;
-    color: var(--black);      // #222
+    color: var(--black);
   }
 
   .day {
@@ -82,18 +85,18 @@
     font-family: Poppins, sans-serif;
     font-size: 64px;
     font-weight: 700;
-    color: var(--black);      // #222
+    color: var(--black);
   }
 }
+
 
 // === DETAILS COLUMN ===
 // Contains type, title, time/location, and description
 .details {
-  padding: 0 0 0 2rem;         // 2rem space from date column
-  text-align: left;
   flex: 1;
+  text-align: left;
+  margin-left: 115px; // Space between day ("21") and title
 
-  // "Fundraiser" row with circle and type text
   .typeRow {
     display: inline-flex;
     align-items: center;
@@ -115,48 +118,46 @@
     }
   }
 
-  // "Raising Cane's Fundraiser" title
   .title {
     font-family: Poppins, sans-serif;
     font-size: 32px;
     font-weight: 600;
     color: var(--black);
-    margin: 0.25rem 0;        // Spacing between title and type/meta
+    margin: 0.25rem 0;
   }
 
-  // Meta section: time and location
   .meta {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 0.25rem;
-
+    gap: 0px; // spacing between time and location rows
+  
     .metaItem {
       display: inline-flex;
       align-items: center;
-      gap: 0.25rem;
-
+      gap: 1px; // spacing between icon and text
+  
       .icon {
         width: 1em;
         height: 1em;
         flex-shrink: 0;
       }
-
+  
       .metaText {
         font-family: Poppins, sans-serif;
         font-size: 16px;
         font-weight: 400;
-        width: 329.248px;     // Fixed width from Figma
+        width: 329.248px;
         color: var(--black);
       }
     }
   }
+  
 
-  // Description under the location
   .description {
     font-size: 14px;
     font-family: Poppins, sans-serif;
-    color: var(--grey-800);   // Slightly lighter grey
+    color: var(--grey-800);
   }
 }
 
