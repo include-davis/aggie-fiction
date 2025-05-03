@@ -88,32 +88,38 @@ export default function Storelisting() {
     }
   };
 
+  const handleCategoryChange = (category) => {
+    setSelectedCategory(category);
+    setCurrentPage(1); 
+  };
+
     return (
       <main>
-
         <section className={styles.top}>
-          <h1 className={styles.title}>Merch Store</h1>
-          
-          <div className={styles.buttons}>
-          <button onClick={() => setSelectedCategory("all")} className={selectedCategory === "all" ? styles.activeBtn1 : styles.btn1}> All</button>
-          <button onClick={() => setSelectedCategory("tote")} className={selectedCategory === "tote" ? styles.activeBtn2 : styles.btn2}> Tote Bags</button>
-          <button onClick={() => setSelectedCategory("sticker")} className={selectedCategory === "sticker" ? styles.activeBtn2 : styles.btn2}> Stickers</button>
+          <div className={styles.headerRow}>
+            <h1 className={styles.title}>Merch Store</h1>
+
+            <div className={styles.buttons}>
+            <button onClick={() => handleCategoryChange("all")} className={selectedCategory === "all" ? styles.activeBtn1 : styles.btn1}>All</button>
+          <button onClick={() => handleCategoryChange("tote")} className={selectedCategory === "tote" ? styles.activeBtn2 : styles.btn2}>Tote Bags</button>
+          <button onClick={() => handleCategoryChange("sticker")} className={selectedCategory === "sticker" ? styles.activeBtn2 : styles.btn2}>Stickers</button>
+            </div>
           </div>
 
-        </section>
-
-        <div className={styles.cart}>
-          <Link href={`/cart`}>
-            <button className={styles.btn4}>
-            <Image
+          <div className={styles.cartRow}>
+            <Link href={`/cart`}>
+              <button className={styles.btn4}>
+                <Image
                   src="/TestImages/Cart.png"
                   alt="Cart"
                   width={23}
                   height={23}
-                  />
-            </button>
-          </Link>
-        </div>
+                />
+              </button>
+            </Link>
+          </div>
+        </section>
+
 
         <section className={styles.listbox}>
           {currentProducts.map((product) => (
