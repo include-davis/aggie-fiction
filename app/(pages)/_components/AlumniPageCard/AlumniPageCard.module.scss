@@ -1,81 +1,94 @@
 .card {
-  width: 40.375rem;
-  height: 26.875rem;
+  width: 646px;
+  height: 430px;
   flex-shrink: 0;
 
-  border-radius: 0.9375rem;
+  border-radius: 15px;
   background: var(--light-purple, #CFBAE8);
   box-shadow: 0px 0px 7px 6px rgba(152, 29, 156, 0.10);
 
   display: flex;
   flex-direction: row;
-  gap: 2rem;
-  
-  padding-left: 2.15rem;
-  padding-top: 2.31rem;
-  padding-bottom: 1.56rem;
+  gap: 32px;
+
+  padding-left: 34px;
+  padding-top: 37px;
+  padding-bottom: 25px;
 }
 
 .imagecontainer {
 
-  width: 15.6875rem;
-  height: 22rem;
+  width: 251px;
+  height: 352px;
   flex-shrink: 0;
   background: var(--white, #FAFAFA);
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   align-items: center;
 
- 
-  padding-left:1.35rem;
-  padding-top: 1.81rem;
-  padding-right: 1.21rem;
-  padding-bottom: 5.13rem;
+
+  padding-left: 22px;
+  padding-top: 29px;
+  padding-right: 19px;
+  padding-bottom: 82px;
 
 }
 
 .image {
-  width: 13.125rem;
-  height: 15.0625rem;
+  width: 210px;
+  height: 241px;
   flex-shrink: 0;
   object-fit: cover;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
 
-.icons{
+.icons {
   display: flex;
   flex-direction: row;
-  gap: 0.19rem;
-  margin-top: 1rem
+  gap: 3px;
+  margin-top: 16px;
 }
 
 .instagram {
-  width: 2rem;
-  height: 2.0625rem;
+  width: 32px;
+  height: 33px;
 }
 
 .linkedin {
-  width: 2rem;
-  height: 2.0625rem;
+  width: 32px;
+  height: 33px;
 }
 
-.textcontainer{
-  height: 22rem;
+.textcontainer {
+  height: 352px;
 }
-.name{
+
+.name {
   font-size: 1.5rem;
   font-weight: 700;
 }
 
-.role{
+.role {
   font-size: 1rem;
 }
 
-.description{
-  margin-top:0.69rem;
-  width: 19.375rem;
+.description {
+  margin-top: 11px;
+  width: 310px;
 }
 
-.button{
-  
+.button {
+  display: flex;
+  width: 110px;
+  height: 35px;
+  padding: 10px 20px;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-shrink: 0;
+
+  border-radius: 100px;
+  border: 2px solid var(--gold);
+  background: #E4A135;
+  cursor: pointer;
 }

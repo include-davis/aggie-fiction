@@ -1,6 +1,9 @@
-
+"use client";
 import styles from "./AlumniPageCard.module.scss";
 import Image from "next/image";
+import { useState } from "react";
+import ExpandedAlumniCard from "../ExpandedAlumniCard/ExpandedAlumniCard";
+
 
 export default function AlumniPageCard(info) {
     const {
@@ -8,10 +11,31 @@ export default function AlumniPageCard(info) {
         role,
         years,
         description,
+        longDescription,
         imageUrl,
+        instaHandle,
+        linkedinHandle,
 
     } = info;
 
+    const [expanded, setExpanded] = useState(false);
+    const handleExpand = () => setExpanded(true);
+    const handleCollapse = () => setExpanded(false);
+
+    if (expanded) {
+        return (
+            <ExpandedAlumniCard
+                name={name}
+                role={role}
+                years={years}
+                longDescription={longDescription}
+                imageUrl={imageUrl}
+                instaHandle={instaHandle}
+                linkedinHandle={linkedinHandle}
+                onCollapse={handleCollapse}
+            />
+        );
+    }
     return (
         <div className={styles.card}>
             <div className={styles.imagecontainer}>
@@ -51,10 +75,8 @@ export default function AlumniPageCard(info) {
 
 
                 <p className={styles.description}>{description}</p>
-                <button className={styles.button}>Read More</button>
+                <button className={styles.button} onClick={handleExpand}>Read More</button>
             </div>
-
-
         </div>
     );
 }
