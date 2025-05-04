@@ -4,6 +4,7 @@
   padding: 0;
   overflow: hidden;
   background: var(--white);
+  box-shadow: 0px 0px 4px 10px rgba(50, 0, 131, 0.05);
 }
 .navbar li {
   float:right;
@@ -11,13 +12,19 @@
   text-align: center;
   padding: 14px 16px;
 }
+.Events{
+  color:var(--dark-purple);
+  font-weight: bold;
+}
 
+.logo{
+  padding-right: 637px;
+}
 .arrowdown{
   border: solid black;
   border-width: 0 3px 3px 0;
   display: inline-block;
   padding: 3px;
-  transform: rotate(45deg);
 }
 
 .navbar li a{
@@ -55,9 +62,6 @@
   display:block;
 }
 
-.arrowdown:hover {
-
-}
 ///* Dropdown容器 */
 //.dropdown {
 //  position: relative;
