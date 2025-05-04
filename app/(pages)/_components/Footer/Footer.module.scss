@@ -2,12 +2,23 @@
   display:flex;
   gap: 1028px;
   width: 1512px;
-  height: 129px;
+  height: 132px;
   background: var(--white);
   box-shadow: 0px 0px 4px 10px rgba(50, 0, 131, 0.05);
   padding: 29px 35px 30px 44px;
 }
+.Footer_icons{
+  display: flex;
+  gap:30px;
+}
 .Footer_text{
   color:var(--dark-purple);
   font-size:1rem;
+}
+.icons{
+  gap:9px;
+}
+.icon{
+  height: 39px;
+  width:39px;
 }
