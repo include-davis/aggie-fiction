@@ -12,14 +12,6 @@ export default function almuni() {
       years="2020–2022"
       description={
         <>
-          Jack started the club with his friends Maeve and Isabella in Winter Quarter 2020. He remained as primary leader until his graduation in Spring Quarter 2022.
-          <br />
-          <br />
-          Since graduating, he has stayed creatively engaged. Recently, he has become a drummer in a band with his friends...
-        </>
-      }
-      longDescription={
-        <>
           Jack started the club with his friends Maeve and Isabella in Winter Quarter 2020. 
           He remained as primary leader until his graduation in Spring Quarter 2022.
           <br />
@@ -34,8 +26,9 @@ export default function almuni() {
       imageUrl="/jack.png"
 
       instaHandle="@radicalsewingclub"
+      instaLink="https://www.instagram.com/" /*General link for now*/
+      linkedinLink="https://www.linkedin.com/" /*General link for now*/
       linkedinHandle="linkedin link"
-
     />
   );
 

@@ -6,10 +6,12 @@ export default function ExpandedAlumniCard({
     last_name,
     role,
     years,
-    longDescription,
+    description,
     imageUrl,
     instaHandle,
     linkedinHandle,
+    instaLink,
+    linkedinLink,
     onCollapse,
 }) {
     return (
@@ -28,7 +30,7 @@ export default function ExpandedAlumniCard({
             <div className={styles.imageContainer}>
                 <Image
                     src={imageUrl}
-                    alt={`${name} photo`}
+                    alt={`${first_name} photo`}
                     className={styles.image}
                     width={1309}
                     height={886}
@@ -43,7 +45,7 @@ export default function ExpandedAlumniCard({
                     {role}, {years}
                 </h2>
 
-                <p className={styles.longDescription}>{longDescription}</p>
+                <p className={styles.longDescription}>{description}</p>
 
                 
                 <div className={styles.icons}>
