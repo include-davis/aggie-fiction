@@ -16,7 +16,7 @@ export default function Button(props) {
 
       <div>
           <Link href={props.route}>
-              <button className={`${styles.Button} ${colorClass}`}>{props.text}</button>
+              <button className={`${styles.Button} ${colorClass}`} style={{width:props.width}}>{props.text}</button>
           </Link>
 </div>
     );
