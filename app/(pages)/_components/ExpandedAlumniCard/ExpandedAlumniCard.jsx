@@ -2,7 +2,8 @@ import styles from "./ExpandedAlumniCard.module.scss";
 import Image from "next/image";
 
 export default function ExpandedAlumniCard({
-    name,
+    first_name,
+    last_name,
     role,
     years,
     longDescription,
@@ -37,7 +38,7 @@ export default function ExpandedAlumniCard({
 
            
             <div className={styles.textContainer}>
-                <h1 className={styles.name}>{name}</h1>
+                <h1 className={styles.name}>{first_name}{last_name}</h1>
                 <h2 className={styles.role}>
                     {role}, {years}
                 </h2>
@@ -47,7 +48,7 @@ export default function ExpandedAlumniCard({
                 
                 <div className={styles.icons}>
                     
-                        <h2 className={styles.socialTitle}>Connect with {name}:</h2>
+                        <h2 className={styles.socialTitle}>Connect with {first_name}:</h2>
                         <div className={styles.socialContainer}>
                         <Image
                             src="/insta-icon.svg"

@@ -7,7 +7,8 @@ import ExpandedAlumniCard from "../ExpandedAlumniCard/ExpandedAlumniCard";
 
 export default function AlumniPageCard(info) {
     const {
-        name,
+        first_name,
+        last_name,
         role,
         years,
         description,
@@ -25,7 +26,8 @@ export default function AlumniPageCard(info) {
     if (expanded) {
         return (
             <ExpandedAlumniCard
-                name={name}
+                first_name={first_name}
+                last_name={last_name}
                 role={role}
                 years={years}
                 longDescription={longDescription}
@@ -41,7 +43,7 @@ export default function AlumniPageCard(info) {
             <div className={styles.imagecontainer}>
                 <Image
                     src={imageUrl} 
-                    alt={`${name} photo`} 
+                    alt={`${first_name} photo`} 
                     className={styles.image}
                     width= {512}
                     height={512} 
@@ -68,7 +70,7 @@ export default function AlumniPageCard(info) {
             </div>
 
             <div className={styles.textcontainer}>
-                <h1 className={styles.name}>{name}</h1>
+                <h1 className={styles.name}>{first_name}{last_name}</h1>
                 <h2 className={styles.role}>
                     {role}, {years}
                 </h2>
