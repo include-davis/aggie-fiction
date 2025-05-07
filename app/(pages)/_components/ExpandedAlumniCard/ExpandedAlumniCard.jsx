@@ -58,7 +58,14 @@ export default function ExpandedAlumniCard({
                             width={33}
                             height={33}
                         />
-                        <span className={styles.socialHandle}>{instaHandle}</span>
+                        <a 
+                            href={instaLink}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={styles.socialHandle}
+                        >
+                            {instaHandle}
+                        </a>
                     </div>
                     <div className={styles.socialContainer}>
                         <Image
@@ -67,7 +74,14 @@ export default function ExpandedAlumniCard({
                             width={33}
                             height={33}
                         />
-                        <span className={styles.socialHandle}>{linkedinHandle}</span>
+                        <a
+                            href={linkedinLink}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={styles.socialHandle}
+                        >
+                            {linkedinHandle}
+                        </a>
                     </div>
                 </div>
             </div>

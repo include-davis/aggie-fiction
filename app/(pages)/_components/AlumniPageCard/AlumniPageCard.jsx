@@ -35,6 +35,8 @@ export default function AlumniPageCard(info) {
                 imageUrl={imageUrl}
                 instaHandle={instaHandle}
                 linkedinHandle={linkedinHandle}
+                instaLink={instaLink}
+                linkedinLink={linkedinLink}
                 onCollapse={handleCollapse}
             />
         );

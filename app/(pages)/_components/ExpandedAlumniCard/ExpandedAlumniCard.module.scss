@@ -5,7 +5,7 @@
     flex-shrink: 0;
   
     border-radius: 15px;
-    background: var(--light-purple, #CFBAE8);
+    background: var(--light-purple);
     box-shadow: 0px 0px 7px 6px rgba(152, 29, 156, 0.10);
   
     display: flex;
@@ -30,7 +30,7 @@
     width: 472.251px;
     height: 709.653px;
     flex-shrink: 0;
-    background: var(--white, #FAFAFA);
+    background: var(--white);
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
     align-items: center;
   
@@ -74,13 +74,13 @@
   }
 
   .socialContainer {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     gap: 11px;
 
     
   }
-
+  
   .icons {
     display: flex;
     flex-direction: column;
@@ -91,6 +91,14 @@
     left:598px;
     right:124px;
     top:613px;
+  }
 
-    
+  .socialHandle {
+    color: var(--black);
+    text-decoration: none;
+
+    &:hover{
+      color: #333;
+      text-decoration: underline;
+    }
   }
