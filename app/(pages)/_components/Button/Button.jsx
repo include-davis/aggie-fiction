@@ -2,6 +2,8 @@ import styles from "./Button.module.scss";
 import Link from 'next/link'
 import React from 'react';
 export default function Button(props) {
+    //Replace props.route with the path of the button
+    //Replace props.color,props.width,and props.text with the color,width and text of the button respectively
     let colorClass;
     if (props.color==="light"){
         colorClass=styles.lightButton
