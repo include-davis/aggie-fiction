@@ -1,0 +1,69 @@
+.calendarContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 85px 100px;
+  gap: 38px;
+
+  background: var(--Aggie-Space);
+
+  .calendarHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 62px;
+
+    .nav {
+      display: flex;
+      gap: 7px;
+
+      button {
+        display: flex;
+        background: transparent;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+      }
+
+      .today {
+        padding: 12px 22px;
+        color: var(--white);
+        border-radius: 100px;
+        border: 2px solid var(--gold);
+      }
+    }
+
+    .month {
+      h1 {
+        margin: 0;
+        padding: 0;
+        color: var(--white);
+      }
+    }
+
+    .filter {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      width: 104px;
+      height: 52px;
+      border-radius: 99999997952px;
+      border: 2px solid var(--gold);
+
+      p {
+        color: var(--white);
+      }
+    }
+  }
+
+  .calendarContent {
+    width: 1309px;
+    height: 417px;
+
+    border: solid black;
+    border-radius: 10px;
+  }
+}
