@@ -1,8 +1,12 @@
 import styles from "./page.module.scss";
-import Button from "../_components/Button/Button"
+import HomeCarousel from "../_components/HomeCarousel/HomeCarousel";
+
 export default function Home() {
   return (
-        <Button route="/about" color="dark" text="button" width={100}>
-        </Button>
+    <main className={styles.page}>
+      <h1>header 1</h1>
+      <p>body</p>
+      <HomeCarousel />
+    </main>
   );
 }
