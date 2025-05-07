@@ -1,26 +1,32 @@
 import styles from "./Button.module.scss";
 import Link from 'next/link'
 import React from 'react';
-export default function Button(props) {
-    //Replace props.route with the path of the button
-    //Replace props.color,props.width,and props.text with the color,width and text of the button respectively
+
+/**
+ * color: either "light", "dark", or "gradient"
+ * route: page route to link to, such as /about
+ * width: optional prop specifying the button width in pixels, defaults to 272
+ */
+// example usage: <Button route="/about" color="dark" text="button" width={100} />
+export default function Button({children, color, route, width=272}) {
     let colorClass;
-    if (props.color==="light"){
-        colorClass=styles.lightButton
+    if (color==="light") {
+        colorClass=styles.lightButton;
     }
-    else if (props.color==="dark"){
-        colorClass=styles.darkButton
+    else if (color==="dark") {
+        colorClass=styles.darkButton;
     }
-    else{
-        colorClass=styles.gradientButton
+    else {
+        colorClass=styles.gradientButton;
     }
     return (
-
-      <div>
-          <Link href={props.route}>
-              <button className={`${styles.Button} ${colorClass}`} style={{width:props.width}}>{props.text}</button>
-          </Link>
-</div>
+        <div>
+                <Link href={route}>
+                    <button className={`${styles.Button} ${colorClass}`} style={{width: `${width}px`}}>
+                        {children}
+                    </button>
+                </Link>
+        </div>
     );
 }
 
