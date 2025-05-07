@@ -1,8 +1,9 @@
 'use client';
-import styles from "./StoreListing.module.scss";
+import styles from "./page.module.scss";
 import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link'
+import Button from "../_components/button/Button";
 
 const products = [
     {
@@ -87,10 +88,10 @@ export default function Storelisting() {
       setCurrentPage(page);
     }
   };
-
   const handleCategoryChange = (category) => {
     setSelectedCategory(category);
     setCurrentPage(1); 
+    
   };
 
     return (
@@ -100,26 +101,19 @@ export default function Storelisting() {
             <h1 className={styles.title}>Merch Store</h1>
 
             <div className={styles.buttons}>
-            <button onClick={() => handleCategoryChange("all")} className={selectedCategory === "all" ? styles.activeBtn1 : styles.btn1}>All</button>
-          <button onClick={() => handleCategoryChange("tote")} className={selectedCategory === "tote" ? styles.activeBtn2 : styles.btn2}>Tote Bags</button>
-          <button onClick={() => handleCategoryChange("sticker")} className={selectedCategory === "sticker" ? styles.activeBtn2 : styles.btn2}>Stickers</button>
+              <Button onClick={() => handleCategoryChange("all")} color={(selectedCategory === "all")? "gradient" : "light"} width={100}>
+                All
+              </Button>
+              <Button onClick={() => handleCategoryChange("tote")} color={(selectedCategory === "tote")? "gradient" : "light"} width={200}>
+                Tote Bags
+              </Button>
+              <Button onClick={() => handleCategoryChange("sticker")} color={(selectedCategory === "sticker")? "gradient" : "light"} width={200}>
+                Stickers
+              </Button>
             </div>
           </div>
 
-          <div className={styles.cartRow}>
-            <Link href={`/cart`}>
-              <button className={styles.btn4}>
-                <Image
-                  src="/TestImages/Cart.png"
-                  alt="Cart"
-                  width={23}
-                  height={23}
-                />
-              </button>
-            </Link>
-          </div>
         </section>
-
 
         <section className={styles.listbox}>
           {currentProducts.map((product) => (

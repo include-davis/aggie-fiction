@@ -1,5 +1,5 @@
 
-.main {
+  .main {
     width: 100%;
   }
   
@@ -9,6 +9,7 @@
     flex-direction: column;
     justify-content: space-between;
     width: 100%;
+    padding-bottom: 50px;
   }
   
   .title{
@@ -36,15 +37,6 @@
     
   }
   
-  .cartRow {
-    // border: solid black 1px;
-    display: flex;
-    justify-content: flex-end;
-  
-    padding: 5px 10px 25px 0px;
-  }
-  
-  
   .listbox{
     // border: black solid 1px;
     display: grid;
@@ -53,72 +45,7 @@
     column-gap: 20px;
      
   }
-  
-  .btn1{
-    border-radius: 50px;
-    border: 0px;
-    background-color: var(--light-purple);
-    font-size: 1rem;
-    font-family: 'Poppins', normal;
-  
-    width: 100px;
-    height: 44px;
-  
-  }
-  
-  .btn2{
-    border-radius: 50px;
-    border: 0px;
-    background-color: var(--light-purple);
-    font-size: 1rem;
-    font-family: 'Poppins', sans-serif;
-  
-    width: 200px;
-    height: 44px;
-  }
-  
-  .activeBtn1{
-    border-radius: 50px;
-    border: 0px;
-    background: var(--Aggie-Space);
-    color: var(--white);
-    font-size: 1rem;
-    font-family: 'Poppins', normal;
-    font-weight: 700;
-  
-    width: 100px;
-    height: 44px;
-  }
-  
-  .activeBtn2{
-    border-radius: 50px;
-    border: 0px;
-    background: var(--Aggie-Space);
-    color: var(--white);
-    font-size: 1rem;
-    font-family: 'Poppins', normal;
-    font-weight: 700;
-  
-    width: 200px;
-    height: 44px;
-  }
-  
-  .btn4{
-    display: flex;              
-    align-items: center;        
-    justify-content: center;    
-  
-    border-radius: 50px;
-    border: 0px;
-    font-size: 1rem;
-    background: linear-gradient(200deg, #04164F 7.1%, #3D1069 62.03%, #750B83 94.99%);
-    color: var(--white);
-  
-    width: 50px;
-    height: 50px;  
-  }
-  
-  
+
   .container {
     border: solid var(--gold) 2px;
     transition: 0.3s;
@@ -165,9 +92,6 @@
   
     width: 60px;
   }
-  
-  
-  
   
   .bottom{
     // border: 1px black solid;
