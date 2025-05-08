@@ -1,5 +1,196 @@
-.page {
-    h1 {
-        color: var(--gold);
+.aboutUs {
+    width: 1312;
+    height: 686;
+    top: 156px;
+    left: 100px;    
+    
+    h2 {
+        width: 293px;
+        height: 96px;
+        top: 156px;
+        left: 100px;
+        font-family: Poppins;
+        font-weight: 700;
+        font-size: 64px;
+        line-height: 100%;
+        letter-spacing: 0px;
+    }
+
+    p {
+        width: 866;
+        height: 576;
+        top: 266px;
+        left: 100px;
+        font-family: Poppins;
+        font-weight: 400;
+        font-size: 24px;
+        line-height: 100%;
+        letter-spacing: 0%;    
+    }
+}
+
+.mascot { 
+    width: 1262;
+    height: 731;
+    top: 914px;
+    left: 101px;    
+
+    h2 {
+        width: 387;
+        height: 96;
+        top: 914px;
+        left: 101px;
+        font-family: Poppins;
+        font-weight: 700;
+        font-size: 64px;
+        line-height: 100%;
+        letter-spacing: 0%;
+    }
+
+    p {
+        width: 868;
+        height: 612;
+        top: 1033px;
+        left: 101px;
+        font-family: Poppins;
+        font-weight: 400;
+        font-size: 24px;
+        line-height: 100%;
+        letter-spacing: 0%;
+    }
+}
+
+.values {
+    width: 1312;
+    height: 1164.359375;
+    top: 1754px;
+    left: 101px;    
+  
+    h2 {
+        width: 421;
+        height: 118;
+        top: 1754px;
+        left: 546px;
+        font-family: Poppins;
+        font-weight: 700;
+        font-size: 64px;
+        line-height: 100%;
+        letter-spacing: 0%;
+        text-align: center;
+    }
+  
+    .valuesBox {
+        display: flex;
+        flex-direction: column;
+        width: 1309;
+        height: 288;
+        top: 1874px;
+        left: 103px;
+        
+        h3 {
+            width: 421.41327;
+            height: 48;
+            font-family: Poppins;
+            font-weight: 600;
+            font-size: 32px;
+            line-height: 100%;
+            letter-spacing: 0;
+            text-align: center;
+        }
+        
+        p {
+            width: 868;
+            height: 144;
+            top: 1946px;
+            left: 544px;
+            font-family: Poppins;
+            font-weight: 400;
+            font-size: 24px;
+            line-height: 100%;
+            letter-spacing: 0;
+        }
+        
+        .creativity {
+            display: flex;
+            width: 1309;
+            height: 288;
+            top: 1874px;
+            left: 103px;
+        }
+  
+        .community {
+            display: flex;
+            width: 1308;
+            height: 354.35944;
+            top: 2213px;
+            left: 103px;
+        }
+  
+        .authenticity {
+            display: flex;
+            width: 1312;
+            height: 354.35944;
+            top: 2564px;
+            left: 101px;
+        }
+    }
+}
+
+.board {
+    width: 1181;
+    height: 1128;
+    top: 2962px;
+    left: 165px;    
+  
+    h2 {
+        width: 333;
+        height: 96;
+        top: 2962px;
+        left: 577px;
+        font-family: Poppins;
+        font-weight: 700;
+        font-size: 64px;
+        line-height: 100%;
+        letter-spacing: 0%;
+    }
+  
+    .boardGrid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 45px 45px; 
+        justify-content: center;
+    }
+  
+    .member {
+        width: 300;
+        height: 408;
+        top: 3140px;
+        left: 165px;
+        gap: 15px;        
+  
+        img {
+            width: 225;
+            height: 225;
+            border-radius: 112.5px;
+            border-radius: 50%;            
+        }
+  
+        h4 {
+            font-family: Poppins;
+            font-weight: 700;
+            font-size: 32px;
+            line-height: 100%;
+            letter-spacing: 0%;
+            text-align: center;
+        }
+  
+        p {
+            font-family: Poppins;
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 100%;
+            letter-spacing: 0%;
+            text-align: center;
+        }
     }
 }
