@@ -82,7 +82,7 @@ export default function AlumniPageCard(info) {
             </div>
 
                 <div className={styles.textcontainer}>
-                    <h1 className={styles.name}>{first_name}{last_name}</h1>
+                    <h1 className={styles.name}>{first_name} {last_name}</h1>
                     <h2 className={styles.role}>
                         {role}, {years}
                     </h2>

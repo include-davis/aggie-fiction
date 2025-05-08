@@ -7,7 +7,7 @@ export default function almuni() {
 
     <AlumniPageCard
       first_name="Jack"
-      last_name=" Hyslop"
+      last_name="Hyslop"
       role="Founder and Leader"
       years="2020–2022"
       description={
