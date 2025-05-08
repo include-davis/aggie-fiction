@@ -1,5 +1,6 @@
 import styles from "./page.module.scss";
 import Image from "next/image";
+import ConferenceCarousel from "../_components/ConferenceCarousel/ConferenceCarousel";
 
 const titleImagePath = "/conferencePageImages/titleImage.png";
 const summaryImagePath = "/conferencePageImages/summaryImage.png";
@@ -42,7 +43,7 @@ export default function Conference()
                 </div>
             </div>
 
-            <h1>CAROUSEL GOES HERE</h1>
+            <ConferenceCarousel />
 
             <div className = {styles.lowerPage}>
                 <div className = {styles.lowerLeftBlock}>
