@@ -1,0 +1,32 @@
+.Button {
+  width: 272px;
+  height: 44px;
+  border-radius: 9999px;
+  text-align: center;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+}
+
+.lightButton {
+  background: var(--light-purple);
+  color: var(--black);
+  transition: 0.3s ease;
+}
+
+.darkButton {
+  background: var(--dark-purple);
+  color: var(--white);
+  font-weight: bold;
+}
+.gradientButton {
+  background: var(--Aggie-Space);
+  color: var(--white);
+  font-weight: bold;
+}
+
+.lightButton:hover {
+  background: var(--dark-purple);
+  color: var(--white);
+  font-weight: bold;
+}
