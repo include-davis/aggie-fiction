@@ -1,41 +1,28 @@
 .navbar{
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
+  display:flex;
   background: var(--white);
   box-shadow: 0px 0px 4px 10px rgba(50, 0, 131, 0.05);
+  align-items:center;
 }
-.navbar li {
-  float:right;
-  display: inline-block;
-  text-align: center;
-  padding: 14px 16px;
-}
-.Events{
-  color:var(--dark-purple);
-  font-weight: bold;
-}
+
 
 .logo{
   padding-right: 637px;
 }
-.arrowdown{
-  border: solid black;
-  border-width: 0 3px 3px 0;
-  display: inline-block;
-  padding: 3px;
+
+.navContents{
+  gap:60px;
 }
 
-.navbar li a{
+.navContents a{
   font-size: 1rem;
   font-weight: bold;
   color:var(--dark-purple);
   text-decoration: none;
 }
 
-.navbar li.dropdown{
-  display:inline-block;
+.dropdown{
+  display:flex
 }
 .dropdown_contents{
   display:none;
@@ -52,9 +39,6 @@
   height:53px;
 }
 
-.dropdown:hover  .dropdown_contents{
-  display:block;
-}
 
 .dropdown_contents a:hover {
   background: var(--light-purple);
@@ -62,54 +46,5 @@
   display:block;
 }
 
-///* Dropdown容器 */
-//.dropdown {
-//  position: relative;
-//  display: inline-block;
-//}
-//
-///* 触发下拉菜单的按钮 */
-//.button {
-//  padding: 10px 20px;          /* 按钮的内边距 */
-//  font-size: 16px;             /* 字体大小 */
-//  border: none;                /* 无边框 */
-//  cursor: pointer;             /* 悬停时显示指针 */
-//}
-//.arrow {
-//  margin-left: 10px;           /* 符号与按钮文字之间的间距 */
-//  transition: transform 0.3s ease;  /* 平滑的转变效果 */
-//}
-//
-///* 下拉菜单的内容（默认为隐藏） */
-//.dropdown_contents {
-//  display: none;               /* 默认隐藏下拉菜单 */
-//  position: absolute;          /* 将下拉菜单定位在按钮下方 */
-//  background-color: #f9f9f9;   /* 背景颜色 */
-//  min-width: 160px;            /* 最小宽度 */
-//  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);  /* 添加阴影效果 */
-//  z-index: 1;                  /* 保证下拉菜单在其他元素之上 */
-//  padding: 10px;
-//}
-//
-///* 当鼠标悬停在按钮上时显示下拉菜单 */
-//.dropdown:hover .dropdown_contents {
-//  display: block;              /* 显示下拉菜单 */
-//}
-//.dropdown:hover .arrow {
-//  transform: rotate(180deg);   /* 旋转箭头符号180度 */
-//}
-//
-///* 下拉菜单中的链接样式 */
-//.dropdown_contents a {
-//  color: black;                /* 黑色文字 */
-//  padding: 8px 16px;            /* 内边距 */
-//  text-decoration: none;        /* 移除下划线 */
-//  display: block;               /* 块级显示，便于点击 */
-//}
-//
-///* 悬停时改变链接的背景颜色 */
-//.dropdown_contents a:hover {
-//  background-color: #CFBAE8;      /* 悬停时的背景色 */
-//}
 
 
