@@ -1,0 +1,133 @@
+.page
+{
+    display: flex;
+    flex-direction: column;
+    gap: 125px;
+}
+
+.upperPage
+{
+    display: flex;
+    flex-direction: column;
+    gap: 52px;
+    padding-top: 233px;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+.lowerPage
+{
+    display: flex;
+    gap: 20px;
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-bottom: 147px;
+}
+
+.titleBlock
+{
+    display: flex;
+    gap: 20px;
+}
+
+.summaryBlock
+{
+    display: flex;
+    gap: 20px;
+}
+
+.titleLeftBlock
+{
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    width: 53%;
+    height: 230px;
+
+    h1 
+    {
+        height: 160px;
+        color: var(--gold);
+        font-weight: 700;
+        font-size: 64px;
+        line-height: 80px;
+    }
+    
+    h2
+    {
+        height: 48px;
+        color: var(--dark-purple);
+        font-weight: 700;
+        font-size: 32px;
+        line-height: 100%;
+    }
+}
+
+.summaryRightBlock
+{
+    width: 66%;
+    height: 234px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.lowerLeftBlock
+{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    height: 512px;
+    width: 57%
+}
+
+.involvementBlock
+{
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+
+    h1 
+    {
+        font-size: 48px;
+        color: var(--gold);
+        height: 72px;
+    }
+
+    h2 
+    {
+        font-size: 32px;
+        color: var(--dark-purple);
+        height: 48px;
+    }
+}
+
+.titleImageContainer
+{
+    position: relative;
+    width: 49%;
+    height: 230px;
+    border-radius: 10px;
+}
+
+.summaryImageContainer
+{
+    position: relative;
+    width: 34%;
+    height: 254px;
+    border-radius: 10px;
+}
+
+.involvementImageContainer
+{
+    position: relative;
+    width: 43%;
+    height: 512px;
+    border-radius: 10px;
+}
+
+.conferenceImage
+{
+    object-fit: cover;
+    border-radius: 10px;
+}

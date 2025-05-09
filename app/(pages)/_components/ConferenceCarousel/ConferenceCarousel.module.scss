@@ -1,0 +1,56 @@
+$image-width: 263px;
+$image-height: 200px;
+$image-gap: 49px;
+
+.carousel
+{
+    background: var(--Aggie-Space);
+    width: 100%;
+    height: 372px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.carouselTrack 
+{
+    display: flex;
+    position: absolute;
+    width: fit-content;
+    height: $image-height;
+    gap: $image-gap;
+    animation: scroll-carousel 60s linear infinite;
+
+    &:hover {
+        animation-play-state: paused;
+    }
+}
+
+.imageContainer
+{
+    position: relative;
+    width: $image-width;
+    height: $image-height;
+    flex-shrink: 0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.carouselImage
+{
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+@keyframes scroll-carousel
+{
+    0% {
+        left: 0;
+    }
+    
+    100% {
+        /* Move left by exactly the width of all images plus gaps */
+        left: calc(-1 * var(--num-images) * (#{$image-width} + #{$image-gap}));
+    }
+}

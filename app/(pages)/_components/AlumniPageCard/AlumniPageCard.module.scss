@@ -1,0 +1,111 @@
+.card {
+  width: 646px;
+  height: 430px;
+  flex-shrink: 0;
+
+  border-radius: 15px;
+  background: var(--light-purple);
+  box-shadow: 0px 0px 7px 6px rgba(152, 29, 156, 0.10);
+
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+
+  padding-left: 34px;
+  padding-top: 37px;
+  padding-bottom: 25px;
+}
+
+.imagecontainer {
+
+  width: 251px;
+  height: 352px;
+  flex-shrink: 0;
+  background: var(--white);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  
+
+
+  padding-left: 22px;
+  padding-top: 29px;
+  padding-right: 19px;
+  padding-bottom: 82px;
+
+}
+
+.image {
+  width: 210px;
+  height: 241px;
+  flex-shrink: 0;
+  object-fit: cover;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+
+.icons {
+  display: flex;
+  flex-direction: row;
+  gap: 3px;
+  margin-top: 16px;
+}
+
+.instagram {
+  width: 32px;
+  height: 33px;
+}
+
+.linkedin {
+  width: 32px;
+  height: 33px;
+}
+
+.textcontainer {
+  margin-top: -9px;
+  height: 352px;
+  display: flex;
+  flex-direction: column;
+}
+
+.name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  
+  
+}
+
+.role {
+  font-size: 1rem;
+}
+
+.description {
+  margin-top: 11px;
+  width: 310px;
+  display: -webkit-box;
+  -webkit-line-clamp: 10;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.button {
+  
+  display: flex;
+  width: 110px;
+  height: 35px;
+  
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-shrink: 0;
+
+  border-radius: 100px;
+  border: 2px solid var(--gold);
+  background: #E4A135;
+  cursor: pointer;
+
+
+  position: relative;
+  top: 17px;
+  
+
+}
