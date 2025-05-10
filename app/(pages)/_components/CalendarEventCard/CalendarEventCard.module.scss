@@ -1,0 +1,79 @@
+.eventCardOverlay
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.eventCard
+{
+    background-color: var(--dark-purple);
+    width: 342px;
+    height: 416px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding-top: 42px;
+    padding-bottom: 42px;
+    padding-left: 40px;
+    padding-right: 40px;
+
+    span
+    {
+        color: var(--white);
+        font-size: 12px;
+    }
+
+    p
+    {
+        color: var(--white);
+        font-size: 16px;
+    }
+
+    .eventType 
+    {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+
+        .eventTypeIndicator
+        {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            padding-right: 8px;
+        }
+    }
+
+    .eventTitle
+    {
+        color: var(--white);
+        font-size: 32px;
+    }
+
+    .eventDetails
+    {
+        display: flex;
+        flex-direction: column;
+
+        .eventDetail
+        {
+            display: flex;
+            align-items: center;
+            gap: 8.65px;
+        }
+
+        .detailImg
+        {
+            padding-top: 4px;
+        }
+    }
+}
