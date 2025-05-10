@@ -107,47 +107,48 @@ export default function Storelisting() {
 
   useEffect(() => {
   setSelectedCategory(initialCategory);
-}, [initialCategory]);
+  }, [initialCategory]);
 
-    return (
-      <main>
-        <section className={styles.top}>
-          <div className={styles.headerRow}>
-            <h1 className={styles.title}>Merch Store</h1>
+  return (
+    <main>
+      <section className={styles.top}>
+        <div className={styles.headerRow}>
+          <h1 className={styles.title}>Merch Store</h1>
 
-            <div className={styles.buttons}>
+          <div className={styles.buttons}>
               
-              <Button onClick={() => handleCategoryChange("all")} color={(selectedCategory === "all")? "gradient" : "light"} width={100}>
-                All
-              </Button>
-              <Button onClick={() => handleCategoryChange("tote")} color={(selectedCategory === "tote")? "gradient" : "light"} width={200}>
-                Tote Bags
-              </Button>
-              <Button onClick={() => handleCategoryChange("sticker")} color={(selectedCategory === "sticker")? "gradient" : "light"} width={200}>
-                Stickers
-              </Button>
-            </div>
+            <Button onClick={() => handleCategoryChange("all")} color={(selectedCategory === "all")? "gradient" : "light"} width={100}>
+              All
+            </Button>
+            <Button onClick={() => handleCategoryChange("tote")} color={(selectedCategory === "tote")? "gradient" : "light"} width={200}>
+              Tote Bags
+            </Button>
+            <Button onClick={() => handleCategoryChange("sticker")} color={(selectedCategory === "sticker")? "gradient" : "light"} width={200}>
+              Stickers
+            </Button>
           </div>
+        </div>
 
-        </section>
+      </section>
 
-        <section className={styles.listbox}>
-          {currentProducts.map((product) => (
-            <Link href={`/products/${product.id}`} key={product.id} className={styles.product}>
-                <Image
-                className={styles.container}
-                src={product.image}
-                alt={product.name}
-                width={424}
-                height={424}
-                />
-                <div className={styles.productdetail}>
-                <p className={styles.productname}>{product.name}</p>
-                <p className={styles.cost}>{product.cost}</p>
-                </div>
-            </Link>
-            ))}
-        </section>
+      <section className={styles.listbox}>
+        {currentProducts.map((product) => (
+        <Link href={`/products/${product.id}`} key={product.id} className={styles.product}>
+          <Image
+            className={styles.container}
+            src={product.image}
+            alt={product.name}
+            width={424}
+            height={424}
+          />
+
+          <div className={styles.productdetail}>
+            <p className={styles.productname}>{product.name}</p>
+            <p className={styles.cost}>{product.cost}</p>
+          </div>
+        </Link>
+        ))}
+      </section>
 
       {totalPages > 1 && (
         <section className={styles.bottom}>

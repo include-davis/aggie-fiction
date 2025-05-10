@@ -1,121 +1,114 @@
-.main{
+.main {
   display: flex;
   flex-direction: column;
 }
 
-.top{
+/* Top Navigation */
+.top {
   padding-left: 25px;
   padding-bottom: 10px;
   display: flex;
-  gap: 6px
+  gap: 6px;
 }
 
-.backbtn{
-  border: var(--gold) solid 2px;
-  border-radius: 50px;
-  background-color: transparent;
+.backbtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 44px;
   height: 52px;
+  border: 2px solid var(--gold);
+  border-radius: 50px;
+  background-color: transparent;
   font-family: Poppins, normal;
   font-size: 1.5rem;
   text-decoration: none;
+}
 
+.merch {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.merch{
-  border: var(--gold) solid 2px;
-  border-radius: 50px;
-  background-color: transparent;
   width: 159px;
   height: 52px;
+  border: 2px solid var(--gold);
+  border-radius: 50px;
+  background-color: transparent;
   font-size: 1.25rem;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
-.product{
-  // border: black solid 1px;
+/* Product Section */
+.product {
   display: flex;
   flex-direction: row;
   gap: 20px;
-  padding-bottom: 56px;
   padding-left: 25px;
+  padding-bottom: 56px;
 }
 
 .productimage {
-  border-radius: 10px;
   border: 2px solid var(--gold);
+  border-radius: 10px;
   object-fit: cover;
 }
 
-.productinfo{
-  // border: black solid 1px;
+.productinfo {
   width: 646px;
   height: 162px;
 }
 
-.title{
-  color: var(--dark-purple);
+.title {
   font-size: 32px;
+  color: var(--dark-purple);
 }
 
-.cost{
+.cost {
   color: var(--gold);
   font-family: Poppins, normal;
   padding-bottom: 41px;
 }
 
-.details{
+.details {
   font-family: Poppins, normal;
 }
 
-.moreitems{
-  // border: black solid 1px;
+/* More Items Section */
+.moreitems {
   display: flex;
   flex-direction: column;
 }
 
-.similaritems{
-  // border: black solid 1px;
-  color: var(--gold);
+.similaritems {
   font-size: 32px;
-  align-items: left;
+  color: var(--gold);
   padding-left: 25px;
+  align-items: left;
 }
 
-.images{
-  // border: black solid 1px;
+.images {
   display: flex;
   flex-direction: row;
   justify-content: center;
   gap: 20px;
 }
 
-.extra{
-  // border: black solid 1px;
+.extra {
   display: flex;
   flex-direction: column;
   text-decoration: none;
 }
 
-.productdetail{
-  // border: black solid 1px;
+.productdetail {
   padding-top: 15px;
 }
 
-.productname{
-  color:black;
+.productname {
+  color: black;
 }
 
-.productcost{
+.productcost {
   color: var(--gold);
   font-family: Poppins, normal;
   font-weight: 700;
   text-decoration: none;
-
 }

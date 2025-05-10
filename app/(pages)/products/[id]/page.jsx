@@ -91,13 +91,13 @@ const products = [
 
 
 export default function ProductDetail() {
-    const params = useParams();
-    const id = params.id;
+  const params = useParams();
+  const id = params.id;
 
-    const product = products.find(p => p.id === Number(id));
-    const similarItems = product?.similar?.map(id => products.find(p => p.id === id)).filter(Boolean);
+  const product = products.find(p => p.id === Number(id));
+  const similarItems = product?.similar?.map(id => products.find(p => p.id === id)).filter(Boolean);
 
-    if (!product) return <p>Product not found.</p>;
+  if (!product) return <p>Product not found.</p>;
   return (
     <main>
       <section className={styles.top}>
@@ -127,26 +127,25 @@ export default function ProductDetail() {
 
         <div className={styles.images}>
           {similarItems?.map((item) => (
-            <Link href={`/products/${item.id}`} key={item.id} className={styles.extra}>
-                <Image
-                className={styles.productimage}
-                src={item.image}
-                alt={item.name}
-                width={424}
-                height={191}
-                />
+          <Link href={`/products/${item.id}`} key={item.id} className={styles.extra}>
+            <Image
+              className={styles.productimage}
+              src={item.image}
+              alt={item.name}
+              width={424}
+              height={191}
+            />
                 
-                <div className={styles.productdetail}>
-                <p className={styles.productname}>{item.name}</p>
-                <p className={styles.productcost}>{item.cost}</p>
-                </div>
-            </Link>
-            ))}
-            
-          </div>
+            <div className={styles.productdetail}>
+              <p className={styles.productname}>{item.name}</p>
+              <p className={styles.productcost}>{item.cost}</p>
+            </div>
+          </Link>
+          ))} 
+        </div>
       </section>
        
-      </main>
+    </main>
     );
   }
   
