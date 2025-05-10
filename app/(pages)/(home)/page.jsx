@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function Home() {
   const board = [
-    {
+    { 
       name: "Claudia Colorado",
       role: "President",
       img: "/aboutUsImages/president.png",
@@ -54,7 +54,7 @@ export default function Home() {
           width={431} 
           height={458} 
           alt="Otter Mascot"
-          style={{ display: "block", marginLeft: 0 }}
+          style={{display: "block", marginLeft: 0}}
         />
       </div>
   
@@ -69,16 +69,13 @@ export default function Home() {
           width={352} 
           height={363} 
           alt="Otter Mascot"
-          style={{ display: "block", marginLeft: 0 }}
+          style={{display: "block", marginLeft: 0}}
         />
       </div>
   
       <h2 className={styles.valuesHeader}>Our values</h2>
       <div className={styles.values}>
         <div className={styles.creativity}>
-        </div>
-          <p>Aggie Fiction fosters a space where students can freely explore their imaginations through writing. Whether crafting original stories, experimenting with new genres, or participating in workshops, members are encouraged to take creative risks and refine their unique voices.
-          </p>
           <div className={styles.icon}>
             <Image 
               src="/aboutUsImages/creativity.png" 
@@ -87,8 +84,10 @@ export default function Home() {
               alt="Creativity Icon"
             />
             <h3>Creativity</h3>
+          </div>
+          <p>Aggie Fiction fosters a space where students can freely explore their imaginations through writing. Whether crafting original stories, experimenting with new genres, or participating in workshops, members are encouraged to take creative risks and refine their unique voices.
+          </p>
         </div>
-  
         <div className={styles.community}>
           <div className={styles.icon}>
             <Image 
@@ -102,7 +101,6 @@ export default function Home() {
           <p>The club thrives on collaboration and support, creating a welcoming environment where writers of all skill levels can share their work and receive constructive feedback. Through events like writing workshops, group discussions, and field trips (e.g., the San Francisco Writers Conference), Aggie Fiction strengthens connections among students who share a passion for storytelling.
           </p>
         </div>
-  
         <div className={styles.authenticity}>
           <div className={styles.icon}>
             <Image 
@@ -117,7 +115,7 @@ export default function Home() {
           </p>
         </div>
       </div>
-  
+
       <h2 className={styles.boardHeader}>Our board</h2>
       <div className={styles.board}>
         <div className={styles.boardGrid}>

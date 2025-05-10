@@ -1,8 +1,10 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .aboutUsHeader {
-    width: 293px;
-    height: 96px;
-    top: 156px;
-    left: 100px;
     font-family: Poppins;
     font-weight: 700;
     font-size: 64px;
@@ -32,10 +34,6 @@
 }
 
 .mascotHeader {
-    width: 387px;
-    height: 96px;
-    top: 914px;
-    left: 101px;
     font-family: Poppins;
     font-weight: 700;
     font-size: 64px;
@@ -66,10 +64,6 @@
 }
 
 .valuesHeader {
-    width: 421px;
-    height: 118px;
-    top: 1754px;
-    left: 546px;
     font-family: Poppins;
     font-weight: 700;
     font-size: 64px;
@@ -81,54 +75,43 @@
 
 .values {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     width: 100%;
-    gap: 40px;
+    margin: 0 auto;
     .creativity, .community, .authenticity {
-        width: 1309px;
-        height: 288px;
-        top: 1874px;
-        left: 103px;
         display: flex;
-        flex-direction: column;
-        .icon {
-            width: 421.41326904296875px;
-            height: 288px;
-            top: 1874px;
-            left: 103px;
-            gap: 15px;    
-            h3 {
-                width: 421.41326904296875;
-                height: 48;
-                font-family: Poppins;
-                font-weight: 600;
-                font-size: 32px;
-                line-height: 100%;
-                letter-spacing: 0%;
-                text-align: center;
-                color: var(--black);                        
-            }
-        }
-        p {
-            width: 868;
-            height: 144;
-            top: 1946px;
-            left: 544px;
+        flex-direction: row;
+        align-items: center;
+        p { 
             font-family: Poppins;
             font-weight: 400;
             font-size: 24px;
             line-height: 100%;
             letter-spacing: 0%;
-            color: var(--black);                
+            color: var(--black);
+        }
+        .icon {
+            width: 421.41326904296875px;
+            height: 354.35943603515625px;
+            top: 2213px;
+            left: 103px;
+            gap: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            h3 {
+                margin-top: 15px;
+                font-family: Poppins;
+                font-weight: 600;
+                font-size: 32px;
+                text-align: center;
+                color: var(--black);
+            }
         }
     }
 }
 
 .boardHeader {
-    width: 333px;
-    height: 96px;
-    top: 2962px;
-    left: 577px;
     font-family: Poppins;
     font-weight: 700;
     font-size: 64px;
