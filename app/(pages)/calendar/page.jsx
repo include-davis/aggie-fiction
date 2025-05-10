@@ -1,7 +1,8 @@
 import Image from "next/image";
 import styles from "./page.module.scss";
+import Calendar from "../_components/Calendar/Calendar";
 
-export default function Calendar() {
+export default function CalendarPage() {
   return (
     <main>
       <div className={styles.calendarContainer}>
@@ -46,7 +47,9 @@ export default function Calendar() {
           </div>
         </div>
 
-        <div className={styles.calendarContent}></div>
+        <div className={styles.calendarContent}>
+          <Calendar />
+        </div>
       </div>
     </main>
   );
