@@ -1,0 +1,104 @@
+.expandedCard {
+    position: relative;
+    width: 1309px;
+    height: 886px;
+    flex-shrink: 0;
+  
+    border-radius: 15px;
+    background: var(--light-purple);
+    box-shadow: 0px 0px 7px 6px rgba(152, 29, 156, 0.10);
+  
+    display: flex;
+    flex-direction: row;
+    gap: 65.12px;
+  
+    padding-left: 60.43px;
+    padding-top: 87px;
+    padding-bottom: 89.35px;
+  }
+  .closeButton{
+    position: absolute;
+    top: 37px;
+    right:43px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    
+
+  }
+  .imageContainer {
+    width: 472.251px;
+    height: 709.653px;
+    flex-shrink: 0;
+    background: var(--white);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    align-items: center;
+  
+  
+    padding-left: 39.96px;
+    padding-top: 71px;
+    padding-right: 36.74px;
+    padding-bottom: 87.65px;
+  
+  }
+  
+  .image {
+    width: 395.745px;
+    height: 551px;
+    flex-shrink: 0;
+    object-fit: cover;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  }
+  
+  
+  .name {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  
+  .role {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  .longDescription {
+    
+    width: 565.843px;
+    font-size: 1.125rem;
+    font-weight: 400;
+  }
+
+  .socialTitle {
+    font-size: 1.5rem;
+  }
+
+  .socialContainer {
+    display: inline-flex;
+    align-items: center;
+    gap: 11px;
+
+    
+  }
+  
+  .icons {
+    display: flex;
+    flex-direction: column;
+    gap: 13.25px;
+
+    position: absolute;
+    bottom: 161px;
+    left:598px;
+    right:124px;
+    top:613px;
+  }
+
+  .socialHandle {
+    color: var(--black);
+    text-decoration: none;
+
+    &:hover{
+      color: #333;
+      text-decoration: underline;
+    }
+  }
