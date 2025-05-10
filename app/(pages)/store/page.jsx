@@ -1,9 +1,12 @@
 'use client';
 import styles from "./page.module.scss";
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link'
 import Button from "../_components/button/Button";
+import { useSearchParams } from 'next/navigation';
+import { useRouter } from 'next/navigation';
+
 
 const products = [
     {
@@ -72,12 +75,17 @@ const products = [
   ];
 
 export default function Storelisting() {
-  const [selectedCategory, setSelectedCategory] = useState("all");
+
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 6;
 
+  const searchParams = useSearchParams();
+  const initialCategory = searchParams.get('category') || 'all';
+  const [selectedCategory, setSelectedCategory] = useState("all");
+
   const filteredProducts = products.filter(
-  (product) => selectedCategory === "all" || product.category === selectedCategory);
+    (product) => selectedCategory === "all" || product.category === selectedCategory
+  );
 
   const totalPages = Math.ceil(filteredProducts.length / itemsPerPage);
   const startIndex = (currentPage - 1) * itemsPerPage;
@@ -88,11 +96,18 @@ export default function Storelisting() {
       setCurrentPage(page);
     }
   };
+
   const handleCategoryChange = (category) => {
     setSelectedCategory(category);
-    setCurrentPage(1); 
-    
+    setCurrentPage(1);
+    router.push(`/store?category=${category}`);
   };
+
+  const router = useRouter();
+
+  useEffect(() => {
+  setSelectedCategory(initialCategory);
+}, [initialCategory]);
 
     return (
       <main>
@@ -101,6 +116,7 @@ export default function Storelisting() {
             <h1 className={styles.title}>Merch Store</h1>
 
             <div className={styles.buttons}>
+              
               <Button onClick={() => handleCategoryChange("all")} color={(selectedCategory === "all")? "gradient" : "light"} width={100}>
                 All
               </Button>

@@ -3,6 +3,41 @@
   flex-direction: column;
 }
 
+.top{
+  padding-left: 25px;
+  padding-bottom: 10px;
+  display: flex;
+  gap: 6px
+}
+
+.backbtn{
+  border: var(--gold) solid 2px;
+  border-radius: 50px;
+  background-color: transparent;
+  width: 44px;
+  height: 52px;
+  font-family: Poppins, normal;
+  font-size: 1.5rem;
+  text-decoration: none;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.merch{
+  border: var(--gold) solid 2px;
+  border-radius: 50px;
+  background-color: transparent;
+  width: 159px;
+  height: 52px;
+  font-size: 1.25rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .product{
   // border: black solid 1px;
   display: flex;
@@ -59,30 +94,28 @@
   flex-direction: row;
   justify-content: center;
   gap: 20px;
-
 }
 
 .extra{
+  // border: black solid 1px;
   display: flex;
   flex-direction: column;
+  text-decoration: none;
 }
 
 .productdetail{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding-top: 10px;
+  // border: black solid 1px;
+  padding-top: 15px;
+}
+
+.productname{
+  color:black;
 }
 
 .productcost{
   color: var(--gold);
   font-family: Poppins, normal;
   font-weight: 700;
-}
+  text-decoration: none;
 
-
-.buy{
-  border: black solid 1px;
-  width: 162px;
-  height: 36px;
 }
