@@ -1,0 +1,121 @@
+.main{
+  display: flex;
+  flex-direction: column;
+}
+
+.top{
+  padding-left: 25px;
+  padding-bottom: 10px;
+  display: flex;
+  gap: 6px
+}
+
+.backbtn{
+  border: var(--gold) solid 2px;
+  border-radius: 50px;
+  background-color: transparent;
+  width: 44px;
+  height: 52px;
+  font-family: Poppins, normal;
+  font-size: 1.5rem;
+  text-decoration: none;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.merch{
+  border: var(--gold) solid 2px;
+  border-radius: 50px;
+  background-color: transparent;
+  width: 159px;
+  height: 52px;
+  font-size: 1.25rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.product{
+  // border: black solid 1px;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  padding-bottom: 56px;
+  padding-left: 25px;
+}
+
+.productimage {
+  border-radius: 10px;
+  border: 2px solid var(--gold);
+  object-fit: cover;
+}
+
+.productinfo{
+  // border: black solid 1px;
+  width: 646px;
+  height: 162px;
+}
+
+.title{
+  color: var(--dark-purple);
+  font-size: 32px;
+}
+
+.cost{
+  color: var(--gold);
+  font-family: Poppins, normal;
+  padding-bottom: 41px;
+}
+
+.details{
+  font-family: Poppins, normal;
+}
+
+.moreitems{
+  // border: black solid 1px;
+  display: flex;
+  flex-direction: column;
+}
+
+.similaritems{
+  // border: black solid 1px;
+  color: var(--gold);
+  font-size: 32px;
+  align-items: left;
+  padding-left: 25px;
+}
+
+.images{
+  // border: black solid 1px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 20px;
+}
+
+.extra{
+  // border: black solid 1px;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+}
+
+.productdetail{
+  // border: black solid 1px;
+  padding-top: 15px;
+}
+
+.productname{
+  color:black;
+}
+
+.productcost{
+  color: var(--gold);
+  font-family: Poppins, normal;
+  font-weight: 700;
+  text-decoration: none;
+
+}
