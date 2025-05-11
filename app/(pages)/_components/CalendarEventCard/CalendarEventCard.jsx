@@ -36,7 +36,7 @@ export default function CalendarEventCard({event})
                     <div className = {styles.eventDetail}>
                         <span className = {styles.detailImg}>
                             <Image 
-                                src = "/Calendar/svg/ClockIcon.svg"
+                                src = "/Calendar/svg/WhiteClockIcon.svg"
                                 alt = "Clock icon"
                                 width = {16.35}
                                 height = {16.35}
@@ -47,7 +47,7 @@ export default function CalendarEventCard({event})
                     <div className = {styles.eventDetail}>
                         <span className = {styles.detailImg}>
                             <Image
-                                src = "/Calendar/svg/LocationIcon.svg"
+                                src = "/Calendar/svg/WhiteLocationIcon.svg"
                                 alt = "Location icon"
                                 width = {16}
                                 height = {17.93}
