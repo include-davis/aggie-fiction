@@ -24,8 +24,10 @@ export default function Home() {
 
             <div className={styles.logo}>
               <Image
-                src="/Home/img/Jackie.png"
+                src="/Home/img/Otter.png"
                 alt="Jackie"
+                // width={1258}
+                // height={398}
                 width={518}
                 height={501}
               />
