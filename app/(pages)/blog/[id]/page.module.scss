@@ -1,0 +1,78 @@
+.page{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+.TopButtons{
+  display:flex
+}
+.button{
+  border-radius:25px;
+  border:solid;
+  border-width: 2px;
+  border-color: var(--gold);
+  font-size:24px;
+  background: var(--white);
+  padding: 10px 20px;
+  display: inline-block;
+}
+.image{
+  flex-shrink: 0;
+  border-radius: 10px;
+}
+.header{
+  color:var(--gold);
+  font-size:64px;
+}
+.subheader{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  gap:3px;
+  font-size: 16px;
+  margin-left: 5px;
+  width:100%
+}
+.lineseparator{
+  border:solid;
+  width:286px;
+  height:1px;
+  border-color: var(--black);
+}
+.blogcontent{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.content{
+  font-size: 16px;
+}
+.category{
+  display: flex;
+  gap:8px;
+}
+.AboutAuthor{
+  display: flex;
+  flex-direction: column;
+}
+.AboutAuthor h2{
+  color:var(--dark-purple);
+  font-size:32px
+}
+.AuthorContent{
+  display: flex;
+  margin-top: 27px;
+  gap:72px
+}
+.AuthorInfor{
+  display: flex;
+  flex-direction: column;
+}
+.EndButtons{
+  display:flex;
+  margin-top: 37px;
+  justify-content: flex-end;
+  width: 100%;
+}

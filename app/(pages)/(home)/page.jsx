@@ -1,6 +1,5 @@
 import styles from "./page.module.scss";
 import HomeCarousel from "../_components/HomeCarousel/HomeCarousel";
-
 export default function Home() {
   return (
     <main className={styles.page}>
