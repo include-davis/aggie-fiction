@@ -57,7 +57,7 @@ export default function AlumniPageCard(info) {
                     {instaLink && (
                         <a href={instaLink} target="_blank" rel="noopener noreferrer">
                             <Image
-                                src="/insta-icon.svg"
+                                src="/AlumniPage/insta-icon.svg"
                                 alt="Instagram icon"
                                 className={styles.instagram}
                                 width={30}
@@ -69,7 +69,7 @@ export default function AlumniPageCard(info) {
                     {linkedinLink && (
                         <a href={linkedinLink} target="_blank" rel="noopener noreferrer">
                             <Image
-                                src="/linkedin-icon.svg"
+                                src="/AlumniPage/linkedin-icon.svg"
                                 alt="LinkedIn icon"
                                 className={styles.linkedin}
                                 width={30}

@@ -1,0 +1,64 @@
+
+
+.alumniPage{
+    display: flex;
+    flex-direction: column;
+    gap: 44px;
+    padding-left: 100px;
+    padding-top: 43px;
+    padding-bottom: 103px;
+}
+
+
+.title{
+    color: var(--gold);
+    font-size: 4rem;
+    width: 541px;
+    height: 96px;
+}
+
+.header{
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+
+}
+
+.jackieSticker{
+    position: absolute;
+    top: 17px;
+    right: 85px;
+    left: 1086px;
+
+
+}
+
+.searchbar{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding-left: 24.85px;
+    gap: 27.66px;
+
+    width: 647px;
+    height: 57px; 
+    flex-shrink: 0;
+    background: var(--white);
+    border: 2px solid var(--black);
+    border-radius: 150px;
+}
+
+.searchInput{
+    font-family: var(--font1);
+    color: var(--black);
+    border: none;
+    background: transparent;
+    outline: none;
+    
+}
+
+.cardsContainer{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 20px;
+}
