@@ -5,7 +5,7 @@
 
   .calendarHeader {
     display: grid;
-    grid-template-rows: 75px;
+    grid-template-rows: auto 75px;
     grid-template-columns: repeat(7, 1fr);
     align-items: center;
     background: var(--light-purple);
@@ -20,7 +20,7 @@
 
   .calendarItems {
     display: grid;
-    grid-template-rows: repeat(5, 114px);
+    grid-template-rows: repeat(6, 114px);
     grid-template-columns: repeat(7, 1fr);
     border-radius: 0 0 10px 10px;
 
