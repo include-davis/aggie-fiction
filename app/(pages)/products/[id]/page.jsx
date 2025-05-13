@@ -1,5 +1,5 @@
 'use client';
-import styles from "./test.module.scss";
+import styles from "./page.module.scss";
 import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link'
