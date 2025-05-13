@@ -18,7 +18,8 @@ const submissions = [
 export default function WorkshopsSection() {
   return (
     <section className={styles.wrapper}>
-      {/* ===== TOP ROW ===== */}
+
+      {/* ===== TOP ROW: Title + Intro + Photo ===== */}
       <div className={styles.top}>
         <div className={styles.textBlock}>
           <h2 className={styles.heading}>Workshops</h2>
@@ -44,20 +45,15 @@ export default function WorkshopsSection() {
         </div>
       </div>
 
-      {/* ===== MIDDLE ROW ===== */}
+      {/* ===== MIDDLE ROW: “Why are workshops useful?” ===== */}
       <div className={styles.whyContainer}>
         <h3 className={styles.subheading}>Why are workshops useful?</h3>
         <p className={styles.whyBody}>
-          A workshop under Aggie Fiction is meant to be a laid-back experience
-          where writers have their ideas, styles, and voices uplifted rather
-          than diminished. We are more interested in helping each other grow by
-          asking constructive questions. Everyone’s story and voice has value,
-          and it is the goal of Aggie Fiction members to help make that value
-          shine brighter.
+        A workshop under Aggie Fiction is meant to be a laid-back experience where writers have their ideas, styles, and voices uplifted rather than diminished. As someone who submitted more than a couple of works, I have never felt harshly judged for the quality of my writing. Each critique is met with a compliment, where conversations are more fun than cold. When being a reader, asking questions, giving flowers, and suggesting areas to grow is key to making sure the writer does not stress over their small mistakes and instead focuses them on their work’s potential. Each writer’s story and voice has value, and it is the goal of Aggie Fiction members to have that value shine brighter.
         </p>
       </div>
 
-      {/* ===== BOTTOM ROW ===== */}
+      {/* ===== BOTTOM ROW: Gradient + Speaker + Submission List ===== */}
       <div className={styles.bottom}>
         <div className={styles.bottomImage}>
           <Image
@@ -72,7 +68,7 @@ export default function WorkshopsSection() {
             Types of Workshop Submissions
           </h4>
           <ul className={styles.list}>
-            {submissions.map((item) => (
+            {submissions.map(item => (
               <li key={item} className={styles.listItem}>
                 <svg
                   className={styles.icon}
@@ -91,12 +87,7 @@ export default function WorkshopsSection() {
                   </g>
                   <defs>
                     <clipPath id="clip0_799_1610">
-                      <rect
-                        width="23"
-                        height="18"
-                        fill="white"
-                        transform="translate(18) rotate(90)"
-                      />
+                      <rect width="23" height="18" fill="white" transform="translate(18) rotate(90)" />
                     </clipPath>
                   </defs>
                 </svg>
@@ -106,6 +97,7 @@ export default function WorkshopsSection() {
           </ul>
         </div>
       </div>
+
     </section>
   )
 }
