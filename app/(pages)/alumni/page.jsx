@@ -8,8 +8,9 @@ const alumniList = [
   {
     first_name:"Jack",
     last_name:"Hyslop",
-    role:"Founder and Leader",
-    years:"2020–2022",
+    role1:"Founder, 2020–2022",
+    role2:"",
+    role3:"",
     description:(
     <>
       Jack started the club with his friends Maeve and Isabella in Winter Quarter 2020.
@@ -32,8 +33,7 @@ const alumniList = [
    {
     first_name:"Leila",
     last_name:"Sanchez",
-    role:"President",
-    years:"2020–2023",
+    role1:"President, 2020–2023",
     description:(
     <>
       After graduation in 2023, Leila Sanchez now works at the Social Security Administration 
@@ -52,8 +52,9 @@ const alumniList = [
    {
     first_name:"Annie",
     last_name:"Tran",
-    role:"Vice President",
-    years:"2022–2023",
+    role1:"Vice President, 2022–2023",
+    role2:"president, 2023-2024",
+    role3:"",
     description:(
     <>
     Annie Tran joined the club in fall of 2020—during lockdown—serving as president in her final year at davis. 
@@ -69,8 +70,7 @@ const alumniList = [
    {
     first_name:"Jakob",
     last_name:"Stanton",
-    role:"Vice President",
-    years:"2023–2024",
+    role1:"Vice President, 2023–2024",
     description:(
     <>
       Jakob Stanton was the secondary leader of Aggie Fiction from 2023-2024. 
@@ -89,8 +89,9 @@ const alumniList = [
    {
     first_name:"Erika",
     last_name:"DiMaano",
-    role:"Publicity Chair",
-    years:"2022–2024",
+    role:"Publicity Chair, 2022–2024",
+    role2:"",
+    role3:"",
     description:(
     <>
       Erika DiMaano is an interaction designer who's been working on various interactive digital projects and design work. 
@@ -152,7 +153,9 @@ export default function almuni() {
             key={index}
             first_name={alum.first_name}
             last_name={alum.last_name}
-            role={alum.role}
+            role1={alum.role1}
+            role2={alum.role2}
+            role3={alum.role3}
             years={alum.years}
             description={alum.description}
             imageUrl={alum.imageUrl}

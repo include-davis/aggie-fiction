@@ -4,8 +4,9 @@ import Image from "next/image";
 export default function ExpandedAlumniCard({
     first_name,
     last_name,
-    role,
-    years,
+    role1,
+    role2,
+    role3,
     description,
     imageUrl,
     instaHandle,
@@ -41,9 +42,12 @@ export default function ExpandedAlumniCard({
            
             <div className={styles.textContainer}>
                 <h1 className={styles.name}>{first_name} {last_name}</h1>
-                <h2 className={styles.role}>
-                    {role}, {years}
-                </h2>
+
+                <div className={styles.roleContainer}>
+                <h2 className={styles.role1}>{role1}</h2>
+                <h2 className={styles.role2}>{role2}</h2>
+                <h2 className={styles.role3}>{role3}</h2>
+                </div>
 
                 <p className={styles.longDescription}>{description}</p>
 

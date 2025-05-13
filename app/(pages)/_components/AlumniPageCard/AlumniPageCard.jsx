@@ -9,8 +9,9 @@ export default function AlumniPageCard(info) {
     const {
         first_name,
         last_name,
-        role,
-        years,
+        role1,
+        role2,
+        role3,
         description,
         imageUrl,
         instaHandle,
@@ -29,8 +30,9 @@ export default function AlumniPageCard(info) {
             <ExpandedAlumniCard
                 first_name={first_name}
                 last_name={last_name}
-                role={role}
-                years={years}
+                role1={role1}
+                role2={role2}
+                role3={role3}
                 description={description}
                 imageUrl={imageUrl}
                 instaHandle={instaHandle}
@@ -83,11 +85,13 @@ export default function AlumniPageCard(info) {
 
                 <div className={styles.textcontainer}>
                     <h1 className={styles.name}>{first_name} {last_name}</h1>
-                    <h2 className={styles.role}>
-                        {role}, {years}
-                    </h2>
-
-
+                
+                
+                    <h2 className={styles.role1}>{role1}</h2>
+                    <h2 className={styles.role2}>{role2}</h2>
+                    <h2 className={styles.role3}>{role3}</h2>
+                
+                
                     <p className={styles.description}>{description}</p>
                     <button className={styles.button} onClick={handleExpand}>Read More</button>
                 </div>
