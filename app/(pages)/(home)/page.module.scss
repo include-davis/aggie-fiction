@@ -15,11 +15,8 @@
         width: 85%;
         height: 610px;
         gap: 15%;
-        // background: url("/Home/img/Ellipse.png") no-repeat center center /
-        //   contain;
-        background: url("/Home/img/Otter.png") no-repeat center center / contain;
-
-        // border: solid black;
+        background: url("/Home/img/Ellipse.png") no-repeat center center /
+          contain;
 
         .title {
           //   border: solid black;
@@ -44,7 +41,8 @@
 
           button {
             margin-top: 50px;
-            padding: 20px 40px;
+            width: 249px;
+            height: 71px;
             color: var(--black);
             font-size: 30px;
             font-weight: 700;
@@ -54,7 +52,6 @@
         }
 
         .logo {
-          //   border: solid black;
           display: flex;
           align-self: flex-end;
           width: fit-content;
@@ -82,7 +79,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: solid black;
     padding-top: 115px;
     padding-bottom: 105px;
     height: 1500px;

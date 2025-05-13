@@ -26,8 +26,6 @@ export default function Home() {
               <Image
                 src="/Home/img/Otter.png"
                 alt="Jackie"
-                // width={1258}
-                // height={398}
                 width={518}
                 height={501}
               />
@@ -39,10 +37,6 @@ export default function Home() {
           <h1>Blog</h1>
 
           <HomeCarousel />
-        </div>
-
-        <div className={styles.upcomingEvents}>
-          <h1>Upcoming Events</h1>
         </div>
       </div>
     </div>
