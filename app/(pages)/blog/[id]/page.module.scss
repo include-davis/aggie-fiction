@@ -4,6 +4,7 @@
   justify-content: center;
   align-items: center;
   margin-top: 30px;
+  padding: 37px 100px;
 }
 .TopButtons{
   display:flex
@@ -21,6 +22,10 @@
 .image{
   flex-shrink: 0;
   border-radius: 10px;
+  width: 1312px;
+  height:400px;
+  position:relative;
+  overflow: hidden;
 }
 .header{
   color:var(--gold);
@@ -29,11 +34,10 @@
 .subheader{
   display:flex;
   flex-direction: column;
-  justify-content: center;
+  align-items: flex-start;
   gap:3px;
   font-size: 16px;
-  margin-left: 5px;
-  width:100%
+  width:100%;
 }
 .lineseparator{
   border:solid;
@@ -44,18 +48,28 @@
 .blogcontent{
   display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: center;
 }
 .content{
+  border-width: 1312px;
   font-size: 16px;
+  margin:27px 100px;
+  align-items: center;
+  justify-content: center;
 }
 .category{
   display: flex;
   gap:8px;
+  justify-content: flex-start;
+  width: 100%;
 }
 .AboutAuthor{
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
+  margin-top: 30px;
+  width:100%;
 }
 .AboutAuthor h2{
   color:var(--dark-purple);
@@ -65,6 +79,13 @@
   display: flex;
   margin-top: 27px;
   gap:72px
+}
+.author_image{
+  width:372px;
+  height:372px;
+  position: relative;
+  overflow: hidden;
+  border-radius:10px;
 }
 .AuthorInfor{
   display: flex;
