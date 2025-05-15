@@ -10,11 +10,11 @@ export default function CalendarEventCard({event})
     // Map the different event types to their corresponding colors
     const getEventColor = type => {
         const colorMap = {
-            "General Meeting": "#EEC358",
-            "Conference": "#F4A1A2",
-            "Fundraiser": "#198A9E",
+            "General Meeting": "#FADC90",
+            "Board Meetings": "#FFBAAF",
+            "Fundraiser": "#A4DAEB",
             "Guest Speaker": "#6681DB",
-            "Special Event": "#EE4D4D"
+            "Special Event": "#9CE1C2"
         };
         return colorMap[type] || "#EEC358";
     };
