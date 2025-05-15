@@ -64,7 +64,7 @@ export default function Page() {
                         </div>
                 </div>
             </div>
-            </div>
+
             <div className={styles.EndButtons}>
                 <div className={styles.button}>
                     Next entry
