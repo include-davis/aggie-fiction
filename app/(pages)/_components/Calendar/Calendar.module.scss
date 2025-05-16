@@ -5,11 +5,14 @@
 
   .calendarHeader {
     display: grid;
-    grid-template-rows: auto 75px;
+    grid-template-rows: 75px;
     grid-template-columns: repeat(7, 1fr);
     align-items: center;
     background: var(--light-purple);
-    border: solid black;
+    border-top: 2px solid black;
+    border-right: 2px solid black;
+    border-bottom: 1px solid black;
+    border-left: 2px solid black;
     border-radius: 10px 10px 0 0;
 
     h2 {
@@ -18,14 +21,60 @@
     }
   }
 
-  .calendarItems {
+  .calendarCellsContainer {
     display: grid;
     grid-template-rows: repeat(6, 114px);
     grid-template-columns: repeat(7, 1fr);
+    border: 1px solid black;
     border-radius: 0 0 10px 10px;
+    overflow: hidden;
 
-    .item {
-      border: solid black;
+    .calendarCell {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: var(--white);
+      overflow: scroll;
+      border: 2px solid black;
+    }
+
+    .currentMonth {
+      color: #000;
+      background-color: var(--white);
+    }
+
+    .otherMonth {
+      color: #aaa;
+      background-color: #f9f9f9;
+    }
+
+    .dateNum {
+      padding-top: 10px;
+      padding-left: 12px;
+      width: 100%;
+      font-size: 20px;
+    }
+
+    .eventItems {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3px;
+      width: 100%;
+
+      .eventItem {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 10px;
+        width: 90%;
+        border-radius: 100px;
+        background-color: #ffbaaa !important;
+
+        p {
+          font-size: 0.8rem;
+        }
+      }
     }
   }
 }

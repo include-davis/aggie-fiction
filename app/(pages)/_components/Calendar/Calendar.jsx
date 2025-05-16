@@ -5,20 +5,30 @@ import axios from "axios";
 import { useState, useEffect, useMemo } from "react";
 
 function generateCalendarDays(year, month) {
-  const firstDay = new Date(year, month, 1).getDay(); // day of week
-  const totalDays = new Date(year, month + 1, 0).getDate(); // last day of month
+  const firstDayOfMonth = new Date(year, month, 1);
+  const startDay = firstDayOfMonth.getDay(); // 0 (Sun) to 6 (Sat)
+
+  const totalDaysInMonth = new Date(year, month + 1, 0).getDate();
+  const totalDaysInPrevMonth = new Date(year, month, 0).getDate();
 
   const days = [];
 
-  // Fill in blanks before the 1st of the month
-  for (let i = 0; i < firstDay; i++) {
-    days.push(null);
+  // Fill in previous month's trailing days
+  for (let i = startDay - 1; i >= 0; i--) {
+    const date = new Date(year, month - 1, totalDaysInPrevMonth - i);
+    days.push(date);
   }
 
-  // Fill in days of the current month
-  for (let i = 1; i <= totalDays; i++) {
-    const date = new Date(year, month, i);
-    days.push(date); // store full date objects!
+  // Fill in current month's days
+  for (let i = 1; i <= totalDaysInMonth; i++) {
+    days.push(new Date(year, month, i));
+  }
+
+  // Fill in next month's leading days to make 42 total
+  const totalCells = 42;
+  const nextMonthDayCount = totalCells - days.length;
+  for (let i = 1; i <= nextMonthDayCount; i++) {
+    days.push(new Date(year, month + 1, i));
   }
 
   return days;
@@ -35,6 +45,12 @@ function normalizeEventDates(events) {
     return {
       date: isoDate,
       summary: event.summary || "Untitled",
+      time: event.start.dateTime
+        ? date.toLocaleTimeString([], {
+            hour: "numeric",
+            hour12: true,
+          })
+        : null,
     };
   });
 }
@@ -42,36 +58,12 @@ function normalizeEventDates(events) {
 export default function Calendar({ currentMonth, currentYear, events = [] }) {
   const [days, setDays] = useState([]);
   const [fetchedEvents, setFetchedEvents] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [debugMode, setDebugMode] = useState(true);
 
   // Generate days when month/year changes
   useEffect(() => {
     const generatedDays = generateCalendarDays(currentYear, currentMonth);
     setDays(generatedDays);
-
-    // Add test events for debugging
-    if (debugMode) {
-      const testDate1 = new Date(currentYear, currentMonth, 15);
-      const testDate2 = new Date(currentYear, currentMonth, 20);
-
-      const testEvents = [
-        {
-          id: "test1",
-          summary: "Test Event 1",
-          start: { date: testDate1.toISOString().split("T")[0] },
-        },
-        {
-          id: "test2",
-          summary: "Test Event 2",
-          start: { date: testDate2.toISOString().split("T")[0] },
-        },
-      ];
-
-      console.log("Added test events:", testEvents);
-      setFetchedEvents(testEvents);
-    }
-  }, [currentMonth, currentYear, debugMode]);
+  }, [currentMonth, currentYear]);
 
   // Map events to dates
   const eventMap = useMemo(() => {
@@ -84,72 +76,36 @@ export default function Calendar({ currentMonth, currentYear, events = [] }) {
     normalized.forEach((ev) => {
       if (!ev.date) return;
       if (!map[ev.date]) map[ev.date] = [];
-      map[ev.date].push(ev.summary);
+      map[ev.date].push({ summary: ev.summary, time: ev.time });
     });
 
     console.log("Event map:", map);
     return map;
   }, [events, fetchedEvents]);
 
-  const login = useGoogleLogin({
-    scope: "https://www.googleapis.com/auth/calendar.readonly",
-    onSuccess: async (tokenResponse) => {
-      setIsLoading(true);
-      setDebugMode(false); // Turn off debug mode when real events are fetched
-
+  useEffect(() => {
+    const fetchEvents = async () => {
       try {
-        const res = await axios.get(
-          "https://www.googleapis.com/calendar/v3/calendars/primary/events",
-          {
-            headers: {
-              Authorization: `Bearer ${tokenResponse.access_token}`,
-            },
-          }
-        );
-
-        console.log("Fetched events:", res.data.items);
-        setFetchedEvents(res.data.items || []);
-      } catch (error) {
-        console.error("Failed to fetch events:", error);
-      } finally {
-        setIsLoading(false);
+        const res = await fetch("/api/events");
+        const data = await res.json();
+        setFetchedEvents(data.events || []);
+      } catch (err) {
+        console.error("Error fetching events:", err);
       }
-    },
-    onError: () => {
-      console.error("Login Failed");
-    },
-  });
+    };
+
+    fetchEvents();
+  }, [currentMonth, currentYear]);
 
   return (
     <div>
-      <div style={{ marginBottom: "20px", textAlign: "center" }}>
-        <button
-          onClick={() => login()}
-          style={{
-            padding: "10px 20px",
-            backgroundColor: "#6b46c1",
-            color: "white",
-            border: "none",
-            borderRadius: "5px",
-            cursor: "pointer",
-          }}
-          disabled={isLoading}
-        >
-          {isLoading ? "Loading..." : "Sign in with Google"}
-        </button>
-
-        {debugMode && (
-          <div style={{ marginTop: "10px", fontSize: "12px", color: "#666" }}>
-            Debug mode: ON - Test events should appear on the 15th and 20th
-          </div>
-        )}
-
+      {/* <div style={{ marginBottom: "20px", textAlign: "center" }}>
         {Object.keys(eventMap).length > 0 && (
           <div style={{ marginTop: "10px", fontSize: "12px", color: "#666" }}>
             Events found for dates: {Object.keys(eventMap).join(", ")}
           </div>
         )}
-      </div>
+      </div> */}
 
       <div className={styles.calendarContainer}>
         <div className={styles.calendarHeader}>
@@ -158,8 +114,36 @@ export default function Calendar({ currentMonth, currentYear, events = [] }) {
           ))}
         </div>
 
-        <div className={styles.calendarItems}>
+        <div className={styles.calendarCellsContainer}>
           {days.map((dateObj, idx) => {
+            const dateStr = dateObj
+              ? dateObj.toISOString().split("T")[0]
+              : null;
+            const day = dateObj?.getDate();
+            const isCurrentMonth = dateObj.getMonth() === currentMonth;
+            const dailyEvents = isCurrentMonth ? eventMap[dateStr] || [] : [];
+
+            return (
+              <div
+                key={idx}
+                className={`${styles.calendarCell} ${isCurrentMonth ? styles.currentMonth : styles.otherMonth}`}
+              >
+                {day && <div className={styles.dateNum}>{day}</div>}
+                {dailyEvents.length > 0 && (
+                  <div className={styles.eventItems}>
+                    {dailyEvents.map((event, i) => (
+                      <div key={i} className={styles.eventItem}>
+                        <p>{event.summary}</p>
+                        <p>{event.time}</p>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+            );
+          })}
+
+          {/* {days.map((dateObj, idx) => {
             const dateStr = dateObj
               ? dateObj.toISOString().split("T")[0]
               : null;
@@ -168,49 +152,27 @@ export default function Calendar({ currentMonth, currentYear, events = [] }) {
 
             return (
               <div key={idx} className={styles.item}>
-                {day && <h3>{day}</h3>}
-                {dailyEvents.length > 0 && (
-                  <div>
-                    {dailyEvents.map((summary, i) => (
-                      <div
-                        key={i}
-                        style={{
-                          backgroundColor: "#ebf8ff",
-                          borderLeft: "3px solid #90cdf4",
-                          padding: "4px 6px",
-                          margin: "3px 0",
-                          borderRadius: "3px",
-                          fontSize: "0.8rem",
-                          overflow: "hidden",
-                          textOverflow: "ellipsis",
-                          whiteSpace: "nowrap",
-                        }}
-                      >
-                        {summary}
+                {day ? (
+                  <>
+                    <h3>{day}</h3>
+                    {dailyEvents.length > 0 && (
+                      <div>
+                        {dailyEvents.map((summary, i) => (
+                          <div key={i} className={styles.eventItem}>
+                            {summary}
+                          </div>
+                        ))}
                       </div>
-                    ))}
-                  </div>
+                    )}
+                  </>
+                ) : (
+                  <div style={{ visibility: "hidden" }}>0</div> // force box rendering
                 )}
               </div>
             );
-          })}
+          })} */}
         </div>
       </div>
-
-      {/* Add inline styles for event items */}
-      <style jsx global>{`
-        .${styles.eventItem} {
-          background-color: #ebf8ff !important;
-          border-left: 3px solid #90cdf4 !important;
-          padding: 4px 6px !important;
-          margin: 3px 0 !important;
-          border-radius: 3px !important;
-          font-size: 0.8rem !important;
-          white-space: nowrap !important;
-          overflow: hidden !important;
-          text-overflow: ellipsis !important;
-        }
-      `}</style>
     </div>
   );
 }
