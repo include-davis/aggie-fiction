@@ -1,11 +1,8 @@
 'use client';
 import styles from "./page.module.scss";
-import React, { useState } from 'react';
+import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link'
-
-import { useRouter } from 'next/navigation';
-
 import { useParams } from 'next/navigation';
 
 const products = [
@@ -115,7 +112,7 @@ export default function ProductDetail() {
         />
 
         <div className={styles.productinfo}>
-          <h1 className={styles.title}>{product.name}</h1>
+          <h2 className={styles.title}>{product.name}</h2>
           <p className={styles.cost}>{product.cost}</p>
           <p className={styles.detail}>{product.description || "No description available."}</p>
         </div>

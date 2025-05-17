@@ -5,10 +5,14 @@
 
 /* Top Navigation */
 .top {
-  padding-left: 25px;
-  padding-bottom: 10px;
+  padding-left: 100px;
+  padding-bottom: 13px;
   display: flex;
   gap: 6px;
+
+  @media (max-width: 900px){
+    padding-left: 10px;
+  }
 }
 
 .backbtn {
@@ -20,7 +24,6 @@
   border: 2px solid var(--gold);
   border-radius: 50px;
   background-color: transparent;
-  font-family: Poppins, normal;
   font-size: 1.5rem;
   text-decoration: none;
 }
@@ -39,11 +42,17 @@
 
 /* Product Section */
 .product {
+  padding-left: 100px;
   display: flex;
   flex-direction: row;
   gap: 20px;
-  padding-left: 25px;
   padding-bottom: 56px;
+
+  @media (max-width: 900px){
+    flex-direction: column;
+    padding-right: 10px;
+    padding-left: 10px;
+  }
 }
 
 .productimage {
@@ -55,21 +64,24 @@
 .productinfo {
   width: 646px;
   height: 162px;
+
+  @media (max-width: 900px){
+    flex-wrap: wrap;
+    width: auto;
+    height: auto;
+
+    padding-right: 10px;
+    padding-left: 10px;
+  }
 }
 
 .title {
-  font-size: 32px;
   color: var(--dark-purple);
 }
 
 .cost {
   color: var(--gold);
-  font-family: Poppins, normal;
   padding-bottom: 41px;
-}
-
-.details {
-  font-family: Poppins, normal;
 }
 
 /* More Items Section */
@@ -79,36 +91,55 @@
 }
 
 .similaritems {
-  font-size: 32px;
+  display: flex;
+  padding-left: 100px;
+  font-size: 2rem;
   color: var(--gold);
-  padding-left: 25px;
-  align-items: left;
+
+  @media (max-width: 1400px){
+    justify-content: center;
+    padding-left: 10px;
+    padding-right: 10px
+  }
 }
 
 .images {
+  padding-left: 100px;
+  padding-right: 100px;
   display: flex;
   flex-direction: row;
   justify-content: center;
   gap: 20px;
+
+  @media (max-width: 1400px){
+    flex-direction: column;
+    align-items: center;
+    padding-right: 0px;
+    padding-left: 0px;
+  }
 }
 
 .extra {
   display: flex;
   flex-direction: column;
   text-decoration: none;
+  flex: 1;
 }
 
 .productdetail {
   padding-top: 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .productname {
-  color: black;
+  width: 300px;
+  color: var(--black);
 }
 
 .productcost {
   color: var(--gold);
-  font-family: Poppins, normal;
   font-weight: 700;
   text-decoration: none;
 }
