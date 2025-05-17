@@ -9,6 +9,7 @@
   justify-content: space-between;
   width: 100%;
   padding-bottom: 84px;
+  padding-top: 20px;
 }
 
 .bottom {
@@ -18,6 +19,7 @@
 
 /* Header */
 .title {
+  
   padding-left: 50px;
   height: 80px;
   color: var(--gold);
@@ -28,21 +30,49 @@
   justify-content: space-between;
   align-items: center;
   height: 80px;
-  padding: 10px;
+  padding-bottom: 10px;
+  padding-right: 100px;
+  padding-left: 50px;
+
+  @media (max-width: 900px){
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    padding-right: 0px;
+    padding-left: 0px;
+  }
+
 }
 
 .buttons {
   display: flex;
   gap: 10px;
   align-self: flex-end;
+
+  @media (max-width: 900px){
+    align-self: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
 }
 
 /* Product List */
 .listbox {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; 
   row-gap: 51px;
   column-gap: 20px;
+  padding: 1rem;
+
+  @media (max-width: 900px){
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 600px){
+    grid-template-columns: 1fr;
+  }
 }
 
 .container {
@@ -51,6 +81,8 @@
   border: 2px solid var(--gold);
   border-radius: 10px;
   transition: 0.3s;
+
+
 }
 
 .container:hover {
@@ -58,6 +90,8 @@
 }
 
 .product {
+  // border: black solid 1px;
+  width: 424px;
   display: grid;
   justify-content: center;
   color: var(--black);
