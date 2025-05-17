@@ -115,6 +115,9 @@ export default function almuni() {
     );
 
   return (
+    <div className={styles.pagewrapper}>
+
+   
     <div className={styles.alumniPage}>
 
       
@@ -131,7 +134,7 @@ export default function almuni() {
 
             <input
               type="text"
-              placeholder="Search for an alumni..."
+              placeholder="Search for alumni"
               className={styles.searchInput}
               value = {searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
@@ -167,6 +170,7 @@ export default function almuni() {
         ))}
       </div>
     </div>
+     </div>
   );
 
 }
