@@ -13,7 +13,7 @@ export default function CalendarEventCard({event})
             "General Meeting": "#FADC90",
             "Board Meetings": "#FFBAAF",
             "Fundraiser": "#A4DAEB",
-            "Guest Speaker": "#6681DB",
+            "Conference": "#6681DB",
             "Special Event": "#9CE1C2"
         };
         return colorMap[type] || "#EEC358";
@@ -23,8 +23,8 @@ export default function CalendarEventCard({event})
         return null;
     
     return (
-        <div className = {styles.eventCardOverlay} /*onClick = {setIsVisible(false)}*/>
-            <div className = {styles.eventCard} /*onClick = {e => e.stopPropagation()}*/>
+        <div className = {styles.eventCardOverlay} onClick = {() => setIsVisible(false)}>
+            <div className = {styles.eventCard} onClick = {e => e.stopPropagation()}>
                 <div className = {styles.eventType}>
                     <span className = {styles.eventTypeIndicator} style = {{backgroundColor: getEventColor(event.type)}}></span>
                     <span>{event.type}</span>

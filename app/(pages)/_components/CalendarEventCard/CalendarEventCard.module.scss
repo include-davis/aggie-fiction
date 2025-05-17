@@ -5,7 +5,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
+    // background-color: rgba(0, 0, 0, 0.5);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -15,8 +15,8 @@
 .eventCard
 {
     background-color: var(--dark-purple);
-    width: 342px;
-    height: 416px;
+    width: 362px;
+    min-height: 223px;
     border-radius: 10px;
     display: flex;
     flex-direction: column;

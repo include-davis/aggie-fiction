@@ -11,7 +11,7 @@ export default function CalendarUpcomingEvent({event})
             "General Meeting": "#FADC90",
             "Board Meetings": "#FFBAAF",
             "Fundraiser": "#A4DAEB",
-            "Guest Speaker": "#6681DB",
+            "Conference": "#6681DB",
             "Special Event": "#9CE1C2"
         };
         return colorMap[type] || "#EEC358";
