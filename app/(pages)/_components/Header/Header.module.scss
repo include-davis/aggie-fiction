@@ -2,36 +2,44 @@
   display:flex;
   background: var(--white);
   box-shadow: 0px 0px 4px 10px rgba(50, 0, 131, 0.05);
-  align-items:center;
+  justify-content: space-between;
+  align-items: center;
+  padding:14px 53px 14px 44px;
 }
 
+.arrow{
+  border:none;
+  background: none;
+}
 
 .logo{
-  padding-right: 637px;
+  //background: url("/logo.png") lightgray 50% / cover no-repeat;
+  box-shadow: 0px 6px 10px 0px rgba(0, 0, 0, 0.25);
 }
 
 .navContents{
+  display: flex;
   gap:60px;
 }
 
 .navContents a{
-  font-size: 1rem;
+  font-size: 16px;
   font-weight: bold;
   color:var(--dark-purple);
   text-decoration: none;
 }
 
 .dropdown{
-  display:flex
+  display:flex;
+  position:relative;
 }
 .dropdown_contents{
-  display:none;
-  position: absolute;
+  position:absolute;
   background:var(--white);
   transition:background 0.3s ease;
 }
 .dropdown_contents a{
-  color:var(--dark-purple);
+  color:var(--Aggie-Space);
   display:block;
   text-align:left;
   padding: 15px 71px 14px 23px ;
