@@ -122,16 +122,18 @@ export default function ProductDetail() {
 
         <h1 className={styles.similaritems}> Similar Items </h1>
 
-        <div className={styles.images}>
+        <div className={styles.moreproduct}>
           {similarItems?.map((item) => (
           <Link href={`/products/${item.id}`} key={item.id} className={styles.extra}>
-            <Image
-              className={styles.productimage}
-              src={item.image}
-              alt={item.name}
-              width={424}
-              height={191}
-            />
+            <div className={styles.fixedImage}>
+              <Image
+                className={styles.fillImage}
+                src={item.image}
+                alt={item.name}
+                fill
+                style={{ objectFit: "cover", borderRadius: "10px" }}
+              />
+            </div>
                 
             <div className={styles.productdetail}>
               <p className={styles.productname}>{item.name}</p>

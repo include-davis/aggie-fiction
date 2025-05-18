@@ -6,12 +6,15 @@
 /* Top Navigation */
 .top {
   padding-left: 100px;
+  padding-right: 100px;
   padding-bottom: 13px;
+  padding-top: 55px;
   display: flex;
   gap: 6px;
 
   @media (max-width: 900px){
-    padding-left: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
   }
 }
 
@@ -43,6 +46,7 @@
 /* Product Section */
 .product {
   padding-left: 100px;
+  padding-right: 100px;
   display: flex;
   flex-direction: row;
   gap: 20px;
@@ -50,8 +54,8 @@
 
   @media (max-width: 900px){
     flex-direction: column;
-    padding-right: 10px;
-    padding-left: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
   }
 }
 
@@ -96,22 +100,42 @@
   font-size: 2rem;
   color: var(--gold);
 
-  @media (max-width: 1400px){
+  @media (max-width: 900px){
     justify-content: center;
     padding-left: 10px;
     padding-right: 10px
   }
 }
 
-.images {
+.fixedImage {
+  position: relative;
+  width: 100%;
+  height: 191px;
+  border-radius: 10px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.fillImage {
+  border: var(--gold) solid 2px;
+  object-fit: cover;
+  border-radius: 10px;
+  inset: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.moreproduct {
   padding-left: 100px;
   padding-right: 100px;
+  
   display: flex;
-  flex-direction: row;
+  flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
 
-  @media (max-width: 1400px){
+  @media (max-width: 600px){
     flex-direction: column;
     align-items: center;
     padding-right: 0px;
@@ -131,11 +155,16 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .productname {
-  width: 300px;
+  max-width: 300px;
   color: var(--black);
+  flex: 1;
+  min-width: 100px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .productcost {
