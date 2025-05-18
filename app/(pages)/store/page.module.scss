@@ -4,17 +4,19 @@
 }
 
 .top {
+  // border: black solid 1px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   width: 100%;
   padding-bottom: 84px;
-  padding-top: 20px;
+  padding-top: 72px;
 }
 
 .bottom {
   height: 80px;
   padding: 40px;
+  padding-bottom: 70px;
 }
 
 /* Header */
