@@ -120,8 +120,8 @@ export default function almuni() {
    
     <div className={styles.alumniPage}>
 
-      
-        <div className={styles.header}>
+      <div className={styles.header}>
+        <div className={styles.headerText}>
           <h1 className={styles.title}>Meet our Alumni</h1>
           <div className={styles.searchbar}>
             <Image
@@ -145,10 +145,11 @@ export default function almuni() {
         <Image
           src="/AlumniPage/OG Jackie Stickers - NO BORDER 2.png"
           alt="Jackie sticker"
-          width={341}
-          height={233}
+          width={369}
+          height={207}
           className={styles.jackieSticker}
         />
+        </div>
 
       <div className={styles.cardsContainer}>
         {filteredAlumni.map((alum, index) => (
