@@ -6,12 +6,15 @@
     padding-right: 100px;
     padding-top: 43px;
     padding-bottom: 103px;
+    
 }
 .alumniPage{
+    justify-content: center;
     display: flex;
     flex-direction: column;
     gap: 44px;
-    justify-content: center;
+    align-items: center;
+    
     
 }
 
@@ -40,6 +43,8 @@
 .jackieSticker{
     width: 369px;
     height: 207px;
+    object-fit: cover;
+    
 }
 
 .searchbar{
@@ -67,9 +72,6 @@
     width: 630px;
     font-weight: 400;
     
-    
-    
-    
 }
 .searchInput::placeholder{
     color: var(--black);
@@ -79,7 +81,10 @@
 
 .cardsContainer{
     display: flex;
+    justify-content: center;
     align-items: center;
     flex-wrap: wrap;
     gap: 20px;
+    justify-content: center;
+    width: 100%;
 }

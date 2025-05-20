@@ -143,7 +143,7 @@ export default function almuni() {
           </div>
         </div>
         <Image
-          src="/AlumniPage/Jackie-04.png"
+          src="/AlumniPage/Jackie-4.png"
           alt="Jackie sticker"
           width={369}
           height={207}
