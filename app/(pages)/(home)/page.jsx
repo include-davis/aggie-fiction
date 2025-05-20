@@ -13,19 +13,19 @@ export default function Home() {
                 creative writing club at UC Davis
               </p>
 
-              <h1>Aggie Fiction</h1>
+              <h1 className={styles.titleName}>Aggie Fiction</h1>
 
               <p className={styles.titleDescription}>
                 for writers of all levels and experiences
               </p>
 
-              <button>Join Now</button>
+              <button className={styles.joinNow}>Join Now</button>
             </div>
 
             <div className={styles.logo}>
               <Image
                 src="/Home/img/Otter.png"
-                alt="Jackie"
+                alt="Jackie the Otter, the logo for AggieFiction."
                 width={518}
                 height={501}
               />
