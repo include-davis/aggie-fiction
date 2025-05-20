@@ -10,7 +10,7 @@
   align-items: center;
 }
 .logo{
-  filter: dropShadow(0px 6px 10px 0px);
+  filter: drop-shadow(0px 6px 10px rgba(0, 0, 0, 0.25));
 }
 .Footer_icons{
   display: flex;
@@ -23,9 +23,9 @@
 }
 .icons{
   gap:9px;
-  color:var(--dark-purple)
 }
-.icon{
+.icon {
+  color:var(--dark-purple);
   height: 39px;
   width:39px;
 }
