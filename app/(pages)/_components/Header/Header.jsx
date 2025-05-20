@@ -10,15 +10,15 @@ export default function Header() {
 };
     return (
         <div className={styles.navbar}>
-            <div className={styles.logo}><Link href=""> <Image
+            <div className={styles.logo}><a href="#"> <Image
                 src="/logo.png"
                 width={110}
                 height={70}
                 alt="Aggie fiction logo"
-            /></Link></div>
+            /></a></div>
             <div className={styles.navContents}>
                 <div className={styles.dropdown}>
-                    <Link href="//events" >Events</Link> <button className={styles.arrow} onClick={toggleDropdown} ><Image
+                    <a href="//events" >Events</a> <button className={styles.arrow} onClick={toggleDropdown} ><Image
                     src="/weui_arrow-outlined.svg"
                     width={12}
                     height={24}
@@ -28,13 +28,12 @@ export default function Header() {
                 </div>
                 {dropdownOpen &&(
                 <div className={styles.dropdown_contents}>
-                    <Link href="/calendar">Calendar</Link>
-                    <Link href="/conference">Conference</Link>
+                    <a href="/calendar">Calendar</a>
                 </div>)}
-                <Link href="/store">Merch Store</Link>
-                <Link href="/alumni">Alumni Spotlight</Link>
-                <Link href="/blog">Blog</Link>
-                <Link href="/about us">About us</Link>
+                <a href="/store">Merch Store</a>
+                <a href="/alumni">Alumni Spotlight</a>
+                <a href="/blog">Blog</a>
+                <a href="/about us">About us</a>
             </div>
         </div>
             );
