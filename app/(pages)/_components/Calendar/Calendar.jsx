@@ -74,10 +74,13 @@ function normalizeEventDates(events) {
       formattedDate = `${startMonth} ${startDay}`;
     }
 
+    const shortenedSummary = event.summary.length > 15 ? event.summary.substring(0, 12) + "..." : event.summary;
+    
     return {
       date: isoDate,
       formattedDate,
       summary: event.summary || "Untitled",
+      shortenedSummary: shortenedSummary,
       time: event.start.dateTime
         ? startDate.toLocaleTimeString([], {
             hour: "numeric",
@@ -99,6 +102,7 @@ export default function Calendar({ currentMonth, currentYear, events = [] }) {
   const [days, setDays] = useState([]);
   const [fetchedEvents, setFetchedEvents] = useState([]);
   const [selectedEvent, setSelectedEvent] = useState(null);
+  const [cellPosition, setCellPosition] = useState(null);
 
   // Generate days when month/year changes
   useEffect(() => {
@@ -138,16 +142,30 @@ export default function Calendar({ currentMonth, currentYear, events = [] }) {
     fetchEvents();
   }, [currentMonth, currentYear]);
 
+  const handleEventClick = (event, e) => {
+    // Get the event item's position
+    const eventItemRect = e.currentTarget.getBoundingClientRect();
+    
+    setCellPosition({
+      left: eventItemRect.left,
+      right: eventItemRect.right,
+      top: eventItemRect.top + window.scrollY,
+      bottom: eventItemRect.bottom + window.scrollY
+    });
+    
+    setSelectedEvent({
+      type: event.type,
+      title: event.summary,
+      date: event.formattedDate,
+      startTime: event.startTime,
+      endTime: event.endTime,
+      location: event.location,
+      desc: event.desc
+    });
+  };
+
   return (
     <div>
-      {/* <div style={{ marginBottom: "20px", textAlign: "center" }}>
-        {Object.keys(eventMap).length > 0 && (
-          <div style={{ marginTop: "10px", fontSize: "12px", color: "#666" }}>
-            Events found for dates: {Object.keys(eventMap).join(", ")}
-          </div>
-        )}
-      </div> */}
-
       <div className={styles.calendarContainer}>
         <div className={styles.calendarHeader}>
           {["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].map((day) => (
@@ -176,19 +194,9 @@ export default function Calendar({ currentMonth, currentYear, events = [] }) {
                       <div 
                         key={i} 
                         className={styles.eventItem}
-                        onClick = {(e) => setSelectedEvent({
-                          type: event.type,
-                          title: event.summary,
-                          date: event.formattedDate,
-                          startTime: event.startTime,
-                          endTime: event.endTime,
-                          location: event.location,
-                          desc: event.desc,
-                          clickX: e.clientX,
-                          clickY: e.clientY
-                        })}
+                        onClick = {(e) => handleEventClick(event, e)}
                       >
-                        <p>{event.summary}</p>
+                        <p>{event.shortenedSummary}</p>
                         <p>{event.time}</p>
                       </div>
                     ))}
@@ -197,44 +205,17 @@ export default function Calendar({ currentMonth, currentYear, events = [] }) {
               </div>
             );
           })}
-
-          {/* {days.map((dateObj, idx) => {
-            const dateStr = dateObj
-              ? dateObj.toISOString().split("T")[0]
-              : null;
-            const day = dateObj?.getDate();
-            const dailyEvents = dateStr ? eventMap[dateStr] || [] : [];
-
-            return (
-              <div key={idx} className={styles.item}>
-                {day ? (
-                  <>
-                    <h3>{day}</h3>
-                    {dailyEvents.length > 0 && (
-                      <div>
-                        {dailyEvents.map((summary, i) => (
-                          <div key={i} className={styles.eventItem}>
-                            {summary}
-                          </div>
-                        ))}
-                      </div>
-                    )}
-                  </>
-                ) : (
-                  <div style={{ visibility: "hidden" }}>0</div> // force box rendering
-                )}
-              </div>
-            );
-          })} */}
         </div>
       </div>
 
       {selectedEvent && (
         <CalendarEventCard 
           event = {selectedEvent} 
-          onClose = {() => setSelectedEvent(null)}
-          clickX = {selectedEvent.clickX}
-          clickY = {selectedEvent.clickY} 
+          onClose = {() => {
+            setSelectedEvent(null);
+            setCellPosition(null);
+          }}
+          cellPosition = {cellPosition}
         />
       )}
     </div>

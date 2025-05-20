@@ -3,7 +3,7 @@ import styles from "./CalendarEventCard.module.scss";
 import {useState, useMemo, useEffect, useRef} from "react";
 import Image from "next/image";
 
-export default function CalendarEventCard({event, onClose, clickX, clickY})
+export default function CalendarEventCard({event, onClose, cellPosition})
 {
     const [isVisible, setIsVisible] = useState(true);
     const cardRef = useRef(null);
@@ -22,7 +22,7 @@ export default function CalendarEventCard({event, onClose, clickX, clickY})
 
     // Calculate event card position based on click location
     const cardStyle = useMemo(() => {
-        if (!clickX || !clickY)
+        if (!cellPosition)
             return {};
         
         const cardWidth = 362;
@@ -32,36 +32,36 @@ export default function CalendarEventCard({event, onClose, clickX, clickY})
         const scrollX = window.scrollX || window.pageXOffset;
         const scrollY = window.scrollY || window.pageYOffset;
 
-        // Convert viewport coordinates to page coordinates
-        const pageX = clickX + scrollX;
-        const pageY = clickY + scrollY;
-
         // Get viewport dimensions for later calculations
         const viewportWidth = window.innerWidth;
         const viewportHeight = window.innerHeight;
-        
-        // Center the top edge horizontally, with clickX being the middle of the top side
-        let left = pageX - cardWidth / 2;
-        let top = pageY;
+
+        // Determine if card should be positioned to the left or right of the cell
+        const isLeftSide = cellPosition.left < viewportWidth / 2;
+
+        let left;
+        let top = cellPosition.top - 40;
+
+        if (isLeftSide)
+            left = cellPosition.right + 8;
+        else    
+            left = cellPosition.left - cardWidth - 8;
 
         if (left < scrollX)
             left = scrollX + 10;
         if (left + cardWidth > scrollX + viewportWidth)
             left = scrollX + viewportWidth - cardWidth - 10;
         
+        
         if (top + cardMinHeight > scrollY + viewportHeight)
-        {
-            top = pageY - cardMinHeight;
-            if (top < scrollY)
-                top = scrollY + 10;
-        }
+            top = Math.max(scrollY + 10, cellPosition.bottom - cardMinHeight);
 
         return {
             position: "absolute",
             left: `${left}px`,
             top: `${top}px`
         }
-    }, [clickX, clickY]);
+    }, [cellPosition]);
 
     const handleClose = () => {
         setIsVisible(false);
@@ -86,7 +86,7 @@ export default function CalendarEventCard({event, onClose, clickX, clickY})
         return null;
     
     return (
-        <div className = {styles.eventCard} style = {cardStyle} ref = {cardRef} /*onClick = {e => e.stopPropagation()}*/>
+        <div className = {styles.eventCard} style = {cardStyle} ref = {cardRef}>
             <div className = {styles.eventType}>
                 <span className = {styles.eventTypeIndicator} style = {{backgroundColor: getEventColor(event.type)}}></span>
                 <span>{event.type}</span>
