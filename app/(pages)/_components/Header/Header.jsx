@@ -27,9 +27,10 @@ export default function Header() {
                 </button>
                 </div>
                 {dropdownOpen &&(
-                <div className={styles.dropdown_contents}>
-                    <a href="/calendar">Calendar</a>
-                </div>)}
+                    <div className={styles.dropdown_contents}>
+                        <a href="/calendar">Calendar</a>
+                        <a href="/conference">Conference</a>
+                    </div>)}
                 <a href="/store">Merch Store</a>
                 <a href="/alumni">Alumni Spotlight</a>
                 <a href="/blog">Blog</a>
