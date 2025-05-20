@@ -1,3 +1,4 @@
+/*
 .eventCardOverlay
 {
     position: fixed;
@@ -6,14 +7,13 @@
     right: 0;
     bottom: 0;
     // background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 100;
+    z-index: 1000;
 }
+*/
 
 .eventCard
 {
+    position: absolute;
     background-color: var(--dark-purple);
     width: 362px;
     min-height: 223px;
@@ -25,6 +25,8 @@
     padding-bottom: 42px;
     padding-left: 40px;
     padding-right: 40px;
+    z-index: 1001;
+    box-shadow: 4px 5px 25.9px 1px rgba(0, 0, 0, 0.25);
 
     span
     {

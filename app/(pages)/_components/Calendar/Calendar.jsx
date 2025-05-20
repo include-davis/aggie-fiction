@@ -3,6 +3,7 @@ import styles from "./Calendar.module.scss";
 import { useGoogleLogin } from "@react-oauth/google";
 import axios from "axios";
 import { useState, useEffect, useMemo } from "react";
+import CalendarEventCard from "../CalendarEventCard/CalendarEventCard";
 
 function generateCalendarDays(year, month) {
   const firstDayOfMonth = new Date(year, month, 1);
@@ -40,17 +41,56 @@ function normalizeEventDates(events) {
   return events.map((event) => {
     if (!event.start) return { date: "", summary: event.summary || "Untitled" };
 
-    const date = new Date(event.start.dateTime || event.start.date);
-    const isoDate = date.toISOString().split("T")[0]; // '2025-05-12'
+    // const date = new Date(event.start.dateTime || event.start.date);
+    const startDate = new Date(event.start.dateTime || event.start.date);
+    const endDate = event.end?.dateTime || event.end?.date ? new Date(event.end.dateTime || event.end.date) : null;
+    const isoDate = startDate.toISOString().split("T")[0]; // '2025-05-12'
+
+    // Format date as either "MMM DD" or "MMM DD-DD"
+    const startMonth = startDate.toLocaleDateString("en-US", {month: "short"});
+    const startDay = startDate.getDate();
+    let formattedDate;
+
+    // Check to see if end date is different than start date, and handle all possible cases
+    if (endDate && (endDate.getFullYear() !== startDate.getFullYear() || endDate.getMonth() !== startDate.getMonth() || endDate.getDate() !== startDate.getDate()))
+    {
+      const endMonth = endDate.toLocaleDateString("en-US", {month: "short"});
+      const endDay = endDate.getDate();
+
+      if (startMonth === endMonth)
+      {
+        // Same month: Mar 25-27
+        formattedDate = `${startMonth} ${startDay}-${endDay}`;
+      }
+      else
+      {
+        // Different months: Mar 25-Apr 2
+        formattedDate = `${startMonth} ${startDay}-${endMonth} ${endDay}`;
+      }
+    }
+    // Otherwise, just a single day event
+    else
+    {
+      formattedDate = `${startMonth} ${startDay}`;
+    }
+
     return {
       date: isoDate,
+      formattedDate,
       summary: event.summary || "Untitled",
       time: event.start.dateTime
-        ? date.toLocaleTimeString([], {
+        ? startDate.toLocaleTimeString([], {
             hour: "numeric",
             hour12: true,
           })
         : null,
+      startTime: event.start.dateTime
+          ? startDate.toLocaleTimeString("en-US", {hour: "numeric", minute: "2-digit", hour12: true}) : null,
+      endTime: endDate
+          ? endDate.toLocaleTimeString("en-US", {hour: "numeric", minute: "2-digit", hour12: true}) : null,
+      location: event.location || "No location provided",
+      desc: event.description || "No description provided",
+      type: "General Meeting"
     };
   });
 }
@@ -58,6 +98,7 @@ function normalizeEventDates(events) {
 export default function Calendar({ currentMonth, currentYear, events = [] }) {
   const [days, setDays] = useState([]);
   const [fetchedEvents, setFetchedEvents] = useState([]);
+  const [selectedEvent, setSelectedEvent] = useState(null);
 
   // Generate days when month/year changes
   useEffect(() => {
@@ -76,7 +117,7 @@ export default function Calendar({ currentMonth, currentYear, events = [] }) {
     normalized.forEach((ev) => {
       if (!ev.date) return;
       if (!map[ev.date]) map[ev.date] = [];
-      map[ev.date].push({ summary: ev.summary, time: ev.time });
+      map[ev.date].push(ev);
     });
 
     console.log("Event map:", map);
@@ -132,7 +173,21 @@ export default function Calendar({ currentMonth, currentYear, events = [] }) {
                 {dailyEvents.length > 0 && (
                   <div className={styles.eventItems}>
                     {dailyEvents.map((event, i) => (
-                      <div key={i} className={styles.eventItem}>
+                      <div 
+                        key={i} 
+                        className={styles.eventItem}
+                        onClick = {(e) => setSelectedEvent({
+                          type: event.type,
+                          title: event.summary,
+                          date: event.formattedDate,
+                          startTime: event.startTime,
+                          endTime: event.endTime,
+                          location: event.location,
+                          desc: event.desc,
+                          clickX: e.clientX,
+                          clickY: e.clientY
+                        })}
+                      >
                         <p>{event.summary}</p>
                         <p>{event.time}</p>
                       </div>
@@ -173,6 +228,15 @@ export default function Calendar({ currentMonth, currentYear, events = [] }) {
           })} */}
         </div>
       </div>
+
+      {selectedEvent && (
+        <CalendarEventCard 
+          event = {selectedEvent} 
+          onClose = {() => setSelectedEvent(null)}
+          clickX = {selectedEvent.clickX}
+          clickY = {selectedEvent.clickY} 
+        />
+      )}
     </div>
   );
 }
