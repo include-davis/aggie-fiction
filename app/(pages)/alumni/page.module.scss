@@ -44,7 +44,6 @@
     width: 369px;
     height: 207px;
     object-fit: cover;
-    
 }
 
 .searchbar{
@@ -86,5 +85,12 @@
     flex-wrap: wrap;
     gap: 20px;
     justify-content: center;
-    width: 100%;
+    width: 1312px;
+
+}
+
+@media (max-width: 1320px){
+    .cardsContainer{
+        width: 646px;
+    }
 }
