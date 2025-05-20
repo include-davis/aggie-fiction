@@ -40,3 +40,4 @@ export default function Button({children, onClick=null, color="light", route="",
         </div>
     );
 }
+
