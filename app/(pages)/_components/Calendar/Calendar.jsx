@@ -74,7 +74,7 @@ function normalizeEventDates(events) {
       formattedDate = `${startMonth} ${startDay}`;
     }
 
-    const shortenedSummary = event.summary.length > 15 ? event.summary.substring(0, 12) + "..." : event.summary;
+    const shortenedSummary = event.summary.length > 14 ? event.summary.substring(0, 11) + "..." : event.summary;
     
     return {
       date: isoDate,

@@ -94,6 +94,10 @@ export default function CalendarPage() {
           </GoogleOAuthProvider>
         </div>
       </div>
+
+      <div className = {styles.upcomingEvents}>
+        
+      </div>
     </main>
   );
 }

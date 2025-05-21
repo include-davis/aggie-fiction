@@ -45,7 +45,7 @@ export default function CalendarEventCard({event, onClose, cellPosition})
         if (isLeftSide)
             left = cellPosition.right + 8;
         else    
-            left = cellPosition.left - cardWidth - 8;
+            left = cellPosition.left - cardWidth - 6;
 
         if (left < scrollX)
             left = scrollX + 10;
