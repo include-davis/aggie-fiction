@@ -1,3 +1,16 @@
+
+@mixin med-desktop {
+  @media screen and (max-width: 1440px) {
+    @content;
+  }
+}
+
+@mixin phone {
+  @media screen and (max-width: 720px) {
+    @content;
+  }
+}
+
 /* Layout */
 .main {
   width: 100%;
@@ -11,6 +24,10 @@
   width: 100%;
   padding-bottom: 84px;
   padding-top: 72px;
+
+  @include phone{
+    padding-bottom: 32px;
+  }
 }
 
 .bottom {
@@ -25,6 +42,11 @@
   padding-left: 50px;
   height: 80px;
   color: var(--gold);
+
+  @include phone{
+    font-size: 24px;
+    padding-left: 30px;
+  }
 }
 
 .headerRow {
@@ -36,13 +58,13 @@
   padding-right: 100px;
   padding-left: 50px;
 
-  @media (max-width: 900px){
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 20px;
-    padding-right: 0px;
-    padding-left: 0px;
-  }
+  // @media (max-width: 900px){
+  //   flex-direction: column;
+  //   align-items: flex-start;
+  //   gap: 20px;
+  //   padding-right: 0px;
+  //   padding-left: 0px;
+  // }
 
 }
 
@@ -61,6 +83,7 @@
 
 /* Product List */
 .listbox {
+  border: black solid 1px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center; 
@@ -68,23 +91,32 @@
   column-gap: 20px;
   padding: 1rem;
 
-  @media (max-width: 900px){
-    grid-template-columns: repeat(2, 1fr);
+  @include phone{
+    padding: 30px;
+    row-gap: 20px;
   }
 
-  @media (max-width: 600px){
-    grid-template-columns: 1fr;
-  }
+  // @media (max-width: 900px){
+  //   grid-template-columns: repeat(2, 1fr);
+  // }
+
+  // @media (max-width: 600px){
+  //   grid-template-columns: 1fr;
+  // }
 }
 
 .container {
+  // border: black solid 1px;
   width: 424px;
   height: 424px;
   border: 2px solid var(--gold);
   border-radius: 10px;
   transition: 0.3s;
 
-
+  @include phone {
+    width: 162px;
+    height: 162px;
+  }
 }
 
 .container:hover {
@@ -98,18 +130,37 @@
   justify-content: center;
   color: var(--black);
   text-decoration: none;
+
+  @include phone{
+    width: 155px;
+  }
 }
 
 .productdetail {
+  // border: black solid 1px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   padding-top: 20px;
   padding-bottom: 14px;
+
+  @include phone{
+    flex-direction: column;
+    width: 162px;
+    padding-top: 10px;
+    padding-bottom: 0px;
+    align-items: center;
+  }
 }
 
 .productname {
+  // border: black solid 1px;
   width: 300px;
+
+  @include phone{
+    font-size: 12px;
+    width: 162px;
+  }
 }
 
 .cost {
@@ -117,6 +168,10 @@
   color: var(--gold);
   font-family: 'Poppins', normal;
   font-weight: bold;
+
+  @include phone{
+    font-size: 12px;
+  }
 }
 
 /* Pagination */
