@@ -44,7 +44,12 @@ function normalizeEventDates(events) {
     // const date = new Date(event.start.dateTime || event.start.date);
     const startDate = new Date(event.start.dateTime || event.start.date);
     const endDate = event.end?.dateTime || event.end?.date ? new Date(event.end.dateTime || event.end.date) : null;
-    const isoDate = startDate.toISOString().split("T")[0]; // '2025-05-12'
+    
+    const year = startDate.getFullYear();
+    const month = String(startDate.getMonth() + 1).padStart(2, '0');
+    const day = String(startDate.getDate()).padStart(2, '0');
+    const isoDate = `${year}-${month}-${day}`;
+    // const isoDate = startDate.toISOString().split("T")[0]; // '2025-05-12'
 
     // Format date as either "MMM DD" or "MMM DD-DD"
     const startMonth = startDate.toLocaleDateString("en-US", {month: "short"});
@@ -98,7 +103,7 @@ function normalizeEventDates(events) {
   });
 }
 
-export default function Calendar({ currentMonth, currentYear, events = [] }) {
+export default function Calendar({ currentMonth, currentYear, events = [], onEventsFetched }) {
   const [days, setDays] = useState([]);
   const [fetchedEvents, setFetchedEvents] = useState([]);
   const [selectedEvent, setSelectedEvent] = useState(null);
@@ -133,14 +138,18 @@ export default function Calendar({ currentMonth, currentYear, events = [] }) {
       try {
         const res = await fetch("/api/events");
         const data = await res.json();
+        const normalizedEvents = normalizeEventDates(data.events || []);
         setFetchedEvents(data.events || []);
+        
+        if (onEventsFetched)
+          onEventsFetched(normalizedEvents);
       } catch (err) {
         console.error("Error fetching events:", err);
       }
     };
 
     fetchEvents();
-  }, [currentMonth, currentYear]);
+  }, [currentMonth, currentYear, onEventsFetched]);
 
   const handleEventClick = (event, e) => {
     // Get the event item's position

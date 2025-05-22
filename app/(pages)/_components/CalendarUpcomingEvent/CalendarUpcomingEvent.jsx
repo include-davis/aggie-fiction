@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function CalendarUpcomingEvent({event}) 
 {
-    const [month, days] = event.date.split(" ");
+    const [month, days] = event.formattedDate.split(" ");
 
     // Map the different event types to their corresponding colors
     const getEventColor = type => {
@@ -31,7 +31,7 @@ export default function CalendarUpcomingEvent({event})
                         <p>{event.type}</p>
                     </div>
 
-                    <h2>{event.title}</h2>
+                    <h2>{event.summary}</h2>
 
                     <div className = {styles.eventDetails}>
                         <div className = {styles.eventDetail}>
@@ -40,7 +40,7 @@ export default function CalendarUpcomingEvent({event})
                                     src = "/Calendar/svg/BlackClockIcon.svg"
                                     alt = "Clock icon"
                                     width = {16.35}
-                                    height = {16.35}
+                                    height = {17.93}
                                 />
                             </span>
                             <p>{event.startTime} to {event.endTime}</p>
