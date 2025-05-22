@@ -1,3 +1,15 @@
+@mixin med-desktop {
+  @media screen and (max-width: 1440px) {
+    @content;
+  }
+}
+
+@mixin phone {
+  @media screen and (max-width: 720px) {
+    @content;
+  }
+}
+
 .main {
   display: flex;
   flex-direction: column;
@@ -13,8 +25,9 @@
   gap: 6px;
 
   @media (max-width: 900px){
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-bottom: 34px;
   }
 }
 
@@ -29,6 +42,11 @@
   background-color: transparent;
   font-size: 1.5rem;
   text-decoration: none;
+
+  @include phone{
+    width: 29px;
+    height: 34px;
+  }
 }
 
 .merch {
@@ -41,6 +59,12 @@
   border-radius: 50px;
   background-color: transparent;
   font-size: 1.25rem;
+
+    @include phone{
+    width: 110px;
+    height: 34px;
+    font-size: 12px;
+  }
 }
 
 /* Product Section */
@@ -52,40 +76,76 @@
   gap: 20px;
   padding-bottom: 56px;
 
-  @media (max-width: 900px){
+  @include phone{
     flex-direction: column;
-    padding-left: 20px;
-    padding-right: 20px;
+    align-items: center;
+    gap: 10px;
   }
+
+  // @media (max-width: 900px){
+  //   flex-direction: column;
+  //   padding-left: 20px;
+  //   padding-right: 20px;
+  // }
 }
 
 .productimage {
   border: 2px solid var(--gold);
   border-radius: 10px;
   object-fit: cover;
+
+  @include phone{
+    width: 239px;
+    height: 239px;
+  }
 }
 
 .productinfo {
   width: 646px;
   height: 162px;
 
-  @media (max-width: 900px){
+  @include phone{
     flex-wrap: wrap;
-    width: auto;
+    width: 335px;
     height: auto;
-
-    padding-right: 10px;
-    padding-left: 10px;
   }
+
+  // @media (max-width: 900px){
+  //   flex-wrap: wrap;
+  //   width: auto;
+  //   height: auto;
+
+  //   padding-right: 10px;
+  //   padding-left: 10px;
+  // }
 }
 
 .title {
   color: var(--dark-purple);
+
+  @include phone{
+    text-align: center;
+    font-size: 16px;
+  }
 }
 
 .cost {
   color: var(--gold);
   padding-bottom: 41px;
+
+  @include phone{
+    text-align: center;
+    font-size: 16px;
+    font-weight: 700;
+    padding-bottom: 10px;
+  }
+}
+
+.detail{
+  @include phone{
+    text-align: center;
+    font-size: 12px;
+  }
 }
 
 /* More Items Section */
@@ -100,10 +160,9 @@
   font-size: 2rem;
   color: var(--gold);
 
-  @media (max-width: 900px){
-    justify-content: center;
-    padding-left: 10px;
-    padding-right: 10px
+  @include phone{
+    font-size: 24px;
+    padding-bottom: 8px;
   }
 }
 
@@ -114,6 +173,11 @@
   border-radius: 10px;
   overflow: hidden;
   flex-shrink: 0;
+
+  @include phone{
+    width: 333px;
+  height: 140px;
+  }
 }
 
 .fillImage {
@@ -135,12 +199,15 @@
   justify-content: center;
   gap: 20px;
 
-  @media (max-width: 600px){
+  @include phone{
     flex-direction: column;
     align-items: center;
+    text-align: center;
     padding-right: 0px;
     padding-left: 0px;
+    gap: 10px;
   }
+
 }
 
 .extra {
@@ -151,11 +218,18 @@
 }
 
 .productdetail {
+  // border: black solid 1px;
   padding-top: 15px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   flex-wrap: wrap;
+
+  @include phone{
+
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 .productname {
@@ -165,10 +239,19 @@
   min-width: 100px;
   word-wrap: break-word;
   overflow-wrap: break-word;
+
+  @include phone{
+    font-size: 11px;
+  }
 }
 
 .productcost {
   color: var(--gold);
   font-weight: 700;
   text-decoration: none;
+
+  @include phone{
+    font-weight: 10;
+    font-size: 12px;
+  }
 }
