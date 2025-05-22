@@ -1,0 +1,97 @@
+
+.pagewrapper{
+    display: flex;
+    justify-content: center;
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-top: 43px;
+    padding-bottom: 103px;
+    
+}
+.alumniPage{
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    gap: 44px;
+    align-items: center;
+    
+    
+}
+
+
+.title{
+    color: var(--gold);
+    font-size: 4rem;
+    width: 541px;
+    height: 96px;
+}
+
+.header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 297px;
+}
+
+.headerText{
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+
+}
+
+.jackieSticker{
+    width: 369px;
+    height: 207px;
+    object-fit: cover;
+}
+
+.searchbar{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding-left: 24.85px;
+    gap: 27.66px;
+
+    width: 647px;
+    height: 57px; 
+    flex-shrink: 0;
+    background: var(--white);
+    border: 2px solid var(--black);
+    border-radius: 150px;
+}
+
+.searchInput{
+    font-family: var(--font1);
+    color: var(--black);
+    background: var(--black);
+    border: none;
+    background: transparent;
+    outline: none;
+    width: 630px;
+    font-weight: 400;
+    
+}
+.searchInput::placeholder{
+    color: var(--black);
+    opacity: 1;
+    font-weight: 400;
+}
+
+.cardsContainer{
+    display: flex;
+    
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    
+    width: 1312px;
+
+}
+
+@media (max-width: 1320px){
+    .cardsContainer{
+        width: 646px;
+    }
+}

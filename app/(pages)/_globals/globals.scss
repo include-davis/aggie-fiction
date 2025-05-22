@@ -3,6 +3,7 @@
 :root {
     // primary colors
     --white: #FAFAFA;
+    --pure-white: #FFFFFF;
     --Aggie-Space: linear-gradient(200deg, #04164F 7.1%, #3D1069 62.03%, #750B83 94.99%);
 
     // secondary colors
@@ -18,11 +19,11 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+    font-family: var(--font1);
 }
 
 body {
     background-color: var(--white);
-    font-family: var(--font1);
     color: var(--black);
 }
 
