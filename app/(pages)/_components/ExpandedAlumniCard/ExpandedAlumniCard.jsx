@@ -49,7 +49,11 @@ export default function ExpandedAlumniCard({
                 <h2 className={styles.role3}>{role3}</h2>
                 </div>
 
-                <p className={styles.longDescription}>{description}</p>
+                {/* Below is LONG_TEXT */}
+                    <p
+                        className={styles.longDescription}
+                        dangerouslySetInnerHTML={{ __html: description }}
+                    />
 
                 
                 <div className={styles.icons}>

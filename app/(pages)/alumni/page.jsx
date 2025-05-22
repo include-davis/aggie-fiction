@@ -1,8 +1,4 @@
-"use client"
-import styles from "./page.module.scss";
-import AlumniPageCard from "../_components/AlumniPageCard/AlumniPageCard.jsx";
-import Image from "next/image";
-import React, {useState} from "react";
+import AlumniPageContent from "../_components/AlumniPageContent/AlumniPageContent.jsx"
 
 const alumniList = [
   {
@@ -107,71 +103,43 @@ const alumniList = [
 
 ]
 
-export default function almuni() {
-  const [searchTerm, setSearchTerm] = useState("");
-
-  const filteredAlumni = alumniList.filter((alumniMember) =>
-    `${alumniMember.first_name} ${alumniMember.last_name}`.toLowerCase().includes(searchTerm.toLowerCase())
+async function getCards() {
+  try {
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_CMS_BASE_URL}/api/content/alumni-cards?_published=true`,
+      { next: { tag: "cms" } }
     );
+    const data = await res.json();
+    if (!data.ok || !data.body || data.body.length === 0) {
+      throw new Error(data.error);
+    }
+    console.log(data);
+    const parsedData = data.body.map((card) => {
+      const splitName = card.name.split(" ");
+      return {
+        imageUrl: card.image[0].src,
+        imageAlt: card.image_alt_text,
+        first_name: splitName[0],
+        last_name: splitName[1],
+        role1: card.position_1,
+        role2: card.position_2 ? card.position_2 : null,
+        role3: card.position_3 ? card.position_3 : null,
+        description: card.description,
+        instaHandle: card.instagram_username,
+        instaLink: `https://www.instagram.com/${card.instagram_username}`,
+        linkedinHandle: card.linkedin_username,
+        linkedinLink: card.linkedin_url,
+      };
+    });
+    return parsedData;
+  } catch (e) {
+    console.error(`Failed to fetch alumni-cards: ${e.message}`);
+    return alumniList;
+  }
+}
 
-  return (
-    <div className={styles.pagewrapper}>
+export default async function Alumni() {
+  const cards = await getCards();
 
-   
-    <div className={styles.alumniPage}>
-
-      <div className={styles.header}>
-        <div className={styles.headerText}>
-          <h1 className={styles.title}>Meet our Alumni</h1>
-          <div className={styles.searchbar}>
-            <Image
-              src="/AlumniPage/mag.svg"
-              alt="Magnifying glass icon"
-              width={30}
-              height={31}
-
-            />
-
-            <input
-              type="text"
-              placeholder="Search for alumni"
-              className={styles.searchInput}
-              value = {searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-            />
-
-          </div>
-        </div>
-        <Image
-          src="/AlumniPage/Jackie-4.png"
-          alt="Jackie sticker"
-          width={369}
-          height={207}
-          className={styles.jackieSticker}
-        />
-        </div>
-
-      <div className={styles.cardsContainer}>
-        {filteredAlumni.map((alum, index) => (
-          <AlumniPageCard
-            key={index}
-            first_name={alum.first_name}
-            last_name={alum.last_name}
-            role1={alum.role1}
-            role2={alum.role2}
-            role3={alum.role3}
-            years={alum.years}
-            description={alum.description}
-            imageUrl={alum.imageUrl}
-            instaHandle={alum.instaHandle}
-            instaLink={alum.instaLink}
-            linkedinLink={alum.linkedinLink}
-            linkedinHandle={alum.linkedinHandle}
-          />
-        ))}
-      </div>
-    </div>
-     </div>
-  );
-
+  return <AlumniPageContent cards={cards}/>
 }
