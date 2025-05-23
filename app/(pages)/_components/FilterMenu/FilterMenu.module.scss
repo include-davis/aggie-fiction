@@ -1,49 +1,44 @@
-.filterOverlay
-{
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 100;
+.filterOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
 }
 
-.menu
-{
-    background-color: var(--white);
-    width: 253px;
-    min-height: 229px;
+.menu {
+  position: absolute;
+  background-color: var(--white);
+  width: 253px;
+  min-height: 229px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 21px;
+  border-radius: 15px;
+  border: 1px solid;
+
+  .filterType {
     display: flex;
-    flex-direction: column;
-    gap: 10px;
-    padding: 21px;
-    border-radius: 15px;
-    border: 1px solid;
+    align-items: center;
+    gap: 8px;
 
-    .filterType
-    {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-
-        .eventTypeIndicator
-        {
-            width: 18px;
-            height: 18px;
-            border-radius: 50%;
-            padding-right: 8px;
-        }
-
-        .eventType
-        {
-            font-size: 16px;
-            width: 154px;
-        }
-
-        .checkBox
-        {
-            width: 22px;
-            height: 22px;
-        }
+    .eventTypeIndicator {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      padding-right: 8px;
     }
+
+    .eventType {
+      font-size: 16px;
+      width: 154px;
+    }
+
+    .checkBox {
+      width: 22px;
+      height: 22px;
+    }
+  }
 }

@@ -190,10 +190,12 @@ export default function Calendar({
 
   // Map events to dates
   const eventMap = useMemo(() => {
-    const combinedEvents = events.length > 0 ? events : fetchedEvents;
-    if (combinedEvents.length === 0) return {};
+    // Use the filtered events passed from parent, fallback to fetched events if none provided
+    const eventsToUse = events.length > 0 ? events : fetchedEvents;
+    if (eventsToUse.length === 0) return {};
 
-    const normalized = normalizeEventDates(combinedEvents);
+    const normalized =
+      events.length > 0 ? eventsToUse : normalizeEventDates(eventsToUse);
     const map = {};
 
     normalized.forEach((ev) => {
