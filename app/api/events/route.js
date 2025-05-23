@@ -48,8 +48,8 @@ export async function GET(request) {
     // Make sure we're getting all events, not just future ones
     const response = await calendar.events.list({
       calendarId,
-      timeMin: timeMin.toISOString(),
-      timeMax: timeMax.toISOString(),
+      //   timeMin: timeMin.toISOString(),
+      //   timeMax: timeMax.toISOString(),
       maxResults: 100,
       singleEvents: true,
       orderBy: "startTime",

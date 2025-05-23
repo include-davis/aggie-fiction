@@ -272,6 +272,13 @@ export default function Calendar({
               ? dateObj.toISOString().split("T")[0]
               : null;
             const day = dateObj?.getDate();
+            const todayStr = new Intl.DateTimeFormat("en-CA", {
+              timeZone: "America/Los_Angeles",
+              year: "numeric",
+              month: "2-digit",
+              day: "2-digit",
+            }).format(new Date());
+            const isToday = dateStr === todayStr;
             const isCurrentMonth = dateObj.getMonth() === currentMonth;
             const dailyEvents = isCurrentMonth ? eventMap[dateStr] || [] : [];
 
@@ -280,7 +287,14 @@ export default function Calendar({
                 key={idx}
                 className={`${styles.calendarCell} ${isCurrentMonth ? styles.currentMonth : styles.otherMonth}`}
               >
-                {day && <div className={styles.dateNum}>{day}</div>}
+                {day && (
+                  <div
+                    className={`${styles.dateNum} ${isToday ? styles.todayDateNum : ""}`}
+                  >
+                    <p>{day}</p>
+                  </div>
+                )}
+
                 {dailyEvents.length > 0 && (
                   <div className={styles.eventItems}>
                     {dailyEvents.map((event, i) => (
