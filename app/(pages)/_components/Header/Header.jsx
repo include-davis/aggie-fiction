@@ -10,33 +10,34 @@ export default function Header() {
 };
     return (
         <div className={styles.navbar}>
-            <div className={styles.logo}><a href="#"> <Image
+            <div className={styles.logo}><Link href="/"> <Image
                 src="/logo.png"
                 width={110}
                 height={70}
                 alt="Aggie fiction logo"
-            /></a></div>
+            /></Link></div>
             <div className={styles.navContents}>
                 <div className={styles.dropdown}>
                     <a onClick={toggleDropdown}>Events</a>
                     <button className={styles.arrow} onClick={toggleDropdown} ><Image
                     src="/weui_arrow-outlined.svg"
-                    width={12}
+                    width={24}
                     height={24}
                     alt="Picture of the arrow"
+                    className={dropdownOpen ? styles.arrowFlipped : ''}
                 />
                 </button>
                 </div>
                 {dropdownOpen &&(
                     <div className={styles.dropdown_contents}>
-                        <a href="/events">All Events</a>
-                        <a href="/calendar">Calendar</a>
-                        <a href="/conference">Conference</a>
+                        <Link href="/events">All Events</Link>
+                        <Link href="/calendar">Calendar</Link>
+                        <Link href="/conference">Conference</Link>
                     </div>)}
-                <a href="/store">Merch Store</a>
-                <a href="/alumni">Alumni Spotlight</a>
-                <a href="/blog">Blog</a>
-                <a href="/about us">About us</a>
+                <Link href="/store">Merch Store</Link>
+                <Link href="/alumni">Alumni Spotlight</Link>
+                <Link href="/blog">Blog</Link>
+                <Link href="/about">About us</Link>
             </div>
         </div>
             );
