@@ -20,12 +20,15 @@
 .navContents{
   display: flex;
   gap:60px;
+  cursor: pointer;
 }
 
 .navContents a{
   font-size: 16px;
   font-weight: bold;
-  color:var(--Aggie-Space);
+  background-image:var(--Aggie-Space);
+  background-clip: text;
+  -webkit-text-fill-color:transparent;
   text-decoration: none;
 }
 
@@ -35,11 +38,15 @@
 }
 .dropdown_contents{
   position:absolute;
+  top:105px;
+  right:555px;
   background:var(--white);
   transition:background 0.3s ease;
+  filter: drop-shadow(0px 8px 4px rgba(50, 0, 131, 0.05));
 }
 .dropdown_contents a{
-  color:var(--Aggie-Space);
+  color:var(--dark-purple);
+  font-weight: unset;
   display:block;
   text-align:left;
   padding: 15px 71px 14px 23px ;
@@ -47,11 +54,11 @@
   height:53px;
 }
 
-
 .dropdown_contents a:hover {
   background: var(--light-purple);
   cursor:pointer;
   display:block;
+  -webkit-text-fill-color:var(--dark-purple);
 }
 
 

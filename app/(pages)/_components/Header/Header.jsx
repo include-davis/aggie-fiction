@@ -18,7 +18,8 @@ export default function Header() {
             /></a></div>
             <div className={styles.navContents}>
                 <div className={styles.dropdown}>
-                    <a href="//events" >Events</a> <button className={styles.arrow} onClick={toggleDropdown} ><Image
+                    <a onClick={toggleDropdown}>Events</a>
+                    <button className={styles.arrow} onClick={toggleDropdown} ><Image
                     src="/weui_arrow-outlined.svg"
                     width={12}
                     height={24}
@@ -28,6 +29,7 @@ export default function Header() {
                 </div>
                 {dropdownOpen &&(
                     <div className={styles.dropdown_contents}>
+                        <a href="/events">All Events</a>
                         <a href="/calendar">Calendar</a>
                         <a href="/conference">Conference</a>
                     </div>)}
