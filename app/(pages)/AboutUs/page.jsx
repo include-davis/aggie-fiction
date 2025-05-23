@@ -42,7 +42,7 @@ export default function Home() {
   ];
 
   return (
-    <main>
+    <main className={styles.main}>
       <h2 className={styles.aboutUsHeader}>About us</h2>
       <div className={styles.aboutUs}>
         <p>We’re UC Davis’s creative writing club, dedicated to fostering creativity and building connections within the campus writing community. Whether you’re passionate about fiction, poetry, or just exploring storytelling, we’re here to support and inspire your writing journey.<br/><br/>
@@ -54,7 +54,7 @@ export default function Home() {
           width={431} 
           height={458} 
           alt="Otter Mascot"
-          style={{display: "block", marginLeft: 0}}
+          style={{display: "block", marginLeft: 15}}
         />
       </div>
   
@@ -69,7 +69,7 @@ export default function Home() {
           width={352} 
           height={363} 
           alt="Otter Mascot"
-          style={{display: "block", marginLeft: 0}}
+          style={{display: "block", marginLeft: 42}}
         />
       </div>
   
