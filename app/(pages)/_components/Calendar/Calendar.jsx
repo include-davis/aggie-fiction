@@ -38,49 +38,107 @@ function generateCalendarDays(year, month) {
 function normalizeEventDates(events) {
   if (!events || events.length === 0) return [];
 
+  // Function to determine event type based on description content
+  function getEventType(event) {
+    const description = (event.description || "").toLowerCase();
+    const summary = (event.summary || "").toLowerCase();
+
+    // Check for keywords in both description and summary
+    const content = `${description} ${summary}`;
+
+    // Define your categorization rules here
+    if (
+      content.includes('"general meeting"') ||
+      content.includes("general meeting")
+    ) {
+      return "General Meeting";
+    }
+    if (
+      content.includes('"board meeting"') ||
+      content.includes("board meeting")
+    ) {
+      return "Board Meetings";
+    }
+    if (
+      content.includes('"fundraiser"') ||
+      content.includes("fundraiser") ||
+      content.includes("fundraising")
+    ) {
+      return "Fundraiser";
+    }
+    if (
+      content.includes('"conference"') ||
+      content.includes("conference") ||
+      content.includes("summit")
+    ) {
+      return "Conference";
+    }
+    if (
+      content.includes('"special event"') ||
+      content.includes("special event") ||
+      content.includes("celebration")
+    ) {
+      return "Special Event";
+    }
+
+    console.log(`Event: ${event.summary}, Content: ${content}`);
+
+    // Default type if no keywords match
+    return "General Meeting";
+  }
+
   return events.map((event) => {
     if (!event.start) return { date: "", summary: event.summary || "Untitled" };
 
-    // const date = new Date(event.start.dateTime || event.start.date);
     const startDate = new Date(event.start.dateTime || event.start.date);
-    const endDate = event.end?.dateTime || event.end?.date ? new Date(event.end.dateTime || event.end.date) : null;
-    
+    const endDate =
+      event.end?.dateTime || event.end?.date
+        ? new Date(event.end.dateTime || event.end.date)
+        : null;
+
     const year = startDate.getFullYear();
-    const month = String(startDate.getMonth() + 1).padStart(2, '0');
-    const day = String(startDate.getDate()).padStart(2, '0');
+    const month = String(startDate.getMonth() + 1).padStart(2, "0");
+    const day = String(startDate.getDate()).padStart(2, "0");
     const isoDate = `${year}-${month}-${day}`;
-    // const isoDate = startDate.toISOString().split("T")[0]; // '2025-05-12'
 
     // Format date as either "MMM DD" or "MMM DD-DD"
-    const startMonth = startDate.toLocaleDateString("en-US", {month: "short"});
+    const startMonth = startDate.toLocaleDateString("en-US", {
+      month: "short",
+    });
     const startDay = startDate.getDate();
     let formattedDate;
 
     // Check to see if end date is different than start date, and handle all possible cases
-    if (endDate && (endDate.getFullYear() !== startDate.getFullYear() || endDate.getMonth() !== startDate.getMonth() || endDate.getDate() !== startDate.getDate()))
-    {
-      const endMonth = endDate.toLocaleDateString("en-US", {month: "short"});
+    if (
+      endDate &&
+      (endDate.getFullYear() !== startDate.getFullYear() ||
+        endDate.getMonth() !== startDate.getMonth() ||
+        endDate.getDate() !== startDate.getDate())
+    ) {
+      const endMonth = endDate.toLocaleDateString("en-US", { month: "short" });
       const endDay = endDate.getDate();
 
-      if (startMonth === endMonth)
-      {
+      if (startMonth === endMonth) {
         // Same month: Mar 25-27
         formattedDate = `${startMonth} ${startDay}-${endDay}`;
-      }
-      else
-      {
+      } else {
         // Different months: Mar 25-Apr 2
         formattedDate = `${startMonth} ${startDay}-${endMonth} ${endDay}`;
       }
     }
     // Otherwise, just a single day event
-    else
-    {
+    else {
       formattedDate = `${startMonth} ${startDay}`;
     }
 
-    const shortenedSummary = event.summary.length > 14 ? event.summary.substring(0, 11) + "..." : event.summary;
-    
+    const shortenedSummary =
+      event.summary.length > 14
+        ? event.summary.substring(0, 11) + "..."
+        : event.summary;
+
+    // Determine event type based on description/summary content
+    const eventType = getEventType(event);
+
     return {
       date: isoDate,
       formattedDate,
@@ -93,17 +151,32 @@ function normalizeEventDates(events) {
           })
         : null,
       startTime: event.start.dateTime
-          ? startDate.toLocaleTimeString("en-US", {hour: "numeric", minute: "2-digit", hour12: true}) : null,
+        ? startDate.toLocaleTimeString("en-US", {
+            hour: "numeric",
+            minute: "2-digit",
+            hour12: true,
+          })
+        : null,
       endTime: endDate
-          ? endDate.toLocaleTimeString("en-US", {hour: "numeric", minute: "2-digit", hour12: true}) : null,
+        ? endDate.toLocaleTimeString("en-US", {
+            hour: "numeric",
+            minute: "2-digit",
+            hour12: true,
+          })
+        : null,
       location: event.location || "No location provided",
       desc: event.description || "No description provided",
-      type: "General Meeting"
+      type: eventType, // Use the determined event type instead of hardcoded "General Meeting"
     };
   });
 }
 
-export default function Calendar({ currentMonth, currentYear, events = [], onEventsFetched }) {
+export default function Calendar({
+  currentMonth,
+  currentYear,
+  events = [],
+  onEventsFetched,
+}) {
   const [days, setDays] = useState([]);
   const [fetchedEvents, setFetchedEvents] = useState([]);
   const [selectedEvent, setSelectedEvent] = useState(null);
@@ -140,9 +213,8 @@ export default function Calendar({ currentMonth, currentYear, events = [], onEve
         const data = await res.json();
         const normalizedEvents = normalizeEventDates(data.events || []);
         setFetchedEvents(data.events || []);
-        
-        if (onEventsFetched)
-          onEventsFetched(normalizedEvents);
+
+        if (onEventsFetched) onEventsFetched(normalizedEvents);
       } catch (err) {
         console.error("Error fetching events:", err);
       }
@@ -154,14 +226,14 @@ export default function Calendar({ currentMonth, currentYear, events = [], onEve
   const handleEventClick = (event, e) => {
     // Get the event item's position
     const eventItemRect = e.currentTarget.getBoundingClientRect();
-    
+
     setCellPosition({
       left: eventItemRect.left,
       right: eventItemRect.right,
       top: eventItemRect.top + window.scrollY,
-      bottom: eventItemRect.bottom + window.scrollY
+      bottom: eventItemRect.bottom + window.scrollY,
     });
-    
+
     setSelectedEvent({
       type: event.type,
       title: event.summary,
@@ -169,7 +241,7 @@ export default function Calendar({ currentMonth, currentYear, events = [], onEve
       startTime: event.startTime,
       endTime: event.endTime,
       location: event.location,
-      desc: event.desc
+      desc: event.desc,
     });
   };
 
@@ -200,10 +272,10 @@ export default function Calendar({ currentMonth, currentYear, events = [], onEve
                 {dailyEvents.length > 0 && (
                   <div className={styles.eventItems}>
                     {dailyEvents.map((event, i) => (
-                      <div 
-                        key={i} 
+                      <div
+                        key={i}
                         className={styles.eventItem}
-                        onClick = {(e) => handleEventClick(event, e)}
+                        onClick={(e) => handleEventClick(event, e)}
                       >
                         <p>{event.shortenedSummary}</p>
                         <p>{event.time}</p>
@@ -218,13 +290,13 @@ export default function Calendar({ currentMonth, currentYear, events = [], onEve
       </div>
 
       {selectedEvent && (
-        <CalendarEventCard 
-          event = {selectedEvent} 
-          onClose = {() => {
+        <CalendarEventCard
+          event={selectedEvent}
+          onClose={() => {
             setSelectedEvent(null);
             setCellPosition(null);
           }}
-          cellPosition = {cellPosition}
+          cellPosition={cellPosition}
         />
       )}
     </div>
