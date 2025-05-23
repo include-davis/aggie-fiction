@@ -5,6 +5,16 @@ import axios from "axios";
 import { useState, useEffect, useMemo } from "react";
 import CalendarEventCard from "../CalendarEventCard/CalendarEventCard";
 
+const eventColors = {
+  "General Meeting": "#FADC90",
+  "Board Meetings": "#FFBAAF",
+  Fundraiser: "#A4DAEB",
+  Conference: "#6681DB",
+  "Special Event": "#9CE1C2",
+  // fallback default color for unknown types
+  default: "#FFBAAA",
+};
+
 function generateCalendarDays(year, month) {
   const firstDayOfMonth = new Date(year, month, 1);
   const startDay = firstDayOfMonth.getDay(); // 0 (Sun) to 6 (Sat)
@@ -84,7 +94,7 @@ function normalizeEventDates(events) {
     console.log(`Event: ${event.summary}, Content: ${content}`);
 
     // Default type if no keywords match
-    return "General Meeting";
+    return "Unset Event";
   }
 
   return events.map((event) => {
@@ -278,6 +288,12 @@ export default function Calendar({
                         key={i}
                         className={styles.eventItem}
                         onClick={(e) => handleEventClick(event, e)}
+                        style={{
+                          backgroundColor:
+                            event.type && eventColors[event.type]
+                              ? eventColors[event.type]
+                              : "#D3D3D3",
+                        }}
                       >
                         <p>{event.shortenedSummary}</p>
                         <p>{event.time}</p>

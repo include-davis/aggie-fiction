@@ -69,6 +69,7 @@ export default function FilterMenu({ filters, setFilters, onClose, position }) {
     "#A4DAEB",
     "#6681DB",
     "#9CE1C2",
+    "#D3D3D3",
   ];
   const filterTypes = [
     "all",
