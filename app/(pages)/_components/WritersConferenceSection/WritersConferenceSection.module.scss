@@ -1,0 +1,113 @@
+/* ==========================================================================
+   WritersConferenceSection.module.scss
+   ========================================================================== */
+
+/* ——————————————————————————————————————————————
+   SECTION WRAPPER
+   Matches the Workshops & Guest Speakers gutters
+   —————————————————————————————————————————————— */
+   .container {
+    box-sizing: border-box;
+    max-width: 1512px;          /* artboard width */
+    margin: 51px auto 0;        /* 51px from the section above */
+    padding: 0 105.577px;       /* horizontal gutters */
+  }
+  
+  /* ——————————————————————————————————————————————
+     FLEX ROW
+     Aligns image + text side by side
+     —————————————————————————————————————————————— */
+  .row {
+    display: flex;
+    align-items: flex-start;
+    gap: 102px;                 /* same gap as Guest Speakers */
+  }
+  
+  /* ——————————————————————————————————————————————
+     IMAGE COLUMN
+     Fixed box + corner radius
+     —————————————————————————————————————————————— */
+  .imageWrapper {
+    position: relative;
+    width: 764px;               /* mockup measurement */
+    height: 381px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  .image {
+    object-fit: cover;          /* fill & crop */
+  }
+  
+  /* ——————————————————————————————————————————————
+     TEXT COLUMN
+     Fixed width, no shrink
+     —————————————————————————————————————————————— */
+  .textWrapper {
+    width: 646px;               /* same text column width as Guest Speakers */
+    flex-shrink: 0;
+  }
+  
+  /* ——————————————————————————————————————————————
+     TITLE TYPOGRAPHY
+     Same style as other gold headings
+     —————————————————————————————————————————————— */
+  .title {
+    margin: 0 0 1rem;           /* 1rem below */
+    color: var(--gold, #E4A135);
+    font-family: 'Poppins', sans-serif;
+    font-size: 64px;
+    font-weight: 700;
+    line-height: normal;
+  }
+  
+  /* ——————————————————————————————————————————————
+     SUBTITLE TYPOGRAPHY
+     Dark-purple subheading
+     —————————————————————————————————————————————— */
+  .subtitle {
+    margin: 0 0 2rem;           /* 2rem below */
+    color: var(--dark-purple, #161457);
+    font-family: 'Poppins', sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: normal;
+  }
+  
+  /* ——————————————————————————————————————————————
+     BUTTON
+     Pill shape matching design
+     —————————————————————————————————————————————— */
+  .button {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border: 2px solid var(--gold, #E4A135);
+    border-radius: 9999px;
+    color: #000;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background-color 0.2s;
+  }
+  
+  .button:hover {
+    background-color: rgba(228, 161, 53, 0.1);
+  }
+  
+  /* ——————————————————————————————————————————————
+   BACKGROUND IMAGE DIV
+   607×367 box, no shrink, 10px radius, cover crop
+   —————————————————————————————————————————————— */
+.picture {
+    width: 607px;                            /* layout width */
+    height: 367px;                           /* layout height */
+    flex-shrink: 0;                          /* don’t collapse */
+    border-radius: 10px;                     /* rounded corners */
+    background: lightgray                    /* fallback color */
+      url('/Rectangle 390.png')       /* your image path */
+      50% / cover no-repeat;                 /* center & cover */
+      margin-left: 88px;
+  }
+  
