@@ -89,7 +89,7 @@ const alumniList = [
    {
     first_name:"Erika",
     last_name:"DiMaano",
-    role:"Publicity Chair, 2022–2024",
+    role1:"Publicity Chair, 2022–2024",
     role2:"",
     role3:"",
     description:(
@@ -122,15 +122,17 @@ export default function almuni() {
 
       <div className={styles.header}>
         <div className={styles.headerText}>
-          <h1 className={styles.title}>Meet our Alumni</h1>
+          <h1 className={styles.title}>Meet Our Alumni</h1>
           <div className={styles.searchbar}>
+            <div className={styles.mag}>
             <Image
               src="/AlumniPage/mag.svg"
               alt="Magnifying glass icon"
               width={30}
               height={31}
-
             />
+
+            </div>
 
             <input
               type="text"

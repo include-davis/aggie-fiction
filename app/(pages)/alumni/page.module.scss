@@ -1,4 +1,7 @@
 
+@use "../_globals/mixins.scss";
+
+
 .pagewrapper{
     display: flex;
     justify-content: center;
@@ -6,6 +9,15 @@
     padding-right: 100px;
     padding-top: 43px;
     padding-bottom: 103px;
+
+    @include mixins.phone{
+        
+        padding-left: 30px;
+        padding-right: 30px;
+        justify-content: flex-start;
+        
+        
+    }
     
 }
 .alumniPage{
@@ -15,6 +27,12 @@
     gap: 44px;
     align-items: center;
     
+
+    @include mixins.phone{
+        align-items: center;
+        gap: 100px;
+    }
+    
     
 }
 
@@ -22,8 +40,16 @@
 .title{
     color: var(--gold);
     font-size: 4rem;
-    width: 541px;
+    width: 560px;
     height: 96px;
+   
+
+    @include mixins.phone{
+        font-size: 1.5rem;
+        width: 210px;
+        height: 36px;
+        
+    }
 }
 
 .header{
@@ -31,12 +57,28 @@
     flex-direction: row;
     align-items: center;
     gap: 297px;
+
+
+    @include mixins.phone{
+        gap: 0px;
+        
+        
+    }
 }
+
 
 .headerText{
     display: flex;
     flex-direction: column;
     gap: 11px;
+    @include mixins.phone{
+        gap: 20px;
+        width: 333px;
+        height: 36px;
+        
+        
+        
+    }
 
 }
 
@@ -44,6 +86,10 @@
     width: 369px;
     height: 207px;
     object-fit: cover;
+
+    @include mixins.phone{
+        display: none;
+    }
 }
 
 .searchbar{
@@ -59,6 +105,22 @@
     background: var(--white);
     border: 2px solid var(--black);
     border-radius: 150px;
+
+    @include mixins.phone{
+        width: 333px;
+        height: 48px;
+        gap: 10px;
+        padding-left: 20px;
+        
+    }
+}
+
+.mag{
+    @include mixins.phone{
+        width: 23px;
+        height: 25px;
+        bottom: 10px;
+    }
 }
 
 .searchInput{
@@ -70,6 +132,13 @@
     outline: none;
     width: 630px;
     font-weight: 400;
+    font-size: 1rem;
+
+    @include mixins.phone{
+        width: 300px;
+        font-size: 0.875rem;
+        
+    }
     
 }
 .searchInput::placeholder{
@@ -80,7 +149,6 @@
 
 .cardsContainer{
     display: flex;
-    
     justify-content: flex-start;
     align-items: center;
     flex-wrap: wrap;
@@ -88,6 +156,12 @@
     
     width: 1312px;
 
+    @include mixins.phone{
+        
+        justify-content: center;
+    }
+
+   
 }
 
 @media (max-width: 1320px){

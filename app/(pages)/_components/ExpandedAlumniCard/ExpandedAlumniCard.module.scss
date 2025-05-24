@@ -1,3 +1,5 @@
+@use "../../_globals/mixins.scss";
+
 .expandedCard {
     position: relative;
     width: 1309px;
@@ -15,7 +17,20 @@
     padding-left: 60.43px;
     padding-top: 87px;
     padding-bottom: 89.35px;
+
+    @include mixins.phone{
+      width: 333px;
+      height: auto;
+
+      padding-left: 41px; 
+      padding-top: 38px;
+      padding-right: 41px;
+      flex-direction: column;
+      gap: 22px;
+    }
   }
+
+
   .closeButton{
     position: absolute;
     top: 37px;
@@ -23,9 +38,21 @@
     background: transparent;
     border: none;
     cursor: pointer;
-    
 
+    width: 49px;
+    height: 50px;
+
+    object-fit: contain;
+
+    @include mixins.phone{
+      height: 20px;
+      width: 20px;
+
+      top: 12px;
+      left: 300px;
+    }
   }
+  
   .imageContainer {
     width: 472.251px;
     height: 709.653px;
@@ -40,6 +67,15 @@
     padding-right: 36.74px;
     padding-bottom: 87.65px;
   
+    @include mixins.phone{
+      padding-left: 27px;
+      padding-right: 27px;
+      padding-top: 32px;
+      padding-bottom: 32px;
+
+      height: 251px;
+      width: 251px;
+    }
   }
   
   .image {
@@ -48,6 +84,48 @@
     flex-shrink: 0;
     object-fit: cover;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+
+    @include mixins.phone{
+      width: 197px;
+      height: 187px;
+    }
+  }
+  
+  
+.nameRole{
+  @include mixins.phone{
+    display: flex;
+    gap: 5px;
+    flex-direction: column;
+    width: 100%;
+    
+  }
+}
+
+.textContainer{
+  @include mixins.phone{
+    display: flex;
+    flex-direction: column;
+    gap: 23px;
+    
+  }
+}
+
+
+  
+
+  .mobileIcons{
+    @include mixins.phone{
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      
+
+      top: 321px;
+      left: 271px;
+      right:21px;
+     
+    }
   }
   
   
@@ -55,19 +133,45 @@
     font-size: 3rem;
     font-weight: 700;
     margin-bottom: 8px;
+    
+    
+
+    @include mixins.phone{
+      font-size: 1.5rem;
+      margin-bottom: auto;
+      width: 300px;
+      
+
+    }
   }
 
   .role1 {
     font-size: 2rem;
+
+    @include mixins.phone{
+      font-size: 0.875rem;
+      height: 21px;
+      
+
+    }
+    
   }
 
   .role2 {
     font-size: 2rem;
+    @include mixins.phone{
+      font-size: 0.875rem;
+
+    }
   }
 
   .role3 {
     font-size: 2rem;
-    margin-bottom: 20px
+
+    @include mixins.phone{
+      font-size: 0.875rem;
+
+    }
   }
   
   .longDescription {
@@ -75,6 +179,12 @@
     width: 565.843px;
     font-size: 1.125rem;
     font-weight: 400;
+
+    @include mixins.phone{
+      width: 251px;
+      font-size: 0.75rem; 
+      
+    }
   }
 
   .socialTitle {
@@ -99,6 +209,12 @@
     left:598px;
     right:124px;
     top:613px;
+
+    @include mixins.phone{
+      display: none;
+      height: 0px;
+      width: 0px;
+    }
   }
 
   .socialHandle {
