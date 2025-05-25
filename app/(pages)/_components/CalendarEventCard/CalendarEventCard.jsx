@@ -38,7 +38,7 @@ export default function CalendarEventCard({ event, onClose, cellPosition }) {
     const isLeftSide = cellPosition.left < viewportWidth / 2;
 
     let left;
-    let top = cellPosition.top - 40;
+    let top = cellPosition.top - 145;
 
     if (isLeftSide) left = cellPosition.right + 8;
     else left = cellPosition.left - cardWidth - 6;

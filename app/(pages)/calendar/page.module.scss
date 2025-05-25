@@ -111,5 +111,10 @@
     height: 52px;
     border-radius: 9999px;
     border: none;
+
+    &:hover {
+      background-color: var(--dark-purple);
+      color: var(--white);
+    }
   }
 }
