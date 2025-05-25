@@ -38,15 +38,12 @@ export default function Page() {
                 </div>
 
                 <div className={styles.subheader}>
-                    <p style={{fontWeight: "bold"}}>Description:</p>
+                    <div className={styles.description}>Description:</div>
                     <p>Writing is intimidating. But it doesn’t have to be.</p>
                 </div>
 
             <div className={styles.blogcontent}>
-                <hr className={styles.lineseparator} style={{
-                    marginTop:"29px",
-                    marginBottom:"27px"
-                }}></hr>
+                <hr className={styles.lineseparator} />
                 <div className={styles.content}>
                     <p>
                         You have a six hour movie playing in your mind, an open document with approximately zero to
@@ -137,7 +134,7 @@ export default function Page() {
                         Writing Tips
                     </Button>
                 </div>
-                <hr className={styles.lineseparator} style={{
+                <hr className={styles.lineseparatorbold} style={{
                     height:"4px",
                     backgroundColor:"var(--Aggie-Space)",
                     marginTop:"36px",

@@ -5,12 +5,20 @@
   align-items: center;
   padding: 270px 100px 226px 100px;
 }
+.description{
+  color: var(--dark-purple);
+  font-weight: bold;
+}
 .TopButtons{
   display:flex;
   width:100%;
   justify-content: flex-start;
   gap:6px;
   margin-bottom: 37px;
+}
+.TopButtons a{
+  display: flex;
+  align-items:center;
 }
 .button{
   border-radius:25px;
@@ -44,8 +52,18 @@
 }
 .lineseparator{
   width:286px;
-  height:1px;
-  color: var(--black);
+  border:1px solid var(--black);
+  margin-top: 29px;
+  margin-bottom:27px;
+}
+.lineseparatorbold{
+  width:286px;
+  margin-top:36px;
+  margin-bottom:30px;
+  border-radius: 999px;
+  background-image: var(--Aggie-Space);
+  height:3px;
+  border-style: none;
 }
 .blogcontent{
   display: flex;
