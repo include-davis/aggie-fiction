@@ -3,7 +3,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 270px 100px 226px 100px;
+  padding: 56px 100px 94px 100px;
 }
 .description{
   color: var(--dark-purple);
@@ -41,6 +41,8 @@
 .header{
   color:var(--gold);
   font-size:64px;
+  margin-top: 37px;
+  margin-bottom: 28px;
 }
 .subheader{
   display:flex;
@@ -115,8 +117,26 @@
 }
 .EndButtons{
   display:flex;
+  justify-content: space-between;
+  width:100%;
+}
+.nextButton{
+  display:flex;
   margin-top: 37px;
-  justify-content: flex-end;
-  width: 100%;
   gap:6px;
+}
+.nextButton a{
+  display: flex;
+  align-items: center;
+}
+
+.previousButton{
+  display:flex;
+  margin-top: 37px;
+  gap:6px;
+
+}
+.previousButton a{
+  display: flex;
+  align-items: center;
 }
