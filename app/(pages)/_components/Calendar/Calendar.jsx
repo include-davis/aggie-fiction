@@ -289,7 +289,7 @@ export default function Calendar({
               >
                 {day && (
                   <div
-                    className={`${styles.dateNum} ${isToday ? styles.todayDateNum : ""}`}
+                    className={`${isToday ? styles.todayDateNum : styles.dateNum}`}
                   >
                     <p>{day}</p>
                   </div>
