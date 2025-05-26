@@ -144,8 +144,8 @@ export default function CalendarPage() {
               <Image
                 src="/Calendar/svg/LeftButton.svg"
                 alt="Previous"
-                width={44}
-                height={52}
+                layout="fill"
+                objectFit="contain"
               />
             </button>
 
@@ -157,8 +157,8 @@ export default function CalendarPage() {
               <Image
                 src="/Calendar/svg/RightButton.svg"
                 alt="Next"
-                width={44}
-                height={52}
+                layout="fill"
+                objectFit="contain"
               />
             </button>
           </div>
