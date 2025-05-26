@@ -2,102 +2,161 @@
   width: 100%;
   background: var(--white);
   border-radius: 10px;
+}
 
-  .calendarHeader {
-    display: grid;
-    grid-template-rows: 75px;
-    grid-template-columns: repeat(7, 1fr);
-    align-items: center;
-    background: var(--light-purple);
-    border-top: 2px solid black;
-    border-right: 2px solid black;
-    border-bottom: 1px solid black;
-    border-left: 2px solid black;
-    border-radius: 10px 10px 0 0;
+.calendarHeader {
+  display: grid;
+  grid-template-rows: 75px;
+  grid-template-columns: repeat(7, 1fr);
+  align-items: center;
+  background: var(--light-purple);
+  border-top: 2px solid black;
+  border-right: 2px solid black;
+  border-bottom: 1px solid black;
+  border-left: 2px solid black;
+  border-radius: 10px 10px 0 0;
 
-    h2 {
-      text-align: center;
-      font-weight: 400;
-    }
+  h2 {
+    text-align: center;
+    font-weight: 400;
   }
+}
 
-  .calendarCellsContainer {
-    display: grid;
-    grid-template-rows: repeat(6, 114px);
-    grid-template-columns: repeat(7, 1fr);
-    border: 1px solid black;
-    border-radius: 0 0 10px 10px;
-    overflow: hidden;
+.calendarCellsContainer {
+  display: grid;
+  grid-template-rows: repeat(6, 114px);
+  grid-template-columns: repeat(7, 1fr);
+  border: 1px solid black;
+  border-radius: 0 0 10px 10px;
+  overflow: hidden;
+}
+
+.calendarCell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--white);
+  border: 2px solid black;
+}
+
+.currentMonth {
+  color: #000;
+  background-color: var(--white);
+}
+
+.otherMonth {
+  color: #aaa;
+  background-color: #f9f9f9;
+}
+
+.dateNum {
+  display: flex;
+  flex-shrink: 0;
+  padding: 5px 0px 0px 10px;
+  width: 100%;
+  height: 24px;
+
+  p {
+    line-height: 1.1;
+  }
+}
+
+.todayDateNum {
+  display: flex;
+  align-items: center;
+  padding: 4px 0px 0px 4px;
+  width: 100%;
+  height: 24px;
+  color: var(--white);
+
+  p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 24px;
+    background-color: var(--dark-purple);
+    border-radius: 50%;
+  }
+}
+
+.eventItems {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5px 0 10px 0;
+  gap: 3px;
+  width: 100%;
+  overflow: scroll;
+}
+
+.eventItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+  width: 90%;
+  border-radius: 100px;
+
+  p {
+    font-size: 0.8rem;
+  }
+}
+
+@mixin phone {
+  @media screen and (max-width: 720px) {
+    .calendarHeader {
+      grid-template-rows: 43px;
+
+      h2 {
+        font-size: 10px;
+      }
+    }
+
+    .calendarCellsContainer {
+      grid-template-rows: repeat(6, 46px);
+      grid-template-columns: repeat(7, 1fr);
+    }
 
     .calendarCell {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      background-color: var(--white);
-      border: 2px solid black;
-    }
-
-    .currentMonth {
-      color: #000;
-      background-color: var(--white);
-    }
-
-    .otherMonth {
-      color: #aaa;
-      background-color: #f9f9f9;
+      overflow: scroll;
     }
 
     .dateNum {
-      display: flex;
-      flex-shrink: 0;
-      padding: 5px 0px 0px 10px;
-      width: 100%;
-      height: 24px;
+      justify-content: center;
+      padding-left: 0;
 
       p {
-        line-height: 1.1;
+        font-size: 10px;
       }
     }
 
     .todayDateNum {
-      display: flex;
-      align-items: center;
-      padding: 4px 0px 0px 4px;
-      width: 100%;
-      height: 24px;
-      color: var(--white);
+      justify-content: center;
+      width: 20px;
 
       p {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 24px;
-        background-color: var(--dark-purple);
-        border-radius: 50%;
+        font-size: 10px;
       }
     }
-
     .eventItems {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 5px 0 10px 0;
-      gap: 3px;
+      display: grid;
+      grid-template-rows: repeat(auto-fill, 1fr);
+      grid-template-columns: repeat(3, 1fr);
+      padding: 0 2px 0 2px;
+      gap: 2px;
       width: 100%;
-      overflow: scroll;
+    }
 
-      .eventItem {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0 10px;
-        width: 90%;
-        border-radius: 100px;
+    .eventItem {
+      width: 30%;
+      height: 8px;
 
-        p {
-          font-size: 0.8rem;
-        }
+      p {
+        display: none;
+        font-size: 0.8rem;
       }
     }
   }
 }
+
+@include phone;
