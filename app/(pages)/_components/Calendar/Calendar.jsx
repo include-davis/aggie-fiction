@@ -1,8 +1,6 @@
 "use client";
 import styles from "./Calendar.module.scss";
-import { useGoogleLogin } from "@react-oauth/google";
-import axios from "axios";
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useMemo, useRef } from "react";
 import CalendarEventCard from "../CalendarEventCard/CalendarEventCard";
 
 const eventColors = {
@@ -11,31 +9,27 @@ const eventColors = {
   Fundraiser: "#A4DAEB",
   Conference: "#6681DB",
   "Special Event": "#9CE1C2",
-  // fallback default color for unknown types
   default: "#FFBAAA",
 };
 
 function generateCalendarDays(year, month) {
   const firstDayOfMonth = new Date(year, month, 1);
-  const startDay = firstDayOfMonth.getDay(); // 0 (Sun) to 6 (Sat)
+  const startDay = firstDayOfMonth.getDay();
 
   const totalDaysInMonth = new Date(year, month + 1, 0).getDate();
   const totalDaysInPrevMonth = new Date(year, month, 0).getDate();
 
   const days = [];
 
-  // Fill in previous month's trailing days
   for (let i = startDay - 1; i >= 0; i--) {
     const date = new Date(year, month - 1, totalDaysInPrevMonth - i);
     days.push(date);
   }
 
-  // Fill in current month's days
   for (let i = 1; i <= totalDaysInMonth; i++) {
     days.push(new Date(year, month, i));
   }
 
-  // Fill in next month's leading days to make 42 total
   const totalCells = 42;
   const nextMonthDayCount = totalCells - days.length;
   for (let i = 1; i <= nextMonthDayCount; i++) {
@@ -48,52 +42,28 @@ function generateCalendarDays(year, month) {
 function normalizeEventDates(events) {
   if (!events || events.length === 0) return [];
 
-  // Function to determine event type based on description content
   function getEventType(event) {
     const description = (event.description || "").toLowerCase();
     const summary = (event.summary || "").toLowerCase();
-
-    // Check for keywords in both description and summary
     const content = `${description} ${summary}`;
 
-    // Define your categorization rules here
-    if (
-      content.includes('"general meeting"') ||
-      content.includes("general meeting")
-    ) {
+    if (content.includes('"general meeting"') || content.includes("general meeting")) {
       return "General Meeting";
     }
-    if (
-      content.includes('"board meeting"') ||
-      content.includes("board meeting")
-    ) {
+    if (content.includes('"board meeting"') || content.includes("board meeting")) {
       return "Board Meetings";
     }
-    if (
-      content.includes('"fundraiser"') ||
-      content.includes("fundraiser") ||
-      content.includes("fundraising")
-    ) {
+    if (content.includes('"fundraiser"') || content.includes("fundraiser") || content.includes("fundraising")) {
       return "Fundraiser";
     }
-    if (
-      content.includes('"conference"') ||
-      content.includes("conference") ||
-      content.includes("summit")
-    ) {
+    if (content.includes('"conference"') || content.includes("conference") || content.includes("summit")) {
       return "Conference";
     }
-    if (
-      content.includes('"special event"') ||
-      content.includes("special event") ||
-      content.includes("celebration")
-    ) {
+    if (content.includes('"special event"') || content.includes("special event") || content.includes("celebration")) {
       return "Special Event";
     }
 
     console.log(`Event: ${event.summary}, Content: ${content}`);
-
-    // Default type if no keywords match
     return "Unset Event";
   }
 
@@ -101,24 +71,17 @@ function normalizeEventDates(events) {
     if (!event.start) return { date: "", summary: event.summary || "Untitled" };
 
     const startDate = new Date(event.start.dateTime || event.start.date);
-    const endDate =
-      event.end?.dateTime || event.end?.date
-        ? new Date(event.end.dateTime || event.end.date)
-        : null;
+    const endDate = event.end?.dateTime || event.end?.date ? new Date(event.end.dateTime || event.end.date) : null;
 
     const year = startDate.getFullYear();
     const month = String(startDate.getMonth() + 1).padStart(2, "0");
     const day = String(startDate.getDate()).padStart(2, "0");
     const isoDate = `${year}-${month}-${day}`;
 
-    // Format date as either "MMM DD" or "MMM DD-DD"
-    const startMonth = startDate.toLocaleDateString("en-US", {
-      month: "short",
-    });
+    const startMonth = startDate.toLocaleDateString("en-US", { month: "short" });
     const startDay = startDate.getDate();
     let formattedDate;
 
-    // Check to see if end date is different than start date, and handle all possible cases
     if (
       endDate &&
       (endDate.getFullYear() !== startDate.getFullYear() ||
@@ -129,24 +92,16 @@ function normalizeEventDates(events) {
       const endDay = endDate.getDate();
 
       if (startMonth === endMonth) {
-        // Same month: Mar 25-27
         formattedDate = `${startMonth} ${startDay}-${endDay}`;
       } else {
-        // Different months: Mar 25-Apr 2
         formattedDate = `${startMonth} ${startDay}-${endMonth} ${endDay}`;
       }
-    }
-    // Otherwise, just a single day event
-    else {
+    } else {
       formattedDate = `${startMonth} ${startDay}`;
     }
 
-    const shortenedSummary =
-      event.summary.length > 14
-        ? event.summary.substring(0, 11) + "..."
-        : event.summary;
+    const shortenedSummary = event.summary.length > 14 ? event.summary.substring(0, 11) + "..." : event.summary;
 
-    // Determine event type based on description/summary content
     const eventType = getEventType(event);
 
     return {
@@ -155,57 +110,38 @@ function normalizeEventDates(events) {
       summary: event.summary || "Untitled",
       shortenedSummary: shortenedSummary,
       time: event.start.dateTime
-        ? startDate.toLocaleTimeString([], {
-            hour: "numeric",
-            hour12: true,
-          })
+        ? startDate.toLocaleTimeString([], { hour: "numeric", hour12: true })
         : null,
       startTime: event.start.dateTime
-        ? startDate.toLocaleTimeString("en-US", {
-            hour: "numeric",
-            minute: "2-digit",
-            hour12: true,
-          })
+        ? startDate.toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit", hour12: true })
         : null,
       endTime: endDate
-        ? endDate.toLocaleTimeString("en-US", {
-            hour: "numeric",
-            minute: "2-digit",
-            hour12: true,
-          })
+        ? endDate.toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit", hour12: true })
         : null,
       location: event.location || "No location provided",
       desc: event.description || "No description provided",
-      type: eventType, // Use the determined event type instead of hardcoded "General Meeting"
+      type: eventType,
     };
   });
 }
 
-export default function Calendar({
-  currentMonth,
-  currentYear,
-  events = [],
-  onEventsFetched,
-}) {
+export default function Calendar({ currentMonth, currentYear, events = [], onEventsFetched }) {
   const [days, setDays] = useState([]);
   const [fetchedEvents, setFetchedEvents] = useState([]);
   const [selectedEvent, setSelectedEvent] = useState(null);
   const [cellPosition, setCellPosition] = useState(null);
+  const [expandedCellDate, setExpandedCellDate] = useState(null);
 
-  // Generate days when month/year changes
   useEffect(() => {
     const generatedDays = generateCalendarDays(currentYear, currentMonth);
     setDays(generatedDays);
   }, [currentMonth, currentYear]);
 
-  // Map events to dates
   const eventMap = useMemo(() => {
-    // Use the filtered events passed from parent, fallback to fetched events if none provided
     const eventsToUse = events.length > 0 ? events : fetchedEvents;
     if (eventsToUse.length === 0) return {};
 
-    const normalized =
-      events.length > 0 ? eventsToUse : normalizeEventDates(eventsToUse);
+    const normalized = events.length > 0 ? eventsToUse : normalizeEventDates(eventsToUse);
     const map = {};
 
     normalized.forEach((ev) => {
@@ -214,7 +150,6 @@ export default function Calendar({
       map[ev.date].push(ev);
     });
 
-    console.log("Event map:", map);
     return map;
   }, [events, fetchedEvents]);
 
@@ -236,7 +171,8 @@ export default function Calendar({
   }, [currentMonth, currentYear, onEventsFetched]);
 
   const handleEventClick = (event, e) => {
-    // Get the event item's position
+    e.stopPropagation();
+    
     const eventItemRect = e.currentTarget.getBoundingClientRect();
 
     setCellPosition({
@@ -257,6 +193,17 @@ export default function Calendar({
     });
   };
 
+  const handleMoreEventsClick = (dateStr, e) => {
+    e.stopPropagation();
+    setExpandedCellDate(expandedCellDate === dateStr ? null : dateStr);
+  };
+
+  const handleCellClick = (dateStr) => {
+    if (expandedCellDate === dateStr) {
+      setExpandedCellDate(null);
+    }
+  };
+
   return (
     <div>
       <div className={styles.calendarContainer}>
@@ -268,9 +215,7 @@ export default function Calendar({
 
         <div className={styles.calendarCellsContainer}>
           {days.map((dateObj, idx) => {
-            const dateStr = dateObj
-              ? dateObj.toISOString().split("T")[0]
-              : null;
+            const dateStr = dateObj ? dateObj.toISOString().split("T")[0] : null;
             const day = dateObj?.getDate();
             const todayStr = new Intl.DateTimeFormat("en-CA", {
               timeZone: "America/Los_Angeles",
@@ -281,38 +226,54 @@ export default function Calendar({
             const isToday = dateStr === todayStr;
             const isCurrentMonth = dateObj.getMonth() === currentMonth;
             const dailyEvents = isCurrentMonth ? eventMap[dateStr] || [] : [];
+            const isExpanded = expandedCellDate === dateStr;
+            const shouldShowMoreEvents = dailyEvents.length >= 4 && !isExpanded;
+            const eventsToShow = isExpanded ? dailyEvents : dailyEvents.slice(0, 2);
+            const hiddenEventsCount = dailyEvents.length - 2;
 
             return (
               <div
                 key={idx}
                 className={`${styles.calendarCell} ${isCurrentMonth ? styles.currentMonth : styles.otherMonth}`}
+                onClick={() => handleCellClick(dateStr)}
+                style={{ position: "relative", minHeight: "114px" }}
               >
                 {day && (
-                  <div
-                    className={`${isToday ? styles.todayDateNum : styles.dateNum}`}
-                  >
+                  <div className={`${isToday ? styles.todayDateNum : styles.dateNum}`}>
                     <p>{day}</p>
                   </div>
                 )}
 
-                {dailyEvents.length > 0 && (
-                  <div className={styles.eventItems}>
-                    {dailyEvents.map((event, i) => (
+                {(eventsToShow.length > 0 || shouldShowMoreEvents) && (
+                  <div
+                    className={styles.eventItems}
+                    style={{
+                      overflowY: isExpanded ? "auto" : "hidden",
+                      height: isExpanded ? "80px" : "auto", 
+                    }}
+                  >
+                    {eventsToShow.map((event, i) => (
                       <div
                         key={i}
                         className={styles.eventItem}
                         onClick={(e) => handleEventClick(event, e)}
                         style={{
-                          backgroundColor:
-                            event.type && eventColors[event.type]
-                              ? eventColors[event.type]
-                              : "#D3D3D3",
+                          backgroundColor: event.type && eventColors[event.type] ? eventColors[event.type] : "#D3D3D3",
                         }}
                       >
                         <p>{event.shortenedSummary}</p>
                         <p>{event.time}</p>
                       </div>
                     ))}
+
+                    {shouldShowMoreEvents && (
+                      <div
+                        className={`${styles.eventItem} ${styles.moreEventsItem}`}
+                        onClick={(e) => handleMoreEventsClick(dateStr, e)}
+                      >
+                        <p>+{hiddenEventsCount} more events</p>
+                      </div>
+                    )}
                   </div>
                 )}
               </div>
