@@ -27,6 +27,7 @@
       padding-right: 41px;
       flex-direction: column;
       gap: 22px;
+      padding-bottom: 37px;
     }
   }
 
@@ -103,6 +104,8 @@
 }
 
 .textContainer{
+  
+  
   @include mixins.phone{
     display: flex;
     flex-direction: column;
@@ -114,17 +117,24 @@
 
   
 
-  .mobileIcons{
+  .mobileHeader{
+    
     @include mixins.phone{
-      position: absolute;
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
+      align-items: center;
+      
+      justify-content: center;
       
 
-      top: 321px;
-      left: 271px;
-      right:21px;
-     
+    }
+  }
+  .mobileIcons{
+    
+    display: none;
+    @include mixins.phone{
+      display: flex;
+      flex-direction: column;
     }
   }
   
@@ -139,7 +149,8 @@
     @include mixins.phone{
       font-size: 1.5rem;
       margin-bottom: auto;
-      width: 300px;
+      width: 230px;
+      
       
 
     }

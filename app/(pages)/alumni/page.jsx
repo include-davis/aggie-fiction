@@ -53,7 +53,7 @@ const alumniList = [
     first_name:"Annie",
     last_name:"Tran",
     role1:"Vice President, 2022–2023",
-    role2:"president, 2023-2024",
+    role2:"President, 2023-2024",
     role3:"",
     description:(
     <>

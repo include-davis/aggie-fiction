@@ -44,6 +44,7 @@ export default function ExpandedAlumniCard({
 
             <div className={styles.textContainer}>
                 
+                <div className={styles.mobileHeader}>
                     <div className={styles.nameRole}>
                         <h1 className={styles.name}>{first_name} {last_name}</h1>
 
@@ -71,14 +72,10 @@ export default function ExpandedAlumniCard({
                             />
                         </a>
                     </div>
-
-
-
-
-                
-
+                    </div>
 
                 <p className={styles.longDescription}>{description}</p>
+                </div>
 
 
                 <div className={styles.icons}>
@@ -117,7 +114,7 @@ export default function ExpandedAlumniCard({
                         </a>
                     </div>
                 </div>
-            </div>
+            
         </div>
     );
 }
