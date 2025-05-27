@@ -11,11 +11,12 @@ export default function Page() {
     const pathSegments = pathname.split('/')
     const currentId = parseInt(pathSegments[pathSegments.length - 1], 10)
     const nextId = currentId + 1;
+    const prevId = currentId - 1;
     const isFirstArticle = currentId === 1;
+    const lastArticleId = 5 //hardcoded for now
 
     return (
         <div className={styles.page}>
-            <div>Post: {pathname}</div>
             <div className={styles.TopButtons}>
                 <Link href="/blog" className={styles.arrowButton}>
                     <Image
@@ -32,7 +33,8 @@ export default function Page() {
                 <Image
                     src="/blog image.jpg"
                     alt="image"
-                    style={{objectFit: "cover"}}
+                    style={{ objectFit: "cover", 
+                            objectPosition: "50% 90%" }}
                     fill
                 />
             </div>
@@ -47,7 +49,7 @@ export default function Page() {
             </div>
 
             <div className={styles.blogcontent}>
-                <hr className={styles.lineseparator}/>
+                <hr className={styles.lineseparator} />
                 <div className={styles.content}>
                     <p>
                         You have a six hour movie playing in your mind, an open document with approximately zero to
@@ -282,7 +284,7 @@ export default function Page() {
                         <Image
                             src="/Author_image.jpg"
                             alt="image of author"
-                            style={{objectFit: "cover"}}
+                            style={{ objectFit: "cover" }}
                             fill
                         />
                     </div>
@@ -295,19 +297,26 @@ export default function Page() {
             </div>
 
             <div className={styles.EndButtons}>
-                {!isFirstArticle && (
-                <div className={styles.previousButton}>
-                    <Link href="/blog" className={styles.arrowButton}>
-                        <Image
-                            src="/top_arrow.svg"
-                            width={44}
-                            height={52}
-                            alt="picture of the arrow"
-                        />
-                    </Link>
-                    <div className={styles.button}>Previous Entry</div>
-                </div>
-                    )}
+                {isFirstArticle ? (
+                    <div className={styles.invisibleButton} />
+                ) : (
+                    <div className={styles.previousButton}>
+                        <Link href={`/blog/${prevId}`} className={styles.arrowButton}>
+                            <Image
+                                src="/top_arrow.svg"
+                                width={44}
+                                height={52}
+                                alt="picture of the arrow"
+                            />
+                        </Link>
+                        <div className={styles.button}>Previous Entry</div>
+                    </div>
+                )}
+
+
+                {currentId == lastArticleId ? (
+                    <div className={styles.invisibleButton} />
+                ) : (
                 <div className={styles.nextButton}>
                     <div className={styles.button}>Next entry</div>
                     <Link href={`/blog/${nextId}`} className={styles.arrowLink}>
@@ -319,6 +328,8 @@ export default function Page() {
                         />
                     </Link>
                 </div>
+                )}
+
             </div>
 
 

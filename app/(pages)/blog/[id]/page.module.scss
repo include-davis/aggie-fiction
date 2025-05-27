@@ -3,7 +3,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 56px 100px 94px 100px;
+  padding: 79px 100px 94px 100px;
 }
 .description{
   color: var(--dark-purple);
@@ -60,8 +60,6 @@
 }
 .lineseparatorbold{
   width:286px;
-  margin-top:36px;
-  margin-bottom:30px;
   border-radius: 999px;
   background-image: var(--Aggie-Space);
   height:3px;
@@ -91,7 +89,6 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  margin-top: 30px;
   width:100%;
 }
 .AboutAuthor h2{
@@ -102,6 +99,9 @@
   display: flex;
   margin-top: 27px;
   gap:72px
+}
+.AuthorContent h2 {
+  padding-top: 30px;
 }
 .author_image{
   width:372px;
