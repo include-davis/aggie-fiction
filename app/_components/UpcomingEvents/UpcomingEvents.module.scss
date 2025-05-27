@@ -1,174 +1,142 @@
-// === WRAPPER SECTION ===
-// The outer container that wraps the entire Upcoming Events section.
+// app/_components/UpcomingEvents/UpcomingEvents.module.scss
+
+// === WRAPPER ===
 .wrapper {
-  max-width: 1312px;          // Matches the frame width from Figma
-  margin: 45px auto 47px;     // Top and bottom spacing, horizontally centered
-  padding: 0 1rem;            // Horizontal padding for small screens
-  text-align: center;         // Center-aligns the section heading text
+  max-width: 1312px;
+  margin: 45px auto 47px;      
+  padding: 0 16px;              
+  text-align: center;
 }
 
 // === SECTION HEADING ===
-// Styles the "Upcoming Events" title
+// <h1> inherits font-size from globals, so no rem declaration here
 .heading {
-  width: 652px;
-  height: 123px;
-  flex-shrink: 0;             // Prevent the heading from shrinking
-  font-family: Poppins, sans-serif;
-  font-size: 64px;
-  font-weight: 700;
-  line-height: normal;
-  color: var(--gold);         // Custom gold color: #E4A135
-  text-align: center;
-  margin: 0 auto 2rem;        // Center the heading, add spacing below
+  margin: 0 auto 32px;          
 }
 
-// === EVENT LIST CONTAINER ===
-// UL element containing all event "cards"
+// === EVENT LIST ===
 .list {
   list-style: none;
   margin: 0;
   padding: 0;
   display: flex;
-  flex-direction: column;     // Stack event items vertically
-  gap: 47px;                  // Space between cards, matches Figma
+  flex-direction: column;
+  gap: 47px;                     /* px spacing */
 }
 
-// === INDIVIDUAL EVENT BOX ===
-// Styles for the event card "frame"
+// === EVENT CARD ===
 .item {
-  width: 1312px;              // Exact card width from Figma
-  height: 222px;              // Exact card height
-  padding: 0;
-  flex-shrink: 0;             
-  border: 2px solid var(--gold); // 2px gold border
+  width: 1312px;
+  height: 222px;
+  border: 2px solid var(--gold);
   border-radius: 10px;
-  background: var(--white);   // White background (#FAFAFA)
+  background: var(--white);
   display: flex;
-  align-items: center;        // Vertically center contents
+  align-items: center;
   justify-content: center;
 }
 
-// === INNER LAYOUT BOX ===
-// This holds the two columns: date and details, with padding applied
+// === INNER CONTENT ===
 .content {
   display: flex;
   width: 100%;
   height: 100%;
-  padding: 45px 104.817px 47px 105.577px; // Matches Figma frame padding
+  padding: 45px 104.817px 47px 105.577px; /* top/right/bottom/left in px */
   align-items: center;
-  justify-content: flex-start;            // Align children to the left
 }
 
 // === DATE COLUMN ===
-// Handles the left side with the month and day
 .dateBlock {
+  flex-shrink: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
-
-  margin-top: 3px;       // 3px from top padding
-  margin-left: 2.42px;   // 2.42px from left padding
-  margin-bottom: 42px;   // Ensures it aligns with bottom like in Figma
-
-  .month {
-    width: 65px;
-    height: 26px;
-    font-family: Poppins, sans-serif;
-    font-size: 32px;
-    font-weight: 600;
-    color: var(--black);
-  }
-
-  .day {
-    width: 61px;
-    height: 55px;
-    font-family: Poppins, sans-serif;
-    font-size: 64px;
-    font-weight: 700;
-    color: var(--black);
-  }
+  margin-right: 115px;           
 }
 
+.month {
+  font-size: 2rem;               
+  font-weight: 600;
+  color: var(--black);
+}
+
+.day {
+  font-size: 4rem;              
+  font-weight: 700;
+  color: var(--black);
+}
 
 // === DETAILS COLUMN ===
-// Contains type, title, time/location, and description
 .details {
   flex: 1;
   text-align: left;
-  margin-left: 115px; // Space between day ("21") and title
 
   .typeRow {
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 8px;                   
+    margin-bottom: 8px;         
+  }
 
-    .dot {
-      width: 23px;
-      height: 23px;
-      flex-shrink: 0;
-    }
+  .dot {
+    width: 23px;
+    height: 23px;
+    flex-shrink: 0;
+  }
 
-    .type {
-      width: 198.554px;
-      height: 23px;
-      font-family: Poppins, sans-serif;
-      font-size: 16px;
-      font-weight: 400;
-      color: var(--black);
-    }
+  .type {
+    font-size: 1rem;            
+    font-weight: 400;
+    color: var(--black);
   }
 
   .title {
-    font-family: Poppins, sans-serif;
-    font-size: 32px;
+    font-size: 2rem;            
     font-weight: 600;
-    color: var(--black);
-    margin: 0.25rem 0;
+    margin: 4px 0 12px;          
   }
 
   .meta {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    gap: 0px; // spacing between time and location rows
-  
-    .metaItem {
-      display: inline-flex;
-      align-items: center;
-      gap: 1px; // spacing between icon and text
-  
-      .icon {
-        width: 1em;
-        height: 1em;
-        flex-shrink: 0;
-      }
-  
-      .metaText {
-        font-family: Poppins, sans-serif;
-        font-size: 16px;
-        font-weight: 400;
-        width: 329.248px;
-        color: var(--black);
-      }
-    }
+    gap: 4px;                   
   }
-  
 
-  .description {
-    font-size: 14px;
-    font-family: Poppins, sans-serif;
-    color: var(--grey-800);
+  .metaItem {
+    display: inline-flex;
+    align-items: center;
+    gap: 11px;                   
+  }
+
+  .icon {
+    display: block;
+    flex-shrink: 0;
+  }
+
+  .metaItemText {
+    font-size: 1rem;            
+    color: var(--black);
   }
 }
 
-// === BOTTOM CALENDAR BUTTON ===
+// === NOTES COLUMN ===
+.notes {
+  flex-shrink: 0;
+  width: 200px;                 
+  margin-left: 32px;             
+  font-size: 0.875rem;         
+  color: var(--grey-800);
+  line-height: 1.4;
+  text-align: left;
+}
+
+// === BUTTON ===
 .button {
-  margin-top: 2rem;
-  padding: 0.5rem 2rem;
+  margin-top: 32px;            
+  padding: 8px 32px;            
   border: 1px solid var(--gold);
   border-radius: 999px;
   background: transparent;
-  font-family: Poppins, sans-serif;
-  font-size: 14px;
+  font-size: 0.875rem;           
   cursor: pointer;
 }
