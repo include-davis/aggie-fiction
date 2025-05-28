@@ -25,7 +25,7 @@
 .calendarCellsContainer {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  grid-template-rows: repeat(6, 114px); 
+  grid-template-rows: repeat(6, 114px);
   border: 1px solid black;
   border-radius: 0 0 10px 10px;
   overflow: hidden;
@@ -37,7 +37,7 @@
   align-items: center;
   background-color: var(--white);
   border: 2px solid black;
-  height: 114px; 
+  height: 114px;
   position: relative;
 }
 
@@ -115,11 +115,11 @@
 
     .calendarCellsContainer {
       grid-template-columns: repeat(7, 1fr);
-      grid-template-rows: repeat(6, 46px); 
+      grid-template-rows: repeat(6, 46px);
     }
 
     .calendarCell {
-      height: 46px; 
+      height: 46px;
     }
 
     .dateNum {
@@ -195,3 +195,5 @@
     z-index: 1;
   }
 }
+
+@include phone;
