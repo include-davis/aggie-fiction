@@ -1,67 +1,98 @@
-.eventCard
-{
-    position: absolute;
-    background-color: var(--dark-purple);
-    width: 362px;
-    min-height: 223px;
-    border-radius: 10px;
+.eventCard {
+  position: absolute;
+  background-color: var(--dark-purple);
+  width: 362px;
+  min-height: 223px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding-top: 42px;
+  padding-bottom: 42px;
+  padding-left: 40px;
+  padding-right: 40px;
+  z-index: 1001;
+  box-shadow: 4px 5px 25.9px 1px rgba(0, 0, 0, 0.25);
+
+  span {
+    color: var(--white);
+    font-size: 12px;
+  }
+
+  p {
+    color: var(--white);
+    font-size: 16px;
+  }
+
+  .eventType {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    .eventTypeIndicator {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      padding-right: 8px;
+    }
+  }
+
+  .eventTitle {
+    color: var(--white);
+    font-size: 32px;
+  }
+
+  .eventDetails {
     display: flex;
     flex-direction: column;
-    gap: 14px;
-    padding-top: 42px;
-    padding-bottom: 42px;
-    padding-left: 40px;
-    padding-right: 40px;
-    z-index: 1001;
-    box-shadow: 4px 5px 25.9px 1px rgba(0, 0, 0, 0.25);
 
-    span
-    {
-        color: var(--white);
-        font-size: 12px;
+    .eventDetail {
+      display: flex;
+      gap: 8.65px;
     }
 
-    p
-    {
-        color: var(--white);
-        font-size: 16px;
+    .clockImg {
+      position: relative;
+      padding-top: 10px;
+      width: 16.35px;
+      height: 16.35px;
     }
 
-    .eventType 
-    {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-
-        .eventTypeIndicator
-        {
-            width: 18px;
-            height: 18px;
-            border-radius: 50%;
-            padding-right: 8px;
-        }
+    .locationImg {
+      position: relative;
+      padding-top: 4px;
+      width: 16px;
+      height: 17.93px;
     }
-
-    .eventTitle
-    {
-        color: var(--white);
-        font-size: 32px;
-    }
-
-    .eventDetails
-    {
-        display: flex;
-        flex-direction: column;
-
-        .eventDetail
-        {
-            display: flex;
-            gap: 8.65px;
-        }
-
-        .detailImg
-        {
-            padding-top: 4px;
-        }
-    }
+  }
 }
+
+@mixin phone {
+  @media screen and (max-width: 720px) {
+    .eventCard {
+      padding: 27px 39px 41px 39px;
+      width: 301px;
+
+      p {
+        font-size: 12px;
+      }
+
+      .eventTitle {
+        font-size: 16px;
+      }
+
+      .eventDetails {
+        .clockImg {
+          width: 13px;
+          height: 13px;
+        }
+
+        .locationImg {
+          width: 13px;
+          height: 15px;
+        }
+      }
+    }
+  }
+}
+@include phone;

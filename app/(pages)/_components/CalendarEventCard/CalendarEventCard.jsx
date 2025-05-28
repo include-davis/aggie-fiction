@@ -89,12 +89,12 @@ export default function CalendarEventCard({ event, onClose, cellPosition }) {
 
       <div className={styles.eventDetails}>
         <div className={styles.eventDetail}>
-          <span className={styles.detailImg}>
+          <span className={styles.clockImg}>
             <Image
               src="/Calendar/svg/WhiteClockIcon.svg"
               alt="Clock icon"
-              width={16.35}
-              height={16.35}
+              layout="fill"
+              objectFit="contain"
             />
           </span>
           <p>
@@ -102,12 +102,12 @@ export default function CalendarEventCard({ event, onClose, cellPosition }) {
           </p>
         </div>
         <div className={styles.eventDetail}>
-          <span className={styles.detailImg}>
+          <span className={styles.locationImg}>
             <Image
               src="/Calendar/svg/WhiteLocationIcon.svg"
               alt="Location icon"
-              width={16}
-              height={17.93}
+              layout="fill"
+              objectFit="contain"
             />
           </span>
           <p>{event.location}</p>
