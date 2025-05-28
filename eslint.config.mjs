@@ -1,33 +1,11 @@
-import { FlatCompat } from "@eslint/eslintrc";
-import eslintConfigPrettier from "eslint-config-prettier";
+import js from "@eslint/js";
+import globals from "globals";
+import pluginReact from "eslint-plugin-react";
+import { defineConfig } from "eslint/config";
 
-const compat = new FlatCompat({
-  baseDirectory: import.meta.dirname,
-});
 
-const eslintConfig = [
-  ...compat.config({
-    extends: [
-      "next/core-web-vitals",
-      "plugin:prettier/recommended",
-      "prettier",
-    ],
-  }),
-  {
-    rules: {
-      "no-unused-vars": [
-        "error",
-        {
-          vars: "all",
-          varsIgnorePattern: "^_*$",
-          argsIgnorePattern: "^_*$",
-          destructuredArrayIgnorePattern: "^_*$",
-        },
-      ],
-      eqeqeq: ["error", "always"],
-    },
-  },
-  eslintConfigPrettier,
-];
-
-export default eslintConfig;
+export default defineConfig([
+  { files: ["**/*.{js,mjs,cjs,jsx}"], plugins: { js }, extends: ["js/recommended"] },
+  { files: ["**/*.{js,mjs,cjs,jsx}"], languageOptions: { globals: globals.browser } },
+  pluginReact.configs.flat.recommended,
+]);
