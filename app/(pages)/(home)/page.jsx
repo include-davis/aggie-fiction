@@ -1,4 +1,3 @@
-import UpcomingEvents from "../../_components/UpcomingEvents";
 import styles from "./page.module.scss";
 import Image from "next/image";
 import HomeCarousel from "../_components/HomeCarousel/HomeCarousel";

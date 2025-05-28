@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import styles from "./UpcomingEvents.module.scss";
+import Link from "next/link";
 
 const events = [
   {
@@ -104,7 +105,7 @@ export default function UpcomingEvents() {
         ))}
       </ul>
 
-      <button className={styles.button}>View Full Calendar</button>
+      <Link href="/calendar"><button className={styles.button}>View Full Calendar</button></Link>
     </section>
   );
 }

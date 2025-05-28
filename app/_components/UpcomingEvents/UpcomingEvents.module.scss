@@ -11,7 +11,8 @@
 // === SECTION HEADING ===
 // <h1> inherits font-size from globals, so no rem declaration here
 .heading {
-  margin: 0 auto 32px;          
+  margin: 0 auto 32px;        
+  color: var(--gold);  
 }
 
 // === EVENT LIST ===
