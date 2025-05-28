@@ -42,3 +42,33 @@
     }
   }
 }
+
+@mixin phone {
+  @media screen and (max-width: 720px) {
+    .menu {
+      padding: 19px;
+      width: 189px;
+      height: 164px;
+      overflow: scroll;
+
+      .eventTypeIndicator {
+        width: 8px;
+        height: 4px;
+        padding: 8px;
+      }
+
+      .filterType {
+        .eventType {
+          font-size: 12px;
+        }
+      }
+
+      .checkBox {
+        width: 14px;
+        height: 14px;
+      }
+    }
+  }
+}
+
+@include phone;
