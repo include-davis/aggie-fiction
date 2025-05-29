@@ -1,21 +1,10 @@
-@mixin med-desktop {
-  @media screen and (max-width: 1440px) {
-    @content;
-  }
-}
-
-@mixin phone {
-  @media screen and (max-width: 720px) {
-    @content;
-  }
-}
+@use "app/(pages)/_globals/mixins.scss";
 
 .main {
   display: flex;
   flex-direction: column;
 }
 
-/* Top Navigation */
 .top {
   padding-left: 100px;
   padding-right: 100px;
@@ -24,11 +13,6 @@
   display: flex;
   gap: 6px;
 
-  @media (max-width: 900px){
-    padding-left: 100px;
-    padding-right: 100px;
-    padding-bottom: 34px;
-  }
 }
 
 .backbtn {
@@ -43,7 +27,7 @@
   font-size: 1.5rem;
   text-decoration: none;
 
-  @include phone{
+  @include mixins.phone{
     width: 29px;
     height: 34px;
   }
@@ -60,7 +44,7 @@
   background-color: transparent;
   font-size: 1.25rem;
 
-    @include phone{
+    @include mixins.phone{
     width: 110px;
     height: 34px;
     font-size: 12px;
@@ -76,17 +60,12 @@
   gap: 20px;
   padding-bottom: 56px;
 
-  @include phone{
+  @include mixins.phone{
     flex-direction: column;
     align-items: center;
     gap: 10px;
   }
 
-  // @media (max-width: 900px){
-  //   flex-direction: column;
-  //   padding-left: 20px;
-  //   padding-right: 20px;
-  // }
 }
 
 .productimage {
@@ -94,7 +73,7 @@
   border-radius: 10px;
   object-fit: cover;
 
-  @include phone{
+  @include mixins.phone{
     width: 239px;
     height: 239px;
   }
@@ -104,26 +83,18 @@
   width: 646px;
   height: 162px;
 
-  @include phone{
+  @include mixins.phone{
     flex-wrap: wrap;
     width: 335px;
     height: auto;
   }
 
-  // @media (max-width: 900px){
-  //   flex-wrap: wrap;
-  //   width: auto;
-  //   height: auto;
-
-  //   padding-right: 10px;
-  //   padding-left: 10px;
-  // }
 }
 
 .title {
   color: var(--dark-purple);
 
-  @include phone{
+  @include mixins.phone{
     text-align: center;
     font-size: 16px;
   }
@@ -133,7 +104,7 @@
   color: var(--gold);
   padding-bottom: 41px;
 
-  @include phone{
+  @include mixins.phone{
     text-align: center;
     font-size: 16px;
     font-weight: 700;
@@ -142,13 +113,12 @@
 }
 
 .detail{
-  @include phone{
+  @include mixins.phone{
     text-align: center;
     font-size: 12px;
   }
 }
 
-/* More Items Section */
 .moreitems {
   display: flex;
   flex-direction: column;
@@ -160,7 +130,7 @@
   font-size: 2rem;
   color: var(--gold);
 
-  @include phone{
+  @include mixins.phone{
     font-size: 24px;
     padding-bottom: 8px;
   }
@@ -174,7 +144,7 @@
   overflow: hidden;
   flex-shrink: 0;
 
-  @include phone{
+  @include mixins.phone{
     width: 333px;
   height: 140px;
   }
@@ -199,7 +169,7 @@
   justify-content: center;
   gap: 20px;
 
-  @include phone{
+  @include mixins.phone{
     flex-direction: column;
     align-items: center;
     text-align: center;
@@ -218,14 +188,13 @@
 }
 
 .productdetail {
-  // border: black solid 1px;
   padding-top: 15px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   flex-wrap: wrap;
 
-  @include phone{
+  @include mixins.phone{
 
     flex-direction: column;
     align-items: center;
@@ -240,8 +209,8 @@
   word-wrap: break-word;
   overflow-wrap: break-word;
 
-  @include phone{
-    font-size: 11px;
+  @include mixins.phone{
+    font-size: 12px;
   }
 }
 
@@ -250,8 +219,8 @@
   font-weight: 700;
   text-decoration: none;
 
-  @include phone{
-    font-weight: 10;
+  @include mixins.phone{
+    font-weight: 400;
     font-size: 12px;
   }
 }
