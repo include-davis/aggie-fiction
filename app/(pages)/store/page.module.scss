@@ -11,13 +11,11 @@
   }
 }
 
-/* Layout */
 .main {
   width: 100%;
 }
 
 .top {
-  // border: black solid 1px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -36,23 +34,13 @@
   padding-bottom: 70px;
 }
 
-/* Header */
 .title {
-  // border: black solid 1px;
-  
   padding-left: 50px;
-  height: 80px;
   color: var(--gold);
 
-  @include phone{
-    font-size: 23px;
-    padding-left: 50px;
-    height: 0px;
-  }
 }
 
 .headerRow {
-  // border: black solid 1px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -66,28 +54,12 @@
     flex-direction: row;
   }
 
-  // @media (max-width: 900px){
-  //   flex-direction: column;
-  //   align-items: flex-start;
-  //   gap: 20px;
-  //   padding-right: 0px;
-  //   padding-left: 0px;
-  // }
-
 }
 
 .buttons {
-  // border: black solid 1px;
   display: flex;
   gap: 10px;
-  align-self: flex-end;
-
-  // @media (max-width: 900px){
-  //   align-self: center;
-  //   flex-wrap: wrap;
-  //   justify-content: center;
-  //   gap: 10px;
-  // }
+  flex-wrap: wrap;
 
   @include phone{
     height: 35px;
@@ -99,9 +71,8 @@
   width: 100px !important;
 
   @include phone{
-    width: 45px !important;
+    width: 44px !important;
     height: 28px !important;
-    font-size: 11px !important;
   }
 }
 
@@ -111,7 +82,6 @@
   @include phone{
     width: 70px !important;
     height: 28px !important;
-    font-size: 11px !important;
   }
 }
 
@@ -119,21 +89,18 @@
   width: 200px !important;
 
   @include phone{
-    width: 60px !important;
+    width: 59px !important;
     height: 28px !important;
-    font-size: 11px !important;
   }
 }
 
-/* Product List */
 .listbox {
-  border: black solid 1px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center; 
+  justify-content: left; 
   row-gap: 51px;
   column-gap: 20px;
-  padding: 1rem;
+  padding-left: 100px;
 
   @include phone{
     padding: 30px;
@@ -143,22 +110,13 @@
     justify-content: left; 
   }
 
-  // @media (max-width: 900px){
-  //   grid-template-columns: repeat(2, 1fr);
-  // }
-
-  // @media (max-width: 600px){
-  //   grid-template-columns: 1fr;
-  // }
 }
 
 .container {
-  // border: black solid 1px;
   width: 424px;
   height: 424px;
   border: 2px solid var(--gold);
   border-radius: 10px;
-  transition: 0.3s;
 
   @include phone {
     width: 162px;
@@ -171,7 +129,6 @@
 }
 
 .product {
-  // border: black solid 1px;
   width: 424px;
   display: grid;
   justify-content: center;
@@ -184,7 +141,6 @@
 }
 
 .productdetail {
-  // border: black solid 1px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -201,11 +157,9 @@
 }
 
 .productname {
-  // border: black solid 1px;
   width: 300px;
 
   @include phone{
-    font-size: 11px;
     width: 162px;
   }
 }
@@ -216,12 +170,8 @@
   font-family: 'Poppins', normal;
   font-weight: bold;
 
-  @include phone{
-    font-size: 12px;
-  }
 }
 
-/* Pagination */
 .pagination {
   display: flex;
   justify-content: center;
