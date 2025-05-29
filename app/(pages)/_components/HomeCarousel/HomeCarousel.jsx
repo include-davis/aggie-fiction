@@ -42,21 +42,25 @@ export default function HomeCarousel() {
   return (
     <div className={styles.carousel}>
       <button onClick={handlePrev}>
-        <Image
-          src="/HomeCarousel/svg/LeftButton.svg"
-          alt="Previous"
-          width={44}
-          height={52}
-        />
+        <div className={styles.turnButton}>
+          <Image
+            src="/HomeCarousel/svg/LeftButton.svg"
+            alt="Previous"
+            layout="fill"
+            objectFit="contain"
+          />
+        </div>
       </button>
 
       <div className={styles.carouselContent}>
-        <Image
-          src={current.image}
-          alt="Carousel Image"
-          width={308}
-          height={172}
-        />
+        <div className={styles.carouselImg}>
+          <Image
+            src={current.image}
+            alt="Carousel Image"
+            layout="fill"
+            objectFit="contain"
+          />
+        </div>
 
         <div className={styles.carouselDescription}>
           <div className={styles.titleDate}>
@@ -73,12 +77,14 @@ export default function HomeCarousel() {
       </div>
 
       <button onClick={handleNext}>
-        <Image
-          src="/HomeCarousel/svg/RightButton.svg"
-          alt="Next"
-          width={44}
-          height={52}
-        />
+        <div className={styles.turnButton}>
+          <Image
+            src="/HomeCarousel/svg/RightButton.svg"
+            alt="Next"
+            layout="fill"
+            objectFit="contain"
+          />
+        </div>
       </button>
     </div>
   );
