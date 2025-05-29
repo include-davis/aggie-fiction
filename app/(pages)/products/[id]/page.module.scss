@@ -166,6 +166,7 @@
 .moreproduct {
   padding-left: 100px;
   padding-right: 100px;
+  padding-bottom: 92px;
   
   display: flex;
   flex-wrap: wrap;
@@ -173,6 +174,7 @@
   gap: 20px;
 
   @include mixins.phone{
+    padding-bottom: 50px;
     flex-direction: column;
     align-items: center;
     text-align: center;
