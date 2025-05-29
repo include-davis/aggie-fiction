@@ -71,6 +71,7 @@
   width: 100px !important;
 
   @include phone{
+    font-size: 11px !important;
     width: 44px !important;
     height: 28px !important;
   }
@@ -80,6 +81,7 @@
   width: 200px !important;
 
   @include phone{
+    font-size: 11px !important;
     width: 70px !important;
     height: 28px !important;
   }
@@ -89,6 +91,7 @@
   width: 200px !important;
 
   @include phone{
+    font-size: 11px !important;
     width: 59px !important;
     height: 28px !important;
   }
