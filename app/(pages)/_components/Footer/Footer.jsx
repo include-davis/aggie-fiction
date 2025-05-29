@@ -7,7 +7,7 @@ export default function Footer() {
     return (
       <div className={styles.Footer}>
           <div className={styles.logo}>
-         <Link href=""> <Image
+         <Link href="/"> <Image
       src="/logo.png"
       width={110}
       height={70}
