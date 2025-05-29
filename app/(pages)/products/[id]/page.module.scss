@@ -47,7 +47,7 @@
     @include mixins.phone{
     width: 110px;
     height: 34px;
-    font-size: 12px;
+    font-size: 0.75rem;
   }
 }
 
@@ -96,7 +96,14 @@
 
   @include mixins.phone{
     text-align: center;
-    font-size: 16px;
+  }
+}
+
+.costdesc{
+  @include mixins.phone{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
   }
 }
 
@@ -106,16 +113,15 @@
 
   @include mixins.phone{
     text-align: center;
-    font-size: 16px;
+    font-size: 1rem;
     font-weight: 700;
-    padding-bottom: 10px;
+    padding-bottom: 0px;
   }
 }
 
 .detail{
   @include mixins.phone{
     text-align: center;
-    font-size: 12px;
   }
 }
 
@@ -131,7 +137,6 @@
   color: var(--gold);
 
   @include mixins.phone{
-    font-size: 24px;
     padding-bottom: 8px;
   }
 }
@@ -145,8 +150,8 @@
   flex-shrink: 0;
 
   @include mixins.phone{
-    width: 333px;
-  height: 140px;
+    width: 100%;
+    height: 140px;
   }
 }
 
@@ -173,8 +178,6 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding-right: 0px;
-    padding-left: 0px;
     gap: 10px;
   }
 
@@ -185,6 +188,7 @@
   flex-direction: column;
   text-decoration: none;
   flex: 1;
+  width: 100%;
 }
 
 .productdetail {
@@ -195,7 +199,6 @@
   flex-wrap: wrap;
 
   @include mixins.phone{
-
     flex-direction: column;
     align-items: center;
   }
@@ -209,9 +212,6 @@
   word-wrap: break-word;
   overflow-wrap: break-word;
 
-  @include mixins.phone{
-    font-size: 12px;
-  }
 }
 
 .productcost {
@@ -221,6 +221,5 @@
 
   @include mixins.phone{
     font-weight: 400;
-    font-size: 12px;
   }
 }

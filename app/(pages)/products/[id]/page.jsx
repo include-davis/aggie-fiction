@@ -113,8 +113,10 @@ export default function ProductDetail() {
 
         <div className={styles.productinfo}>
           <h2 className={styles.title}>{product.name}</h2>
-          <p className={styles.cost}>{product.cost}</p>
-          <p className={styles.detail}>{product.description || "No description available."}</p>
+          <div className={styles.costdesc}>
+            <p className={styles.cost}>{product.cost}</p>
+            <p className={styles.detail}>{product.description || "No description available."}</p>
+          </div>
         </div>
       </section>
 
