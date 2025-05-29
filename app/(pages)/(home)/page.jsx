@@ -1,12 +1,43 @@
 import styles from "./page.module.scss";
+import Image from "next/image";
 import HomeCarousel from "../_components/HomeCarousel/HomeCarousel";
-
 export default function Home() {
   return (
-    <main className={styles.page}>
-      <h1>header 1</h1>
-      <p>body</p>
-      <HomeCarousel />
-    </main>
+    <div className={styles.home}>
+      <div className={styles.homeContent}>
+        <div className={styles.hero}>
+          <div className={styles.heroContent}>
+            <div className={styles.title}>
+              <p className={styles.titleHeader}>
+                creative writing club at UC Davis
+              </p>
+
+              <h1 className={styles.titleName}>Aggie Fiction</h1>
+
+              <p className={styles.titleDescription}>
+                for writers of all levels and experiences
+              </p>
+
+              <button className={styles.joinNow}>Join Now</button>
+            </div>
+
+            <div className={styles.logo}>
+              <Image
+                src="/Home/img/Otter.png"
+                alt="Jackie the Otter, the logo for AggieFiction."
+                width={518}
+                height={501}
+              />
+            </div>
+          </div>
+        </div>
+
+        <div className={styles.blog}>
+          <h1>Blog</h1>
+
+          <HomeCarousel />
+        </div>
+      </div>
+    </div>
   );
 }
