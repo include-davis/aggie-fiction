@@ -93,11 +93,9 @@
     {
         color: var(--gold);
         font-weight: 700;
-        font-size: 4rem;
 
         @include mixins.phone
         {
-            font-size: 1.5rem;
             letter-spacing: -0.4px;
         }
     }
@@ -106,12 +104,10 @@
     {
         color: var(--dark-purple);
         font-weight: 700;
-        font-size: 32px;
         line-height: 100%;
 
         @include mixins.phone
         {
-            font-size: 1rem;
             letter-spacing: -0.4px;
         }
     }
@@ -128,14 +124,6 @@
     @include mixins.phone
     {
         width: 100%;
-    }
-
-    p 
-    {
-        @include mixins.phone
-        {
-            font-size: 0.75rem;
-        }
     }
 }
 
@@ -183,33 +171,21 @@
 
     h1 
     {
-        font-size: 48px;
         color: var(--gold);
 
         @include mixins.phone
         {
-            font-size: 1.5rem;
             letter-spacing: -0.4px;
         }
     }
 
     h2 
     {
-        font-size: 32px;
         color: var(--dark-purple);
 
         @include mixins.phone
         {
-            font-size: 1rem;
             letter-spacing: -0.4px;
-        }
-    }
-
-    p 
-    {
-        @include mixins.phone
-        {
-            font-size: 0.75rem;
         }
     }
 
