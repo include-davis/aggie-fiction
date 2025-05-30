@@ -1,0 +1,143 @@
+// app/_components/UpcomingEvents/UpcomingEvents.module.scss
+
+// === WRAPPER ===
+.wrapper {
+  max-width: 1312px;
+  margin: 45px auto 47px;      
+  padding: 0 16px;              
+  text-align: center;
+}
+
+// === SECTION HEADING ===
+// <h1> inherits font-size from globals, so no rem declaration here
+.heading {
+  margin: 0 auto 32px;        
+  color: var(--gold);  
+}
+
+// === EVENT LIST ===
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 47px;                     /* px spacing */
+}
+
+// === EVENT CARD ===
+.item {
+  width: 1312px;
+  height: 222px;
+  border: 2px solid var(--gold);
+  border-radius: 10px;
+  background: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// === INNER CONTENT ===
+.content {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  padding: 45px 104.817px 47px 105.577px; /* top/right/bottom/left in px */
+  align-items: center;
+}
+
+// === DATE COLUMN ===
+.dateBlock {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 115px;           
+}
+
+.month {
+  font-size: 2rem;               
+  font-weight: 600;
+  color: var(--black);
+}
+
+.day {
+  font-size: 4rem;              
+  font-weight: 700;
+  color: var(--black);
+}
+
+// === DETAILS COLUMN ===
+.details {
+  flex: 1;
+  text-align: left;
+
+  .typeRow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;                   
+    margin-bottom: 8px;         
+  }
+
+  .dot {
+    width: 23px;
+    height: 23px;
+    flex-shrink: 0;
+  }
+
+  .type {
+    font-size: 1rem;            
+    font-weight: 400;
+    color: var(--black);
+  }
+
+  .title {
+    font-size: 2rem;            
+    font-weight: 600;
+    margin: 4px 0 12px;          
+  }
+
+  .meta {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;                   
+  }
+
+  .metaItem {
+    display: inline-flex;
+    align-items: center;
+    gap: 11px;                   
+  }
+
+  .icon {
+    display: block;
+    flex-shrink: 0;
+  }
+
+  .metaItemText {
+    font-size: 1rem;            
+    color: var(--black);
+  }
+}
+
+// === NOTES COLUMN ===
+.notes {
+  flex-shrink: 0;
+  width: 200px;                 
+  margin-left: 32px;             
+  font-size: 0.875rem;         
+  color: var(--grey-800);
+  line-height: 1.4;
+  text-align: left;
+}
+
+// === BUTTON ===
+.button {
+  margin-top: 32px;            
+  padding: 8px 32px;            
+  border: 1px solid var(--gold);
+  border-radius: 999px;
+  background: transparent;
+  font-size: 0.875rem;           
+  cursor: pointer;
+}
