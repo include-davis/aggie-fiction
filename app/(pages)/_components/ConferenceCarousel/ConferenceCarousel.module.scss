@@ -1,3 +1,5 @@
+@use "/app/(pages)/_globals/mixins.scss";
+
 $image-width: 263px;
 $image-height: 200px;
 $image-gap: 49px;
@@ -11,6 +13,11 @@ $image-gap: 49px;
     position: relative;
     display: flex;
     align-items: center;
+
+    @include mixins.phone
+    {
+        height: 178px;
+    }
 }
 
 .carouselTrack 
@@ -25,6 +32,11 @@ $image-gap: 49px;
     &:hover {
         animation-play-state: paused;
     }
+
+    @include mixins.phone
+    {
+        height: 90px;
+    }
 }
 
 .imageContainer
@@ -35,6 +47,12 @@ $image-gap: 49px;
     flex-shrink: 0;
     border-radius: 10px;
     overflow: hidden;
+
+    @include mixins.phone
+    {
+        width: 119px;
+        height: 90px;
+    }
 }
 
 .carouselImage
