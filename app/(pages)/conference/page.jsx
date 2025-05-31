@@ -64,7 +64,7 @@ export default function Conference()
                         src = {involvementImagePath}
                         alt = {"Involvement Image"}
                         fill
-                        sizes = "43%"
+                        sizes = "50%"
                         className = {styles.conferenceImage}
                     />
                 </div>
