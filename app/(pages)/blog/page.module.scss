@@ -1,0 +1,85 @@
+.blog {
+    display: flex;
+    //justify-content: space-between;
+    padding-top: 49px;
+    padding-left: 100px; 
+    padding-right: 116px; 
+    gap: 66px; 
+
+}
+
+.blog h1{
+    color: var(--gold);
+}
+
+.blog h2 {
+
+}
+
+.leftColumn {
+    
+}
+
+.rightColumn {
+    padding-top: 56px;
+    width: 956px; 
+}
+
+.categoriesSection h2 {
+    color: var(--Aggie-Space); 
+    font-weight: 600;
+}
+
+.categoriesList {
+  max-height: 172px; 
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.lineseparator {
+    width:180px;
+  border-radius: 999px;
+  background-image: var(--Aggie-Space);
+  height:3px;
+  border-style: none;
+}
+.articlecard {
+    display:flex; 
+}
+
+.monthYearHeading {
+    color: var(--gold); 
+    padding-bottom: 36px; 
+}
+
+.articleGrid {
+    display: flex; 
+    flex-direction: column;
+    gap: 30px; 
+}
+
+.articleCardImageWrapper {
+    padding-top: 13px;
+}
+
+.titleDate {
+    display: flex;
+    width: 470px;
+    height: 132px; 
+}
+
+.date {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    height: 132px; 
+}
+
+.articlecard {
+    height: 193px; 
+}
+
+
