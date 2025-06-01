@@ -35,7 +35,7 @@ export default function Events() {
               </div>
               <div className={styles.image1Container}>
                 <Image
-                  src="/Rectangle 413.png"
+                  src="/eventsImages/workshopsImage.png"
                   alt="Students in a writing workshop"
                   fill
                   objectFit="cover"
@@ -60,7 +60,7 @@ export default function Events() {
           <div className={styles.workshopsTypes}>
             <div className={styles.workshopsTypesImageContainer}>
               <Image
-                src="/Rectangle 414.png"
+                src="/eventsImages/workshopTypesImage.png"
                 alt="Guest speaker presenting"
                 fill
                 objectFit="cover"
@@ -72,7 +72,7 @@ export default function Events() {
                 {workshopTypes.map((type, idx) => 
                   <li key={idx}>
                     <Image
-                      src="/workshopListIcon.svg"
+                      src="/eventsImages/workshopListIcon.svg"
                       alt="-"
                       width={28}
                       height={21}
@@ -106,7 +106,7 @@ export default function Events() {
             </div>
             <div className={styles.guestSpeakersImageContainer}>
               <Image
-                src="/Rectangle 400.png"
+                src="/eventsImages/guestSpeakerImage.png"
                 alt="Guest speaker presenting"
                 fill
                 objectFit="cover"
@@ -116,7 +116,7 @@ export default function Events() {
           <div className={styles.writersConference}>
             <div className={styles.writersConferenceImageContainer}>
               <Image
-                src="/Rectangle 390.png"
+                src="/eventsImages/sfImage.png"
                 alt="San Francisco skyline"
                 fill
                 objectFit="cover"
