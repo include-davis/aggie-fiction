@@ -1,3 +1,5 @@
+@use "app/(pages)/_globals/mixins.scss";
+
 .calendarContainer {
   width: 100%;
   background: var(--white);
@@ -20,6 +22,14 @@
     text-align: center;
     font-weight: 400;
   }
+
+  @include mixins.sm-desktop {
+    grid-template-rows: 43px;
+
+    h2 {
+      font-size: 0.625rem;
+    }
+  }
 }
 
 .calendarCellsContainer {
@@ -29,16 +39,25 @@
   border: 1px solid black;
   border-radius: 0 0 10px 10px;
   overflow: hidden;
+
+  @include mixins.sm-desktop {
+    grid-template-rows: repeat(6, 64px);
+  }
+
+  @include mixins.phone {
+    grid-template-rows: repeat(6, 46px);
+  }
 }
 
 .calendarCell {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
+  height: 100%;
   background-color: var(--white);
   border: 2px solid black;
-  height: 114px;
-  position: relative;
+  overflow: hidden;
 }
 
 .currentMonth {
@@ -58,8 +77,20 @@
   width: 100%;
   height: 24px;
 
+  //   border: solid red;
+
   p {
     line-height: 1.1;
+  }
+
+  @include mixins.sm-desktop {
+    justify-content: center;
+    padding-left: 0;
+    height: 20px;
+
+    p {
+      font-size: 0.625rem;
+    }
   }
 }
 
@@ -79,15 +110,34 @@
     background-color: var(--dark-purple);
     border-radius: 50%;
   }
+
+  @include mixins.sm-desktop {
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+
+    p {
+      font-size: 0.625rem;
+    }
+  }
 }
 
 .eventItems {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 5px 0 10px 0;
+  padding: 5px 5px 10px 5px;
   gap: 3px;
   width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+
+  @include mixins.sm-desktop {
+    display: grid;
+    grid-template-rows: repeat(auto-fill, 10px);
+    grid-template-columns: repeat(3, 1fr);
+    padding: 0px 2px 10px 2px;
+  }
 }
 
 .eventItem {
@@ -95,68 +145,23 @@
   justify-content: space-between;
   align-items: center;
   padding: 0 10px;
-  width: 90%;
+  width: 100%;
   border-radius: 100px;
+  box-sizing: border-box;
+  cursor: pointer;
 
   p {
     font-size: 0.8rem;
   }
-}
 
-@mixin phone {
-  @media screen and (max-width: 720px) {
-    .calendarHeader {
-      grid-template-rows: 43px;
+  @include mixins.sm-desktop {
+    padding: 0;
+    width: 100%;
+    height: 8px;
 
-      h2 {
-        font-size: 10px;
-      }
-    }
-
-    .calendarCellsContainer {
-      grid-template-columns: repeat(7, 1fr);
-      grid-template-rows: repeat(6, 46px);
-    }
-
-    .calendarCell {
-      height: 46px;
-    }
-
-    .dateNum {
-      justify-content: center;
-      padding-left: 0;
-
-      p {
-        font-size: 10px;
-      }
-    }
-
-    .todayDateNum {
-      justify-content: center;
-      width: 20px;
-
-      p {
-        font-size: 10px;
-      }
-    }
-
-    .eventItems {
-      display: grid;
-      grid-template-rows: repeat(auto-fill, 1fr);
-      grid-template-columns: repeat(3, 1fr);
-      padding: 0 2px 0 2px;
-      gap: 2px;
-      width: 100%;
-    }
-
-    .eventItem {
-      width: 30%;
-      height: 8px;
-
-      p {
-        display: none;
-        font-size: 0.8rem;
-      }
+    p {
+      display: none;
+      font-size: 0.8rem;
     }
   }
 }
@@ -166,7 +171,6 @@
   justify-content: center;
   align-items: center;
   padding: 5px;
-  width: 90%;
   cursor: pointer;
   text-align: center;
   color: #000;
@@ -185,15 +189,42 @@
     margin: 0;
     color: #000;
   }
-}
 
-.calendarCell {
-  position: relative;
-  transition: box-shadow 0.2s ease;
+  @include mixins.sm-desktop {
+    padding: 2px 2px;
+    width: 100%;
+    height: 8px;
 
-  &:not(.expandedCell) {
-    z-index: 1;
+    p {
+      display: none;
+      font-size: 0.8rem;
+    }
   }
 }
 
-@include phone;
+.hiddenDesktop {
+  display: inline;
+  font-style: normal;
+  font-size: 0.8rem;
+  font-weight: 500;
+  margin: 0;
+  color: #000;
+
+  @include mixins.sm-desktop {
+    display: none;
+  }
+}
+
+.hiddenMobile {
+  display: none;
+  font-style: normal;
+  font-size: 0.8rem;
+  font-weight: 500;
+  margin: 0;
+  color: #000;
+
+  @include mixins.sm-desktop {
+    display: inline;
+    font-size: 0.6rem;
+  }
+}

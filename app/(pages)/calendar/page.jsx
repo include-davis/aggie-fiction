@@ -5,7 +5,6 @@ import styles from "./page.module.scss";
 import Calendar from "../_components/Calendar/Calendar";
 import CalendarUpcomingEvent from "../_components/CalendarUpcomingEvent/CalendarUpcomingEvent";
 import FilterMenu from "../_components/FilterMenu/FilterMenu";
-import { GoogleOAuthProvider } from "@react-oauth/google";
 import { useState, useMemo, useCallback, useRef } from "react";
 
 export default function CalendarPage() {
@@ -182,14 +181,12 @@ export default function CalendarPage() {
         </div>
 
         <div className={styles.calendarContent}>
-          <GoogleOAuthProvider clientId="18980159666-893kqnf906hltqei55bd3l5qb718tqhq.apps.googleusercontent.com">
-            <Calendar
-              currentMonth={currentMonth}
-              currentYear={currentYear}
-              events={filteredEvents}
-              onEventsFetched={onEventsFetched}
-            />
-          </GoogleOAuthProvider>
+          <Calendar
+            currentMonth={currentMonth}
+            currentYear={currentYear}
+            events={filteredEvents}
+            onEventsFetched={onEventsFetched}
+          />
         </div>
       </div>
 

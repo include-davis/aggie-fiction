@@ -1,3 +1,5 @@
+@use "app/(pages)/_globals/mixins.scss";
+
 .calendarContainer {
   position: relative;
   display: flex;
@@ -6,8 +8,12 @@
   align-items: center;
   padding: 85px 100px;
   gap: 38px;
-
   background: var(--Aggie-Space);
+
+  @include mixins.phone {
+    padding: 50px 30px;
+    gap: 16px;
+  }
 }
 
 .calendarHeader {
@@ -16,7 +22,12 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  max-width: 1400px;
   height: 62px;
+
+  @include mixins.sm-desktop {
+    height: 30px;
+  }
 }
 
 .nav {
@@ -41,12 +52,35 @@
     border-radius: 100px;
     border: 2px solid var(--gold);
   }
+
+  @include mixins.sm-desktop {
+    button {
+      width: 25px;
+      height: 30px;
+      font-size: 12px;
+    }
+
+    .today {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 12px 30px;
+      width: 52px;
+      height: 30px;
+      border: 1px solid var(--gold);
+
+      p {
+        font-size: 12px;
+      }
+    }
+  }
 }
 
 .month {
   position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+  top: -30%;
+  left: 40%;
+  display: flex;
   text-align: center;
 
   h1 {
@@ -55,11 +89,17 @@
     color: var(--white);
     display: inline-block;
   }
+
+  @include mixins.sm-desktop {
+    top: -15%;
+
+    h1 {
+      font-size: 1.5rem;
+    }
+  }
 }
 
 .filter {
-  position: absolute;
-  right: 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -73,10 +113,23 @@
   p {
     color: var(--white);
   }
+
+  @include mixins.sm-desktop {
+    gap: 4px;
+    padding: 12px 30px;
+    width: 60px;
+    height: 26px;
+    border: 1px solid var(--gold);
+
+    p {
+      font-size: 12px;
+    }
+  }
 }
 
 .calendarContent {
   width: 100%;
+  max-width: 1400px;
   border: solid black;
   border-radius: 10px;
 }
@@ -119,60 +172,3 @@
     color: var(--white);
   }
 }
-
-@mixin phone {
-  @media screen and (max-width: 720px) {
-    .calendarContainer {
-      padding: 50px 30px;
-      gap: 16px;
-    }
-
-    .calendarHeader {
-      height: 30px;
-    }
-
-    .nav {
-      justify-content: f;
-
-      button {
-        width: 25px;
-        height: 30px;
-        font-size: 12px;
-      }
-
-      .today {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 12px 30px;
-        width: 52px;
-        height: 30px;
-        border: 1px solid var(--gold);
-
-        p {
-          font-size: 12px;
-        }
-      }
-    }
-
-    .month {
-      h1 {
-        font-size: 24px;
-      }
-    }
-
-    .filter {
-      gap: 4px;
-      padding: 12px 30px;
-      width: 60px;
-      height: 26px;
-      border: 1px solid var(--gold);
-
-      p {
-        font-size: 12px;
-      }
-    }
-  }
-}
-
-@include phone;

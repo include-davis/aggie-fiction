@@ -42,43 +42,57 @@ function generateCalendarDays(year, month) {
 function normalizeEventDates(events) {
   if (!events || events.length === 0) return [];
 
-  function getEventType(event) {
+  function getEventTypeAndCleanDesc(event) {
     const description = (event.description || "").toLowerCase();
     const summary = (event.summary || "").toLowerCase();
+    let eventType = "Unset Event";
+    let cleanDesc = event.description || "";
+
     const content = `${description} ${summary}`;
 
-    if (content.includes('"general meeting"') || content.includes("general meeting")) {
-      return "General Meeting";
-    }
-    if (content.includes('"board meeting"') || content.includes("board meeting")) {
-      return "Board Meetings";
-    }
-    if (content.includes('"fundraiser"') || content.includes("fundraiser") || content.includes("fundraising")) {
-      return "Fundraiser";
-    }
-    if (content.includes('"conference"') || content.includes("conference") || content.includes("summit")) {
-      return "Conference";
-    }
-    if (content.includes('"special event"') || content.includes("special event") || content.includes("celebration")) {
-      return "Special Event";
+    const rules = [
+      { keyword: "general meeting", type: "General Meeting" },
+      { keyword: "board meeting", type: "Board Meetings" },
+      { keyword: "fundraiser", type: "Fundraiser" },
+      { keyword: "fundraising", type: "Fundraiser" },
+      { keyword: "conference", type: "Conference" },
+      { keyword: "summit", type: "Conference" },
+      { keyword: "special event", type: "Special Event" },
+      { keyword: "celebration", type: "Special Event" },
+    ];
+
+    for (const rule of rules) {
+      if (content.includes(rule.keyword)) {
+        eventType = rule.type;
+
+        // Remove the matched keyword from the description (case-insensitive)
+        const regex = new RegExp(rule.keyword, "i");
+        cleanDesc = cleanDesc.replace(regex, "").trim();
+
+        break; // Stop after first match
+      }
     }
 
-    console.log(`Event: ${event.summary}, Content: ${content}`);
-    return "Unset Event";
+    return { eventType, cleanDesc: cleanDesc };
   }
 
   return events.map((event) => {
     if (!event.start) return { date: "", summary: event.summary || "Untitled" };
 
     const startDate = new Date(event.start.dateTime || event.start.date);
-    const endDate = event.end?.dateTime || event.end?.date ? new Date(event.end.dateTime || event.end.date) : null;
+    const endDate =
+      event.end?.dateTime || event.end?.date
+        ? new Date(event.end.dateTime || event.end.date)
+        : null;
 
     const year = startDate.getFullYear();
     const month = String(startDate.getMonth() + 1).padStart(2, "0");
     const day = String(startDate.getDate()).padStart(2, "0");
     const isoDate = `${year}-${month}-${day}`;
 
-    const startMonth = startDate.toLocaleDateString("en-US", { month: "short" });
+    const startMonth = startDate.toLocaleDateString("en-US", {
+      month: "short",
+    });
     const startDay = startDate.getDate();
     let formattedDate;
 
@@ -100,9 +114,12 @@ function normalizeEventDates(events) {
       formattedDate = `${startMonth} ${startDay}`;
     }
 
-    const shortenedSummary = event.summary.length > 14 ? event.summary.substring(0, 11) + "..." : event.summary;
+    const shortenedSummary =
+      event.summary.length > 14
+        ? event.summary.substring(0, 7) + "..."
+        : event.summary;
 
-    const eventType = getEventType(event);
+    const { eventType, cleanDesc } = getEventTypeAndCleanDesc(event);
 
     return {
       date: isoDate,
@@ -113,19 +130,32 @@ function normalizeEventDates(events) {
         ? startDate.toLocaleTimeString([], { hour: "numeric", hour12: true })
         : null,
       startTime: event.start.dateTime
-        ? startDate.toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit", hour12: true })
+        ? startDate.toLocaleTimeString("en-US", {
+            hour: "numeric",
+            minute: "2-digit",
+            hour12: true,
+          })
         : null,
       endTime: endDate
-        ? endDate.toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit", hour12: true })
+        ? endDate.toLocaleTimeString("en-US", {
+            hour: "numeric",
+            minute: "2-digit",
+            hour12: true,
+          })
         : null,
       location: event.location || "No location provided",
-      desc: event.description || "No description provided",
+      desc: cleanDesc,
       type: eventType,
     };
   });
 }
 
-export default function Calendar({ currentMonth, currentYear, events = [], onEventsFetched }) {
+export default function Calendar({
+  currentMonth,
+  currentYear,
+  events = [],
+  onEventsFetched,
+}) {
   const [days, setDays] = useState([]);
   const [fetchedEvents, setFetchedEvents] = useState([]);
   const [selectedEvent, setSelectedEvent] = useState(null);
@@ -141,7 +171,8 @@ export default function Calendar({ currentMonth, currentYear, events = [], onEve
     const eventsToUse = events.length > 0 ? events : fetchedEvents;
     if (eventsToUse.length === 0) return {};
 
-    const normalized = events.length > 0 ? eventsToUse : normalizeEventDates(eventsToUse);
+    const normalized =
+      events.length > 0 ? eventsToUse : normalizeEventDates(eventsToUse);
     const map = {};
 
     normalized.forEach((ev) => {
@@ -156,7 +187,15 @@ export default function Calendar({ currentMonth, currentYear, events = [], onEve
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        const res = await fetch("/api/events");
+        // Create start and end ISO strings for the current month
+        const start = new Date(currentYear, currentMonth, 1);
+        const end = new Date(currentYear, currentMonth + 1, 0);
+        end.setHours(23, 59, 59, 999); // End of day
+
+        const startISO = start.toISOString();
+        const endISO = end.toISOString();
+
+        const res = await fetch(`/api/events?start=${startISO}&end=${endISO}`);
         const data = await res.json();
         const normalizedEvents = normalizeEventDates(data.events || []);
         setFetchedEvents(data.events || []);
@@ -172,7 +211,7 @@ export default function Calendar({ currentMonth, currentYear, events = [], onEve
 
   const handleEventClick = (event, e) => {
     e.stopPropagation();
-    
+
     const eventItemRect = e.currentTarget.getBoundingClientRect();
 
     setCellPosition({
@@ -215,7 +254,9 @@ export default function Calendar({ currentMonth, currentYear, events = [], onEve
 
         <div className={styles.calendarCellsContainer}>
           {days.map((dateObj, idx) => {
-            const dateStr = dateObj ? dateObj.toISOString().split("T")[0] : null;
+            const dateStr = dateObj
+              ? dateObj.toISOString().split("T")[0]
+              : null;
             const day = dateObj?.getDate();
             const todayStr = new Intl.DateTimeFormat("en-CA", {
               timeZone: "America/Los_Angeles",
@@ -228,7 +269,9 @@ export default function Calendar({ currentMonth, currentYear, events = [], onEve
             const dailyEvents = isCurrentMonth ? eventMap[dateStr] || [] : [];
             const isExpanded = expandedCellDate === dateStr;
             const shouldShowMoreEvents = dailyEvents.length >= 4 && !isExpanded;
-            const eventsToShow = isExpanded ? dailyEvents : dailyEvents.slice(0, 2);
+            const eventsToShow = isExpanded
+              ? dailyEvents
+              : dailyEvents.slice(0, 2);
             const hiddenEventsCount = dailyEvents.length - 2;
 
             return (
@@ -236,29 +279,27 @@ export default function Calendar({ currentMonth, currentYear, events = [], onEve
                 key={idx}
                 className={`${styles.calendarCell} ${isCurrentMonth ? styles.currentMonth : styles.otherMonth}`}
                 onClick={() => handleCellClick(dateStr)}
-                style={{ position: "relative", minHeight: "114px" }}
               >
                 {day && (
-                  <div className={`${isToday ? styles.todayDateNum : styles.dateNum}`}>
+                  <div
+                    className={`${isToday ? styles.todayDateNum : styles.dateNum}`}
+                  >
                     <p>{day}</p>
                   </div>
                 )}
 
                 {(eventsToShow.length > 0 || shouldShowMoreEvents) && (
-                  <div
-                    className={styles.eventItems}
-                    style={{
-                      overflowY: isExpanded ? "auto" : "hidden",
-                      height: isExpanded ? "80px" : "auto", 
-                    }}
-                  >
+                  <div className={styles.eventItems}>
                     {eventsToShow.map((event, i) => (
                       <div
                         key={i}
                         className={styles.eventItem}
-                        onClick={(e) => handleEventClick(event, e)}
+                        onMouseDown={(e) => handleEventClick(event, e)}
                         style={{
-                          backgroundColor: event.type && eventColors[event.type] ? eventColors[event.type] : "#D3D3D3",
+                          backgroundColor:
+                            event.type && eventColors[event.type]
+                              ? eventColors[event.type]
+                              : "#D3D3D3",
                         }}
                       >
                         <p>{event.shortenedSummary}</p>
@@ -271,7 +312,13 @@ export default function Calendar({ currentMonth, currentYear, events = [], onEve
                         className={`${styles.eventItem} ${styles.moreEventsItem}`}
                         onClick={(e) => handleMoreEventsClick(dateStr, e)}
                       >
-                        <p>+{hiddenEventsCount} more events</p>
+                        <span className={styles.hiddenDesktop}>
+                          +{hiddenEventsCount} more events
+                        </span>
+
+                        <span className={styles.hiddenMobile}>
+                          +{hiddenEventsCount}
+                        </span>
                       </div>
                     )}
                   </div>
