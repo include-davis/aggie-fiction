@@ -147,17 +147,20 @@ export default function Home() {
             <div className={styles.boardGrid}>
               {board.map((member, i) => (
                 <div className={styles.member} key={i}>
-                  <Image
-                    src={member.img}
-                    width={225}
-                    height={225}
-                    alt={member.role}
-                  />
-                  <h2>{member.name}</h2>
-                  <p className={styles.position}>{member.role}</p>
-                  <p>{member.major.includes("&")? "Majors: " + member.major : "Major: " + member.major}</p>
-                  {member.minor && <p>{member.minor.includes("&")? "Minors: " : "Minor: " + member.minor}</p>}
-                  <p>{member.year}</p>
+                  <div className={styles.memberImageContainer}>
+                    <Image
+                      src={member.img}
+                      fill
+                      alt={member.role}
+                    />
+                  </div>
+                  <div className={styles.memberText}>
+                    <h2>{member.name}</h2>
+                    <p className={styles.position}>{member.role}</p>
+                    <p>{member.major.includes("&")? "Majors: " + member.major : "Major: " + member.major}</p>
+                    {member.minor && <p>{member.minor.includes("&")? "Minors: " : "Minor: " + member.minor}</p>}
+                    <p>{member.year}</p>
+                  </div>
                 </div>
               ))}
             </div>
