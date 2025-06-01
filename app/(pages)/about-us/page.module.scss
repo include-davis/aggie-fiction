@@ -1,0 +1,158 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 109px;
+  align-items: center;
+  background-color: var(--pure-white);
+  color: var(--black2);
+  padding: 58px 0 151px 0;
+}
+
+.top {
+    display: flex;
+    flex-direction: column;
+    padding: 0 100px;
+    gap: 72px;
+}
+
+.textImageSection {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+
+    h1 {
+        color: var(--gold);
+    }
+}
+
+.textImageContent {
+    display: flex;
+    gap: 15px;
+    p {
+        flex: 2;
+        top: 266px;
+        left: 100px;
+        font-weight: 400;
+        font-size: 24px;
+        line-height: normal;
+        letter-spacing: 0%;   
+        color: var(--black);     
+    }
+}
+
+.topImageContainer {
+    flex: 1;
+    position: relative;
+    height: 458px;
+}
+
+.otter1 {
+    height: 458px;
+}
+
+.otter2 {
+    height: 363px;
+}
+
+.mascotHeader {
+    font-weight: 700;
+    font-size: 64px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    margin-bottom: 35px;
+    color: var(--gold);
+}
+
+.bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 77px;
+    padding: 0 100px;
+}
+
+.values {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h1 {
+        color: var(--gold);
+    }
+}
+
+.valuesContent {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.valueGroup {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+
+    p { 
+        font-size: 1.5rem;
+        flex: 2;
+    }
+    
+}
+
+.iconCard {
+    flex: 1;
+    gap: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h2 {
+        font-weight: 600;
+        text-align: center;
+        color: var(--black);
+    }
+}
+
+.iconContainer {
+    width: 55%;
+    max-width: 225px;
+    height: 225px;
+    position: relative;
+}
+
+.board {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 82px;
+
+    h1 {
+        color: var(--gold);
+    }
+}
+
+.boardGrid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 129px;
+}
+
+.member {
+    width: 370px; 
+    gap: 15px;        
+    text-align: center;
+
+    img {
+        border-radius: 50%;
+    }
+
+    p {
+        font-size: 20px;
+        text-align: center;
+    }
+}
+
+.position {
+    font-weight: 500;
+}
