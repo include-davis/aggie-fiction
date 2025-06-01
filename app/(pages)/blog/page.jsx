@@ -26,51 +26,51 @@ const articles = [
     author: "Audrey Zhang",
     subtitle: "Writing is intimidating. But it doesn’t have to be.",
   },
-  {
-    id: 3,
-    title: "Creative Explorations",
-    category: "creative-explorations",
-    date: "12/22/2024",
-    image: "/blogMainImages/image2.png",
-    author: "Audrey Zhang",
-    subtitle: "Writing is intimidating. But it doesn’t have to be.",
-  },
-  {
-    id: 4,
-    title: "Another another club news",
-    category: "club-news",
-    date: "06/22/2023",
-    image: "/blogMainImages/image2.png",
-    author: "Audrey Zhang",
-    subtitle: "Very very long description test: This is a test to see how long the description can be before it breaks the layout. We want to ensure that even with a long description, the layout remains intact and visually appealing. This is a test to see how long the description can be before it breaks the layout.",
-  },
-  {
-    id: 5,
-    title: " Another Club News",
-    category: "club-news",
-    date: "12/22/2024",
-    image: "/blogMainImages/image2.png",
-    author: "Audrey Zhang",
-    subtitle: "",
-  },
-  {
-    id: 6,
-    title: "Author Tips",
-    category: "author-tips",
-    date: "01/22/2025",
-    image: "/blogMainImages/image2.png",
-    author: "Audrey Zhang",
-    subtitle: "Writing is intimidating. But it doesn’t have to be.",
-  },
-  {
-    id: 7,
-    title: "Club news",
-    category: "club-news",
-    date: "01/22/2025",
-    image: "/blogMainImages/image2.png",
-    author: "Audrey Zhang",
-    subtitle: "",
-  },
+  // {
+  //   id: 3,
+  //   title: "Creative Explorations",
+  //   category: "creative-explorations",
+  //   date: "12/12/2024",
+  //   image: "/blogMainImages/image2.png",
+  //   author: "Audrey Zhang",
+  //   subtitle: "Writing is intimidating. But it doesn’t have to be.",
+  // },
+  // {
+  //   id: 4,
+  //   title: "Another another club news",
+  //   category: "club-news",
+  //   date: "06/22/2023",
+  //   image: "/blogMainImages/image2.png",
+  //   author: "Audrey Zhang",
+  //   subtitle: "Very very long description test: This is a test to see how long the description can be before it breaks the layout. We want to ensure that even with a long description, the layout remains intact and visually appealing. This is a test to see how long the description can be before it breaks the layout.",
+  // },
+  // {
+  //   id: 5,
+  //   title: " Another Club News",
+  //   category: "club-news",
+  //   date: "12/22/2024",
+  //   image: "/blogMainImages/image2.png",
+  //   author: "Audrey Zhang",
+  //   subtitle: "",
+  // },
+  // {
+  //   id: 6,
+  //   title: "Author Tips",
+  //   category: "author-tips",
+  //   date: "01/22/2025",
+  //   image: "/blogMainImages/image2.png",
+  //   author: "Audrey Zhang",
+  //   subtitle: "Writing is intimidating. But it doesn’t have to be.",
+  // },
+  // {
+  //   id: 7,
+  //   title: "Club news",
+  //   category: "club-news",
+  //   date: "01/22/2025",
+  //   image: "/blogMainImages/image2.png",
+  //   author: "Audrey Zhang",
+  //   subtitle: "",
+  // },
 
 ];
 
@@ -94,7 +94,7 @@ function ArticleCard({ article }) {
         </div>
 
         <div className={styles.author}>
-          <p>{article.author}</p>
+          <p>By {article.author}</p>
           <p>{article.subtitle}</p>
         </div>
       </div>
@@ -127,7 +127,23 @@ function groupArticlesByMonth(articles) {
     grouped[key].push(article);
   });
 
-  return grouped;
+  //return grouped;
+
+
+  // Following lines are to sort articles within a month in *ascending* order,
+  // Need to check with designers if this was really the intended behavior...
+  const sortedMonthKeys = Object.keys(grouped).sort((a, b) => {
+    const aDate = new Date(`${a} 1`);
+    const bDate = new Date(`${b} 1`);
+    return bDate - aDate; 
+  });
+
+  const sortedGrouped = {};
+  sortedMonthKeys.forEach((month) => {
+    sortedGrouped[month] = grouped[month].sort((a, b) => new Date(a.date) - new Date(b.date)); // ascending within month
+  });
+
+  return sortedGrouped;
 }
 
 export default function Blog() {
