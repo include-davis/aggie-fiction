@@ -1,0 +1,168 @@
+.page {
+    padding: 80px 100px 64px 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 98px;
+}
+
+.mainContent {
+    display: flex;
+    flex-direction: column;
+    gap: 90px;
+}
+
+.workshopsSection {
+    display: flex;
+    flex-direction: column;
+    gap: 51px;
+}
+
+.workshopsInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.workshopsOverview {
+    display: flex;
+    gap: 20px;
+}
+
+.textHalf {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    h1 {
+        color: var(--gold);
+    }
+}
+
+.image1Container {
+    flex: 1;
+    height: 381px;
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.workshopsWhy {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+
+    h2 {
+        color: var(--dark-purple);
+    }
+}
+
+.workshopsTypes {
+    margin: 0 -100px;
+    padding: 64px;
+    background: var(--Aggie-Space);
+    color: var(--pure-white);
+
+    display: flex;
+    gap: 57px;
+}
+
+.workshopsTypesImageContainer {
+    flex: 1;
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.workshopsTypesText {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+
+    ul {
+        margin-left: 42px;
+        display: flex;
+        flex-direction: column;
+        gap: 13px;
+
+        li {
+            list-style-type: none;
+            display: flex;
+            align-items: center;
+            gap: 11px;
+            font-weight: 600;
+        }
+    }
+}
+
+.midSection {
+    display: flex;
+    flex-direction: column;
+    gap: 150px;
+}
+
+.guestSpeakers {
+    display: flex;
+    align-items: center;
+    gap: 100px;
+}
+
+.guestSpeakersText {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 21px;
+
+    h1 {
+        color: var(--gold);
+    }
+}
+
+.guestSpeakersImageContainer {
+    flex: 1;
+    position: relative;
+    border-radius: 10px;
+    height: 512px;
+    overflow: hidden;
+}
+
+.writersConference {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+}
+
+.writersConferenceImageContainer {
+    flex: 1;
+    position: relative;
+    border-radius: 10px;
+    height: 367px;
+    overflow: hidden;
+}
+
+.writersConferenceContent {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 44px;
+
+    button {
+        background-color: transparent;
+        border-radius: 100px;
+        width: 222px;
+        border: 2px solid var(--gold);
+        padding: 10px 20px;
+        font-size: 1.5rem;
+    }
+}
+
+.writersConferenceText {
+    h1 {
+        color: var(--gold);
+    }
+
+    h2 {
+        color: var(--dark-purple);
+    }
+}
