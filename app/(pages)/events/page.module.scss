@@ -1,13 +1,13 @@
 @use "app/(pages)/_globals/mixins.scss";
 
 .page {
-    padding: 84px 100px 64px 100px;
+    padding: 103px 100px 64px 100px;
     display: flex;
     flex-direction: column;
     gap: 98px;
 
     @include mixins.phone {
-        padding: 25px 30px 16px 30px;
+        padding: 25px 35px 24px 30px;
     }
 }
 
