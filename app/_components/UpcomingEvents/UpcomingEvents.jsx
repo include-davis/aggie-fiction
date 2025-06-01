@@ -40,17 +40,17 @@ export default function UpcomingEvents() {
       {/* now an h1 so global h1 styles apply */}
       <h1 className={styles.heading}>Upcoming Events</h1>
 
-      <ul className={styles.list}>
+      <div className={styles.list}>
         {events.map((e, i) => (
-          <li key={i} className={styles.item}>
-            <div className={styles.content}>
+          <div key={i} className={styles.item}>
               
-              {/* COLUMN 1: Date */}
-              <div className={styles.dateBlock}>
-                <span className={styles.month}>{e.date.month}</span>
-                <span className={styles.day}>{e.date.day}</span>
-              </div>
+            {/* COLUMN 1: Date */}
+            <div className={styles.dateBlock}>
+              <span className={styles.month}>{e.date.month}</span>
+              <span className={styles.day}>{e.date.day}</span>
+            </div>
 
+            <div className={styles.textContent}>
               {/* COLUMN 2: Details */}
               <div className={styles.details}>
                 {/* Type row with colored dot */}
@@ -67,9 +67,7 @@ export default function UpcomingEvents() {
                   </svg>
                   <span className={styles.type}>{e.type}</span>
                 </div>
-
                 <h3 className={styles.title}>{e.title}</h3>
-
                 <div className={styles.meta}>
                   <span className={styles.metaItem}>
                     {/* Clock icon */}
@@ -80,7 +78,7 @@ export default function UpcomingEvents() {
                       height={19}
                       className={styles.icon}
                     />
-                    <span className={styles.metaText}>{e.time || "All-Day"}</span>
+                    <p className={styles.metaText}>{e.time || "All-Day"}</p>
                   </span>
                   <span className={styles.metaItem}>
                     {/* Pin icon */}
@@ -91,19 +89,18 @@ export default function UpcomingEvents() {
                       height={20}
                       className={styles.icon}
                     />
-                    <span className={styles.metaText}>{e.location}</span>
+                    <p className={styles.metaText}>{e.location}</p>
                   </span>
                 </div>
               </div>
-
               {/* COLUMN 3: Notes */}
               {e.description && (
-                <div className={styles.notes}>{e.description}</div>
+                <p className={styles.notes}>{e.description}</p>
               )}
             </div>
-          </li>
+          </div>
         ))}
-      </ul>
+      </div>
 
       <Link href="/calendar"><button className={styles.button}>View Full Calendar</button></Link>
     </section>
