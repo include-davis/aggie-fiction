@@ -141,7 +141,9 @@ export default function Events() {
           </div>
         </div>
       </div>
-      <UpcomingEvents/>
+      <div className={styles.upcomingEventsContainer}>
+        <UpcomingEvents/>
+      </div>
     </div>
   )
 }
