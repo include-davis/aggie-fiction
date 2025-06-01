@@ -39,6 +39,10 @@
 
   padding: 44px 108px;
 
+  @include mixins.tablet {
+    gap: 50px;
+  }
+
   @include mixins.phone {
     padding: 22px 32px;
     gap: 19px;
