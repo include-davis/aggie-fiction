@@ -24,7 +24,11 @@
 .workshopsSection {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 51px;
+
+    @include mixins.phone {
+        gap: 20px;
+    }
 }
 
 .workshopsInfo {
