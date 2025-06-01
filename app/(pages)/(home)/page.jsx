@@ -1,7 +1,6 @@
 import styles from "./page.module.scss";
 import Image from "next/image";
 import HomeCarousel from "../_components/HomeCarousel/HomeCarousel";
-
 export default function Home() {
   return (
     <div className={styles.home}>

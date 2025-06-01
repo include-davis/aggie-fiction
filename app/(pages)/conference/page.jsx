@@ -21,7 +21,7 @@ export default function Conference()
                             src = {titleImagePath}
                             alt = {"Title Image"}
                             fill
-                            sizes = "49%"
+                            /*sizes = "49%"*/
                             className = {styles.conferenceImage}
                         />
                     </div>
@@ -32,7 +32,7 @@ export default function Conference()
                             src = {summaryImagePath}
                             alt = {"Summary Image"}
                             fill
-                            sizes = "34%"
+                            /*sizes = "34%"*/
                             className = {styles.conferenceImage}
                         />
                     </div>
@@ -49,8 +49,10 @@ export default function Conference()
                 <div className = {styles.lowerLeftBlock}>
                     <div className = {styles.involvementBlock}>
                         <h1>Aggie Fiction's Involvement</h1>
-                        <p>Every year, our club volunteers at the conference, helping with event coordination, guest services, and logistical support. This hands-on role gives us behind-the-scenes access to the event while allowing us to <b>engage directly with industry professionals.</b> It’s an incredible way to <b>build connections</b> and <b>gain insights</b> that go beyond the typical attendee experience.</p>
-                        <p>For our club members, SFWC isn’t just a conference—<b>it’s an opportunity to represent UC Davis</b>, network with literary professionals, and bring back insights and experiences that strengthen our creative writing community.</p>
+                        <div className = {styles.involvementSummary}>
+                            <p>Every year, our club volunteers at the conference, helping with event coordination, guest services, and logistical support. This hands-on role gives us behind-the-scenes access to the event while allowing us to <b>engage directly with industry professionals.</b> It’s an incredible way to <b>build connections</b> and <b>gain insights</b> that go beyond the typical attendee experience.</p>
+                            <p>For our club members, SFWC isn’t just a conference—<b>it’s an opportunity to represent UC Davis</b>, network with literary professionals, and bring back insights and experiences that strengthen our creative writing community.</p>
+                        </div>
                     </div>
                     <div className = {styles.involvementBlock}>
                         <h2>Student Ambassador</h2>
@@ -62,7 +64,7 @@ export default function Conference()
                         src = {involvementImagePath}
                         alt = {"Involvement Image"}
                         fill
-                        sizes = "43%"
+                        sizes = "50%"
                         className = {styles.conferenceImage}
                     />
                 </div>
