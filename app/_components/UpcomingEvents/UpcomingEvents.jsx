@@ -43,13 +43,14 @@ export default function UpcomingEvents() {
       <div className={styles.list}>
         {events.map((e, i) => (
           <div key={i} className={styles.item}>
-            <div className={styles.mainColumns}>
               
-              {/* COLUMN 1: Date */}
-              <div className={styles.dateBlock}>
-                <span className={styles.month}>{e.date.month}</span>
-                <span className={styles.day}>{e.date.day}</span>
-              </div>
+            {/* COLUMN 1: Date */}
+            <div className={styles.dateBlock}>
+              <span className={styles.month}>{e.date.month}</span>
+              <span className={styles.day}>{e.date.day}</span>
+            </div>
+
+            <div className={styles.textContent}>
               {/* COLUMN 2: Details */}
               <div className={styles.details}>
                 {/* Type row with colored dot */}
@@ -77,7 +78,7 @@ export default function UpcomingEvents() {
                       height={19}
                       className={styles.icon}
                     />
-                    <span className={styles.metaText}>{e.time || "All-Day"}</span>
+                    <p className={styles.metaText}>{e.time || "All-Day"}</p>
                   </span>
                   <span className={styles.metaItem}>
                     {/* Pin icon */}
@@ -88,16 +89,15 @@ export default function UpcomingEvents() {
                       height={20}
                       className={styles.icon}
                     />
-                    <span className={styles.metaText}>{e.location}</span>
+                    <p className={styles.metaText}>{e.location}</p>
                   </span>
                 </div>
               </div>
+              {/* COLUMN 3: Notes */}
+              {e.description && (
+                <p className={styles.notes}>{e.description}</p>
+              )}
             </div>
-
-            {/* COLUMN 3: Notes */}
-            {e.description && (
-              <div className={styles.notes}>{e.description}</div>
-            )}
           </div>
         ))}
       </div>
