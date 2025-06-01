@@ -80,10 +80,9 @@ export default function Home() {
             <div className={`${styles.topImageContainer} ${styles.otter2}`}>
               <Image
                 src="/aboutUsImages/otter2.png"
-                width={352}
-                height={363}
+                fill
+                objectFit="contain"
                 alt="Otter Mascot"
-                style={{display: "block", marginLeft: 42}}
               />
             </div>
           </div>

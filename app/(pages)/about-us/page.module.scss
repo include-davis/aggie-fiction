@@ -63,27 +63,6 @@
     color: var(--gold);
 }
 
-.mascot { 
-    width: 1262px;
-    height: 731px;
-    top: 914px;
-    left: 101px;    
-    gap: 42px;
-    display: flex;
-    margin-bottom: 109px;
-    p {
-        width: 868px;
-        height: 612px;
-        top: 1033px;
-        left: 101px;
-        font-weight: 400;
-        font-size: 24px;
-        line-height: normal;
-        letter-spacing: 0%;
-        color: var(--black);
-    }
-}
-
 .bottom {
     display: flex;
     flex-direction: column;
