@@ -1,0 +1,114 @@
+.blog {
+    display: flex;
+    padding-top: 49px;
+    gap: 66px; 
+    min-height:743px;
+    padding-bottom: 49px;
+    justify-content: center;
+
+}
+
+.blog h1{
+    color: var(--gold);
+}
+
+
+.rightColumn {
+    padding-top: 56px;
+    width: 956px;
+    overflow-y: auto;  
+}
+
+.categoriesSection h2 {
+    background-image:var(--Aggie-Space);
+    background-clip: text;
+    -webkit-text-fill-color:transparent;
+    font-weight: 600;
+}
+
+.categoriesList {
+  max-height: 172px; 
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-right: 10px;
+  margin-top: 32px;
+
+}
+
+.lineseparator {
+    width:180px;
+  border-radius: 999px;
+  background-image: var(--Aggie-Space);
+  height:3px;
+  border-style: none;
+}
+.articlecard {
+    display:flex; 
+}
+
+.monthYearHeading {
+    color: var(--gold); 
+    padding-bottom: 36px; 
+    padding-top: 18px;
+}
+
+.articleGrid {
+    display: flex; 
+    flex-direction: column;
+    gap: 30px; 
+}
+
+.articleCardImageWrapper {
+    display: flex;
+    align-items: center;
+}
+
+.titleDate {
+    display: flex;
+    align-items: flex-end;
+    width: 470px;  
+}
+
+.date {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+
+.titleDate  {
+ color: var(--dark-purple); 
+ padding-bottom: 37px;
+ 
+}
+
+.titleDate p {
+    color: var(--black); 
+    font-size: 0.75rem;
+    
+}
+
+.titleDate h2 {
+    line-height: 2.0625rem;
+    width: 405px; 
+    
+}
+
+.author {
+    display: flex;
+    flex-direction: column;
+    color: var(--black); 
+    gap: 6px;
+}
+
+
+.articleGrid a {
+  text-decoration: none;
+}
+
+.cardDescription {
+    padding-left: 24px;
+}
