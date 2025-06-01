@@ -71,12 +71,13 @@ export default function Events() {
               <ul>
                 {workshopTypes.map((type, idx) => 
                   <li key={idx}>
-                    <Image
-                      src="/eventsImages/workshopListIcon.svg"
-                      alt="-"
-                      width={28}
-                      height={21}
-                    />
+                    <div className={styles.listImageContainer}>
+                      <Image
+                        src="/eventsImages/workshopListIcon.svg"
+                        alt="-"
+                        fill
+                      />
+                    </div>
                     <p>{type}</p>
                   </li> 
                 )}
@@ -88,6 +89,14 @@ export default function Events() {
           <div className={styles.guestSpeakers}>
             <div className={styles.guestSpeakersText}>
               <h1>Guest Speakers</h1>
+              <div className={styles.guestSpeakersImageContainerMobile}>
+                <Image
+                  src="/eventsImages/guestSpeakerImage.png"
+                  alt="Guest speaker presenting"
+                  fill
+                  objectFit="cover"
+                />
+              </div>
               <p>
                 In addition to our usual schedule, guest speaker events are special occasions where
                 Aggie Fiction invites a published writer, alumni, professor, or anyone with
@@ -104,7 +113,7 @@ export default function Events() {
                 in a lively and informal setting.
               </p>
             </div>
-            <div className={styles.guestSpeakersImageContainer}>
+            <div className={styles.guestSpeakersImageContainerDesktop}>
               <Image
                 src="/eventsImages/guestSpeakerImage.png"
                 alt="Guest speaker presenting"
