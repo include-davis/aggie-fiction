@@ -1,3 +1,5 @@
+@use "app/(pages)/_globals/mixins.scss";
+
 .carousel {
   display: flex;
   justify-content: center;
@@ -10,12 +12,21 @@
     padding: 0;
     cursor: pointer;
   }
+
+  @include mixins.phone {
+    gap: 25px;
+  }
 }
 
 .turnButton {
   position: relative;
   width: 44px;
   height: 52px;
+
+  @include mixins.phone {
+    width: 29px;
+    height: 34px;
+  }
 }
 
 .carouselContent {
@@ -29,6 +40,14 @@
   border-radius: 10px;
   border: 3px solid var(--gold);
   background: var(--white);
+
+  @include mixins.phone {
+    flex-direction: column;
+    padding: 18px;
+    gap: 10px;
+    width: 224px;
+    height: 268px;
+  }
 }
 
 .carouselImg {
@@ -36,12 +55,21 @@
   width: 308px;
   height: 172px;
   aspect-ratio: 16 / 3;
+
+  @include mixins.phone {
+    width: 167px;
+    height: 120px;
+  }
 }
 
 .carouselDescription {
   display: flex;
   flex-direction: column;
   gap: 16px;
+
+  @include mixins.phone {
+    gap: 11px;
+  }
 }
 
 .titleDate {
@@ -56,57 +84,12 @@
     margin-top: auto;
     font-size: 12px;
   }
-}
 
-.author {
-  p {
-    margin: 0;
-  }
-}
+  @include mixins.phone {
+    flex-direction: column;
 
-@mixin phone {
-  @media screen and (max-width: 720px) {
-    .carousel {
-      gap: 25px;
-    }
-
-    .turnButton {
-      width: 29px;
-      height: 34px;
-    }
-
-    .carouselContent {
-      flex-direction: column;
-      padding: 18px;
-      gap: 10px;
-      width: 224px;
-      height: 268px;
-    }
-
-    .carouselImg {
-      width: 167px;
-      height: 120px;
-    }
-
-    .carouselDescription {
-      gap: 11px;
-    }
-
-    .titleDate {
-      flex-direction: column;
-
-      h2 {
-        line-height: normal;
-        font-size: 14px;
-      }
-    }
-
-    .author {
-      p {
-        font-size: 12px;
-      }
+    h2 {
+      line-height: normal;
     }
   }
 }
-
-@include phone;
