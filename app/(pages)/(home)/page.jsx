@@ -1,6 +1,7 @@
 import styles from "./page.module.scss";
 import Image from "next/image";
 import HomeCarousel from "../_components/HomeCarousel/HomeCarousel";
+import UpcomingEvents from "@/app/_components/UpcomingEvents/UpcomingEvents";
 export default function Home() {
   return (
     <div className={styles.home}>
@@ -32,10 +33,12 @@ export default function Home() {
           </div>
         </div>
 
-        <div className={styles.blog}>
-          <h1>Blog</h1>
-
-          <HomeCarousel />
+        <div className={styles.pageLower}>
+          <div className={styles.blog}>
+            <h1>Blog</h1>
+            <HomeCarousel />
+          </div>
+          <UpcomingEvents/>
         </div>
       </div>
     </div>
