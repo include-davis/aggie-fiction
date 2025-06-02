@@ -5,7 +5,7 @@ import styles from "./page.module.scss";
 import Calendar from "../_components/Calendar/Calendar";
 import CalendarUpcomingEvent from "../_components/CalendarUpcomingEvent/CalendarUpcomingEvent";
 import FilterMenu from "../_components/FilterMenu/FilterMenu";
-import { useState, useMemo, useCallback, useRef } from "react";
+import { useState, useMemo, useCallback } from "react";
 
 export default function CalendarPage() {
   const [currentMonth, setCurrentMonth] = useState(new Date().getMonth());
