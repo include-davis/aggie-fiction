@@ -25,8 +25,8 @@ export default function Home() {
               <Image
                 src="/Home/img/Otter.png"
                 alt="Jackie the Otter, the logo for AggieFiction."
-                width={518}
-                height={501}
+                layout="fill"
+                objectFit="contain"
               />
             </div>
           </div>
