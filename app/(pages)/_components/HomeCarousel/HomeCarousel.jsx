@@ -1,8 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import styles from "./HomeCarousel.module.scss";
+/* eslint-disable react/prop-types */
 
 export default function HomeCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -21,7 +22,7 @@ export default function HomeCarousel() {
       title: "Ten Mistakes Amateur Writers Make",
       date: "03/28/2025",
       author: "By Audrey Zhang",
-      subtitle: "Writing is intimidating. But it doesn’t have to be.",
+      subtitle: "Writing is intimidating. But it doesn&apos;t have to be.",
     },
   ];
 

@@ -1,6 +1,7 @@
 "use client";
+/* eslint-disable react/prop-types */
 import styles from "./CalendarEventCard.module.scss";
-import { useState, useMemo, useEffect, useRef } from "react";
+import React, { useState, useMemo, useEffect, useRef } from "react";
 import Image from "next/image";
 
 export default function CalendarEventCard({

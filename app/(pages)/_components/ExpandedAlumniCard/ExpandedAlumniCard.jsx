@@ -1,5 +1,7 @@
 import styles from "./ExpandedAlumniCard.module.scss";
 import Image from "next/image";
+import React from "react";
+/* eslint-disable react/prop-types */
 
 export default function ExpandedAlumniCard({
     first_name,

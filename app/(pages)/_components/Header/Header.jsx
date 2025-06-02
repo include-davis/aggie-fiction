@@ -2,7 +2,9 @@
 import styles from "./Header.module.scss";
 import Link from 'next/link'
 import Image from 'next/image'
-import { useState } from 'react'
+import React, { useState } from 'react'
+/* eslint-disable react/prop-types */
+
 export default function Header() {
     const [dropdownOpen, setDropdownOpen] = useState(false);
     const toggleDropdown = () => {

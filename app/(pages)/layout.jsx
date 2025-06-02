@@ -1,7 +1,9 @@
 import Header from "./_components/Header/Header";
 import Footer from "./_components/Footer/Footer";
 import "./_globals/globals.scss";
+import React from "react";
 import { Poppins } from "next/font/google";
+/* eslint-disable react/prop-types */
 
 export const metadata = {
   title: "Create Next App",

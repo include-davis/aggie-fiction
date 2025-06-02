@@ -3,6 +3,9 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { FaDiscord } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
+import React from "react";
+/* eslint-disable react/prop-types */
+
 export default function Footer() {
     return (
       <div className={styles.Footer}>

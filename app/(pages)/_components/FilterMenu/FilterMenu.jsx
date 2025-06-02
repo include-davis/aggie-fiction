@@ -1,5 +1,7 @@
 "use client";
 import styles from "./FilterMenu.module.scss";
+import React from "react";
+/* eslint-disable react/prop-types */
 
 export default function FilterMenu({ filters, setFilters, onClose, position }) {
   const handleCheck = (event) => {

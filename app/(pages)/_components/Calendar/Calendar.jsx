@@ -1,6 +1,7 @@
 "use client";
+/* eslint-disable react/prop-types */
 import styles from "./Calendar.module.scss";
-import { useState, useEffect, useMemo, useRef } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import CalendarEventCard from "../CalendarEventCard/CalendarEventCard";
 import { normalizeEventDates } from "@/app/_services/events";
 

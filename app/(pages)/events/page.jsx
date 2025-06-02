@@ -1,6 +1,7 @@
 import UpcomingEvents from "@/app/(pages)/_components/UpcomingEvents/UpcomingEvents"
 import Image from "next/image"
 import styles from "./page.module.scss"
+import React from "react"
 
 const workshopTypes = [
   "Short story",
@@ -51,8 +52,8 @@ export default function Events() {
                 for the quality of my writing. Each critique is met with a compliment, where 
                 conversations are more fun than cold. When being a reader, asking questions, giving 
                 flowers, and suggesting areas to grow is key to making sure the writer does not 
-                stress over their small mistakes and instead focuses them on their work’s potential. 
-                Each writer’s story and voice has value, and it is the goal of Aggie Fiction members 
+                stress over their small mistakes and instead focuses them on their work&apos;s potential. 
+                Each writer&apos;s story and voice has value, and it is the goal of Aggie Fiction members 
                 to have that value shine brighter.
               </p>
             </div>
@@ -109,7 +110,7 @@ export default function Events() {
                 For those seeking future careers in writing and publishing, guest speaker events act
                 as an early opportunity for members to gain key insight into the writing process and
                 the industry as a whole. Q&A sessions are also a staple, allowing members to voice their
-                questions, concerns or comments as well as bounce off one another’s ideas and queries
+                questions, concerns or comments as well as bounce off one another&apos;s ideas and queries
                 in a lively and informal setting.
               </p>
             </div>

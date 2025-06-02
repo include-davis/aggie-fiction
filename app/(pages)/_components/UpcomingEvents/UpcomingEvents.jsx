@@ -3,39 +3,10 @@
 import Image from "next/image";
 import styles from "./UpcomingEvents.module.scss";
 import Link from "next/link";
-import { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Button from "@/app/(pages)/_components/Button/Button";
 import { normalizeEventDates } from "@/app/_services/events";
-
-const eventStatic = [
-  {
-    date: { month: "Apr", day: "21" },
-    color: "#A4DAEB",
-    type: "Fundraiser",
-    title: "Raising Cane’s Fundraiser",
-    time: "6 PM – 7 PM",
-    location: "Alumni Center",
-    description: "Walk with us after our meeting (7:00 pm onwards)",
-  },
-  {
-    date: { month: "Apr", day: "21" },
-    color: "#FF9F9F",
-    type: "Board Meeting",
-    title: "Open Board Meeting",
-    time: "5 PM – 7 PM",
-    location: "Shields Library (Room 121)",
-    // no description here, so Notes column won’t show
-  },
-  {
-    date: { month: "Apr", day: "21" },
-    color: "#F4D06F",
-    type: "General Meeting",
-    title: "General Meeting",
-    time: "6 PM – 7 PM",
-    location: "Olsen 167",
-    // no description here, so Notes column won’t show
-  },
-];
+/* eslint-disable react/prop-types */
 
 export default function UpcomingEvents({expandable=false}) {
   const [visibleEventsCount, setVisibleEventsCount] = useState(3);

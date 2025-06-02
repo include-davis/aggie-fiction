@@ -1,11 +1,12 @@
 "use client";
 
-import { useState } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
+import React, { useState } from "react";
+import { useRouter } from "next/navigation";
 import styles from "./page.module.scss";
 import Image from "next/image";
 import Link from "next/link";
-import Button from "../_components/button/Button";
+import Button from "../_components/Button/Button";
+/* eslint-disable react/prop-types */
 
 const articles = [
   {
@@ -24,7 +25,7 @@ const articles = [
     date: "03/28/2025",
     image: "/blogMainImages/image2.png",
     author: "Audrey Zhang",
-    subtitle: "Writing is intimidating. But it doesn’t have to be.",
+    subtitle: "Writing is intimidating. But it doesn&apos;t have to be.",
   },
   // {
   //   id: 3,
@@ -148,8 +149,7 @@ function groupArticlesByMonth(articles) {
 
 export default function Blog() {
   const router = useRouter();
-  const searchParams = useSearchParams();
-  const defaultCategory = searchParams.get("category") || "date-added";
+  const defaultCategory = "date-added";
   const [selectedCategory, setSelectedCategory] = useState(defaultCategory);
 
   const handleCategoryChange = (category) => {

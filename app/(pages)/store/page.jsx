@@ -3,8 +3,7 @@ import styles from "./page.module.scss";
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link'
-import Button from "../_components/button/Button";
-import { useSearchParams } from 'next/navigation';
+import Button from "../_components/Button/Button";
 import { useRouter } from 'next/navigation';
 
 
@@ -79,8 +78,7 @@ export default function Storelisting() {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 6;
 
-  const searchParams = useSearchParams();
-  const initialCategory = searchParams.get('category') || 'all';
+  const initialCategory = 'all';
   const [selectedCategory, setSelectedCategory] = useState("all");
 
   const filteredProducts = products.filter(

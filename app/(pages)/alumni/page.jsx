@@ -3,6 +3,7 @@ import styles from "./page.module.scss";
 import AlumniPageCard from "../_components/AlumniPageCard/AlumniPageCard.jsx";
 import Image from "next/image";
 import React, {useState} from "react";
+/* eslint-disable react/prop-types */
 
 const alumniList = [
   {
@@ -74,7 +75,7 @@ const alumniList = [
     description:(
     <>
       Jakob Stanton was the secondary leader of Aggie Fiction from 2023-2024. 
-      He graduated 2024 with a bachelor’s degree in History and a minor in sociology. 
+      He graduated 2024 with a bachelor&apos;s degree in History and a minor in sociology. 
       He researched and wrote an honors thesis about aeronautical culture in Germany from 1872-1929 titled We Dead Fliers. 
       He is currently pursuing a masters in Screenwriting at Chapman University in Orange CA where he is trying to solve the 
       puzzle that is screenwriting with two sweet black cats named Bucket and Boba.
@@ -94,8 +95,8 @@ const alumniList = [
     role3:"",
     description:(
     <>
-      Erika DiMaano is an interaction designer who's been working on various interactive digital projects and design work. 
-      She's recently been branching out to web development and learning new skills to bring her work further.
+      Erika DiMaano is an interaction designer who&apos;s been working on various interactive digital projects and design work. 
+      She&apos;s recently been branching out to web development and learning new skills to bring her work further.
       </>
     ),
     imageUrl:"/AlumniPage/Erika.png",
