@@ -1,7 +1,7 @@
 import styles from "./page.module.scss";
 import Image from "next/image";
 import HomeCarousel from "../_components/HomeCarousel/HomeCarousel";
-import UpcomingEvents from "@/app/_components/UpcomingEvents/UpcomingEvents";
+import UpcomingEvents from "@/app/(pages)/_components/UpcomingEvents/UpcomingEvents";
 export default function Home() {
   return (
     <div className={styles.home}>

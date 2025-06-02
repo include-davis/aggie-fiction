@@ -3,15 +3,14 @@
 import Image from "next/image";
 import styles from "./page.module.scss";
 import Calendar from "../_components/Calendar/Calendar";
-import CalendarUpcomingEvent from "../_components/CalendarUpcomingEvent/CalendarUpcomingEvent";
 import FilterMenu from "../_components/FilterMenu/FilterMenu";
 import { useState, useMemo, useCallback } from "react";
+import UpcomingEvents from "@/app/(pages)/_components/UpcomingEvents/UpcomingEvents";
 
 export default function CalendarPage() {
   const [currentMonth, setCurrentMonth] = useState(new Date().getMonth());
   const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
   const [events, setEvents] = useState([]);
-  const [visibleEventsCount, setVisibleEventsCount] = useState(3);
   const [showFilterMenu, setShowFilterMenu] = useState(false);
   const [filterButtonPosition, setFilterButtonPosition] = useState(null);
 
@@ -88,41 +87,7 @@ export default function CalendarPage() {
     return filterEvents(events);
   }, [events, filterEvents]);
 
-  // Filter and sort the upcoming events
-  const upcomingEvents = useMemo(() => {
-    return filteredEvents
-      .filter((event) => {
-        if (!event.date) return false;
 
-        const eventDate = new Date(event.date);
-        const currentDate = new Date();
-
-        // Only use day to determine if an event is "upcoming", not time
-        const eventDateOnly = new Date(
-          eventDate.getFullYear(),
-          eventDate.getMonth(),
-          eventDate.getDate()
-        );
-        const currentDateOnly = new Date(
-          currentDate.getFullYear(),
-          currentDate.getMonth(),
-          currentDate.getDate()
-        );
-
-        const twoWeeksLater = new Date(currentDateOnly);
-        twoWeeksLater.setDate(currentDateOnly.getDate() + 14);
-
-        return (
-          eventDateOnly >= currentDateOnly && eventDateOnly <= twoWeeksLater
-        );
-      })
-      .sort((a, b) => new Date(a.date) - new Date(b.date));
-  }, [filteredEvents]);
-
-  // Handle "See More" button click
-  const handleSeeMore = () => {
-    setVisibleEventsCount((prev) => Math.min(prev + 3, upcomingEvents.length));
-  };
 
   // Handle filter button click
   const handleFilterClick = (event) => {
@@ -135,7 +100,7 @@ export default function CalendarPage() {
   };
 
   return (
-    <main>
+    <main className={styles.page}>
       <div className={styles.calendarContainer}>
         <div className={styles.calendarHeader}>
           <div className={styles.nav}>
@@ -190,20 +155,8 @@ export default function CalendarPage() {
         </div>
       </div>
 
-      <div className={styles.upcomingEvents}>
-        <h1 className={styles.upcomingEventsTitle}>Upcoming Events</h1>
-
-        <div className={styles.events}>
-          {upcomingEvents.slice(0, visibleEventsCount).map((event, index) => (
-            <CalendarUpcomingEvent key={index} event={event} />
-          ))}
-        </div>
-
-        {visibleEventsCount < upcomingEvents.length && (
-          <button className={styles.seeMoreButton} onClick={handleSeeMore}>
-            See More
-          </button>
-        )}
+      <div className={styles.upcomingEventsContainer}>
+        <UpcomingEvents expandable/>
       </div>
 
       {showFilterMenu && filterButtonPosition && (

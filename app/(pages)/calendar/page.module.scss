@@ -1,5 +1,17 @@
 @use "app/(pages)/_globals/mixins.scss";
 
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 57px;
+  padding-bottom: 56px;
+
+  @include mixins.phone {
+    gap: 28px;
+    padding-bottom: 50px;
+  }
+}
+
 .calendarContainer {
   position: relative;
   display: flex;
@@ -140,35 +152,10 @@
   gap: 8px;
 }
 
-.upcomingEvents {
-  display: flex;
-  flex-direction: column;
-  gap: 60px;
-  padding: 57px 100px;
-}
+.upcomingEventsContainer {
+  padding: 0 100px;
 
-.upcomingEventsTitle {
-  padding: 0 330px;
-  color: var(--gold);
-}
-
-.events {
-  display: flex;
-  flex-direction: column;
-  gap: 51px;
-}
-
-.seeMoreButton {
-  background-color: var(--light-purple);
-  font-size: 16px;
-  align-self: center;
-  width: 138px;
-  height: 52px;
-  border-radius: 9999px;
-  border: none;
-
-  &:hover {
-    background-color: var(--dark-purple);
-    color: var(--white);
+  @include mixins.phone {
+    padding: 0 30px;
   }
 }
