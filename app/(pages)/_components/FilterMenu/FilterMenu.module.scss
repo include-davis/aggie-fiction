@@ -1,0 +1,68 @@
+@use "app/(pages)/_globals/mixins.scss";
+
+.filterOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+}
+
+.menu {
+  position: absolute;
+  background-color: var(--white);
+  width: 253px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 21px;
+  border-radius: 15px;
+  box-shadow: 1px 1px 4px 6px rgba(0, 0, 0, 0.25);
+
+  @include mixins.sm-desktop {
+    padding: 19px;
+    width: 189px;
+  }
+}
+
+.filterType {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  @include mixins.sm-desktop {
+    .eventType {
+      font-size: 12px;
+    }
+  }
+}
+
+.eventTypeIndicator {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  padding-right: 8px;
+
+  @include mixins.sm-desktop {
+    width: 8px;
+    height: 4px;
+    padding: 8px;
+  }
+}
+
+.eventType {
+  font-size: 16px;
+  width: 154px;
+}
+
+.checkBox {
+  width: 22px;
+  height: 22px;
+  cursor: pointer;
+
+  @include mixins.sm-desktop {
+    width: 14px;
+    height: 14px;
+  }
+}

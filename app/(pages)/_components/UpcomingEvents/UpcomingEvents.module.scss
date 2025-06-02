@@ -152,3 +152,12 @@
     font-size: 0.75rem;
   }
 }
+
+.extraButtonStyles {
+  width: 138px !important;
+
+  @include mixins.phone {
+    width: 86px !important;
+    height: 36px !important;
+  }
+}

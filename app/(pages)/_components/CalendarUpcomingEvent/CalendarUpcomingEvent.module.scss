@@ -1,0 +1,92 @@
+.outerBox
+{
+    border: 2px solid var(--gold);
+    border-radius: 10px;
+    width: 100%;
+    min-height: 222px;
+
+    h1 
+    {
+        font-size: 64px;
+        color: var(--black);
+    }
+    
+    h2 
+    {
+        font-size: 32px;
+    }
+
+    p 
+    {
+        font-size: 16px;
+    }
+
+    .event
+    {
+        display: flex;
+        gap: 5vw;
+        align-items: center;
+        padding-top: 46px;
+        padding-bottom: 46px;
+        padding-left: 85px;
+        padding-right: 85px;
+
+        .eventDate
+        {
+            display: flex;
+            flex-direction: column;
+            width: 20%;
+            min-width: 150px;
+            align-items: center;
+            white-space: nowrap;
+        }
+
+        .eventInfo
+        {
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+            width: 40%;
+            min-width: 300px;
+            
+            .eventType 
+            {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+
+                .eventTypeIndicator
+                {
+                    width: 18px;
+                    height: 18px;
+                    border-radius: 50%;
+                    padding-right: 8px;
+                }
+            }
+
+            .eventDetails
+            {
+                display: flex;
+                flex-direction: column;
+
+                .eventDetail
+                {
+                    display: flex;
+                    align-items: flex-start;
+                    gap: 8.65px;
+                }
+
+                .detailImg
+                {
+                    padding-top: 3px;
+                }
+            }
+        }
+
+        .eventDesc
+        {
+            width: 40%;
+            min-width: 150px;
+        }
+    }
+}

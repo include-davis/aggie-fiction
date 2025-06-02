@@ -1,4 +1,4 @@
-import UpcomingEvents from "@/app/_components/UpcomingEvents/UpcomingEvents"
+import UpcomingEvents from "@/app/(pages)/_components/UpcomingEvents/UpcomingEvents"
 import Image from "next/image"
 import styles from "./page.module.scss"
 

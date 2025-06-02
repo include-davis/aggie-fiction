@@ -1,0 +1,161 @@
+@use "app/(pages)/_globals/mixins.scss";
+
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 57px;
+  padding-bottom: 56px;
+
+  @include mixins.phone {
+    gap: 28px;
+    padding-bottom: 50px;
+  }
+}
+
+.calendarContainer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 85px 100px;
+  gap: 38px;
+  background: var(--Aggie-Space);
+
+  @include mixins.phone {
+    padding: 50px 30px;
+    gap: 16px;
+  }
+}
+
+.calendarHeader {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1400px;
+  height: 62px;
+
+  @include mixins.sm-desktop {
+    height: 30px;
+  }
+}
+
+.nav {
+  display: flex;
+  gap: 7px;
+
+  button {
+    position: relative;
+    display: flex;
+    background: transparent;
+    width: 44px;
+    height: 52px;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+  }
+
+  .today {
+    padding: 12px 22px;
+    width: fit-content;
+    color: var(--white);
+    border-radius: 100px;
+    border: 2px solid var(--gold);
+  }
+
+  @include mixins.sm-desktop {
+    button {
+      width: 25px;
+      height: 30px;
+      font-size: 12px;
+    }
+
+    .today {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 12px 30px;
+      width: 52px;
+      height: 30px;
+      border: 1px solid var(--gold);
+
+      p {
+        font-size: 12px;
+      }
+    }
+  }
+}
+
+.month {
+  position: absolute;
+  top: -30%;
+  left: 40%;
+  display: flex;
+  text-align: center;
+
+  h1 {
+    margin: 0;
+    padding: 0;
+    color: var(--white);
+    display: inline-block;
+  }
+
+  @include mixins.sm-desktop {
+    top: -15%;
+
+    h1 {
+      font-size: 1.5rem;
+    }
+  }
+}
+
+.filter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  width: 104px;
+  height: 52px;
+  border-radius: 99999997952px;
+  border: 2px solid var(--gold);
+  cursor: pointer;
+
+  p {
+    color: var(--white);
+  }
+
+  @include mixins.sm-desktop {
+    gap: 4px;
+    padding: 12px 30px;
+    width: 60px;
+    height: 26px;
+    border: 1px solid var(--gold);
+
+    p {
+      font-size: 12px;
+    }
+  }
+}
+
+.calendarContent {
+  width: 100%;
+  max-width: 1400px;
+  border: solid var(--pure-black);
+  border-radius: 10px;
+}
+
+.calendarItems {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr); // 7 columns for the 7 days of the week
+  gap: 8px;
+}
+
+.upcomingEventsContainer {
+  padding: 0 100px;
+
+  @include mixins.phone {
+    padding: 0 30px;
+  }
+}

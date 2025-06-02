@@ -1,3 +1,5 @@
+@use "app/(pages)/_globals/mixins.scss";
+
 .Button {
   width: 272px;
   height: 44px;
@@ -6,6 +8,10 @@
   font-size: 1rem;
   border: none;
   cursor: pointer;
+
+  @include mixins.phone {
+    font-size: 0.75rem;
+  }
 }
 
 .lightButton {
