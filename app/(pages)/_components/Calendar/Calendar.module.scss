@@ -128,7 +128,7 @@
   gap: 3px;
   width: 100%;
   height: 100%;
-  overflow-y: scroll;
+  overflow-y: auto;
 
   @include mixins.sm-desktop {
     display: grid;
