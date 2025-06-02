@@ -1,0 +1,154 @@
+@use "app/(pages)/_globals/mixins.scss";
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 60px;
+
+  @include mixins.phone {
+    gap: 28px;
+  }
+}
+
+.heading {    
+  color: var(--gold);  
+}
+
+.list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 47px;
+
+  @include mixins.phone {
+    gap: 15px;
+  }
+}
+
+.item {
+  width: 100%;
+  max-width: 1312px;
+  border: 2px solid var(--gold);
+  border-radius: 10px;
+
+  display: flex;
+  align-items: center;
+  gap: 115px;
+
+  padding: 44px 108px;
+
+  @include mixins.tablet {
+    gap: 50px;
+  }
+
+  @include mixins.phone {
+    padding: 22px 32px;
+    gap: 19px;
+  }
+}
+
+.mainColumns {
+  display: flex;
+  gap: 115px;
+
+  @include mixins.phone {
+    gap: 29px;
+  }
+}
+
+.dateBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;         
+}
+
+.month {
+  font-size: 2rem;               
+  font-weight: 600;
+
+  @include mixins.phone {
+    font-size: 1rem;
+  }
+}
+
+.day {
+  font-size: 4rem;              
+  font-weight: 700;
+
+  @include mixins.phone {
+    font-size: 1.5rem;
+  }
+}
+
+.textContent {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+
+  @include mixins.phone {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.details {
+  flex: 2;
+}
+
+.typeRow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;                        
+}
+
+.dot {
+  width: 23px;
+  height: 23px;
+}
+
+.title {
+  font-size: 2rem;
+
+  @include mixins.phone {
+    font-size: 1rem;
+  }
+}
+
+.meta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;                   
+}
+
+.metaItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;                   
+}
+
+.notes {
+  flex: 1;
+  max-width: 330px;
+
+  @include mixins.phone {
+    max-width: none;
+  }
+}
+
+.button {       
+  padding: 10px 40px;            
+  border: 2px solid var(--gold);
+  border-radius: 999px;
+  background: transparent;
+  font-size: 1.5rem;           
+  cursor: pointer;
+
+  @include mixins.phone {
+    padding: 10px 16.5px;
+    font-size: 0.75rem;
+  }
+}

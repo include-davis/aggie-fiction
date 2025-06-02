@@ -117,13 +117,13 @@ export default function Storelisting() {
 
           <div className={styles.buttons}>
               
-            <Button onClick={() => handleCategoryChange("all")} color={(selectedCategory === "all")? "gradient" : "light"} width={100}>
+            <Button extraStyles={styles.buttonsize1} onClick={() => handleCategoryChange("all")} color={(selectedCategory === "all")? "gradient" : "light"} >
               All
             </Button>
-            <Button onClick={() => handleCategoryChange("tote")} color={(selectedCategory === "tote")? "gradient" : "light"} width={200}>
+            <Button extraStyles={styles.buttonsize2} onClick={() => handleCategoryChange("tote")} color={(selectedCategory === "tote")? "gradient" : "light"}>
               Tote Bags
             </Button>
-            <Button onClick={() => handleCategoryChange("sticker")} color={(selectedCategory === "sticker")? "gradient" : "light"} width={200}>
+            <Button extraStyles={styles.buttonsize3} onClick={() => handleCategoryChange("sticker")} color={(selectedCategory === "sticker")? "gradient" : "light"}>
               Stickers
             </Button>
           </div>

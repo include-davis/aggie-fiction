@@ -1,0 +1,229 @@
+@use "app/(pages)/_globals/mixins.scss";
+
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 109px;
+  align-items: center;
+  background-color: var(--pure-white);
+  color: var(--black2);
+  padding: 58px 0 151px 0;
+
+  @include mixins.phone {
+    padding: 28px 0 60px 0;
+    gap: 35px;
+  }
+}
+
+.top {
+    display: flex;
+    flex-direction: column;
+    padding: 0 100px;
+    gap: 72px;
+
+    @include mixins.phone {
+        padding: 0 30px;
+        gap: 30px;
+    }
+}
+
+.textImageSection {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+
+    h1 {
+        color: var(--gold);
+    }
+}
+
+.textImageContent {
+    display: flex;
+    gap: 15px;
+    p {
+        flex: 2;
+        font-size: 1.5rem;  
+    }
+
+    @include mixins.phone {
+        flex-direction: column-reverse;
+        p {
+            font-size: 0.75rem;
+        }
+    }
+}
+
+.topImageContainer {
+    flex: 1;
+    position: relative;
+
+    @include mixins.phone {
+        height: 293px;
+        flex: none;
+    }
+}
+
+.otter1 {
+    height: 458px;
+
+    @include mixins.phone {
+        height: 293px;
+    }
+}
+
+.otter2 {
+    height: 363px;
+
+    @include mixins.phone {
+        height: 293px;
+    }
+}
+
+.bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 77px;
+    padding: 0 100px;
+
+    @include mixins.phone {
+        padding: 0 30px;
+    }
+}
+
+.values {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h1 {
+        color: var(--gold);
+    }
+
+    @include mixins.phone {
+        gap: 25px;
+    }
+}
+
+.valuesContent {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+
+    @include mixins.phone {
+        gap: 40px;
+    }
+}
+
+.valueGroup {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    p { 
+        font-size: 1.5rem;
+        flex: 2;
+    }
+    
+    @include mixins.phone {
+        flex-direction: column;
+
+        p {
+            font-size: 0.75rem;
+        }
+    }
+}
+
+.iconCard {
+    flex: 1;
+    gap: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h2 {
+        font-weight: 600;
+        text-align: center;
+        color: var(--black);
+    }
+
+    @include mixins.phone {
+        width: 100%;
+    }
+}
+
+.iconContainer {
+    width: 55%;
+    max-width: 225px;
+    height: 225px;
+    position: relative;
+
+    @include mixins.phone {
+        width: 100%;
+        height: 130px;
+    }
+}
+
+.board {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 82px;
+
+    h1 {
+        color: var(--gold);
+    }
+
+    @include mixins.phone {
+        gap: 33px;
+    }
+}
+
+.boardGrid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 129px;
+
+    @include mixins.phone {
+        gap: 33px;
+    }
+}
+
+.member {
+    width: 370px; 
+    gap: 15px;        
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    p {
+        font-size: 1.25rem;
+        text-align: center;
+    }
+
+    @include mixins.phone {
+        width: 100%;
+        max-width: 300px;
+
+        p {
+            font-size: 0.75rem;
+        }
+    }
+}
+
+.memberImageContainer {
+    width: 225px;
+    height: 225px;
+    position: relative;
+    border-radius: 50%;
+
+    @include mixins.phone {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+.position {
+    font-weight: 500;
+}

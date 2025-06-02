@@ -10,6 +10,12 @@
   }
 }
 
+@mixin tablet {
+  @media screen and (max-width: 900px) {
+    @content;
+  }
+}
+
 @mixin fontStyle($size, $weight, $line-height, $family) {
   font-size: $size;
   font-weight: $weight;

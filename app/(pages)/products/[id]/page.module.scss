@@ -1,9 +1,10 @@
+@use "app/(pages)/_globals/mixins.scss";
+
 .main {
   display: flex;
   flex-direction: column;
 }
 
-/* Top Navigation */
 .top {
   padding-left: 100px;
   padding-right: 100px;
@@ -11,11 +12,6 @@
   padding-top: 55px;
   display: flex;
   gap: 6px;
-
-  @media (max-width: 900px){
-    padding-left: 20px;
-    padding-right: 20px;
-  }
 }
 
 .backbtn {
@@ -29,6 +25,11 @@
   background-color: transparent;
   font-size: 1.5rem;
   text-decoration: none;
+
+  @include mixins.phone{
+    width: 29px;
+    height: 34px;
+  }
 }
 
 .merch {
@@ -41,9 +42,14 @@
   border-radius: 50px;
   background-color: transparent;
   font-size: 1.25rem;
+
+    @include mixins.phone{
+    width: 110px;
+    height: 34px;
+    font-size: 0.75rem;
+  }
 }
 
-/* Product Section */
 .product {
   padding-left: 100px;
   padding-right: 100px;
@@ -52,43 +58,71 @@
   gap: 20px;
   padding-bottom: 56px;
 
-  @media (max-width: 900px){
+  @include mixins.phone{
     flex-direction: column;
-    padding-left: 20px;
-    padding-right: 20px;
+    align-items: center;
+    gap: 10px;
   }
+
 }
 
 .productimage {
   border: 2px solid var(--gold);
   border-radius: 10px;
   object-fit: cover;
+
+  @include mixins.phone{
+    width: 239px;
+    height: 239px;
+  }
 }
 
 .productinfo {
   width: 646px;
   height: 162px;
 
-  @media (max-width: 900px){
+  @include mixins.phone{
     flex-wrap: wrap;
-    width: auto;
+    width: 335px;
     height: auto;
-
-    padding-right: 10px;
-    padding-left: 10px;
   }
+
 }
 
 .title {
   color: var(--dark-purple);
+
+  @include mixins.phone{
+    text-align: center;
+  }
+}
+
+.costdesc{
+  @include mixins.phone{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
 }
 
 .cost {
   color: var(--gold);
   padding-bottom: 41px;
+
+  @include mixins.phone{
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 700;
+    padding-bottom: 0px;
+  }
 }
 
-/* More Items Section */
+.detail{
+  @include mixins.phone{
+    text-align: center;
+  }
+}
+
 .moreitems {
   display: flex;
   flex-direction: column;
@@ -100,10 +134,8 @@
   font-size: 2rem;
   color: var(--gold);
 
-  @media (max-width: 900px){
-    justify-content: center;
-    padding-left: 10px;
-    padding-right: 10px
+  @include mixins.phone{
+    padding-bottom: 8px;
   }
 }
 
@@ -114,6 +146,11 @@
   border-radius: 10px;
   overflow: hidden;
   flex-shrink: 0;
+
+  @include mixins.phone{
+    width: 100%;
+    height: 140px;
+  }
 }
 
 .fillImage {
@@ -129,18 +166,21 @@
 .moreproduct {
   padding-left: 100px;
   padding-right: 100px;
+  padding-bottom: 92px;
   
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
 
-  @media (max-width: 600px){
+  @include mixins.phone{
+    padding-bottom: 50px;
     flex-direction: column;
     align-items: center;
-    padding-right: 0px;
-    padding-left: 0px;
+    text-align: center;
+    gap: 10px;
   }
+
 }
 
 .extra {
@@ -148,6 +188,7 @@
   flex-direction: column;
   text-decoration: none;
   flex: 1;
+  width: 100%;
 }
 
 .productdetail {
@@ -156,6 +197,11 @@
   flex-direction: row;
   justify-content: space-between;
   flex-wrap: wrap;
+
+  @include mixins.phone{
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 .productname {
@@ -165,10 +211,15 @@
   min-width: 100px;
   word-wrap: break-word;
   overflow-wrap: break-word;
+
 }
 
 .productcost {
   color: var(--gold);
   font-weight: 700;
   text-decoration: none;
+
+  @include mixins.phone{
+    font-weight: 400;
+  }
 }
