@@ -14,15 +14,11 @@
   position: absolute;
   background-color: var(--dark-purple);
   width: 362px;
-  min-height: 223px;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
   gap: 14px;
-  padding-top: 42px;
-  padding-bottom: 42px;
-  padding-left: 40px;
-  padding-right: 40px;
+  padding: 42px 40px;
   z-index: 1001;
   box-shadow: 4px 5px 25.9px 1px rgba(0, 0, 0, 0.25);
 
@@ -33,7 +29,6 @@
 
   p {
     color: var(--white);
-    font-size: 16px;
   }
 
   @include mixins.sm-desktop {
@@ -41,7 +36,7 @@
     width: 301px;
 
     p {
-      font-size: 12px;
+      font-size: 0.75rem;
     }
   }
 }
@@ -89,7 +84,7 @@
   font-size: 32px;
 
   @include mixins.sm-desktop {
-    font-size: 16px;
+    font-size: 1rem;
     font-weight: 700;
   }
 }
@@ -126,7 +121,7 @@
   margin: 8px 0;
 
   @include mixins.sm-desktop {
-    font-size: 14px;
+    font-size: 0.875rem;
   }
 }
 
@@ -140,7 +135,7 @@
   margin-top: 8px;
 
   p {
-    font-size: 14px;
+    font-size: 0.875rem;
     opacity: 0.9;
     line-height: 1.4;
   }
@@ -148,7 +143,7 @@
 
 .clockImg {
   position: relative;
-  padding-top: 10px;
+  margin-top: 4px;
   width: 16.35px;
   height: 16.35px;
   flex-shrink: 0;
@@ -161,7 +156,7 @@
 
 .locationImg {
   position: relative;
-  padding-top: 4px;
+  margin-top: 4px;
   width: 16px;
   height: 17.93px;
   flex-shrink: 0;

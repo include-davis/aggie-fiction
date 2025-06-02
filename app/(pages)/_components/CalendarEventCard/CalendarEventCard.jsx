@@ -94,18 +94,6 @@ export default function CalendarEventCard({
 
   if (!isVisible) return null;
 
-  // Format date for multi-event display
-  const formatDateForDisplay = (dateStr) => {
-    if (!dateStr) return "";
-    const date = new Date(dateStr + "T00:00:00");
-    return date.toLocaleDateString("en-US", {
-      weekday: "long",
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-    });
-  };
-
   if (event.type === "multi") {
     return (
       <>
