@@ -96,12 +96,24 @@
   }
 }
 
+.pageLower {
+  display: flex;
+  flex-direction: column;
+  gap: 115px;
+
+  padding: 81px 100px 100px 100px;
+
+  @include mixins.phone {
+    padding: 20px 30px 57px 30px;
+    gap: 57px;
+  }
+}
+
 .blog {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 80px 100px 0 80px;
   gap: 30px;
 
   h1 {
@@ -109,7 +121,6 @@
   }
 
   @include mixins.phone {
-    padding: 30px;
     gap: 12px;
   }
 }
