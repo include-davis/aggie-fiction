@@ -3,7 +3,12 @@ import styles from "./CalendarEventCard.module.scss";
 import { useState, useMemo, useEffect, useRef } from "react";
 import Image from "next/image";
 
-export default function CalendarEventCard({ event, onClose, cellPosition }) {
+export default function CalendarEventCard({
+  event,
+  onClose,
+  cellPosition,
+  isMobile,
+}) {
   const [isVisible, setIsVisible] = useState(true);
   const cardRef = useRef(null);
 
@@ -21,6 +26,20 @@ export default function CalendarEventCard({ event, onClose, cellPosition }) {
 
   // Calculate event card position based on click location
   const cardStyle = useMemo(() => {
+    // For mobile, use full screen modal positioning
+    if (isMobile) {
+      return {
+        position: "fixed",
+        top: "50%",
+        left: "50%",
+        transform: "translate(-50%, -50%)",
+        zIndex: 1002,
+        maxWidth: "90vw",
+        maxHeight: "80vh",
+        overflow: "auto",
+      };
+    }
+
     if (!cellPosition) return {};
 
     const cardWidth = 362;
@@ -55,7 +74,7 @@ export default function CalendarEventCard({ event, onClose, cellPosition }) {
       left: `${left}px`,
       top: `${top}px`,
     };
-  }, [cellPosition]);
+  }, [cellPosition, isMobile]);
 
   const handleClose = () => {
     setIsVisible(false);
@@ -75,48 +94,131 @@ export default function CalendarEventCard({ event, onClose, cellPosition }) {
 
   if (!isVisible) return null;
 
-  return (
-    <div className={styles.eventCard} style={cardStyle} ref={cardRef}>
-      <div className={styles.eventType}>
-        <span
-          className={styles.eventTypeIndicator}
-          style={{ backgroundColor: getEventColor(event.type) }}
-        ></span>
-        <span>{event.type}</span>
-      </div>
+  // Format date for multi-event display
+  const formatDateForDisplay = (dateStr) => {
+    if (!dateStr) return "";
+    const date = new Date(dateStr + "T00:00:00");
+    return date.toLocaleDateString("en-US", {
+      weekday: "long",
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    });
+  };
 
-      <h2 className={styles.eventTitle}>{event.title}</h2>
+  if (event.type === "multi") {
+    return (
+      <>
+        {isMobile && <div className={styles.overlay} onClick={handleClose} />}
+        <div className={styles.eventCard} style={cardStyle} ref={cardRef}>
+          <div className={styles.eventDetails}>
+            {event.events.map((e, i) => (
+              <div key={i} className={styles.multiEventItem}>
+                <div className={styles.eventType}>
+                  <span
+                    className={styles.eventTypeIndicator}
+                    style={{ backgroundColor: getEventColor(e.type) }}
+                  ></span>
+                  <span>{e.type}</span>
+                </div>
 
-      <div className={styles.eventDetails}>
-        <div className={styles.eventDetail}>
-          <span className={styles.clockImg}>
-            <Image
-              src="/Calendar/svg/WhiteClockIcon.svg"
-              alt="Clock icon"
-              layout="fill"
-              objectFit="contain"
-            />
-          </span>
-          <p>
-            {event.date}, {event.startTime} to {event.endTime}
-          </p>
+                <h3 className={styles.multiEventTitle}>{e.summary}</h3>
+
+                <div className={styles.multiEventDetails}>
+                  {e.startTime && e.endTime && (
+                    <div className={styles.eventDetail}>
+                      <span className={styles.clockImg}>
+                        <Image
+                          src="/Calendar/svg/WhiteClockIcon.svg"
+                          alt="Clock icon"
+                          layout="fill"
+                          objectFit="contain"
+                        />
+                      </span>
+                      <p>
+                        {e.startTime} to {e.endTime}
+                      </p>
+                    </div>
+                  )}
+
+                  <div className={styles.eventDetail}>
+                    <span className={styles.locationImg}>
+                      <Image
+                        src="/Calendar/svg/WhiteLocationIcon.svg"
+                        alt="Location icon"
+                        layout="fill"
+                        objectFit="contain"
+                      />
+                    </span>
+                    <p>{e.location}</p>
+                  </div>
+
+                  {e.desc && (
+                    <div className={styles.eventDescription}>
+                      <p>{e.desc}</p>
+                    </div>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
-        <div className={styles.eventDetail}>
-          <span className={styles.locationImg}>
-            <Image
-              src="/Calendar/svg/WhiteLocationIcon.svg"
-              alt="Location icon"
-              layout="fill"
-              objectFit="contain"
-            />
-          </span>
-          <p>{event.location}</p>
-        </div>
-      </div>
+      </>
+    );
+  } else {
+    return (
+      <>
+        {isMobile && <div className={styles.overlay} onClick={handleClose} />}
+        <div className={styles.eventCard} style={cardStyle} ref={cardRef}>
+          <div className={styles.eventHeader}>
+            <div className={styles.eventType}>
+              <span
+                className={styles.eventTypeIndicator}
+                style={{ backgroundColor: getEventColor(event.type) }}
+              ></span>
+              <span>{event.type}</span>
+            </div>
+            {isMobile && (
+              <button className={styles.closeButton} onClick={handleClose}>
+                ×
+              </button>
+            )}
+          </div>
 
-      <div>
-        <p>{event.desc}</p>
-      </div>
-    </div>
-  );
+          <h2 className={styles.eventTitle}>{event.title}</h2>
+
+          <div className={styles.eventDetails}>
+            <div className={styles.eventDetail}>
+              <span className={styles.clockImg}>
+                <Image
+                  src="/Calendar/svg/WhiteClockIcon.svg"
+                  alt="Clock icon"
+                  layout="fill"
+                  objectFit="contain"
+                />
+              </span>
+              <p>
+                {event.date}, {event.startTime} to {event.endTime}
+              </p>
+            </div>
+            <div className={styles.eventDetail}>
+              <span className={styles.locationImg}>
+                <Image
+                  src="/Calendar/svg/WhiteLocationIcon.svg"
+                  alt="Location icon"
+                  layout="fill"
+                  objectFit="contain"
+                />
+              </span>
+              <p>{event.location}</p>
+            </div>
+          </div>
+
+          <div>
+            <p>{event.desc}</p>
+          </div>
+        </div>
+      </>
+    );
+  }
 }

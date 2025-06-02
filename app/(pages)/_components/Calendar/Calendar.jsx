@@ -69,7 +69,7 @@ function normalizeEventDates(events) {
         const regex = new RegExp(rule.keyword, "i");
         cleanDesc = cleanDesc.replace(regex, "").trim();
 
-        break; // Stop after first match
+        break;
       }
     }
 
@@ -160,7 +160,21 @@ export default function Calendar({
   const [fetchedEvents, setFetchedEvents] = useState([]);
   const [selectedEvent, setSelectedEvent] = useState(null);
   const [cellPosition, setCellPosition] = useState(null);
-  const [expandedCellDate, setExpandedCellDate] = useState(null);
+  const [expandedCellDates, setExpandedCellDates] = useState(new Set());
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Check for mobile on mount and window resize
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 1200);
+    };
+
+    checkMobile();
+
+    window.addEventListener("resize", checkMobile);
+
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   useEffect(() => {
     const generatedDays = generateCalendarDays(currentYear, currentMonth);
@@ -210,6 +224,8 @@ export default function Calendar({
   }, [currentMonth, currentYear, onEventsFetched]);
 
   const handleEventClick = (event, e) => {
+    if (isMobile) return;
+
     e.stopPropagation();
 
     const eventItemRect = e.currentTarget.getBoundingClientRect();
@@ -234,12 +250,23 @@ export default function Calendar({
 
   const handleMoreEventsClick = (dateStr, e) => {
     e.stopPropagation();
-    setExpandedCellDate(expandedCellDate === dateStr ? null : dateStr);
+    // Add the date to expanded set (persistent until refresh)
+    setExpandedCellDates((prev) => new Set([...prev, dateStr]));
   };
 
   const handleCellClick = (dateStr) => {
-    if (expandedCellDate === dateStr) {
-      setExpandedCellDate(null);
+    if (isMobile) {
+      const dailyEvents = eventMap[dateStr] || [];
+
+      if (dailyEvents.length > 0) {
+        setSelectedEvent({
+          type: "multi",
+          date: dateStr,
+          events: dailyEvents,
+        });
+
+        setCellPosition(null);
+      }
     }
   };
 
@@ -267,7 +294,7 @@ export default function Calendar({
             const isToday = dateStr === todayStr;
             const isCurrentMonth = dateObj.getMonth() === currentMonth;
             const dailyEvents = isCurrentMonth ? eventMap[dateStr] || [] : [];
-            const isExpanded = expandedCellDate === dateStr;
+            const isExpanded = expandedCellDates.has(dateStr);
             const shouldShowMoreEvents = dailyEvents.length >= 4 && !isExpanded;
             const eventsToShow = isExpanded
               ? dailyEvents
@@ -337,6 +364,7 @@ export default function Calendar({
             setCellPosition(null);
           }}
           cellPosition={cellPosition}
+          isMobile={isMobile}
         />
       )}
     </div>

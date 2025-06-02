@@ -1,3 +1,15 @@
+@use "app/(pages)/_globals/mixins.scss";
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1001;
+}
+
 .eventCard {
   position: absolute;
   background-color: var(--dark-purple);
@@ -24,75 +36,138 @@
     font-size: 16px;
   }
 
-  .eventType {
-    display: flex;
-    align-items: center;
-    gap: 8px;
+  @include mixins.sm-desktop {
+    padding: 27px 39px 41px 39px;
+    width: 301px;
 
-    .eventTypeIndicator {
-      width: 18px;
-      height: 18px;
-      border-radius: 50%;
-      padding-right: 8px;
-    }
-  }
-
-  .eventTitle {
-    color: var(--white);
-    font-size: 32px;
-  }
-
-  .eventDetails {
-    display: flex;
-    flex-direction: column;
-
-    .eventDetail {
-      display: flex;
-      gap: 8.65px;
-    }
-
-    .clockImg {
-      position: relative;
-      padding-top: 10px;
-      width: 16.35px;
-      height: 16.35px;
-    }
-
-    .locationImg {
-      position: relative;
-      padding-top: 4px;
-      width: 16px;
-      height: 17.93px;
+    p {
+      font-size: 12px;
     }
   }
 }
 
-@mixin phone {
-  @media screen and (max-width: 720px) {
-    .eventCard {
-      padding: 27px 39px 41px 39px;
-      width: 301px;
+.eventHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
 
-      p {
-        font-size: 12px;
-      }
+.closeButton {
+  background: none;
+  color: var(--white);
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 0;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
 
-      .eventTitle {
-        font-size: 16px;
-      }
-
-      .eventDetails {
-        .clockImg {
-          width: 13px;
-          height: 13px;
-        }
-
-        .locationImg {
-          width: 13px;
-          height: 15px;
-        }
-      }
-    }
+  &:hover {
+    opacity: 0.7;
   }
 }
-@include phone;
+
+.eventType {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.eventTypeIndicator {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  padding-right: 8px;
+}
+
+.eventTitle {
+  color: var(--white);
+  font-size: 32px;
+
+  @include mixins.sm-desktop {
+    font-size: 16px;
+    font-weight: 700;
+  }
+}
+
+.eventDetails {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 12px;
+}
+
+.eventDetail {
+  display: flex;
+  align-items: flex-start;
+  gap: 8.65px;
+}
+
+.multiEventItem {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding-bottom: 16px;
+  margin-bottom: 16px;
+
+  &:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+}
+
+.multiEventTitle {
+  color: var(--white);
+  font-size: 18px;
+  font-weight: 600;
+  margin: 8px 0;
+
+  @include mixins.sm-desktop {
+    font-size: 14px;
+  }
+}
+
+.multiEventDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.eventDescription {
+  margin-top: 8px;
+
+  p {
+    font-size: 14px;
+    opacity: 0.9;
+    line-height: 1.4;
+  }
+}
+
+.clockImg {
+  position: relative;
+  padding-top: 10px;
+  width: 16.35px;
+  height: 16.35px;
+  flex-shrink: 0;
+
+  @include mixins.sm-desktop {
+    width: 13px;
+    height: 13px;
+  }
+}
+
+.locationImg {
+  position: relative;
+  padding-top: 4px;
+  width: 16px;
+  height: 17.93px;
+  flex-shrink: 0;
+
+  @include mixins.sm-desktop {
+    width: 13px;
+    height: 15px;
+  }
+}
