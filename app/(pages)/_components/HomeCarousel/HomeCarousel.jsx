@@ -46,7 +46,7 @@ export default function HomeCarousel() {
           <Image
             src="/HomeCarousel/svg/LeftButton.svg"
             alt="Previous"
-            layout="fill"
+            fill
             objectFit="contain"
           />
         </div>
@@ -57,8 +57,8 @@ export default function HomeCarousel() {
           <Image
             src={current.image}
             alt="Carousel Image"
-            layout="fill"
-            objectFit="contain"
+            fill
+            objectFit="cover"
           />
         </div>
 
@@ -81,7 +81,7 @@ export default function HomeCarousel() {
           <Image
             src="/HomeCarousel/svg/RightButton.svg"
             alt="Next"
-            layout="fill"
+            fill
             objectFit="contain"
           />
         </div>

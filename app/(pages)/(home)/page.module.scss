@@ -101,10 +101,15 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-top: 80px;
+  padding: 80px 100px 0 80px;
   gap: 30px;
 
   h1 {
     color: var(--gold);
+  }
+
+  @include mixins.phone {
+    padding: 30px;
+    gap: 12px;
   }
 }
