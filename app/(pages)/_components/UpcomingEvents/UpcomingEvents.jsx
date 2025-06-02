@@ -103,12 +103,14 @@ export default function UpcomingEvents({expandable=false}) {
     const newEventsList = [...eventsList];
     for (let i = eventsList.length; i < Math.min(visibleEventsCount, events.length); i ++) {
       const currEvent = events[i];
+      console.log(currEvent);
       newEventsList.push({
         color: getEventColor(currEvent.type),
         date: {month: getEventMonth(currEvent.date), day: getEventDay(currEvent.date)},
         description: currEvent.desc,
         location: currEvent.location,
         time: currEvent.time,
+        end: currEvent.end,
         title: currEvent.summary,
         type: currEvent.type,
       });
@@ -159,7 +161,7 @@ export default function UpcomingEvents({expandable=false}) {
                       height={19}
                       className={styles.icon}
                     />
-                    <p className={styles.metaText}>{e.time || "All-Day"}</p>
+                    <p className={styles.metaText}>{e.time == null ? "All-Day" : `${e.time} to ${e.end}`}</p>
                   </span>
                   {e.location != "No location provided" && 
                     <span className={styles.metaItem}>

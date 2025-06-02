@@ -1,5 +1,3 @@
-
-
 export function normalizeEventDates(events) {
   if (!events || events.length === 0) return [];
 
@@ -89,6 +87,9 @@ export function normalizeEventDates(events) {
       shortenedSummary: shortenedSummary,
       time: event.start.dateTime
         ? startDate.toLocaleTimeString([], { hour: "numeric", hour12: true })
+        : null,
+      end: event.end.dateTime
+        ? endDate.toLocaleTimeString([], { hour: "numeric", hour12: true })
         : null,
       startTime: event.start.dateTime
         ? startDate.toLocaleTimeString("en-US", {
