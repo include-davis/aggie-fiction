@@ -1,9 +1,15 @@
+@use "app/(pages)/_globals/mixins.scss";
+
 .hero {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 949px;
   background: var(--Aggie-Space);
+
+  @include mixins.phone {
+    height: 681px;
+  }
 }
 
 .heroContent {
@@ -14,24 +20,45 @@
   height: 610px;
   gap: 15%;
   background: url("/Home/img/Ellipse.png") no-repeat center center / contain;
+
+  @include mixins.phone {
+    margin-top: 80px;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    background: none;
+  }
 }
 
 .titleHeader {
   margin-bottom: 10px;
   color: var(--white);
   font-size: 30px;
+
+  @include mixins.phone {
+    margin-bottom: 10px;
+    font-size: 1rem;
+  }
 }
 
 .titleName {
   color: var(--white);
+
+  @include mixins.phone {
+    font-size: 2rem;
+  }
 }
 
 .titleDescription {
   margin-top: 30px;
   max-width: 448px;
   color: var(--white);
-  font-size: 30px;
+  font-size: 1.875rem;
   font-weight: 700;
+
+  @include mixins.phone {
+    font-size: 1rem;
+  }
 }
 
 .joinNow {
@@ -44,6 +71,13 @@
   border: none;
   border-radius: 100px;
   background: var(--light-purple);
+
+  @include mixins.phone {
+    margin-top: 40px;
+    width: 134px;
+    height: 44px;
+    font-size: 1rem;
+  }
 }
 
 .logo {
@@ -52,6 +86,14 @@
   align-self: flex-end;
   width: 518px;
   height: 501px;
+
+  @include mixins.phone {
+    align-self: auto;
+    width: 100%;
+    height: 250px;
+
+    background: url("/Home/img/Ellipse.png") no-repeat center center / contain;
+  }
 }
 
 .blog {
@@ -66,58 +108,3 @@
     color: var(--gold);
   }
 }
-
-@mixin phone {
-  @media screen and (max-width: 720px) {
-    .hero {
-      height: 681px;
-      border: solid black;
-    }
-
-    .heroContent {
-      margin-top: 80px;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      gap: 20px;
-      background: none;
-    }
-
-    .title {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .titleHeader {
-      margin-bottom: 10px;
-      font-size: 1rem;
-    }
-
-    .titleName {
-      font-size: 2rem;
-    }
-
-    .titleDescription {
-      margin-top: 30px;
-      font-size: 1rem;
-    }
-
-    .joinNow {
-      margin-top: 40px;
-      width: 134px;
-      height: 44px;
-      font-size: 1rem;
-    }
-
-    .logo {
-      display: flex;
-      align-self: auto;
-      width: 100%;
-      height: 250px;
-
-      background: url("/Home/img/Ellipse.png") no-repeat center center / contain;
-    }
-  }
-}
-
-@include phone;
