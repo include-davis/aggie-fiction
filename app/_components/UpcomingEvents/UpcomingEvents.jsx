@@ -65,7 +65,7 @@ export default function UpcomingEvents() {
                   >
                     <circle cx="11.5" cy="11.5" r="11.5" fill={e.color} />
                   </svg>
-                  <span className={styles.type}>{e.type}</span>
+                  <p className={styles.type}>{e.type}</p>
                 </div>
                 <h3 className={styles.title}>{e.title}</h3>
                 <div className={styles.meta}>
