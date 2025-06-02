@@ -81,10 +81,11 @@ export function normalizeEventDates(events) {
     const { eventType, cleanDesc } = getEventTypeAndCleanDesc(event);
 
     return {
-      date: isoDate,
+      date: event.start.date? event.start.date : isoDate,
       formattedDate,
       summary: event.summary || "Untitled",
       shortenedSummary: shortenedSummary,
+      // allDay: event.start.date ? true : false,
       time: event.start.dateTime
         ? startDate.toLocaleTimeString([], { hour: "numeric", hour12: true })
         : null,
@@ -98,7 +99,7 @@ export function normalizeEventDates(events) {
             hour12: true,
           })
         : null,
-      endTime: endDate
+      endTime: event.end.dateTime
         ? endDate.toLocaleTimeString("en-US", {
             hour: "numeric",
             minute: "2-digit",

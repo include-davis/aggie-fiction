@@ -186,7 +186,7 @@ export default function CalendarEventCard({
                 />
               </span>
               <p>
-                {event.date}, {event.startTime} to {event.endTime}
+                {event.date}{event.startTime && `, ${event.startTime} to ${event.endTime}`}
               </p>
             </div>
             <div className={styles.eventDetail}>

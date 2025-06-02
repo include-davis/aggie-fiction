@@ -89,6 +89,7 @@ export default function UpcomingEvents({expandable=false}) {
 
         const res = await fetch(`/api/events?start=${startISO}&end=${endISO}`);
         const data = await res.json();
+        console.log("raw", data.events);
         const normalizedEvents = normalizeEventDates(data.events || []);
         setEvents(normalizedEvents || []);
       } catch (err) {
