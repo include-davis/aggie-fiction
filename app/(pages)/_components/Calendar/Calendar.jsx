@@ -6,10 +6,10 @@ import CalendarEventCard from "../CalendarEventCard/CalendarEventCard";
 const eventColors = {
   "General Meeting": "#FADC90",
   "Board Meetings": "#FFBAAF",
-  Fundraiser: "#A4DAEB",
-  Conference: "#6681DB",
+  "Fundraiser": "#A4DAEB",
+  "Conference": "#6681DB",
   "Special Event": "#9CE1C2",
-  default: "#FFBAAA",
+  "default": "#FFBAAA",
 };
 
 function generateCalendarDays(year, month) {
