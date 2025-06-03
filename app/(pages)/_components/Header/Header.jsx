@@ -39,7 +39,7 @@ export default function Header() {
                 <Link href="/store">Merch Store</Link>
                 <Link href="/alumni">Alumni Spotlight</Link>
                 <Link href="/blog">Blog</Link>
-                <Link href="/about">About us</Link>
+                <Link href="/about-us">About us</Link>
             </div>
         </div>
             );
