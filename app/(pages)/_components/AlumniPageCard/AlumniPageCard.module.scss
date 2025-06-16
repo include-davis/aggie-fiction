@@ -142,8 +142,9 @@
 .description {
   margin-top: 11px;
   width: 310px;
-  height: 240px;
+  flex: 1;
   display: -webkit-box;
+  line-clamp: 10;
   -webkit-line-clamp: 10;
   -webkit-box-orient: vertical;
   overflow: hidden;
