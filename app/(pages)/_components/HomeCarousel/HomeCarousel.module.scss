@@ -82,6 +82,10 @@
 .titleDate {
   display: flex;
 
+  a {
+    text-decoration: none;
+  }
+
   h2 {
     color: var(--dark-purple);
     line-height: 33px;

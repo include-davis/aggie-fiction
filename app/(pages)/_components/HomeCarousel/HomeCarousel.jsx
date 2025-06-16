@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import styles from "./HomeCarousel.module.scss";
+import Link from "next/link";
 
 export default function HomeCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -14,6 +15,7 @@ export default function HomeCarousel() {
         "How to Procrastinate Like a Professional Writer (And Actually Get Stuff Done)",
       date: "03/27/2025",
       author: "By Claudia Colorado",
+      articleNum: 2,
     },
 
     {
@@ -22,6 +24,7 @@ export default function HomeCarousel() {
       date: "03/28/2025",
       author: "By Audrey Zhang",
       subtitle: "Writing is intimidating. But it doesn&apos;t have to be.",
+      articleNum: 1,
     },
   ];
 
@@ -64,7 +67,9 @@ export default function HomeCarousel() {
 
         <div className={styles.carouselDescription}>
           <div className={styles.titleDate}>
-            <h2>{current.title}</h2>
+            <Link href={`/blog/${current.articleNum}`}>
+              <h2>{current.title}</h2>
+            </Link>
 
             <p>{current.date}</p>
           </div>
