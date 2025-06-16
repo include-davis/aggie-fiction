@@ -133,17 +133,24 @@ export default function CalendarPage() {
             </h1>
           </div>
 
-          <div className={styles.filter} onClick={handleFilterClick}>
+          <button className={styles.filter} onClick={handleFilterClick}>
             <p>Filter</p>
 
-            <Image
-              src="/Calendar/svg/FilterArrow.svg"
-              alt="Dropdown"
-              width={11}
-              height={6}
-            />
-          </div>
+            <div className={showFilterMenu ? styles.filterArrowFlip : ""}>
+              <Image
+                src="/Calendar/svg/FilterArrow.svg"
+                alt="Dropdown"
+                width={11}
+                height={6}
+                style={{
+                  // border: "1px solid pink"
+                }}
+              />
+            </div>
+          </button>
         </div>
+
+        
 
         <div className={styles.calendarContent}>
           <Calendar
@@ -152,21 +159,20 @@ export default function CalendarPage() {
             events={filteredEvents}
             onEventsFetched={onEventsFetched}
           />
+          {showFilterMenu && filterButtonPosition && (
+          <FilterMenu
+            filters={filters}
+            setFilters={setFilters}
+            onClose={() => setShowFilterMenu(false)}
+            position={filterButtonPosition}
+          />
+        )}
         </div>
       </div>
 
       <div className={styles.upcomingEventsContainer}>
         <UpcomingEvents expandable/>
       </div>
-
-      {showFilterMenu && filterButtonPosition && (
-        <FilterMenu
-          filters={filters}
-          setFilters={setFilters}
-          onClose={() => setShowFilterMenu(false)}
-          position={filterButtonPosition}
-        />
-      )}
     </main>
   );
 }

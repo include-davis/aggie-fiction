@@ -120,10 +120,15 @@
   height: 52px;
   border-radius: 99999997952px;
   border: 2px solid var(--gold);
+  background: none;
   cursor: pointer;
 
   p {
     color: var(--white);
+  }
+
+  div {
+    transition: transform 0.3s ease;
   }
 
   @include mixins.sm-desktop {
@@ -134,9 +139,13 @@
     border: 1px solid var(--gold);
 
     p {
-      font-size: 12px;
+      font-size: 0.75rem;
     }
   }
+}
+
+.filterArrowFlip {
+  transform: rotate(180deg);
 }
 
 .calendarContent {
