@@ -3,8 +3,6 @@ import Image from "next/image";
 import ConferenceCarousel from "../_components/ConferenceCarousel/ConferenceCarousel";
 import React from "react";
 
-/* eslint-disable react/prop-types */
-
 const titleImagePath = "/conferencePageImages/titleImage.png";
 const summaryImagePath = "/conferencePageImages/summaryImage.png";
 const involvementImagePath = "/conferencePageImages/involvementImage.png";

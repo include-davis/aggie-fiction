@@ -5,8 +5,6 @@ import Image from 'next/image';
 import Link from 'next/link'
 import { useParams } from 'next/navigation';
 
-/* eslint-disable react/prop-types */
-
 const products = [
     {
       id: 1,
