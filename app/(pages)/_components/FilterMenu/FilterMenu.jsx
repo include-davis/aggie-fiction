@@ -3,7 +3,7 @@ import styles from "./FilterMenu.module.scss";
 import React from "react";
 /* eslint-disable react/prop-types */
 
-export default function FilterMenu({ filters, setFilters, onClose, position }) {
+export default function FilterMenu({ filters, setFilters, onClose }) {
   const handleCheck = (event) => {
     const { name, checked } = event.target;
 
