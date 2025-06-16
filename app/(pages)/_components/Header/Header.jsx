@@ -9,6 +9,13 @@ export default function Header() {
     const toggleDropdown = () => {
         setDropdownOpen(prev => !prev);
 };
+
+    const handleClick = () => {
+        if (dropdownOpen) {
+            toggleDropdown();
+        }
+    }
+
     return (
         <div className={styles.navbar}>
             <div className={styles.logo}><Link href="/"> <Image
@@ -31,14 +38,14 @@ export default function Header() {
                 </div>
                 {dropdownOpen &&(
                     <div className={styles.dropdown_contents}>
-                        <Link href="/events">All Events</Link>
-                        <Link href="/calendar">Calendar</Link>
-                        <Link href="/conference">Conference</Link>
+                        <Link href="/events" onClick={handleClick}>All Events</Link>
+                        <Link href="/calendar" onClick={handleClick}>Calendar</Link>
+                        <Link href="/conference" onClick={handleClick}>Conference</Link>
                     </div>)}
-                <Link href="/store">Merch Store</Link>
-                <Link href="/alumni">Alumni Spotlight</Link>
-                <Link href="/blog">Blog</Link>
-                <Link href="/about-us">About us</Link>
+                <Link href="/store" onClick={handleClick}>Merch Store</Link>
+                <Link href="/alumni" onClick={handleClick}>Alumni Spotlight</Link>
+                <Link href="/blog" onClick={handleClick}>Blog</Link>
+                <Link href="/about-us" onClick={handleClick}>About us</Link>
             </div>
         </div>
             );
