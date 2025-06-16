@@ -1,7 +1,6 @@
 import styles from "./ConferenceCarousel.module.scss";
 import Image from "next/image";
 import React from "react";
-/* eslint-disable react/prop-types */
 
 const imagesLength = 19;
 const testImages = Array.from(

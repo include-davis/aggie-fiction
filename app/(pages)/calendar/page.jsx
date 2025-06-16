@@ -6,7 +6,6 @@ import Calendar from "../_components/Calendar/Calendar";
 import FilterMenu from "../_components/FilterMenu/FilterMenu";
 import React, { useState, useMemo, useCallback } from "react";
 import UpcomingEvents from "@/app/(pages)/_components/UpcomingEvents/UpcomingEvents";
-/* eslint-disable react/prop-types */
 
 export default function CalendarPage() {
   const [currentMonth, setCurrentMonth] = useState(new Date().getMonth());

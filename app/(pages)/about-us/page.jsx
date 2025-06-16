@@ -1,7 +1,6 @@
 import styles from "./page.module.scss";
 import Image from "next/image";
 import React from "react";
-/* eslint-disable react/prop-types */
 
 export default function Home() {
   const board = [

@@ -3,7 +3,6 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import styles from "./HomeCarousel.module.scss";
-/* eslint-disable react/prop-types */
 
 export default function HomeCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0);

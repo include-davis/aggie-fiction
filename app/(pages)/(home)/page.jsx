@@ -3,7 +3,6 @@ import Image from "next/image";
 import HomeCarousel from "../_components/HomeCarousel/HomeCarousel";
 import UpcomingEvents from "@/app/(pages)/_components/UpcomingEvents/UpcomingEvents";
 import React from "react";
-/* eslint-disable react/prop-types */
 
 export default function Home() {
   return (

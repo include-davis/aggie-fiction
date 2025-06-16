@@ -3,7 +3,6 @@ import styles from "./page.module.scss";
 import AlumniPageCard from "../_components/AlumniPageCard/AlumniPageCard.jsx";
 import Image from "next/image";
 import React, {useState} from "react";
-/* eslint-disable react/prop-types */
 
 const alumniList = [
   {
