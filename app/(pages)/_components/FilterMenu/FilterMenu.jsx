@@ -3,7 +3,7 @@ import styles from "./FilterMenu.module.scss";
 import React from "react";
 /* eslint-disable react/prop-types */
 
-export default function FilterMenu({ filters, setFilters, onClose, position }) {
+export default function FilterMenu({ filters, setFilters, onClose }) {
   const handleCheck = (event) => {
     const { name, checked } = event.target;
 
@@ -83,33 +83,29 @@ export default function FilterMenu({ filters, setFilters, onClose, position }) {
   ];
 
   return (
-    <div className={styles.filterOverlay} onClick={onClose}>
+    <div>
+      <div className={styles.filterOverlay} onClick={onClose}></div>
       <div
-        className={styles.menu}
-        onClick={(e) => e.stopPropagation()}
-        style={{
-          position: "absolute",
-          top: position.top,
-          left: position.centerX - 125, // 125 = 250px width / 2
-        }}
-      >
-        {eventTypes.map((type, index) => (
-          <div key={index} className={styles.filterType}>
-            <span
-              className={styles.eventTypeIndicator}
-              style={{ backgroundColor: eventColors[index] }}
-            ></span>
-            <p className={styles.eventType}>{type}</p>
-            <input
-              type="checkbox"
-              className={styles.checkBox}
-              name={filterTypes[index]}
-              checked={filters[filterTypes[index]]}
-              onChange={handleCheck}
-            />
-          </div>
-        ))}
-      </div>
+          className={styles.menu}
+          onClick={(e) => e.stopPropagation()}
+        >
+          {eventTypes.map((type, index) => (
+            <div key={index} className={styles.filterType}>
+              <span
+                className={styles.eventTypeIndicator}
+                style={{ backgroundColor: eventColors[index] }}
+              ></span>
+              <p className={styles.eventType}>{type}</p>
+              <input
+                type="checkbox"
+                className={styles.checkBox}
+                name={filterTypes[index]}
+                checked={filters[filterTypes[index]]}
+                onChange={handleCheck}
+              />
+            </div>
+          ))}
+        </div>
     </div>
   );
 }

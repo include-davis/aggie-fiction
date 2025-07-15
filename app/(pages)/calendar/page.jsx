@@ -12,7 +12,6 @@ export default function CalendarPage() {
   const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
   const [events, setEvents] = useState([]);
   const [showFilterMenu, setShowFilterMenu] = useState(false);
-  const [filterButtonPosition, setFilterButtonPosition] = useState(null);
 
   // Filter state
   const [filters, setFilters] = useState({
@@ -91,11 +90,6 @@ export default function CalendarPage() {
 
   // Handle filter button click
   const handleFilterClick = (event) => {
-    const buttonRect = event.currentTarget.getBoundingClientRect();
-    setFilterButtonPosition({
-      top: buttonRect.bottom + window.scrollY,
-      centerX: buttonRect.left + buttonRect.width / 2,
-    });
     setShowFilterMenu(!showFilterMenu);
   };
 
@@ -133,17 +127,24 @@ export default function CalendarPage() {
             </h1>
           </div>
 
-          <div className={styles.filter} onClick={handleFilterClick}>
+          <button className={styles.filter} onClick={handleFilterClick}>
             <p>Filter</p>
 
-            <Image
-              src="/Calendar/svg/FilterArrow.svg"
-              alt="Dropdown"
-              width={11}
-              height={6}
-            />
-          </div>
+            <div className={showFilterMenu ? styles.filterArrowFlip : ""}>
+              <Image
+                src="/Calendar/svg/FilterArrow.svg"
+                alt="Dropdown"
+                width={11}
+                height={6}
+                style={{
+                  // border: "1px solid pink"
+                }}
+              />
+            </div>
+          </button>
         </div>
+
+        
 
         <div className={styles.calendarContent}>
           <Calendar
@@ -152,21 +153,19 @@ export default function CalendarPage() {
             events={filteredEvents}
             onEventsFetched={onEventsFetched}
           />
+          {showFilterMenu && (
+          <FilterMenu
+            filters={filters}
+            setFilters={setFilters}
+            onClose={() => setShowFilterMenu(false)}
+          />
+        )}
         </div>
       </div>
 
       <div className={styles.upcomingEventsContainer}>
         <UpcomingEvents expandable/>
       </div>
-
-      {showFilterMenu && filterButtonPosition && (
-        <FilterMenu
-          filters={filters}
-          setFilters={setFilters}
-          onClose={() => setShowFilterMenu(false)}
-          position={filterButtonPosition}
-        />
-      )}
     </main>
   );
 }
