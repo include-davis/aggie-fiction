@@ -1,3 +1,5 @@
+@use "app/(pages)/_globals/mixins.scss";
+
 .navbar{
   display:flex;
   background: var(--white);
@@ -28,16 +30,74 @@
 .navContents{
   display: flex;
   gap:60px;
+
+  @include mixins.tablet {
+    display: none;
+  }
+}
+
+.navContentsMobile {
+  display: none;
+  position: relative;
+
+  @include mixins.tablet {
+    display: inline;
+  }
+}
+
+.mobileDropdownButton {
+  border: none;
+  background-color: transparent;
   cursor: pointer;
 }
 
+.mobileDropdown {
+  display: none;
+  position: absolute;
+  top: 104px;
+  right: 0;
+  width: 188px;
+  background-color: var(--white);
+  z-index: 1000;
+
+  flex-direction: column;
+
+  @include mixins.tablet {
+    display: flex;
+  }
+}
+
+.mobileDropdown a, .mobileEventsDropdownButton {
+  width: 100%;
+  padding: 15px 25px 14px 22px;
+  text-decoration: none;
+  color: var(--dark-purple);
+}
+
+.mobileEventsDropdownButton {
+  border: none;
+  background-color: transparent;
+  font-size: 1rem;
+  cursor: pointer;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.mobileEventsDropdown {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--light-purple);
+}
+
 .navContents a{
-  font-size: 16px;
   font-weight: bold;
   background-image:var(--Aggie-Space);
   background-clip: text;
   -webkit-text-fill-color:transparent;
   text-decoration: none;
+  cursor: pointer;
 }
 
 .dropdown{
