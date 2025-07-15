@@ -124,15 +124,12 @@ export default function almuni() {
         <div className={styles.headerText}>
           <h1 className={styles.title}>Meet Our Alumni</h1>
           <div className={styles.searchbar}>
-            <div className={styles.mag}>
             <Image
               src="/AlumniPage/mag.svg"
               alt="Magnifying glass icon"
               width={30}
               height={31}
             />
-
-            </div>
 
             <input
               type="text"
@@ -144,14 +141,15 @@ export default function almuni() {
 
           </div>
         </div>
-        <Image
-          src="/AlumniPage/Jackie-4.png"
-          alt="Jackie sticker"
-          width={369}
-          height={207}
-          className={styles.jackieSticker}
-        />
+        <div className={styles.jackieStickerContainer}>
+          <Image
+            src="/AlumniPage/Jackie-4.png"
+            alt="Jackie sticker"
+            fill
+            className={styles.jackieSticker}
+          />
         </div>
+      </div>
 
       <div className={styles.cardsContainer}>
         {filteredAlumni.map((alum, index) => (
