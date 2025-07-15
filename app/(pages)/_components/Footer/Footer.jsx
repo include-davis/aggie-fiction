@@ -18,18 +18,23 @@ export default function Footer() {
                 />
             </Link>
             </div>
-            <div className={styles.footer_icons}>
+            <div className={styles.footer_content}>
                 <p className={styles.footer_text}>Follow Our Socials</p>
                 <div className={styles.icons}>
-                    <a href="#"><MdEmail className={styles.icon} /></a>
-                    <a href="#"><FaDiscord className={styles.icon} /></a>
                     <a href="#">
-                        <Image
-                            src="/lets-icons_insta.svg"
-                            width={39}
-                            height={39}
-                            alt="inst icon"
-                        />
+                        <MdEmail className={styles.icon} />
+                    </a>
+                    <a href="#">
+                        <FaDiscord className={styles.icon} />
+                    </a>
+                    <a href="#">
+                        <div className={styles.icon}>
+                            <Image
+                                src="/lets-icons_insta.svg"
+                                fill
+                                alt="inst icon"
+                            />
+                        </div>
                     </a>
                 </div>
             </div>
