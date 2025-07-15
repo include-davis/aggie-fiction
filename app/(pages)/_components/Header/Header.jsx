@@ -72,6 +72,7 @@ export default function Header() {
                         src="hamburger.svg"
                         width={34}
                         height={34}
+                        alt="Hamburger menu icon"
                     />
                 </button>
             </div>
