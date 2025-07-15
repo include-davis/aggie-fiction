@@ -89,7 +89,7 @@ export default function CalendarPage() {
 
 
   // Handle filter button click
-  const handleFilterClick = (event) => {
+  const handleFilterClick = () => {
     setShowFilterMenu(!showFilterMenu);
   };
 
