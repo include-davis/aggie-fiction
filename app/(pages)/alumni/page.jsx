@@ -111,7 +111,7 @@ async function getCards() {
       { next: { tag: "cms" } }
     );
     const data = await res.json();
-    console.log('data', data);
+    console.log('data',data);
     if (!data.ok || !data.body || data.body.length === 0) {
       throw new Error(data.error);
     }

@@ -1,4 +1,7 @@
 
+@use "../../_globals/mixins.scss";
+
+
 .pagewrapper{
     display: flex;
     justify-content: center;
@@ -6,6 +9,15 @@
     padding-right: 100px;
     padding-top: 43px;
     padding-bottom: 103px;
+
+    @include mixins.phone{
+        
+        padding-left: 30px;
+        padding-right: 30px;
+        justify-content: center;
+        
+        
+    }
     
 }
 .alumniPage{
@@ -14,6 +26,13 @@
     flex-direction: column;
     gap: 44px;
     align-items: center;
+    width: 100%;
+    
+
+    @include mixins.phone{
+        align-items: center;
+        gap: 100px;
+    }
     
     
 }
@@ -22,54 +41,96 @@
 .title{
     color: var(--gold);
     font-size: 4rem;
-    width: 541px;
-    height: 96px;
+
+    @include mixins.phone{
+        font-size: 1.5rem;
+        width: 210px;
+        height: 36px;
+        
+    }
 }
 
 .header{
+    width: 100%;
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 297px;
+    justify-content: space-between;
 }
 
+
 .headerText{
+    flex: 2;
     display: flex;
     flex-direction: column;
     gap: 11px;
+    max-width: 647px;
 
+    @include mixins.phone{
+        width: 100%;
+        gap: 20px;
+    }
+}
+
+.jackieStickerContainer {
+    max-width: 369px;
+    height: 207px;
+    flex: 1;
+    position: relative;
+
+    @include mixins.tablet {
+        display: none;
+    }
 }
 
 .jackieSticker{
-    width: 369px;
-    height: 207px;
-    object-fit: cover;
+    object-fit: contain;
+
+    @include mixins.phone{
+        display: none;
+    }
 }
 
 .searchbar{
     display: flex;
     justify-content: left;
     align-items: center;
-    padding-left: 24.85px;
+    padding: 12px 24px;
     gap: 27.66px;
 
-    width: 647px;
+    width: 100%;
     height: 57px; 
-    flex-shrink: 0;
     background: var(--white);
     border: 2px solid var(--black);
     border-radius: 150px;
+
+    @include mixins.phone{
+        width: 100%;
+        gap: 10px;
+        padding-left: 20px;
+    }
+}
+
+.mag{
+    @include mixins.phone{
+    }
 }
 
 .searchInput{
+    flex: 1;
     font-family: var(--font1);
     color: var(--black);
     background: var(--black);
     border: none;
     background: transparent;
     outline: none;
-    width: 630px;
     font-weight: 400;
+    font-size: 1rem;
+
+    @include mixins.phone{
+        width: 300px;
+        font-size: 0.875rem;
+    }
     
 }
 .searchInput::placeholder{
@@ -80,7 +141,6 @@
 
 .cardsContainer{
     display: flex;
-    
     justify-content: flex-start;
     align-items: center;
     flex-wrap: wrap;
@@ -88,10 +148,14 @@
     
     width: 1312px;
 
-}
-
-@media (max-width: 1320px){
-    .cardsContainer{
+    @media (max-width: 1320px){
         width: 646px;
     }
+
+    @include mixins.phone{
+        justify-content: center;
+        width: 100%;
+    }
+
 }
+

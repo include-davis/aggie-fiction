@@ -26,7 +26,6 @@ export default function AlumniPageContent({cards}) {
               alt="Magnifying glass icon"
               width={30}
               height={31}
-
             />
 
             <input
@@ -39,14 +38,15 @@ export default function AlumniPageContent({cards}) {
 
           </div>
         </div>
-        <Image
-          src="/AlumniPage/Jackie-4.png"
-          alt="Jackie sticker"
-          width={369}
-          height={207}
-          className={styles.jackieSticker}
-        />
+        <div className={styles.jackieStickerContainer}>
+          <Image
+            src="/AlumniPage/Jackie-4.png"
+            alt="Jackie sticker"
+            fill
+            className={styles.jackieSticker}
+          />
         </div>
+      </div>
 
       <div className={styles.cardsContainer}>
         {cards.map((alum, index) => (
