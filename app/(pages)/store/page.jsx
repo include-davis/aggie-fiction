@@ -3,8 +3,7 @@ import styles from "./page.module.scss";
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link'
-import Button from "../_components/button/Button";
-import { useSearchParams } from 'next/navigation';
+import Button from "../_components/Button/Button";
 import { useRouter } from 'next/navigation';
 
 
@@ -79,8 +78,7 @@ export default function Storelisting() {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 6;
 
-  const searchParams = useSearchParams();
-  const initialCategory = searchParams.get('category') || 'all';
+  const initialCategory = 'all';
   const [selectedCategory, setSelectedCategory] = useState("all");
 
   const filteredProducts = products.filter(
@@ -117,13 +115,13 @@ export default function Storelisting() {
 
           <div className={styles.buttons}>
               
-            <Button onClick={() => handleCategoryChange("all")} color={(selectedCategory === "all")? "gradient" : "light"} width={100}>
+            <Button extraStyles={styles.buttonsize1} onClick={() => handleCategoryChange("all")} color={(selectedCategory === "all")? "gradient" : "light"} >
               All
             </Button>
-            <Button onClick={() => handleCategoryChange("tote")} color={(selectedCategory === "tote")? "gradient" : "light"} width={200}>
+            <Button extraStyles={styles.buttonsize2} onClick={() => handleCategoryChange("tote")} color={(selectedCategory === "tote")? "gradient" : "light"}>
               Tote Bags
             </Button>
-            <Button onClick={() => handleCategoryChange("sticker")} color={(selectedCategory === "sticker")? "gradient" : "light"} width={200}>
+            <Button extraStyles={styles.buttonsize3} onClick={() => handleCategoryChange("sticker")} color={(selectedCategory === "sticker")? "gradient" : "light"}>
               Stickers
             </Button>
           </div>

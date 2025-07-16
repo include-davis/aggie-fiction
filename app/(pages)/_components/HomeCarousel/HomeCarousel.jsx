@@ -1,8 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import styles from "./HomeCarousel.module.scss";
+import Link from "next/link";
 
 export default function HomeCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -14,6 +15,7 @@ export default function HomeCarousel() {
         "How to Procrastinate Like a Professional Writer (And Actually Get Stuff Done)",
       date: "03/27/2025",
       author: "By Claudia Colorado",
+      articleNum: 2,
     },
 
     {
@@ -21,7 +23,8 @@ export default function HomeCarousel() {
       title: "Ten Mistakes Amateur Writers Make",
       date: "03/28/2025",
       author: "By Audrey Zhang",
-      subtitle: "Writing is intimidating. But it doesn’t have to be.",
+      subtitle: "Writing is intimidating. But it doesn&apos;t have to be.",
+      articleNum: 1,
     },
   ];
 
@@ -42,25 +45,31 @@ export default function HomeCarousel() {
   return (
     <div className={styles.carousel}>
       <button onClick={handlePrev}>
-        <Image
-          src="/HomeCarousel/svg/LeftButton.svg"
-          alt="Previous"
-          width={44}
-          height={52}
-        />
+        <div className={styles.turnButton}>
+          <Image
+            src="/HomeCarousel/svg/LeftButton.svg"
+            alt="Previous"
+            fill
+            objectFit="contain"
+          />
+        </div>
       </button>
 
       <div className={styles.carouselContent}>
-        <Image
-          src={current.image}
-          alt="Carousel Image"
-          width={308}
-          height={172}
-        />
+        <div className={styles.carouselImg}>
+          <Image
+            src={current.image}
+            alt="Carousel Image"
+            fill
+            objectFit="cover"
+          />
+        </div>
 
         <div className={styles.carouselDescription}>
           <div className={styles.titleDate}>
-            <h2>{current.title}</h2>
+            <Link href={`/blog/${current.articleNum}`}>
+              <h2>{current.title}</h2>
+            </Link>
 
             <p>{current.date}</p>
           </div>
@@ -73,12 +82,14 @@ export default function HomeCarousel() {
       </div>
 
       <button onClick={handleNext}>
-        <Image
-          src="/HomeCarousel/svg/RightButton.svg"
-          alt="Next"
-          width={44}
-          height={52}
-        />
+        <div className={styles.turnButton}>
+          <Image
+            src="/HomeCarousel/svg/RightButton.svg"
+            alt="Next"
+            fill
+            objectFit="contain"
+          />
+        </div>
       </button>
     </div>
   );

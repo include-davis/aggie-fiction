@@ -1,7 +1,9 @@
 import Header from "./_components/Header/Header";
 import Footer from "./_components/Footer/Footer";
 import "./_globals/globals.scss";
+import React from "react";
 import { Poppins } from "next/font/google";
+/* eslint-disable react/prop-types */
 
 export const metadata = {
   title: "Create Next App",
@@ -10,7 +12,7 @@ export const metadata = {
 
 const poppins = Poppins({
   subsets: ["latin"],
-  weight: ["400", "700"],
+  weight: ["400", "500", "700" ],
   variable: "--font1",
   display: "swap",
 });

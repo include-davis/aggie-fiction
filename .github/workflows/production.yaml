@@ -1,0 +1,36 @@
+name: Production Deployment
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  deploy_staging:
+    name: Deploy Production
+    runs-on: ubuntu-latest
+    environment:
+      name: production
+      url: ${{ vars.NEXT_APP_BASE_URL }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Install node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '21.1.0'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Lint and build code, then publish to Vercel
+        run: >
+          vercel
+          --token ${{ secrets.VERCEL_TOKEN }}
+          -n ${{ vars.VERCEL_PROJECT }}
+          --yes
+          --prod
+
+      - name: Success
+        run: echo "!! Deployment successful !!"

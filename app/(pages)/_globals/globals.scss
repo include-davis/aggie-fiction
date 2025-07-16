@@ -1,43 +1,61 @@
 @use "./mixins.scss";
 
 :root {
-    // primary colors
-    --white: #FAFAFA;
-    --pure-white: #FFFFFF;
-    --Aggie-Space: linear-gradient(200deg, #04164F 7.1%, #3D1069 62.03%, #750B83 94.99%);
+  // primary colors
+  --white: #FAFAFA;
+  --pure-white: #FFFFFF;
+  --Aggie-Space: linear-gradient(200deg, #04164F 7.1%, #3D1069 62.03%, #750B83 94.99%);
 
-    // secondary colors
-    --gold: #E4A135;
-    --light-purple: #CFBAE8;
-    --dark-purple: #161457;
+  // secondary colors
+  --gold: #e4a135;
+  --light-purple: #cfbae8;
+  --dark-purple: #161457;
 
     // accent
+    --pure-black: #000;
     --black: #222;
+    --black2-transparent: #22222280;
+    --black2: #131313;
 }
 
 * {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-    font-family: var(--font1);
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: var(--font1);
 }
 
 body {
-    background-color: var(--white);
-    color: var(--black);
+  background-color: var(--white);
+  color: var(--black);
 }
 
 // Heading
 h1 {
-    @include mixins.fontStyle(4rem, 700, auto, var(--font1));
+    font-size: 4rem;
+    font-weight: 700;
+
+    @include mixins.phone {
+        font-size: 1.5rem;
+    }
 }
 
 // Heading 2
 h2 {
-    @include mixins.fontStyle(2rem, 700, auto, var(--font1));
+    font-size: 2rem;
+    font-weight: 700;
+
+    @include mixins.phone {
+        font-size: 1rem;
+    }
 }
 
 // Body
 p {
-    @include mixins.fontStyle(1rem, 400, auto, var(--font1));
+    font-size: 1rem;
+    font-weight: 400;
+
+    @include mixins.phone {
+        font-size: 0.75rem;
+    }
 }

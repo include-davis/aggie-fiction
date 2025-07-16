@@ -1,4 +1,5 @@
 // "use client";
+/* eslint-disable react/prop-types */
 import styles from "./Button.module.scss";
 import Link from 'next/link'
 import React from 'react';

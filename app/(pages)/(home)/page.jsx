@@ -1,6 +1,8 @@
 import styles from "./page.module.scss";
 import Image from "next/image";
 import HomeCarousel from "../_components/HomeCarousel/HomeCarousel";
+import UpcomingEvents from "@/app/(pages)/_components/UpcomingEvents/UpcomingEvents";
+import React from "react";
 
 export default function Home() {
   return (
@@ -26,17 +28,19 @@ export default function Home() {
               <Image
                 src="/Home/img/Otter.png"
                 alt="Jackie the Otter, the logo for AggieFiction."
-                width={518}
-                height={501}
+                layout="fill"
+                objectFit="contain"
               />
             </div>
           </div>
         </div>
 
-        <div className={styles.blog}>
-          <h1>Blog</h1>
-
-          <HomeCarousel />
+        <div className={styles.pageLower}>
+          <div className={styles.blog}>
+            <h1>Blog</h1>
+            <HomeCarousel />
+          </div>
+          <UpcomingEvents/>
         </div>
       </div>
     </div>

@@ -1,3 +1,5 @@
+@use "../../_globals/mixins.scss";
+
 .card {
   width: 646px;
   height: 430px;
@@ -14,6 +16,20 @@
   padding-left: 34px;
   padding-top: 37px;
   padding-bottom: 25px;
+
+  @include mixins.phone{
+
+    width: 333px;
+    height: 530px;
+    padding-left: 41px;
+    padding-right: 41px;
+    padding-top: 28px;
+    padding-bottom: 251px;
+
+    flex-direction: column;
+  }
+
+
 }
 
 .imagecontainer {
@@ -31,6 +47,15 @@
   padding-right: 19px;
   padding-bottom: 82px;
 
+
+  @include mixins.phone{
+    width: 251px;
+    height: 251px;
+    padding-top: 32px;
+    padding-bottom: 32px;
+    padding-left: 27px;
+    padding-right: 27px;
+  }
 }
 
 .image {
@@ -39,6 +64,11 @@
   flex-shrink: 0;
   object-fit: cover;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+
+  @include mixins.phone{
+    width: 197px;
+    height: 187px;
+  }
 }
 
 
@@ -47,6 +77,10 @@
   flex-direction: row;
   gap: 3px;
   margin-top: 16px;
+
+  @include mixins.phone{
+    display: none;
+  }
 }
 
 .instagram {
@@ -64,6 +98,10 @@
   height: 352px;
   display: flex;
   flex-direction: column;
+
+  @include mixins.phone{
+    height: 201px;
+  }
 }
 
 .name {
@@ -76,25 +114,49 @@
 
 .role1 {
   font-size: 1rem;
+
+  @include mixins.phone{
+   
+    font-size: 0.875rem;
+  }
 }
 
 .role2 {
   font-size: 1rem;
+
+  @include mixins.phone{
+   
+    font-size: 0.875rem;
+  }
 }
 
 .role3 {
   font-size: 1rem;
+
+  @include mixins.phone{
+   
+    font-size: 0.875rem;
+  }
 }
 
 .description {
   margin-top: 11px;
   width: 310px;
-  height: 240px;
+  flex: 1;
   display: -webkit-box;
+  line-clamp: 10;
   -webkit-line-clamp: 10;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
+
+  @include mixins.phone{
+    width: 251px;
+    height:72px;
+    font-size: 0.75rem;
+    -webkit-line-clamp: 4;
+  
+  }
 }
 
 .button {
@@ -117,5 +179,14 @@
   position: relative;
   top: 17px;
   
+  @include mixins.phone{
+
+    
+  
+   width: 91px;
+   height: 28px;
+   font-size:0.75rem;
+   top: 22px;
+  }
 
 }

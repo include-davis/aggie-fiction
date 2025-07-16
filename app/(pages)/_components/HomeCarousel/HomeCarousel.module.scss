@@ -1,8 +1,12 @@
+@use "app/(pages)/_globals/mixins.scss";
+
 .carousel {
+  width: 100%;
+  max-width: 1306px;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  gap: 175px;
+  gap: 10px;
 
   button {
     background: transparent;
@@ -11,42 +15,101 @@
     cursor: pointer;
   }
 
-  .carouselContent {
-    display: flex;
-    align-items: center;
-    padding: 36px 31px;
-    width: 868px;
-    height: 244px;
-    gap: 24px;
+  @include mixins.phone {
+    gap: 25px;
+  }
+}
 
-    border-radius: 10px;
-    border: 3px solid var(--gold);
-    background: var(--white);
+.turnButton {
+  position: relative;
+  width: 44px;
+  height: 52px;
 
-    .carouselDescription {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
+  @include mixins.phone {
+    width: 29px;
+    height: 34px;
+  }
+}
 
-      .titleDate {
-        display: flex;
+.carouselContent {
+  width: 80%;
 
-        h2 {
-          color: var(--dark-purple);
-          line-height: 33px;
-        }
+  display: flex;
+  align-items: center;
+  padding: 36px 31px;
+  max-width: 868px;
+  height: 244px;
+  gap: 24px;
 
-        p {
-          margin-top: auto;
-          font-size: 12px;
-        }
-      }
+  border-radius: 10px;
+  border: 3px solid var(--gold);
+  background: var(--white);
 
-      .author {
-        p {
-          margin: 0;
-        }
-      }
+  @include mixins.phone {
+    flex-direction: column;
+    padding: 18px;
+    gap: 10px;
+    height: 290px;
+  }
+}
+
+.carouselImg {
+  position: relative;
+  width: 308px;
+  height: 172px;
+  flex: 2;
+  border-radius: 10px;
+  overflow: hidden;
+
+  @include mixins.phone {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.carouselDescription {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex: 3;
+
+  @include mixins.phone {
+    gap: 11px;
+    flex: 1;
+  }
+}
+
+.titleDate {
+  display: flex;
+
+  a {
+    text-decoration: none;
+  }
+
+  h2 {
+    color: var(--dark-purple);
+    line-height: 33px;
+    max-height: 130px;
+
+    display: -webkit-box;
+    line-clamp: 4;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  p {
+    margin-top: auto;
+    font-size: 12px;
+  }
+
+  @include mixins.phone {
+    flex-direction: column;
+
+    h2 {
+      line-height: normal;
+      font-size: 0.875rem;
     }
   }
 }

@@ -1,0 +1,168 @@
+@use "app/(pages)/_globals/mixins.scss";
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1001;
+}
+
+.eventCard {
+  position: absolute;
+  background-color: var(--dark-purple);
+  width: 362px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 42px 40px;
+  z-index: 1001;
+  box-shadow: 4px 5px 25.9px 1px rgba(0, 0, 0, 0.25);
+
+  span {
+    color: var(--white);
+    font-size: 12px;
+  }
+
+  p {
+    color: var(--white);
+  }
+
+  @include mixins.sm-desktop {
+    padding: 27px 39px 41px 39px;
+    width: 301px;
+
+    p {
+      font-size: 0.75rem;
+    }
+  }
+}
+
+.eventHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.closeButton {
+  background: none;
+  color: var(--white);
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 0;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+.eventType {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.eventTypeIndicator {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  padding-right: 8px;
+}
+
+.eventTitle {
+  color: var(--white);
+  font-size: 32px;
+
+  @include mixins.sm-desktop {
+    font-size: 1rem;
+    font-weight: 700;
+  }
+}
+
+.eventDetails {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 12px;
+}
+
+.eventDetail {
+  display: flex;
+  align-items: flex-start;
+  gap: 8.65px;
+}
+
+.multiEventItem {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding-bottom: 16px;
+  margin-bottom: 16px;
+
+  &:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+}
+
+.multiEventTitle {
+  color: var(--white);
+  font-size: 18px;
+  font-weight: 600;
+  margin: 8px 0;
+
+  @include mixins.sm-desktop {
+    font-size: 0.875rem;
+  }
+}
+
+.multiEventDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.eventDescription {
+  margin-top: 8px;
+
+  p {
+    font-size: 0.875rem;
+    opacity: 0.9;
+    line-height: 1.4;
+  }
+}
+
+.clockImg {
+  position: relative;
+  margin-top: 4px;
+  width: 16.35px;
+  height: 16.35px;
+  flex-shrink: 0;
+
+  @include mixins.sm-desktop {
+    width: 13px;
+    height: 13px;
+  }
+}
+
+.locationImg {
+  position: relative;
+  margin-top: 4px;
+  width: 16px;
+  height: 17.93px;
+  flex-shrink: 0;
+
+  @include mixins.sm-desktop {
+    width: 13px;
+    height: 15px;
+  }
+}

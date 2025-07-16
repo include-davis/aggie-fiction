@@ -49,7 +49,7 @@ const alumniList = [
     first_name:"Annie",
     last_name:"Tran",
     role1:"Vice President, 2022–2023",
-    role2:"president, 2023-2024",
+    role2:"President, 2023-2024",
     role3:"",
     description:(
     <>
@@ -70,7 +70,7 @@ const alumniList = [
     description:(
     <>
       Jakob Stanton was the secondary leader of Aggie Fiction from 2023-2024. 
-      He graduated 2024 with a bachelor’s degree in History and a minor in sociology. 
+      He graduated 2024 with a bachelor&apos;s degree in History and a minor in sociology. 
       He researched and wrote an honors thesis about aeronautical culture in Germany from 1872-1929 titled We Dead Fliers. 
       He is currently pursuing a masters in Screenwriting at Chapman University in Orange CA where he is trying to solve the 
       puzzle that is screenwriting with two sweet black cats named Bucket and Boba.
@@ -85,13 +85,13 @@ const alumniList = [
    {
     first_name:"Erika",
     last_name:"DiMaano",
-    role:"Publicity Chair, 2022–2024",
+    role1:"Publicity Chair, 2022–2024",
     role2:"",
     role3:"",
     description:(
     <>
-      Erika DiMaano is an interaction designer who's been working on various interactive digital projects and design work. 
-      She's recently been branching out to web development and learning new skills to bring her work further.
+      Erika DiMaano is an interaction designer who&apos;s been working on various interactive digital projects and design work. 
+      She&apos;s recently been branching out to web development and learning new skills to bring her work further.
       </>
     ),
     imageUrl:"/AlumniPage/Erika.png",
@@ -104,16 +104,17 @@ const alumniList = [
 ]
 
 async function getCards() {
+  console.log("start get cards");
   try {
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_CMS_BASE_URL}/api/content/alumni-cards?_published=true`,
       { next: { tag: "cms" } }
     );
     const data = await res.json();
+    console.log('data', data);
     if (!data.ok || !data.body || data.body.length === 0) {
       throw new Error(data.error);
     }
-    console.log(data);
     const parsedData = data.body.map((card) => {
       const splitName = card.name.split(" ");
       return {

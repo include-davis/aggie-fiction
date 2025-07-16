@@ -1,7 +1,7 @@
 "use client";
 import styles from "./AlumniPageCard.module.scss";
 import Image from "next/image";
-import { useState } from "react";
+import React, { useState } from "react";
 import ExpandedAlumniCard from "../ExpandedAlumniCard/ExpandedAlumniCard";
 
 

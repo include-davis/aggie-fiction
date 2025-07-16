@@ -1,8 +1,15 @@
+@use "/app/(pages)/_globals/mixins.scss";
+
 .page
 {
     display: flex;
     flex-direction: column;
     gap: 125px;
+
+    @include mixins.phone 
+    {
+        gap: 25px;
+    }
 }
 
 .upperPage
@@ -13,6 +20,14 @@
     padding-top: 233px;
     padding-left: 100px;
     padding-right: 100px;
+
+    @include mixins.phone
+    {
+        gap: 10px;
+        padding-left: 30px;
+        padding-right: 30px;
+        padding-top: 24px;
+    }
 }
 
 .lowerPage
@@ -22,18 +37,42 @@
     padding-left: 100px;
     padding-right: 100px;
     padding-bottom: 147px;
+
+    @include mixins.phone
+    {
+        flex-direction: column;
+        gap: 20px;
+        padding-left: 30px;
+        padding-right: 30px;
+        padding-bottom: 24px;
+    }
 }
 
 .titleBlock
 {
     display: flex;
     gap: 20px;
+    align-items: center;
+
+    @include mixins.phone
+    {
+        flex-direction: column;
+        gap: 12px;
+    }
 }
 
 .summaryBlock
 {
     display: flex;
     gap: 20px;
+    align-items: flex-start;
+
+    @include mixins.phone
+    {
+        flex-direction: column;
+        gap: 0;
+        
+    }
 }
 
 .titleLeftBlock
@@ -41,35 +80,50 @@
     display: flex;
     flex-direction: column;
     gap: 22px;
-    width: 53%;
-    height: 230px;
+    min-width: 0;
+
+    @include mixins.phone
+    {
+        gap: 8px;
+        width: 100%;
+    }
 
     h1 
     {
-        height: 160px;
         color: var(--gold);
         font-weight: 700;
-        font-size: 64px;
-        line-height: 80px;
+
+        @include mixins.phone
+        {
+            letter-spacing: -0.4px;
+        }
     }
     
     h2
     {
-        height: 48px;
         color: var(--dark-purple);
         font-weight: 700;
-        font-size: 32px;
         line-height: 100%;
+
+        @include mixins.phone
+        {
+            letter-spacing: -0.4px;
+        }
     }
 }
 
 .summaryRightBlock
 {
     width: 66%;
-    height: 234px;
+    height: auto;
     display: flex;
     flex-direction: column;
     gap: 15px;
+
+    @include mixins.phone
+    {
+        width: 100%;
+    }
 }
 
 .lowerLeftBlock
@@ -77,8 +131,14 @@
     display: flex;
     flex-direction: column;
     gap: 40px;
-    height: 512px;
-    width: 57%
+    flex: 3;
+
+    @include mixins.phone
+    {
+        width: 100%;
+        gap: 20px;
+        display: contents;
+    }
 }
 
 .involvementBlock
@@ -86,28 +146,76 @@
     display: flex;
     flex-direction: column;
     gap: 14px;
+    min-width: 500px;
+
+    @include mixins.phone
+    {
+        gap: 2px;
+    }
+
+    &:first-child 
+    {
+        @include mixins.phone
+        {
+            order: 1;
+        }
+    }
+
+    &:last-child 
+    {
+        @include mixins.phone
+        {
+            order: 3;
+        }
+    }
 
     h1 
     {
-        font-size: 48px;
         color: var(--gold);
-        height: 72px;
+
+        @include mixins.phone
+        {
+            letter-spacing: -0.4px;
+        }
     }
 
     h2 
     {
-        font-size: 32px;
         color: var(--dark-purple);
-        height: 48px;
+
+        @include mixins.phone
+        {
+            letter-spacing: -0.4px;
+        }
+    }
+
+    .involvementSummary
+    {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        @include mixins.phone
+        {
+            gap: 15px;
+        }
     }
 }
 
 .titleImageContainer
 {
     position: relative;
-    width: 49%;
+    width: 75%;
     height: 230px;
     border-radius: 10px;
+    overflow: hidden;
+
+    @include mixins.phone
+    {
+        width: 100%;
+        height: 90px;
+
+    }
 }
 
 .summaryImageContainer
@@ -116,14 +224,27 @@
     width: 34%;
     height: 254px;
     border-radius: 10px;
+
+    @include mixins.phone
+    {
+        display: none;
+    }
 }
 
 .involvementImageContainer
 {
     position: relative;
-    width: 43%;
+    flex: 2;
     height: 512px;
     border-radius: 10px;
+
+    @include mixins.phone
+    {
+        width: 100%;
+        height: 150px;
+        order: 2;
+        flex: none;
+    }
 }
 
 .conferenceImage
