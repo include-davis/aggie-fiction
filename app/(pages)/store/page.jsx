@@ -33,8 +33,6 @@ async function getProducts() {
 export default async function StoreListing() {
   const products = await getProducts();
 
-  console.log('got', products);
-
   return (
     <StoreListingContent 
       products={products} 

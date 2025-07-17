@@ -2,14 +2,12 @@ import AlumniPageContent from "../_components/AlumniPageContent/AlumniPageConten
 import AlumniFallbackData from "../../_data/alumni-cards.json"
 
 async function getCards() {
-  console.log("start get cards");
   try {
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_CMS_BASE_URL}/api/content/alumni-cards?_published=true`,
       { next: { tag: "cms" } }
     );
     const data = await res.json();
-    console.log('data',data);
     if (!data.ok || !data.body || data.body.length === 0) {
       throw new Error(data.error);
     }
