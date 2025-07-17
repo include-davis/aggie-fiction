@@ -1,55 +1,39 @@
 import styles from "./page.module.scss";
 import Image from "next/image";
 import React from "react";
+import BoardMembers from "../_components/BoardMembers/BoardMembers";
+import boardMembersFallbackData from "@/app/_data/board-members.json"
 
-export default function Home() {
-  const board = [
-    { 
-      name: "Claudia Colorado",
-      role: "President",
-      img: "/aboutUsImages/president.png",
-      major: "Managerial Economics & English",
-      year: "Junior",
-    },
-    {
-      name: "Yuri Nishii",
-      role: "Vice-President",
-      img: "/aboutUsImages/vp.png",
-      major: "Communications & English",
-      minor: "Technology Management",
-      year: "Senior",
-    },
-    {
-      name: "Chris Calub",
-      role: "Treasurer",
-      img: "/aboutUsImages/treasurer.png",
-      major: "English & Communications",
-      year: "Junior",
-    },
-    {
-      name: "Audrey Zhang",
-      role: "Outreach Chair",
-      img: "/aboutUsImages/outreach.png",
-      major: "Economics & English",
-      year: "Junior",
-    },
-    {
-      name: "Nea Le",
-      role: "Publicity Chair",
-      img: "/aboutUsImages/publicity.png",
-      major: "Comparative Literature",
-      minor: "Japanese",
-      year: "Sophomore",
-    },
-    {
-      name: "Ri Herrera",
-      role: "Design Lead",
-      img: "/aboutUsImages/design.png",
-      major: "Sociology & English",
-      minor: "History",
-      year: "Sophomore",
+async function getBoardMembers() {
+  try {
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_CMS_BASE_URL}/api/content/board-members?_published=true`,
+      { next: { tag: "cms" } }
+    );
+    const data = await res.json();
+    if (!data.ok || !data.body || data.body.length === 0) {
+      throw new Error(data.error);
     }
-  ];
+    const parsedData = data.body.map((card) => {
+      return {
+        imageUrl: card.image[0].src,
+        imageAlt: card.image_alt_text,
+        name: card.name,
+        role: card.position,
+        majors: card.majors.split(',').map(s => s.trim()).filter(Boolean),
+        minors: card.minors ? card.minors.split(',').map(s => s.trim()).filter(Boolean) : [],
+        grade: card.grade,
+      };
+    });
+    return parsedData;
+  } catch (e) {
+    console.error(`Failed to fetch board-members: ${e.message}`);
+    return boardMembersFallbackData;
+  }
+}
+
+export default async function Home() {
+  const boardMemberData = await getBoardMembers();
 
   return (
     <main className={styles.main}>
@@ -141,32 +125,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-
-        <div className={styles.board}>
-          <h1>Our board</h1>
-          <div className={styles.boardContent}>
-            <div className={styles.boardGrid}>
-              {board.map((member, i) => (
-                <div className={styles.member} key={i}>
-                  <div className={styles.memberImageContainer}>
-                    <Image
-                      src={member.img}
-                      fill
-                      alt={member.role}
-                    />
-                  </div>
-                  <div className={styles.memberText}>
-                    <h2>{member.name}</h2>
-                    <p className={styles.position}>{member.role}</p>
-                    <p>{member.major.includes("&")? "Majors: " + member.major : "Major: " + member.major}</p>
-                    {member.minor && <p>{member.minor.includes("&")? "Minors: " : "Minor: " + member.minor}</p>}
-                    <p>{member.year}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
+        <BoardMembers board={boardMemberData}/>
       </div>
     </main>
   );

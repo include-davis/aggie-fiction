@@ -1,0 +1,48 @@
+[
+    {
+      "name": "Claudia Colorado",
+      "role": "President",
+      "img": "/aboutUsImages/president.png",
+      "major": "Managerial Economics & English",
+      "year": "Junior"
+    },
+    {
+      "name": "Yuri Nishii",
+      "role": "Vice-President",
+      "img": "/aboutUsImages/vp.png",
+      "major": "Communications & English",
+      "minor": "Technology Management",
+      "year": "Senior"
+    },
+    {
+      "name": "Chris Calub",
+      "role": "Treasurer",
+      "img": "/aboutUsImages/treasurer.png",
+      "major": "English & Communications",
+      "year": "Junior"
+    },
+    {
+      "name": "Audrey Zhang",
+      "role": "Outreach Chair",
+      "img": "/aboutUsImages/outreach.png",
+      "major": "Economics & English",
+      "year": "Junior"
+    },
+    {
+      "name": "Nea Le",
+      "role": "Publicity Chair",
+      "img": "/aboutUsImages/publicity.png",
+      "major": "Comparative Literature",
+      "minor": "Japanese",
+      "year": "Sophomore"
+    },
+    {
+      "name": "Ri Herrera",
+      "role": "Design Lead",
+      "img": "/aboutUsImages/design.png",
+      "major": "Sociology & English",
+      "minor": "History",
+      "year": "Sophomore"
+    }
+]
+  

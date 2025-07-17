@@ -13,7 +13,7 @@ async function getProducts() {
         throw new Error(data.error);
       }
       const parsedData = data.body.map((card) => {
-        let similar_item_ids = card.similar_item_ids.split(',').map(s => s.trim()).filter(Boolean);
+      const similar_item_ids = card.similar_item_ids.split(',').map(s => s.trim()).filter(Boolean);
         return {
           id: card._id,
           imageUrl: card.image[0].src,
