@@ -2,47 +2,56 @@
     {
       "name": "Claudia Colorado",
       "role": "President",
-      "img": "/aboutUsImages/president.png",
-      "major": "Managerial Economics & English",
-      "year": "Junior"
+      "imageUrl": "/aboutUsImages/president.png",
+      "imageAlt": "Claudia Colorda, the Aggie Fiction president",
+      "majors": ["Managerial Economics", "English"],
+      "minors": [],
+      "grade": "Junior"
     },
     {
       "name": "Yuri Nishii",
       "role": "Vice-President",
-      "img": "/aboutUsImages/vp.png",
-      "major": "Communications & English",
-      "minor": "Technology Management",
-      "year": "Senior"
+      "imageUrl": "/aboutUsImages/vp.png",
+      "imageAlt": "Yuri Nishii, the Aggie Fiction Vice President",
+      "majors": ["Communications", "English"],
+      "minors": ["Technology Management"],
+      "grade": "Senior"
     },
     {
       "name": "Chris Calub",
       "role": "Treasurer",
-      "img": "/aboutUsImages/treasurer.png",
-      "major": "English & Communications",
-      "year": "Junior"
+      "imageUrl": "/aboutUsImages/treasurer.png",
+      "imageAlt": "Chris Calub, the Aggie Fiction Treasurer",
+      "majors": ["English", "Communications"],
+      "minors": [],
+      "grade": "Junior"
     },
     {
       "name": "Audrey Zhang",
       "role": "Outreach Chair",
-      "img": "/aboutUsImages/outreach.png",
-      "major": "Economics & English",
-      "year": "Junior"
+      "imageUrl": "/aboutUsImages/outreach.png",
+      "imageAlt": "Audrey Zhang, the Aggie Fiction Outreach Chair",
+      "majors": ["Economics", "English"],
+      "minors": [],
+      "grade": "Junior"
     },
     {
       "name": "Nea Le",
       "role": "Publicity Chair",
-      "img": "/aboutUsImages/publicity.png",
-      "major": "Comparative Literature",
-      "minor": "Japanese",
-      "year": "Sophomore"
+      "imageUrl": "/aboutUsImages/publicity.png",
+      "imageAlt": "Nea Le, the Aggie Fiction Publicity Chair",
+      "majors": ["Comparative Literature"],
+      "minors": ["Japanese"],
+      "grade": "Sophomore"
     },
     {
       "name": "Ri Herrera",
       "role": "Design Lead",
-      "img": "/aboutUsImages/design.png",
-      "major": "Sociology & English",
-      "minor": "History",
-      "year": "Sophomore"
+      "imageUrl": "/aboutUsImages/design.png",
+      "imageAlt": "Ri Herrera, the Design Lead", 
+      "majors": ["Sociology & English"],
+      "minors": ["History"],
+      "grade": "Sophomore"
     }
 ]
   
