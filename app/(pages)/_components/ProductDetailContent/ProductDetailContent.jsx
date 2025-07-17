@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 'use client';
 import styles from "./ProductDetailContent.module.scss";
 import React from 'react';

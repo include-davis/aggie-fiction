@@ -1,10 +1,11 @@
 import React from 'react';
-import { storeProductsFallbackData } from '@/app/_data/store-products.json';
+import storeProductsFallbackData from '@/app/_data/store-products.json';
 import ProductDetailClient from './ProductDetailClient';
 
 async function getProducts() {
     try {
       const res = await fetch(
+        // eslint-disable-next-line no-undef
         `${process.env.NEXT_PUBLIC_CMS_BASE_URL}/api/content/store-products?_published=true`,
         { next: { tag: "cms" } }
       );

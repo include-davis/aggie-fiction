@@ -1,9 +1,11 @@
+import React from "react";
 import AlumniPageContent from "../_components/AlumniPageContent/AlumniPageContent.jsx"
 import AlumniFallbackData from "../../_data/alumni-cards.json"
 
 async function getCards() {
   try {
     const res = await fetch(
+      // eslint-disable-next-line no-undef
       `${process.env.NEXT_PUBLIC_CMS_BASE_URL}/api/content/alumni-cards?_published=true`,
       { next: { tag: "cms" } }
     );

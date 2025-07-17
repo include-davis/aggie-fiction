@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 "use client";
 import styles from "./StoreListingContent.module.scss"
 import React, { useState, useEffect } from 'react';

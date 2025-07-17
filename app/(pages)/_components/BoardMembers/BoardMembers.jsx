@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import styles from "./BoardMembers.module.scss"
 import Image from "next/image";
 import React from "react";

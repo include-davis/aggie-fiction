@@ -7,6 +7,7 @@ import boardMembersFallbackData from "@/app/_data/board-members.json"
 async function getBoardMembers() {
   try {
     const res = await fetch(
+      // eslint-disable-next-line no-undef
       `${process.env.NEXT_PUBLIC_CMS_BASE_URL}/api/content/board-members?_published=true`,
       { next: { tag: "cms" } }
     );

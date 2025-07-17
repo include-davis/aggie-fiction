@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+import React from 'react';
 import { StoreListingContent } from '../_components/StoreListingContent/StoreListingContent'
 import storeProductsFallbackData from '@/app/_data/store-products.json';
 

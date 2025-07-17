@@ -1,4 +1,6 @@
+/* eslint-disable react/prop-types */
 "use client";
+import React from 'react';
 import { useParams } from 'next/navigation';
 import ProductDetailContent from '@/app/(pages)/_components/ProductDetailContent/ProductDetailContent';
 

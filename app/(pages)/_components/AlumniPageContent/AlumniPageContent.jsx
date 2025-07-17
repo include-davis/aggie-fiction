@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 "use client"
 import styles from "./AlumniPageContent.module.scss";
 import AlumniPageCard from "../AlumniPageCard/AlumniPageCard.jsx";
@@ -6,10 +7,6 @@ import React, {useState} from "react";
 
 export default function AlumniPageContent({cards}) {
   const [searchTerm, setSearchTerm] = useState("");
-
-  const filteredAlumni = cards.filter((card) =>
-    `${card.first_name} ${card.last_name}`.toLowerCase().includes(searchTerm.toLowerCase())
-    );
 
   return (
     <div className={styles.pagewrapper}>
