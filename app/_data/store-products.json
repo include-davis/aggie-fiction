@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "name": "Jackie Tote Bag (2nd Edition; Spring Quarter 2024)",
+    "price": "$16.00",
+    "imageUrl": "/TestImages/AgFiTote.png",
+    "imageAlt": "Aggie Fiction Tote Bag",
+    "similar": [1, 2, 5]
+  },
+  {
+    "id": 2,
+    "name": "Jackie Tote Bag (2nd Edition; Spring Quarter 2024)",
+    "price": "$16.00",
+    "imageUrl": "/TestImages/JackieOnMoonTote.jpg",
+    "imageAlt": "Jackie on Moon tote bag",
+    "similar": [1, 2, 3]
+  },
+  {
+    "id": 3,
+    "name": "Jackie Tote Bag (2nd Edition; Spring Quarter 2024)",
+    "price": "$16.00",
+    "imageUrl": "/TestImages/JackieTote.png",
+    "imageAlt": "Jackie Tote Bag",
+    "similar": [4, 5, 6]
+  },
+  {
+    "id": 4,
+    "name": "Colonizer Jackie Sticker",
+    "price": "$16.00",
+    "imageUrl": "/TestImages/Jackie1.jpg",
+    "imageAlt": "Colonizer Jackie Sticker",
+    "similar": [7, 8, 9]
+  },
+  {
+    "id": 5,
+    "name": "Coquette Jackie Sticker",
+    "price": "$16.00",
+    "imageUrl": "/TestImages/Jackie2.jpg",
+    "imageAlt": "Coquette Jackie Sticker",
+    "similar": [1, 2, 6]
+  },
+  {
+    "id": 6,
+    "name": "Boba Jackie Sticker",
+    "price": "$16.00",
+    "imageUrl": "/TestImages/JackieBoba.png",
+    "imageAlt": "Boba Jackie Sticker",
+    "similar": [1, 2, 6]
+  },
+  {
+    "id": 7,
+    "name": "Eepy Jackie Sticker",
+    "price": "$16.00",
+    "imageUrl": "/TestImages/EepyJackie.jpg",
+    "imageAlt": "Eepy Jackie Sticker",
+    "similar": [1, 2, 6]
+  },
+  {
+    "id": 8,
+    "name": "Santa Jackie Sticker",
+    "price": "$16.00",
+    "imageUrl": "/TestImages/SantaJackie.jpg",
+    "imageAlt": "Santa Jackie Sticker",
+    "similar": [1, 2, 6]
+  },
+  {
+    "id": 9,
+    "name": "Jackie Maud'dib Sticker",
+    "price": "$16.00",
+    "imageUrl": "/TestImages/JackieMaud'dib.jpg",
+    "imageAlt": "Jackie Maud'dib Sticker",
+    "similar": [1, 2, 6]
+  }
+]
