@@ -28,6 +28,8 @@ jobs:
 
       - name: Build Next.js app
         run: npm run build
+        env:
+          CMS_BASE_URL: ${{ vars.CMS_BASE_URL }}
 
       - name: Success
         run: echo "!! Build ran successfully !!"
