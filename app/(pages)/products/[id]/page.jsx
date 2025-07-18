@@ -10,8 +10,11 @@ async function getProducts() {
         { next: { tag: "cms" } }
       );
       const data = await res.json();
-      if (!data.ok || !data.body || data.body.length === 0) {
+      if (!data.ok || !data.body) {
         throw new Error(data.error);
+      }
+      if (data.body.length === 0) {
+        return [];
       }
       const parsedData = data.body.map((card) => {
       const similar_item_ids = card.similar_item_ids.split(',').map(s => s.trim()).filter(Boolean);
