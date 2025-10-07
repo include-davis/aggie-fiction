@@ -29,11 +29,7 @@ jobs:
       - name: Build Next.js app
         run: npm run build
         env:
-<<<<<<< HEAD
           NEXT_PUBLIC_CMS_BASE_URL: ${{ vars.CMS_BASE_URL }}
-=======
-          CMS_BASE_URL: ${{ vars.NEXT_PUBLIC_CMS_BASE_URL }}
->>>>>>> 93ff366ab120e438d0670522260ffd02cec50b45
 
       - name: Success
         run: echo "!! Build ran successfully !!"
