@@ -76,7 +76,11 @@ export default function ExpandedAlumniCard({
                     </div>
                     </div>
 
-                <p className={styles.longDescription}>{description}</p>
+                {/* Below is LONG_TEXT */}
+                    <p
+                        className={styles.longDescription}
+                        dangerouslySetInnerHTML={{ __html: description }}
+                    />
                 </div>
 
 

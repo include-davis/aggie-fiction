@@ -32,6 +32,8 @@ jobs:
           -n ${{ vars.VERCEL_PROJECT }}
           --yes
           --prod
+          --env CMS_BASE_URL=${{ vars.CMS_BASE_URL }}
+          --build-env CMS_BASE_URL=${{ vars.CMS_BASE_URL }}
 
       - name: Success
         run: echo "!! Deployment successful !!"

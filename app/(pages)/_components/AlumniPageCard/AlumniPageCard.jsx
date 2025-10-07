@@ -91,8 +91,11 @@ export default function AlumniPageCard(info) {
                     <h2 className={styles.role2}>{role2}</h2>
                     <h2 className={styles.role3}>{role3}</h2>
                 
-                
-                    <p className={styles.description}>{description}</p>
+                    {/* Below is LONG_TEXT */}
+                    <div
+                        className={styles.description}
+                        dangerouslySetInnerHTML={{ __html: description }}
+                    />
                     <button className={styles.button} onClick={handleExpand}>Read More</button>
                 </div>
             </div>

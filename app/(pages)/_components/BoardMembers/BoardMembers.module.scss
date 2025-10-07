@@ -1,0 +1,67 @@
+@use "app/(pages)/_globals/mixins.scss";
+
+.board {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 82px;
+
+    h1 {
+        color: var(--gold);
+    }
+
+    @include mixins.phone {
+        gap: 33px;
+    }
+}
+
+.boardGrid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 129px;
+
+    @include mixins.phone {
+        gap: 33px;
+    }
+}
+
+.member {
+    width: 370px; 
+    gap: 15px;        
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    p {
+        font-size: 1.25rem;
+        text-align: center;
+    }
+
+    @include mixins.phone {
+        width: 100%;
+        max-width: 300px;
+
+        p {
+            font-size: 0.75rem;
+        }
+    }
+}
+
+.memberImageContainer {
+    width: 225px;
+    height: 225px;
+    position: relative;
+    border-radius: 50%;
+    overflow: hidden;
+
+    @include mixins.phone {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+.position {
+    font-weight: 500;
+}
