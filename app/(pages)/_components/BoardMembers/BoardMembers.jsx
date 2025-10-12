@@ -3,6 +3,8 @@ import styles from "./BoardMembers.module.scss"
 import Image from "next/image";
 import React from "react";
 
+export const dynamic = "force-dynamic";
+
 export default function BoardMembers({ board }) {
     return (
         <div className={styles.board}>

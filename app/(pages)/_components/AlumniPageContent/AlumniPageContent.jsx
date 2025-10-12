@@ -5,6 +5,8 @@ import AlumniPageCard from "../AlumniPageCard/AlumniPageCard.jsx";
 import Image from "next/image";
 import React, {useState} from "react";
 
+export const dynamic = "force-dynamic";
+
 export default function AlumniPageContent({cards}) {
   const [searchTerm, setSearchTerm] = useState("");
 
