@@ -8,13 +8,14 @@ import Button from "@/app/(pages)/_components/Button/Button";
 import { useRouter } from 'next/navigation';
 
 export function StoreListingContent({ products }) {
+    const [storeProducts] = useState(products);
     const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 6;
 
     const initialCategory = 'All';
     const [selectedCategory, setSelectedCategory] = useState("All");
 
-    const filteredProducts = products.filter(
+    const filteredProducts = storeProducts.filter(
         (product) => selectedCategory === "All" || product.categories.includes(selectedCategory)
     );
 
