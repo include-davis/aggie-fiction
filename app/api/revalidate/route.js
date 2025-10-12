@@ -1,6 +1,6 @@
 import { revalidateTag } from "next/cache";
 
-export function GET() {
-    console.log('revalidating');
-    revalidateTag("cms");
+export async function GET() {
+  revalidateTag("cms");
+  return Response.json({ revalidated: true });
 }
