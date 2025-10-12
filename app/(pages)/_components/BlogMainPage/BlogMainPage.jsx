@@ -17,6 +17,7 @@ function ArticleCard({ article }) {
         alt={article.title}
         width={446}
         height={172}
+        style={{ objectFit: "cover" }}
       />
         </div>
       

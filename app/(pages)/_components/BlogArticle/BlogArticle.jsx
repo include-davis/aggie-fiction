@@ -35,8 +35,8 @@ export default function BlogArticle({articles, authors, id}) {
 
             <div className={styles.image}>
                 <Image
-                    src="/blog image.jpg"
-                    alt="image"
+                    src={article.imageUrl}
+                    alt={article.imageAlt}
                     style={{ objectFit: "cover", 
                             objectPosition: "50% 90%" }}
                     fill
