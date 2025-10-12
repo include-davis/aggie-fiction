@@ -4,7 +4,7 @@ const isDev = process.env.NODE_ENV === "development";
 const cspHeader = `
   default-src 'self';
   connect-src 'self' https://*.googleapis.com https://cms.aggiefiction.com;
-  img-src 'self' https://res.cloudinary.com data:;
+  img-src 'self' https://res.cloudinary.com data: https://cms.aggiefiction.com;
   style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
   font-src 'self' https://fonts.gstatic.com;
   script-src 'self' 'unsafe-inline' ${isDev ? "'unsafe-eval'" : ""};
