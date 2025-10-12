@@ -5,7 +5,6 @@ import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link'
 import Button from "@/app/(pages)/_components/Button/Button";
-import { useRouter } from 'next/navigation';
 
 export function StoreListingContent({ products }) {
     const [storeProducts] = useState(products);
@@ -44,10 +43,7 @@ export function StoreListingContent({ products }) {
     const handleCategoryChange = (category) => {
         setSelectedCategory(category);
         setCurrentPage(1);
-        router.push(`/store?category=${category}`);
     };
-
-    const router = useRouter();
 
     useEffect(() => {
         setSelectedCategory(initialCategory);
