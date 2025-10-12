@@ -24,6 +24,7 @@ async function getBlogPosts() {
         imageAlt: card.image_alt_text,
         title: card.title,
         author: card.author,
+        date: card.date,
         description: card.description,
         post_content: card.post_content,
         categories: card.categories.split(',').map(s => s.trim()).filter(Boolean),
