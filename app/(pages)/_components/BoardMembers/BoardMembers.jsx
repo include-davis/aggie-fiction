@@ -16,6 +16,7 @@ export default function BoardMembers({ board }) {
                       src={member.imageUrl}
                       fill
                       alt={member.imageAlt}
+                      style={{ objectFit: "cover" }}
                     />
                   </div>
                   <div className={styles.memberText}>
