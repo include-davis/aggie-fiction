@@ -4,6 +4,8 @@ import React from "react";
 import BoardMembers from "../_components/BoardMembers/BoardMembers";
 import boardMembersFallbackData from "@/app/_data/board-members.json"
 
+export const dynamic = "force-dynamic";
+
 async function getBoardMembers() {
   try {
     const res = await fetch(

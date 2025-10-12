@@ -2,6 +2,8 @@ import React from "react";
 import AlumniPageContent from "../_components/AlumniPageContent/AlumniPageContent.jsx"
 import AlumniFallbackData from "../../_data/alumni-cards.json"
 
+export const dynamic = "force-dynamic";
+
 async function getCards() {
   try {
     const res = await fetch(
