@@ -1,16 +1,19 @@
 /* eslint-disable react/prop-types */
+'use client'
 import styles from "./BoardMembers.module.scss"
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 
 export default function BoardMembers({ board }) {
-    console.log(board);
+   /* eslint-disable-next-line no-unused-vars */
+    const [boardMembers, setBoardMembers] = useState(board);
+    console.log(boardMembers);
     return (
         <div className={styles.board}>
           <h1>Our board</h1>
           <div className={styles.boardContent}>
             <div className={styles.boardGrid}>
-              {board.map((member, i) => (
+              {boardMembers.map((member, i) => (
                 <div className={styles.member} key={i}>
                   <div className={styles.memberImageContainer}>
                     <Image
