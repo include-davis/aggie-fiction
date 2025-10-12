@@ -2,6 +2,7 @@ import UpcomingEvents from "@/app/(pages)/_components/UpcomingEvents/UpcomingEve
 import Image from "next/image"
 import styles from "./page.module.scss"
 import React from "react"
+import Link from "next/link"
 
 const workshopTypes = [
   "Short story",
@@ -137,7 +138,11 @@ export default function Events() {
                 <h1>San Francisco Writers Conference</h1>
                 <h2>A Gateway to the Literary World</h2>
               </div>
-              <button>Learn More</button>
+              <Link href="/conference">
+                <button>
+                  Learn More
+                </button>
+              </Link>
             </div>
           </div>
         </div>
