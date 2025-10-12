@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 "use client"
 import styles from "./BlogArticle.module.scss"
 import React from 'react'

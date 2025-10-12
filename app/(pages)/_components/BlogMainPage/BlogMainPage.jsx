@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+
 "use client";
 
 import React, { useState } from "react";
@@ -5,28 +7,6 @@ import styles from "./BlogMainPage.module.scss";
 import Image from "next/image";
 import Link from "next/link";
 import Button from "../Button/Button";
-/* eslint-disable react/prop-types */
-
-const articles = [
-  {
-    id: 1,
-    title: "How to Procrastinate Like a Professional Writer (And Actually Get Stuff Done)",
-    category: "writing-tips",
-    date: "03/27/2025",
-    image: "/blogMainImages/image1.png",
-    author: "Claudia Colorado",
-    subtitle: "",
-  },
-  {
-    id: 2,
-    title: "Ten Mistakes Amateur Writers Make",
-    category: "writing-tips",
-    date: "03/28/2025",
-    image: "/blogMainImages/image2.png",
-    author: "Audrey Zhang",
-    subtitle: "Writing is intimidating. But it doesn&apos;t have to be.",
-  },
-]
 
 function ArticleCard({ article }) {
   return (
