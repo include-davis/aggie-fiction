@@ -1,9 +1,10 @@
 import React from 'react'
-import BlogArticle from "../../_components/BlogArticle/BlogArticle"
+import BlogArticleClient from './BlogArticleClient';
 
 export const dynamic = "force-dynamic";
 
 const blogPostsFallbackData = [];
+const blogAuthorsFallbackData = [];
 
 async function getBlogPosts() {
   try {
@@ -18,6 +19,7 @@ async function getBlogPosts() {
     }
     const parsedData = data.body.map((card) => {
       return {
+        id: card._id,
         imageUrl: card.image[0].src,
         imageAlt: card.image_alt_text,
         title: card.title,
@@ -34,10 +36,37 @@ async function getBlogPosts() {
   }
 }
 
+async function getBlogAuthors() {
+  try {
+    const res = await fetch(
+      // eslint-disable-next-line no-undef
+      `${process.env.NEXT_PUBLIC_CMS_BASE_URL}/api/content/blog-authors?_published=true`,
+      { next: { tag: "cms" } }
+    );
+    const data = await res.json();
+    if (!data.ok || !data.body || data.body.length === 0) {
+      throw new Error(data.error);
+    }
+    const parsedData = data.body.map((card) => {
+      return {
+        imageUrl: card.image[0].src,
+        imageAlt: card.image_alt_text,
+        name: card.name,
+        description: card.description,
+      };
+    });
+    return parsedData;
+  } catch (e) {
+    console.error(`Failed to fetch blog-authors: ${e.message}`);
+    return blogAuthorsFallbackData;
+  }
+}
+
 export default async function Page() {
     const blogPosts = await getBlogPosts();
-    console.log(blogPosts);
+    const blogAuthors = await getBlogAuthors();
+
     return(
-        <BlogArticle/>
+        <BlogArticleClient articles={blogPosts} authors={blogAuthors} />
     );
 }
