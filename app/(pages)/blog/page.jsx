@@ -24,7 +24,7 @@ async function getBlogPosts() {
         author: card.author,
         description: card.description,
         post_content: card.post_content,
-        categories: card.categories.split(',').map(s => s.trim()).filter(Boolean),
+        categories: card.categories,
       };
     });
     return parsedData;
@@ -37,5 +37,5 @@ async function getBlogPosts() {
 export default async function Page() {
   const blogPosts = await getBlogPosts();
   console.log(blogPosts);
-  return <BlogMainPage/>
+  return <BlogMainPage blogPosts={blogPosts}/>
 }

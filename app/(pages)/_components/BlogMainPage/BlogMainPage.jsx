@@ -57,17 +57,6 @@ function ArticleCard({ article }) {
   );
 }
 
-const categories = [
-  { label: "Date Added", value: "date-added" },
-  { label: "Writing Tips", value: "writing-tips" },
-  { label: "Creative Explorations", value: "creative-explorations" },
-  { label: "Author Spotlights", value: "author-spotlights" },
-  { label: "Media Reviews", value: "media-reviews" },
-  { label: "Club News", value: "club-news" },
-  { label: "Prompts & Inspiration", value: "prompts-inspiration" },
-  { label: "Industry Insights", value: "industry-insights" },
-];
-
 function groupArticlesByMonth(articles) {
   const grouped = {};
 
@@ -101,9 +90,20 @@ function groupArticlesByMonth(articles) {
   return sortedGrouped;
 }
 
-export default function BlogMainPage() {
+export default function BlogMainPage({ blogPosts }) {
     const router = useRouter();
-    const defaultCategory = "date-added";
+    const defaultCategory = "Date Added";
+    const categories = [
+        defaultCategory,
+        ...Array.from(
+            new Set(
+                blogPosts
+                .flatMap(post => post.categories?.split(','))
+                .map(category => category?.trim())
+                .filter(Boolean)
+            )
+        )
+    ];
     const [selectedCategory, setSelectedCategory] = useState(defaultCategory);
 
     const handleCategoryChange = (category) => {
@@ -112,11 +112,11 @@ export default function BlogMainPage() {
     };
 
     const filteredArticles =
-        selectedCategory === "date-added"
+        selectedCategory === defaultCategory
         ? [...articles].sort((a, b) => new Date(b.date) - new Date(a.date))
         : articles.filter((article) => article.category === selectedCategory);
 
-    const groupedArticles = selectedCategory === "date-added" ? groupArticlesByMonth(filteredArticles) : null;
+    const groupedArticles = selectedCategory === defaultCategory ? groupArticlesByMonth(filteredArticles) : null;
 
     return (
         <div className={styles.blog}>
@@ -132,12 +132,12 @@ export default function BlogMainPage() {
             <h2>Categories</h2>
             <hr className={styles.lineseparator} />
             <ul className={styles.categoriesList}>
-                {categories.map(({ label, value }) => (
-                <li key={value}>
+                {categories.map(( label, idx ) => (
+                <li key={idx}>
                     <Button
                     extraStyles={styles.buttonsize2}
                     onClick={() => handleCategoryChange(value)}
-                    color={selectedCategory === value ? "gradient" : "light"}
+                    color={selectedCategory === label ? "gradient" : "light"}
                     >
                     {label}
                     </Button>
@@ -150,7 +150,7 @@ export default function BlogMainPage() {
         <div className={styles.rightColumn}>
 
 
-    {selectedCategory === "date-added" ? (
+    {selectedCategory === defaultCategory ? (
     Object.entries(groupedArticles).map(([monthYear, articlesInGroup]) => (
         <div key={monthYear}>
         <h2 className={styles.monthYearHeading}>{monthYear}</h2>
