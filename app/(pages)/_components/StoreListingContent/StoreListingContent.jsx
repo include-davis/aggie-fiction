@@ -7,14 +7,13 @@ import Link from 'next/link'
 import Button from "@/app/(pages)/_components/Button/Button";
 
 export function StoreListingContent({ products }) {
-    const [storeProducts] = useState(products);
     const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 6;
 
     const initialCategory = 'All';
     const [selectedCategory, setSelectedCategory] = useState("All");
 
-    const filteredProducts = storeProducts.filter(
+    const filteredProducts = products.filter(
         (product) => selectedCategory === "All" || product.categories.includes(selectedCategory)
     );
 
