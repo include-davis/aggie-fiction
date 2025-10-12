@@ -1,4 +1,5 @@
 /* eslint-disable no-undef */
+export const dynamic = "force-dynamic"; // use fresh data for every request
 import React from 'react';
 import { StoreListingContent } from '../_components/StoreListingContent/StoreListingContent'
 import storeProductsFallbackData from '@/app/_data/store-products.json';
