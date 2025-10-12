@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import { useRouter } from "next/navigation";
 import styles from "./BlogMainPage.module.scss";
 import Image from "next/image";
 import Link from "next/link";
@@ -91,7 +90,6 @@ function groupArticlesByMonth(articles) {
 }
 
 export default function BlogMainPage({ blogPosts }) {
-    const router = useRouter();
     const defaultCategory = "Date Added";
     const categories = [
         defaultCategory,
@@ -108,7 +106,6 @@ export default function BlogMainPage({ blogPosts }) {
 
     const handleCategoryChange = (category) => {
         setSelectedCategory(category);
-        router.push(`/blog?category=${category}`);
     };
 
     const filteredArticles =
