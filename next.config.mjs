@@ -1,4 +1,8 @@
 /** @type {import('next').NextConfig} */
+const cspHeader = `
+  default-src 'self';
+  connect-src 'self' https://*.googleapis.com https://cms.aggiefiction.com;
+  `;
 
 const nextConfig = {
   reactStrictMode: true,
@@ -7,9 +11,21 @@ const nextConfig = {
       {
         protocol: "https",
         hostname: "res.cloudinary.com",
-        pathname: "/**",
       },
     ],
+  },
+  async headers() {
+    return [
+      {
+        source: "/(.*)",
+        headers: [
+          {
+            key: "Content-Security-Policy",
+            value: cspHeader.replace(/\n/g, " ").trim(),
+          },
+        ],
+      },
+    ];
   },
 };
 
