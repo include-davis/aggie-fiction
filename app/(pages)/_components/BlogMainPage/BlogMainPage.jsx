@@ -33,7 +33,7 @@ function ArticleCard({ article }) {
     <div className={styles.articlecard}>
         <div className={styles.articleCardImageWrapper}>
         <Image
-        src={article.image}
+        src={article.imageUrl}
         alt={article.title}
         width={446}
         height={172}
@@ -96,7 +96,7 @@ export default function BlogMainPage({ blogPosts }) {
         ...Array.from(
             new Set(
                 blogPosts
-                .flatMap(post => post.categories?.split(','))
+                .flatMap(post => post.categories)
                 .map(category => category?.trim())
                 .filter(Boolean)
             )
@@ -110,8 +110,8 @@ export default function BlogMainPage({ blogPosts }) {
 
     const filteredArticles =
         selectedCategory === defaultCategory
-        ? [...articles].sort((a, b) => new Date(b.date) - new Date(a.date))
-        : articles.filter((article) => article.category === selectedCategory);
+        ? [...blogPosts].sort((a, b) => new Date(b.date) - new Date(a.date))
+        : blogPosts.filter((article) => article.categories.includes(selectedCategory));
 
     const groupedArticles = selectedCategory === defaultCategory ? groupArticlesByMonth(filteredArticles) : null;
 
@@ -133,7 +133,7 @@ export default function BlogMainPage({ blogPosts }) {
                 <li key={idx}>
                     <Button
                     extraStyles={styles.buttonsize2}
-                    onClick={() => handleCategoryChange(value)}
+                    onClick={() => handleCategoryChange(label)}
                     color={selectedCategory === label ? "gradient" : "light"}
                     >
                     {label}

@@ -18,13 +18,15 @@ async function getBlogPosts() {
     }
     const parsedData = data.body.map((card) => {
       return {
+        id: card._id,
         imageUrl: card.image[0].src,
         imageAlt: card.image_alt_text,
         title: card.title,
         author: card.author,
-        description: card.description,
+        date: card.date,
+        subtitle: card.description,
         post_content: card.post_content,
-        categories: card.categories,
+        categories: card.categories.split(',').map(category => category?.trim()),
       };
     });
     return parsedData;
@@ -36,6 +38,5 @@ async function getBlogPosts() {
 
 export default async function Page() {
   const blogPosts = await getBlogPosts();
-  console.log(blogPosts);
   return <BlogMainPage blogPosts={blogPosts}/>
 }
