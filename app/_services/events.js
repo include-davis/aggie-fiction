@@ -24,6 +24,10 @@ export function normalizeEventDates(events) {
       if (content.includes(rule.keyword)) {
         eventType = rule.type;
 
+        // Remove the matched keyword from the description (case-insensitive)
+        const regex = new RegExp(rule.keyword, "i");
+        cleanDesc = cleanDesc.replace(regex, "").trim();
+
         break;
       }
     }
