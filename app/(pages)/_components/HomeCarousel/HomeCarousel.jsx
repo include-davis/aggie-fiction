@@ -5,28 +5,24 @@ import Image from "next/image";
 import styles from "./HomeCarousel.module.scss";
 import Link from "next/link";
 
-export default function HomeCarousel() {
+/* eslint-disable react/prop-types */
+
+function sortArticles(articles) {
+  return articles.sort((a, b) => new Date(b.date) - new Date(a.date)); // descending order
+}
+
+export default function HomeCarousel({ blogPosts }) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const carouselItems = [
-    {
-      image: "/HomeCarousel/img/img1.png",
-      title:
-        "How to Procrastinate Like a Professional Writer (And Actually Get Stuff Done)",
-      date: "03/27/2025",
-      author: "By Claudia Colorado",
-      articleNum: 2,
-    },
-
-    {
-      image: "/HomeCarousel/img/img2.png",
-      title: "Ten Mistakes Amateur Writers Make",
-      date: "03/28/2025",
-      author: "By Audrey Zhang",
-      subtitle: "Writing is intimidating. But it doesn&apos;t have to be.",
-      articleNum: 1,
-    },
-  ];
+  const carouselItems = sortArticles(blogPosts)
+    .slice(0, Math.min(blogPosts.length, 3))
+    .map((item, idx) => ({
+      ...item,
+      articleNum: idx,
+    }));
+  
+  console.log('sorted', sortArticles(blogPosts));
+  console.log('carouselItems', carouselItems);
 
   const handlePrev = () => {
     setCurrentIndex((prev) =>
@@ -58,8 +54,8 @@ export default function HomeCarousel() {
       <div className={styles.carouselContent}>
         <div className={styles.carouselImg}>
           <Image
-            src={current.image}
-            alt="Carousel Image"
+            src={current.imageUrl}
+            alt={current.imageAlt}
             fill
             objectFit="cover"
           />
@@ -67,7 +63,7 @@ export default function HomeCarousel() {
 
         <div className={styles.carouselDescription}>
           <div className={styles.titleDate}>
-            <Link href={`/blog/${current.articleNum}`}>
+            <Link href={`/blog/${current.id}`}>
               <h2>{current.title}</h2>
             </Link>
 
@@ -76,7 +72,7 @@ export default function HomeCarousel() {
 
           <div className={styles.author}>
             <p>{current.author}</p>
-            <p>{current.subtitle}</p>
+            <p>{current.description}</p>
           </div>
         </div>
       </div>
