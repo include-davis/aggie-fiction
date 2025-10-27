@@ -5,6 +5,8 @@ import Image from "next/image";
 import styles from "./HomeCarousel.module.scss";
 import Link from "next/link";
 
+/* eslint-disable react/prop-types */
+
 function sortArticles(articles) {
   return articles.sort((a, b) => new Date(b.date) - new Date(a.date)); // descending order
 }

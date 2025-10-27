@@ -4,6 +4,8 @@ import HomeCarousel from "../_components/HomeCarousel/HomeCarousel";
 import UpcomingEvents from "@/app/(pages)/_components/UpcomingEvents/UpcomingEvents";
 import React from "react";
 
+const blogPostsFallbackData = [];
+
 async function getBlogPosts() {
   try {
     const res = await fetch(
