@@ -39,8 +39,28 @@ async function getBlogPosts() {
   }
 }
 
+async function getJoinLink() {
+  try {
+    const res = await fetch(
+      // eslint-disable-next-line no-undef
+      `${process.env.NEXT_PUBLIC_CMS_BASE_URL}/api/content/general-info?_published=true`,
+      { cache: "no-store" }
+    );
+    const data = await res.json();
+    if (!data.ok || !data.body || data.body.length === 0) {
+      throw new Error(data.error);
+    }
+    const parsedData = data.body[0].join_link;
+    return parsedData;
+  } catch (e) {
+    console.error(`Failed to fetch join link: ${e.message}`);
+    return "/";
+  }
+}
+
 export default async function Home() {
   const blogPosts = await getBlogPosts();
+  const joinLink = await getJoinLink();
 
   return (
     <div className={styles.home}>
@@ -58,7 +78,7 @@ export default async function Home() {
                 for writers of all levels and experiences
               </p>
 
-              <button className={styles.joinNow}>Join Now</button>
+              <a href={joinLink}><button className={styles.joinNow}>Join Now</button></a>
             </div>
 
             <div className={styles.logo}>
