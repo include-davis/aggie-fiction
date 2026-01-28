@@ -4,6 +4,8 @@ import HomeCarousel from "../_components/HomeCarousel/HomeCarousel";
 import UpcomingEvents from "@/app/(pages)/_components/UpcomingEvents/UpcomingEvents";
 import React from "react";
 
+export const dynamic = "force-dynamic";
+export const fetchCache = "force-no-store";
 const blogPostsFallbackData = [];
 
 async function getBlogPosts() {
@@ -73,7 +75,7 @@ export default async function Home() {
         <div className={styles.pageLower}>
           <div className={styles.blog}>
             <h1>Blog</h1>
-            <HomeCarousel blogPosts={blogPosts}/>
+            {blogPosts.length > 0 && <HomeCarousel blogPosts={blogPosts}/>}
           </div>
           <UpcomingEvents/>
         </div>
