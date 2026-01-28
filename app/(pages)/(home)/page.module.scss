@@ -71,6 +71,7 @@
   border: none;
   border-radius: 100px;
   background: var(--light-purple);
+  cursor: pointer;
 
   @include mixins.phone {
     margin-top: 40px;
