@@ -11,7 +11,7 @@ async function getBlogPosts() {
     const res = await fetch(
       // eslint-disable-next-line no-undef
       `${process.env.NEXT_PUBLIC_CMS_BASE_URL}/api/content/blog-posts?_published=true`,
-      { next: { tag: "cms" } }
+      { cache: "no-store" }
     );
     const data = await res.json();
     if (!data.ok || !data.body || data.body.length === 0) {
