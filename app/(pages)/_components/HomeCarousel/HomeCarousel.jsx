@@ -20,9 +20,6 @@ export default function HomeCarousel({ blogPosts }) {
       ...item,
       articleNum: idx,
     }));
-  
-  console.log('sorted', sortArticles(blogPosts));
-  console.log('carouselItems', carouselItems);
 
   const handlePrev = () => {
     setCurrentIndex((prev) =>
