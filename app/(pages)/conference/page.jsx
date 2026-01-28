@@ -7,6 +7,10 @@ const titleImagePath = "/conferencePageImages/titleImage.png";
 const summaryImagePath = "/conferencePageImages/summaryImage.png";
 const involvementImagePath = "/conferencePageImages/involvementImage.png";
 
+export const metadata = {
+  title: 'Conference',
+};
+
 export default function Conference() 
 {
     return (

@@ -3,6 +3,9 @@ import AlumniPageContent from "../_components/AlumniPageContent/AlumniPageConten
 import AlumniFallbackData from "../../_data/alumni-cards.json"
 
 export const dynamic = "force-dynamic";
+export const metadata = {
+  title: 'Alumni',
+};
 
 async function getCards() {
   try {

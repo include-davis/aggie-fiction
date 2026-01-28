@@ -6,6 +6,10 @@ export const dynamic = "force-dynamic";
 const blogPostsFallbackData = [];
 const blogAuthorsFallbackData = [];
 
+export const metadata = {
+  title: 'Blog',
+};
+
 async function getBlogPosts() {
   try {
     const res = await fetch(

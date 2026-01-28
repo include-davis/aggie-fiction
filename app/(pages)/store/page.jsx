@@ -4,6 +4,9 @@ import { StoreListingContent } from '../_components/StoreListingContent/StoreLis
 import storeProductsFallbackData from '@/app/_data/store-products.json';
 
 export const dynamic = "force-dynamic"; // use fresh data for every request
+export const metadata = {
+  title: 'Store',
+};
 
 async function getProducts() {
     try {

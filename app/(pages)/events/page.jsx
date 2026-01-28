@@ -4,6 +4,10 @@ import styles from "./page.module.scss"
 import React from "react"
 import Link from "next/link"
 
+export const metadata = {
+  title: 'Events',
+};
+
 const workshopTypes = [
   "Short story",
   "Novel excerpt",
