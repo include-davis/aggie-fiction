@@ -2,6 +2,10 @@ import React from 'react';
 import storeProductsFallbackData from '@/app/_data/store-products.json';
 import ProductDetailClient from './ProductDetailClient';
 
+export const metadata = {
+  title: 'Product',
+};
+
 async function getProducts() {
     try {
       const res = await fetch(
